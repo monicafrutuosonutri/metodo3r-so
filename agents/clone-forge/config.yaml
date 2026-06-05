@@ -1,0 +1,221 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CLONE 360 SQUAD - Configuration
+# ═══════════════════════════════════════════════════════════════════════════════
+# Pipeline de clonagem cognitiva 360 graus self-contained: integra extracao
+# linguistica (Voice DNA), extracao cognitiva (Thinking DNA + drivers + psicometria)
+# e ontologia de conhecimento (POC 4 camadas + 6 modulos) para produzir clones
+# multi-arquivo com fidelidade maxima. Sem dependencias de squads externos.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+name: clone-forge
+title: "Clone Forge"
+version: "2.0.0"
+author: "Euriler Jube"
+description: >
+  Squad de clonagem cognitiva self-contained que combina 3 dimensoes complementares:
+  (1) Linguistica — Voice DNA (vocabulario, sintaxe, registro, ritmo, frases-assinatura),
+  (2) Cognitiva — Thinking DNA + drivers psicologicos + mapeamento psicometrico,
+  (3) Ontologica — POC v1.1 com 4 camadas + 6 modulos contextuais.
+  Produz clones complexos com multiplos arquivos em minds/{slug}/.
+
+slash_prefix: "CloneForge"
+pattern_prefix: "C360"
+
+target_user: "Experts com conteudo existente que precisam de clone de alta fidelidade"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# USE CASES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+use_cases:
+  - id: UC1
+    name: "Clone Completo 360"
+    description: "Pipeline completo de 11 fases com output multi-arquivo"
+  - id: UC2
+    name: "Clone Rapido"
+    description: "Pipeline simplificado pulando MIU/drivers/psicometria"
+  - id: UC3
+    name: "Entrevista Profunda"
+    description: "Extracao de conhecimento tacito via questionario interativo"
+  - id: UC4
+    name: "Gap Analysis"
+    description: "Diagnostico de lacunas no perfil com questionario cirurgico"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TIER STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tiers:
+  orchestrator:
+    - clone-forge-chief
+  tier_1:
+    - innerlens
+    - cognitive-motor
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TASKS (ordered by pipeline phase)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tasks:
+  - start
+  - ingest-local-content
+  - collect-and-merge-sources
+  - deep-interview
+  - extract-mius
+  - extract-voice-dna       # Fase 3a — executada por @innerlens
+  - extract-thinking-dna    # Fase 3b — executada por @cognitive-motor
+  - extract-dna-enriched    # Fase 3 orquestracao (chama as 2 acima)
+  - infer-drivers
+  - map-psychometrics
+  - aggregate-profile
+  - gap-analysis-questionnaire
+  - validate-clone-forge    # Fase 7 orquestracao
+  - fidelity-score          # Fase 7 sub-task: scoring detalhado 8 camadas
+  - validate-clone          # Fase 7 sub-task: blind test + hackability + authenticity
+  - clone-review            # Audit completo de clone existente
+  - generate-agent-from-profile
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOWS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+workflows:
+  - wf-clone-forge-full
+  - wf-clone-forge-quick
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  - id: QG-001
+    name: "Sources Validated"
+    phase: 1
+    transition: "Ingestao -> Extracao"
+    blocking: true
+  - id: QG-002
+    name: "MIU Quality"
+    phase: 2
+    transition: "Extracao -> DNA"
+    blocking: true
+  - id: QG-003
+    name: "DNA Extracted"
+    phase: 3
+    transition: "DNA -> Drivers"
+    blocking: true
+  - id: QG-004
+    name: "Profile Complete"
+    phase: 6
+    transition: "Agregacao -> Validacao"
+    blocking: true
+  - id: QG-005
+    name: "Clone Validated"
+    phase: 7
+    transition: "Validacao -> Agente"
+    blocking: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPENDENCIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dependencies:
+  required: []  # Squad self-contained — nenhuma dependencia obrigatoria
+  optional:
+    - zona-genialidade  # Assessments psicometricos formais (enriquece Fase 5)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PIPELINE OVERVIEW (11 PHASES)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pipeline:
+  estimated_time: "8-14 horas (pausavel por fase)"
+  resumable: true
+  state_file: ".state.json"
+
+  phases:
+    - phase: 0
+      name: "Ingestao de Conteudo"
+      task: ingest-local-content
+      agent: clone-forge-chief
+      blocking: false
+      duration: "30-60min"
+    - phase: 1
+      name: "Coleta e Validacao de Fontes"
+      task: collect-and-merge-sources
+      agent: clone-forge-chief
+      blocking: true
+      duration: "30-60min"
+    - phase: 1.5
+      name: "Entrevista Profunda"
+      task: deep-interview
+      agent: clone-forge-chief
+      blocking: conditional
+      duration: "30-90min"
+    - phase: 2
+      name: "Extracao de MIUs"
+      task: extract-mius
+      agent: innerlens
+      blocking: true
+      duration: "1-2h"
+    - phase: 3
+      name: "Extracao de DNA"
+      task: extract-dna-enriched
+      agent: "innerlens + cognitive-motor"
+      blocking: true
+      duration: "2-4h"
+    - phase: 4
+      name: "Inferencia de Drivers"
+      task: infer-drivers
+      agent: cognitive-motor
+      blocking: true
+      duration: "1-2h"
+    - phase: 5
+      name: "Mapeamento Psicometrico"
+      task: map-psychometrics
+      agent: cognitive-motor
+      blocking: false
+      duration: "30-60min"
+    - phase: 6
+      name: "Agregacao de Perfil"
+      task: aggregate-profile
+      agent: clone-forge-chief
+      blocking: true
+      duration: "1-2h"
+    - phase: 6.5
+      name: "Gap Analysis + Questionario"
+      task: gap-analysis-questionnaire
+      agent: clone-forge-chief
+      blocking: conditional
+      duration: "15-60min"
+    - phase: 7
+      name: "Validacao"
+      task: validate-clone-forge
+      agent: clone-forge-chief
+      blocking: true
+      duration: "30min"
+    - phase: 8
+      name: "Geracao de Agente"
+      task: generate-agent-from-profile
+      agent: clone-forge-chief
+      blocking: false
+      duration: "15min"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output:
+  base_path: "agents/clone-forge/minds/{mind_slug}/"
+  directories:
+    - "01-sources/"
+    - "01-sources/transcripts/"
+    - "01-sources/interview/"
+    - "01-sources/gap-responses/"
+    - "01-sources/raw/"
+    - "02-extraction/"
+    - "03-dna/"
+    - "04-drivers/"
+    - "05-psychometric/"
+    - "06-profile/"
+    - "07-validation/"
+    - "08-agent/"

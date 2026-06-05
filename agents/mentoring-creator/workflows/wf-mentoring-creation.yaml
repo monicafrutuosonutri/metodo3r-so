@@ -1,0 +1,203 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW: Mentoring Creation Pipeline v2.0
+# ═══════════════════════════════════════════════════════════════════════════════
+# Pipeline de criacao de programa de mentoria. 10 fases sequenciais com quality
+# gates bloqueantes. Pre-producao (benchmarking, metodologia), producao
+# (estrutura, sessoes, entregaveis), pos-producao (branding, empacotamento,
+# review, checklist).
+# 4 agentes: mentoring-chief, mentoring-creator, brand-architect, product-packager.
+# Ciclo fractal em cada nivel: co-desenvolver -> estruturar -> refinar -> validar.
+# Protocolo QG universal: APRESENTAR -> PERGUNTAR -> DEBATER -> APROVAR -> HANDOFF.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+workflow:
+  id: wf-mentoring-creation
+  name: "Mentoring Creation Pipeline"
+  version: "2.0.0"
+  description: "Da ideia ao programa de mentoria empacotado + checklist de producao"
+  type: "pipeline"
+  purpose: >
+    Pipeline que recebe a ideia de um programa de mentoria (individual, grupo ou
+    consultoria), pesquisa o mercado, gera PRD, ingere a metodologia do expert,
+    co-desenvolve estrutura do programa em ciclo fractal, desenha sessoes e
+    entregaveis, trabalha branding e empacotamento do produto, e entrega
+    programa estruturado pronto pra vender + checklist de tudo que falta produzir.
+  orchestrator: "@mentoring-chief"
+  trigger: "Usuario ativa /mentoringCreator"
+
+  sequence:
+    # --- PRE-PRODUCAO ---
+    - phase: "setup"
+      agent: "mentoring-chief"
+      action: "Coletar info do programa: nome, objetivo, publico, transformacao, modalidade"
+      creates: ".state.json"
+      quality_gate: QG-MC-001
+
+    - phase: "benchmarking"
+      agent: "mentoring-creator"
+      action: "Pesquisar mercado BR + gringo, debater com usuario, gerar PRD"
+      creates: "PRD v1"
+      quality_gate: QG-MC-002
+
+    - phase: "methodology"
+      agent: "mentoring-creator"
+      action: "Ler docs do expert, mapear metodologia, enriquecer PRD"
+      creates: "PRD v2"
+      quality_gate: QG-MC-003
+
+    # --- PRODUCAO ---
+    - phase: "structure"
+      agent: "mentoring-creator"
+      action: "Co-desenvolver estrutura do programa: fases, timeline, sessoes. Contra PRD"
+      quality_gate: QG-MC-004
+
+    - phase: "sessions"
+      agent: "mentoring-creator"
+      action: "Loop por sessao: objetivo, formato, framework, exercicio, entregavel. Contra PRD"
+      repeatable: true
+      quality_gate: QG-MC-005
+
+    - phase: "deliverables"
+      agent: "mentoring-creator"
+      action: "Onboarding, offboarding, assessments, ferramentas, comunidade, suporte. Contra PRD"
+      quality_gate: QG-MC-006
+
+    # --- POS-PRODUCAO ---
+    - phase: "branding"
+      agent: "brand-architect"
+      action: "Naming, posicionamento, identidade verbal"
+      quality_gate: QG-MC-007
+
+    - phase: "packaging"
+      agent: "product-packager"
+      action: "Proposta de valor, matriz beneficios, pricing, cartao de identidade"
+      quality_gate: QG-MC-008
+
+    - phase: "review"
+      agent: "mentoring-chief"
+      action: "Review autonomo contra PRD + review humano + aval final"
+      quality_gate: QG-MC-009
+
+    - phase: "checklist"
+      agent: "mentoring-chief"
+      action: "Gerar checklist completo de tudo que falta produzir pra lancar"
+      quality_gate: QG-MC-010
+
+  quality_gates:
+    - id: QG-MC-001
+      name: "Setup Completo"
+      transition: "setup -> benchmarking"
+      criteria: "Programa definido: nome, objetivo, publico-alvo, transformacao, modalidade"
+      blocking: true
+
+    - id: QG-MC-002
+      name: "PRD Aprovado"
+      transition: "benchmarking -> methodology"
+      criteria: "Mercado pesquisado, PRD gerado e aprovado pelo usuario"
+      blocking: true
+
+    - id: QG-MC-003
+      name: "Metodologia Mapeada"
+      transition: "methodology -> structure"
+      criteria: "Metodologia mapeada dos docs, PRD enriquecido, usuario validou"
+      blocking: true
+
+    - id: QG-MC-004
+      name: "Estrutura Validada"
+      transition: "structure -> sessions"
+      criteria: "Fases, timeline, sessoes mapeadas, coerente com PRD, usuario aprovou"
+      blocking: true
+
+    - id: QG-MC-005
+      name: "Sessoes Desenhadas"
+      transition: "sessions -> deliverables"
+      criteria: "Cada sessao com objetivo + formato + framework, coerente com PRD, usuario aprovou"
+      blocking: true
+
+    - id: QG-MC-006
+      name: "Entregaveis Desenhados"
+      transition: "deliverables -> branding"
+      criteria: "Onboarding, offboarding, assessments, suporte desenhados, coerente com PRD"
+      blocking: true
+
+    - id: QG-MC-007
+      name: "Branding Aprovado"
+      transition: "branding -> packaging"
+      criteria: "Naming testado (4 criterios), posicionamento, identidade verbal"
+      blocking: true
+
+    - id: QG-MC-008
+      name: "Empacotamento Aprovado"
+      transition: "packaging -> review"
+      criteria: "Proposta de valor (3 perguntas), matriz beneficios, pricing, cartao de identidade"
+      blocking: true
+
+    - id: QG-MC-009
+      name: "Review Final Aprovado"
+      transition: "review -> checklist"
+      criteria: "Review autonomo contra PRD OK + usuario deu aval final"
+      blocking: true
+
+    - id: QG-MC-010
+      name: "Checklist Confirmado"
+      transition: "checklist -> done"
+      criteria: "Checklist completo, categorizado, priorizado, usuario confirmou que cobre tudo"
+      blocking: true
+
+  # Protocolo universal de quality gate (aplica a TODOS os 10 gates)
+  gate_protocol:
+    steps:
+      - "APRESENTAR output em formato legivel (nunca YAML bruto)"
+      - "PERGUNTAR 'Isso bate? O que ajustaria?'"
+      - "LOOP DE DEBATE — ajustar ate satisfeito (sem limite de rounds)"
+      - "APROVACAO EXPLICITA — usuario diz 'fechou'/'aprovado'"
+      - "HANDOFF — so agora passa pra proxima fase com contexto completo"
+    rules:
+      - "Nenhuma fase avanca sem aprovacao explicita"
+      - "Nenhum 'vou assumir que ta ok'"
+      - "Debate pode ter quantos rounds forem necessarios"
+      - "Squad nunca apressa o usuario"
+
+  bottleneck:
+    phase: "sessions"
+    task: "design-sessions"
+    reason: >
+      Design de sessoes e o gargalo do processo.
+      Multiplas sessoes × multiplos entregaveis por sessao.
+      Cada sessao exige co-desenvolvimento de objetivo, formato, framework,
+      exercicio pratico e conexoes. E onde mais tempo e investido.
+
+  state:
+    file: ".state.json"
+    resumable: true
+    tracks:
+      - current_phase
+      - current_session
+      - sessions_completed
+      - quality_gates_passed
+      - prd_version
+      - branding_status
+      - packaging_status
+      - active_agent
+
+  exceptions:
+    - name: "Scope change"
+      action: "Avaliar impacto. Se grande, recomendar novo ciclo. Se pequeno, ajustar e seguir. Atualizar PRD."
+
+    - name: "Expert sem metodologia documentada"
+      action: "Extrair da cabeca usando protocolo de co-desenvolvimento. Gravar como se fosse doc."
+
+    - name: "Expert discorda da estrutura sugerida"
+      action: "Normal, faz parte. Debater. Decisao final e do usuario. Registrar justificativa."
+
+    - name: "Sessao longa demais"
+      action: "Sugerir dividir em 2 sessoes. Decisao do usuario."
+
+    - name: "Entregavel nao claro"
+      action: "Especificar com usuario: formato, criterio de qualidade, quando entrega."
+
+    - name: "Mudanca de direcao"
+      action: "Normal. Ajustar e seguir. Atualizar PRD se necessario."
+
+    - name: "WebSearch indisponivel no benchmarking"
+      action: "Coletar todo conhecimento do usuario. PRD com disclaimer 'benchmark pendente'."
