@@ -1,11 +1,11 @@
 # COCKPIT — Projetos
 
-> Fonte unica de verdade sobre o que esta rodando na empresa.
-> Mantido pelo Companion. Expert valida.
-> Regra: max 3 ativos. Sem excecao.
+> Fonte única de verdade sobre o que está rodando na empresa.
+> Mantido pelo Companion. Monica valida.
+> Regra: max 3 ativos. Sem exceção.
 
-**Ultima atualizacao:** {data}
-**Proximo review:** {data}
+**Última atualização:** 07/06/2026
+**Próximo review:** 14/06/2026
 
 ---
 
@@ -13,27 +13,27 @@
 
 | # | Projeto | Objetivo | Next Action | Dono | Status | Tracker |
 |---|---------|----------|-------------|------|--------|---------|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
+| 1 | Validação Método 3R | Validar comunicação, oferta, percepção de valor e conversão no mercado BR | Analisar resultados dos criativos e LP — o que está conectando vs. não conectando com a persona | Monica | Ativo | [tracker](campanhas/validacao-metodo-3r/tracker.md) |
+| 2 | Estruturação do Ecossistema | Centralizar conhecimento, processos e inteligência no sistema próprio — menos dependência de terceiros | Mapear ferramentas, plataformas e profissionais atuais (tráfego, LP, app) | Monica | Ativo | [tracker](campanhas/ecossistema-metodo-3r/tracker.md) |
 
 ---
 
-## FILA (proximo quando liberar vaga)
+## FILA (próximo quando liberar vaga)
 
 | # | Projeto | Objetivo | Depende de | Prioridade |
 |---|---------|----------|------------|------------|
-| 1 | | | | |
+| 1 | — | | | |
 
 ---
 
-## INBOX (ideias brutas — nao sao projetos ainda)
+## INBOX (ideias brutas — não são projetos ainda)
 
 | Ideia | Origem | Notas |
 |-------|--------|-------|
-| | | |
-
-> Companion classifica no weekly review: sobe pra fila, congela, ou descarta.
+| Comunidade Mulher 3R | Monica | Expansão futura após validação do produto principal |
+| Programa em grupo | Monica | Próximo nível da esteira após consulta individual |
+| Expansão internacional | Monica | "Validar localmente. Escalar globalmente." — visão de longo prazo |
+| Formação para profissionais da saúde | Monica | Topo da esteira de valor — futuro |
 
 ---
 
@@ -41,32 +41,34 @@
 
 | Projeto | Objetivo | Por que parou |
 |---------|----------|---------------|
-| | | |
+| — | | |
 
 ---
 
-## OPERACOES CONTINUAS (nao sao projetos — rodam permanentemente)
+## OPERAÇÕES CONTÍNUAS (não são projetos — rodam permanentemente)
 
-| Operacao | Responsavel | Status | Onde acompanhar |
+| Operação | Responsável | Status | Onde acompanhar |
 |----------|-------------|--------|-----------------|
-| | | | |
+| Tráfego pago | Equipe externa | Rodando | — |
+| Página de vendas | Equipe externa | Rodando | — |
+| Aplicativo Método 3R | Equipe externa | Rodando | — |
 
 ---
 
-## ARQUIVO (concluidos)
+## ARQUIVO (concluídos)
 
-| Projeto | Concluido em | Resultado |
+| Projeto | Concluído em | Resultado |
 |---------|-------------|-----------|
-| | | |
+| — | | |
 
 ---
 
 ## REGRAS DO COCKPIT
 
 1. **Max 3 ativos** — se quer adicionar, primeiro congela ou conclui um
-2. **Todo ativo tem next action** — se nao tem, o projeto ta morto
-3. **Fila e ordenada** — item 1 sobe primeiro quando vaga abrir
-4. **Congelado nao e cancelado** — pode voltar quando fizer sentido
-5. **Companion mantem** — expert valida no weekly review
-6. **Operacoes nao contam como projeto** — rodam em paralelo, monitoradas separadamente
-7. **Inbox nao e fila** — ideia bruta precisa ser processada antes de virar projeto
+2. **Todo ativo tem next action** — se não tem, o projeto está morto
+3. **Fila é ordenada** — item 1 sobe primeiro quando vaga abrir
+4. **Congelado não é cancelado** — pode voltar quando fizer sentido
+5. **Companion mantém** — Monica valida no weekly review
+6. **Operações não contam como projeto** — rodam em paralelo, monitoradas separadamente
+7. **Inbox não é fila** — ideia bruta precisa ser processada antes de virar projeto
