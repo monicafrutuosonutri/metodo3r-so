@@ -37,10 +37,12 @@ Capacidade de criar conexão, confiança e acolhimento — NÃO o conhecimento t
 
 ## Onde Parou
 
-Sessão de onboarding completa. Base de conhecimento populada, cockpit configurado, trackers criados. Sistema pronto para trabalho com agentes especializados.
+Sessão de produção de conteúdo com Squad Conteúdo Arcane. Máquina editorial do Método 3R construída: 5 pilares, 4 formatos, pool de 25 temas, linha editorial semanal e lógica de produção em dupla (Reel + apoio). Base salva em `docs/producao-conteudo/monica/base-inicial.md`.
 
-**Próximo review:** 14/06/2026
+Próxima ação imediata: escolher primeiros temas do pool → Sage constrói teoria e hooks → Rico roteiriza → produção começa.
+
+**Weekly review:** atrasado (era 14/06/2026 — executar na próxima sessão disponível).
 
 ---
 
-*Última atualização: 07/06/2026*
+*Última atualização: 16/06/2026*

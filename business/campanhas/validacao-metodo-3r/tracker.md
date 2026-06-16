@@ -57,6 +57,7 @@ Critério de validação: a mensagem conecta com a persona e o mercado reconhece
 
 > Mais recente primeiro.
 
+- 16/06 — @squad-conteudo-arcane: máquina editorial criada — 5 pilares editoriais, 4 formatos principais, pool de 25 temas e linha editorial semanal. Base salva em docs/producao-conteudo/monica/base-inicial.md. Próximo: escolher primeiros temas e iniciar produção com Sage.
 - 07/06 — @companion: projeto criado. Base de conhecimento do negócio documentada (8 documentos). Cockpit configurado.
 
 ---
