@@ -57,6 +57,7 @@ Critério de validação: a mensagem conecta com a persona e o mercado reconhece
 
 > Mais recente primeiro.
 
+- 17/06 — @squad-conteudo-arcane (Mack): guias de produção da Dupla 2 entregues — Reel Lo-fi (contar-caloria-dependencia) e Carrossel (vida-sem-medo-regredir) prontos para execução. Roteiros v2 limpos. Arquivos: posts/*/guia-producao.md. Próximo: commit Dupla 2 + Mônica executa gravação e diagramação.
 - 16/06 — @squad-conteudo-arcane (Mack): guias de produção da Dupla 1 entregues — Reel Lo-fi (medo-festa-no-peso) e Carrossel (maldicao-vigilancia) prontos para execução. Arquivos: posts/*/guia-producao.md. Próximo: Mônica executa gravação e diagramação.
 - 16/06 — @squad-conteudo-arcane (Rico): roteiros v2 aprovados pela Mônica — Dupla 1 (Post 1 Reel + Post 2 Carrossel). Arquivos: posts/*/roteiro.md.
 - 16/06 — @squad-conteudo-arcane (Sage): teorias dos 4 posts da semana 1 construídas e aprovadas com ajustes. Arquivos: posts/*/teoria.md.
