@@ -3,4 +3,5 @@ business/vault/
 .env
 .env.local
 .synapse/sessions/
+.synapse/metrics/
 *.log
