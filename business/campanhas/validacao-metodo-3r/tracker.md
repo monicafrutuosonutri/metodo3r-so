@@ -37,11 +37,18 @@ Critério de validação: a mensagem conecta com a persona e o mercado reconhece
 
 | Tarefa | Dono | Status | Depende de | Notas |
 |--------|------|--------|------------|-------|
-| Analisar performance dos criativos atuais | Monica | Não iniciado | — | O que está conectando com a persona? |
+| **[Track A — Tráfego pago existente]** | | | | Materiais antigos. Métricas disponíveis com Monica. |
+| Analisar performance dos criativos atuais (tráfego pago) | Monica | Não iniciado | — | O que está conectando vs. não conectando com a persona? |
 | Analisar performance da página de vendas | Monica | Não iniciado | — | Taxa de conversão, onde saem, o que leem |
 | Analisar métricas de tráfego | Monica / equipe | Não iniciado | — | CPC, CTR, volume, qualidade do público |
-| Identificar gaps entre mensagem e persona | Monica | Não iniciado | Análise de criativos e LP | O que a persona espera que não está sendo entregue? |
-| Documentar aprendizados da fase 1 | Monica / Companion | Não iniciado | Todas as análises | Insumo para fase de ajustes |
+| **[Track B — Conteúdo orgânico novo (Semana 1)]** | | | | Criado pelo sistema. Ainda pendente de execução. |
+| Gravar Reels da Semana 1 | Monica | Não iniciado | — | 2 Reels Lo-fi. Roteiros em posts/*/roteiro.md |
+| Diagramar carrosséis da Semana 1 | Monica | Não iniciado | — | 2 Carrosséis. Guias em posts/*/guia-producao.md |
+| Publicar / agendar conteúdos orgânicos | Monica | Não iniciado | Gravação + diagramação | Publicar no orgânico primeiro |
+| Analisar resposta inicial do orgânico | Monica | Não iniciado | Publicação | Quais formatos/hooks geraram mais engajamento? |
+| Identificar vencedores para escalar no pago | Monica | Não iniciado | Análise orgânica | Conteúdos orgânicos com melhor resposta viram criativos pagos |
+| **[Consolidação]** | | | | |
+| Documentar aprendizados da fase 1 | Monica / Companion | Não iniciado | Análises Track A e Track B | Insumo para fase de ajustes |
 
 ---
 
@@ -57,6 +64,7 @@ Critério de validação: a mensagem conecta com a persona e o mercado reconhece
 
 > Mais recente primeiro.
 
+- 22/06 — @companion (weekly review): tracker reestruturado com dois tracks separados — Track A (tráfego pago existente, métricas disponíveis) e Track B (conteúdo orgânico novo, Semana 1 pendente de execução). Foco da semana: gravar, diagramar e publicar Semana 1.
 - 17/06 — @squad-conteudo-arcane (Mack): guias de produção da Dupla 2 entregues — Reel Lo-fi (contar-caloria-dependencia) e Carrossel (vida-sem-medo-regredir) prontos para execução. Roteiros v2 limpos. Arquivos: posts/*/guia-producao.md. Próximo: commit Dupla 2 + Mônica executa gravação e diagramação.
 - 16/06 — @squad-conteudo-arcane (Mack): guias de produção da Dupla 1 entregues — Reel Lo-fi (medo-festa-no-peso) e Carrossel (maldicao-vigilancia) prontos para execução. Arquivos: posts/*/guia-producao.md. Próximo: Mônica executa gravação e diagramação.
 - 16/06 — @squad-conteudo-arcane (Rico): roteiros v2 aprovados pela Mônica — Dupla 1 (Post 1 Reel + Post 2 Carrossel). Arquivos: posts/*/roteiro.md.

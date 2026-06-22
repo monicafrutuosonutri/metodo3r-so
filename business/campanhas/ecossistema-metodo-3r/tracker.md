@@ -7,7 +7,7 @@
 **Início:** 07/06/2026
 **Deadline:** sem deadline fixo — projeto contínuo de médio prazo
 **Dono geral:** Monica Frutuoso
-**Status:** Ativo
+**Status:** Congelado (até 29/06/2026)
 
 ---
 
@@ -56,6 +56,7 @@ Centralizar conhecimento, documentação, processos e inteligência no sistema p
 
 > Mais recente primeiro.
 
+- 22/06 — @companion: projeto congelado formalmente por 7 dias. Motivo: foco na execução da Semana 1 de conteúdo orgânico. Retomar após 29/06/2026 (ou após Semana 1 publicada).
 - 07/06 — @companion: projeto criado. Fase 1 iniciada. Base de conhecimento do negócio documentada (8 docs em docs/knowledge/). Próximo: mapear ferramentas e profissionais atuais.
 
 ---

@@ -4,6 +4,24 @@
 
 ---
 
+## [22/06/2026] — P2 congelado e foco da semana definido
+
+**Contexto:** Weekly review — P2 parado há 15 dias, Semana 1 de conteúdo pendente de execução.
+**Decisão:** Congelar P2 (Estruturação do Ecossistema) formalmente por 7 dias. Foco da semana: executar Semana 1 de conteúdo orgânico (gravar, diagramar, publicar).
+**Racional:** Prioridade real é publicar e testar o conteúdo orgânico antes de qualquer outra coisa. P2 não tem urgência e pode aguardar sem prejuízo.
+**Impacto:** Cockpit fica com 1 ativo. P2 retorna à discussão em 29/06/2026 (ou após Semana 1 publicada).
+
+---
+
+## [22/06/2026] — Distinção entre Track A e Track B na validação
+
+**Contexto:** Weekly review — confusão entre tráfego pago existente e conteúdo orgânico novo.
+**Decisão:** P1 (Validação Método 3R) tem dois tracks separados: Track A (tráfego pago com materiais antigos, métricas já disponíveis) e Track B (conteúdo orgânico novo da Semana 1, ainda pendente de execução). Fluxo correto do Track B: orgânico → analisar → vencedores viram criativos pagos.
+**Racional:** Misturar os dois tracks gera confusão na análise. São validações diferentes com tempos diferentes.
+**Impacto:** Tracker do P1 reestruturado com essa distinção. Análise do Track A pode acontecer independente do Track B.
+
+---
+
 ## [07/06/2026] — Insight central do Método 3R documentado
 
 **Contexto:** Sessão de onboarding do sistema. Monica descreveu o método que está construindo.

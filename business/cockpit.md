@@ -4,8 +4,8 @@
 > Mantido pelo Companion. Monica valida.
 > Regra: max 3 ativos. Sem exceção.
 
-**Última atualização:** 07/06/2026
-**Próximo review:** 14/06/2026
+**Última atualização:** 22/06/2026
+**Próximo review:** 29/06/2026
 
 ---
 
@@ -13,8 +13,7 @@
 
 | # | Projeto | Objetivo | Next Action | Dono | Status | Tracker |
 |---|---------|----------|-------------|------|--------|---------|
-| 1 | Validação Método 3R | Validar comunicação, oferta, percepção de valor e conversão no mercado BR | Analisar resultados dos criativos e LP — o que está conectando vs. não conectando com a persona | Monica | Ativo | [tracker](campanhas/validacao-metodo-3r/tracker.md) |
-| 2 | Estruturação do Ecossistema | Centralizar conhecimento, processos e inteligência no sistema próprio — menos dependência de terceiros | Mapear ferramentas, plataformas e profissionais atuais (tráfego, LP, app) | Monica | Ativo | [tracker](campanhas/ecossistema-metodo-3r/tracker.md) |
+| 1 | Validação Método 3R | Validar comunicação, oferta, percepção de valor e conversão no mercado BR | Gravar Reels da Semana 1 → diagramar carrosséis → publicar no orgânico | Monica | Ativo | [tracker](campanhas/validacao-metodo-3r/tracker.md) |
 
 ---
 
@@ -39,9 +38,9 @@
 
 ## CONGELADOS (someday/maybe)
 
-| Projeto | Objetivo | Por que parou |
-|---------|----------|---------------|
-| — | | |
+| Projeto | Objetivo | Por que parou | Retomar em |
+|---------|----------|---------------|------------|
+| Estruturação do Ecossistema | Centralizar conhecimento, processos e inteligência no sistema próprio | Foco na execução da Semana 1 de conteúdo orgânico | 29/06/2026 (após Semana 1 publicada) |
 
 ---
 
