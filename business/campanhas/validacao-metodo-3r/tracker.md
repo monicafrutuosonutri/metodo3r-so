@@ -41,12 +41,20 @@ Critério de validação: a mensagem conecta com a persona e o mercado reconhece
 | Analisar performance dos criativos atuais (tráfego pago) | Monica | Não iniciado | — | O que está conectando vs. não conectando com a persona? |
 | Analisar performance da página de vendas | Monica | Não iniciado | — | Taxa de conversão, onde saem, o que leem |
 | Analisar métricas de tráfego | Monica / equipe | Não iniciado | — | CPC, CTR, volume, qualidade do público |
-| **[Track B — Conteúdo orgânico novo (Semana 1)]** | | | | Criado pelo sistema. Ainda pendente de execução. |
-| Gravar Reels da Semana 1 | Monica | Não iniciado | — | 2 Reels Lo-fi. Roteiros em posts/*/roteiro.md |
-| Diagramar carrosséis da Semana 1 | Monica | Não iniciado | — | 2 Carrosséis. Guias em posts/*/guia-producao.md |
-| Publicar / agendar conteúdos orgânicos | Monica | Não iniciado | Gravação + diagramação | Publicar no orgânico primeiro |
-| Analisar resposta inicial do orgânico | Monica | Não iniciado | Publicação | Quais formatos/hooks geraram mais engajamento? |
-| Identificar vencedores para escalar no pago | Monica | Não iniciado | Análise orgânica | Conteúdos orgânicos com melhor resposta viram criativos pagos |
+| **[Track B — Conteúdo orgânico — Semana 1]** | | | | Cadência planejada: 4 posts. Executado: parcial. |
+| Gravar + publicar Reel 1: medo-festa-no-peso | Monica | Done | — | ✓ Publicado. Pilar: O Espelho |
+| Publicar carrossel 1: maldicao-vigilancia | Monica | A confirmar | — | Confirmar status de publicação com Monica |
+| Gravar Reel 2: contar-caloria-dependencia | Monica | Carry → S2 | — | Não gravado. Transferido para Semana 2 como Reel 1 |
+| Publicar carrossel 2: vida-sem-medo-regredir | Monica | Reserva | — | Não publicado. Mantido como conteúdo reserva |
+| **[Track B — Conteúdo orgânico — Semana 2]** | | | | Cadência oficial: 2 Reels + 1 carrossel (3 posts/semana) |
+| Gravar Reel 1: contar-caloria-dependencia | Monica | Não iniciado | — | Carry da S1. Roteiro + guia prontos. Pilar: A Perspectiva |
+| Gravar Reel 2: emagreceu-ainda-se-sente-presa | Monica | Não iniciado | — | Novo. Roteiro + guia prontos. Pilar: O Espelho |
+| Diagramar carrossel: reconhecer-primeiro-passo | Monica | Não iniciado | — | Novo. Guia pronto. Pilar: O Caminho |
+| Publicar / agendar Semana 2 | Monica | Não iniciado | Gravação + diagramação | 3 conteúdos |
+| Analisar resposta orgânica (Semanas 1+2) | Monica | Não iniciado | Publicação | Quais formatos/hooks geraram mais engajamento? |
+| Identificar vencedores para escalar no pago | Monica | Não iniciado | Análise orgânica | Orgânico com melhor resposta vira criativo pago |
+| **[Reserva]** | | | | Conteúdo pronto — entra quando fizer sentido |
+| vida-sem-medo-regredir (carrossel) | Monica | Reserva | — | Pilar: A Mulher 3R. Teoria + guia prontos. Entra em semana de menor capacidade ou reforço aspiracional. |
 | **[Consolidação]** | | | | |
 | Documentar aprendizados da fase 1 | Monica / Companion | Não iniciado | Análises Track A e Track B | Insumo para fase de ajustes |
 
@@ -64,6 +72,7 @@ Critério de validação: a mensagem conecta com a persona e o mercado reconhece
 
 > Mais recente primeiro.
 
+- 26/06 — @companion: cadência oficial ajustada para 2 Reels + 1 carrossel (3 posts/semana). Semana 1 encerrada com execução parcial: Reel 1 publicado, Reel 2 não gravado (carry para S2), carrossel vida-sem-medo-regredir não publicado (reserva). Semana 2 aprovada por Monica: Reel 1 (carry contar-caloria-dependencia), Reel 2 (novo: emagreceu-ainda-se-sente-presa), Carrossel (novo: reconhecer-primeiro-passo). Roteiros e guias criados.
 - 22/06 — @companion (weekly review): tracker reestruturado com dois tracks separados — Track A (tráfego pago existente, métricas disponíveis) e Track B (conteúdo orgânico novo, Semana 1 pendente de execução). Foco da semana: gravar, diagramar e publicar Semana 1.
 - 17/06 — @squad-conteudo-arcane (Mack): guias de produção da Dupla 2 entregues — Reel Lo-fi (contar-caloria-dependencia) e Carrossel (vida-sem-medo-regredir) prontos para execução. Roteiros v2 limpos. Arquivos: posts/*/guia-producao.md. Próximo: commit Dupla 2 + Mônica executa gravação e diagramação.
 - 16/06 — @squad-conteudo-arcane (Mack): guias de produção da Dupla 1 entregues — Reel Lo-fi (medo-festa-no-peso) e Carrossel (maldicao-vigilancia) prontos para execução. Arquivos: posts/*/guia-producao.md. Próximo: Mônica executa gravação e diagramação.

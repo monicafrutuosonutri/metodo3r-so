@@ -155,19 +155,17 @@ O apoio é o que a persona salva, compartilha, volta.
 
 ---
 
-## LINHA EDITORIAL — SEMANA-TIPO (4 posts)
+## LINHA EDITORIAL — SEMANA-TIPO (3 posts — cadência oficial)
 
 | Dia | Formato | Pilar | Função |
 |-----|---------|-------|--------|
-| Segunda | Reel Lo-fi ou POV | O Espelho | Atrair — reconhecimento |
-| Terça | Carrossel | A Maldição | Aprofundar — educar |
-| Quarta | Reel Lo-fi ou Análise | O Caminho / A Perspectiva | Autoridade — posicionamento |
-| Quinta | Estático ou Carrossel | A Mulher 3R / O Caminho | Aspirar — transformação |
+| Segunda | Reel Lo-fi ou POV | O Espelho / A Perspectiva | Atrair ou posicionar |
+| Quarta | Reel Lo-fi ou Análise | A Perspectiva / O Espelho | Autoridade ou reconhecimento |
+| Quinta | Carrossel | O Caminho / A Maldição / A Mulher 3R | Aprofundar — educar ou aspirar |
 
-**Sexta:** opcional — tema do momento ou Reel extra quando tiver timing forte.
-
-Para semanas de 3 posts: Seg + Qua + Qui (priorizar Reel + Carrossel + Estático).
-Para semanas de 5 posts: adicionar Reel extra na Sexta.
+**Cadência oficial (a partir da Semana 2):** 2 Reels + 1 carrossel por semana.
+**Quando tiver capacidade extra:** adicionar estático ou Reel na sexta — nunca ultrapassar 4 posts.
+**Quando estiver abaixo da capacidade:** usar o banco de reserva (vida-sem-medo-regredir já está pronto).
 
 ---
 
@@ -175,16 +173,20 @@ Para semanas de 5 posts: adicionar Reel extra na Sexta.
 
 ```
 Domingo — planejamento (20 min)
-   → Escolher 2 temas do pool
-   → Definir dupla da semana
+   → Revisar banco de conteúdo e reservas
+   → Definir 2 Reels + 1 carrossel da semana
 
-Segunda/Terça — Dupla 1
-   → Reel Lo-fi ou POV: 20-30 min de gravação
-   → Carrossel: estrutura + texto
+Segunda — Reel 1
+   → Gravar Lo-fi ou POV: 20-30 min
+   → Editar e agendar
 
-Quarta/Quinta — Dupla 2
-   → Reel Lo-fi ou Análise: 30 min de gravação
-   → Estático ou carrossel leve
+Quarta — Reel 2
+   → Gravar Lo-fi ou Análise: 20-30 min
+   → Editar e agendar
+
+Quinta — Carrossel
+   → Diagramar no Canva: estrutura + texto (30-45 min)
+   → Revisar e agendar
 
 Publicar seguindo a semana-tipo
 ```

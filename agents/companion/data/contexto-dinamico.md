@@ -21,7 +21,11 @@ Ajuda mulheres que emagreceram com GLP-1 a reconstruírem a confiança em si mes
 - Dois tracks separados:
   - **Track A (tráfego pago existente):** métricas disponíveis com Monica, materiais antigos rodando — análise pendente
   - **Track B (conteúdo orgânico novo):** Semana 1 criada pelo sistema, pendente de execução (gravar → diagramar → publicar → analisar → vencedores viram criativos pagos)
-- **Next action imediata:** gravar Reels da Semana 1
+- **Cadência oficial:** 2 Reels + 1 carrossel = 3 posts/semana (a partir da Semana 2)
+- **Next actions imediatas:**
+  1. Gravar Reel 1: contar-caloria-dependencia (roteiro pronto)
+  2. Gravar Reel 2: emagreceu-ainda-se-sente-presa (roteiro pronto)
+  3. Diagramar carrossel: reconhecer-primeiro-passo (guia pronto)
 
 **P2 — Estruturação do Ecossistema** (tracker: business/campanhas/ecossistema-metodo-3r/tracker.md)
 - Status: **CONGELADO até 29/06/2026**
@@ -41,17 +45,29 @@ Capacidade de criar conexão, confiança e acolhimento — NÃO o conhecimento t
 
 ## Onde Parou
 
-Weekly review de 22/06/2026 concluído. Decisões tomadas:
-1. P2 congelado formalmente por 7 dias
-2. Tracker do P1 reestruturado com Track A (tráfego pago) e Track B (orgânico)
-3. Foco da semana: executar Semana 1 — gravar Reels, diagramar carrosséis, publicar no orgânico
+Sessão de 26/06/2026 — ajuste de cadência e planejamento da Semana 2.
 
-Próxima ação imediata: Monica grava os Reels da Semana 1.
+Semana 1 encerrada com execução parcial:
+- Reel 1 (medo-festa-no-peso): publicado ✓
+- Carrossel 1 (maldicao-vigilancia): status a confirmar com Monica
+- Reel 2 (contar-caloria-dependencia): não gravado — carry para Semana 2
+- Carrossel 2 (vida-sem-medo-regredir): não publicado — status: reserva
+
+Decisões tomadas em 26/06:
+1. Cadência oficial ajustada: 2 Reels + 1 carrossel = 3 posts/semana
+2. Semana 2 aprovada por Monica (Reel carry + 2 novos)
+3. Roteiros e guias de produção da Semana 2 criados
+
+Próximas ações:
+1. Monica grava Reel 1: contar-caloria-dependencia (roteiro pronto em posts/contar-caloria-dependencia/)
+2. Monica grava Reel 2: emagreceu-ainda-se-sente-presa (roteiro pronto em posts/emagreceu-ainda-se-sente-presa/)
+3. Monica diagrama carrossel: reconhecer-primeiro-passo (guia pronto em posts/reconhecer-primeiro-passo/)
 
 **Weekly review:** próximo em 29/06/2026.
 
-**Infra (19/06/2026):** Auditoria completa do sistema realizada. Backup GitHub privado configurado e primeiro push feito (10 commits, branch `main`). Telemetria do Synapse (`.synapse/metrics/`) movida para o `.gitignore`. Pendência conhecida: `gh` CLI não instalada (push usa o autenticador gráfico do Windows, que pode travar dentro do Claude Code mas conclui).
-
 ---
 
-*Última atualização: 22/06/2026*
+*Última atualização: 26/06/2026*
+
+**Infra (19/06/2026):** Auditoria completa do sistema realizada. Backup GitHub privado configurado e primeiro push feito (10 commits, branch `main`). Telemetria do Synapse (`.synapse/metrics/`) movida para o `.gitignore`. Pendência conhecida: `gh` CLI não instalada (push usa o autenticador gráfico do Windows, que pode travar dentro do Claude Code mas conclui).
+

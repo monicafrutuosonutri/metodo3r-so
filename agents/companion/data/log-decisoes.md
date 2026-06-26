@@ -4,6 +4,24 @@
 
 ---
 
+## [26/06/2026] — Cadência oficial de conteúdo ajustada para 3 posts semanais
+
+**Contexto:** Semana 1 de conteúdo orgânico executada parcialmente — Reel 2 não foi gravado. Cadência de 4 posts/semana ficou acima da capacidade real de execução.
+**Decisão:** Cadência oficial: 2 Reels + 1 carrossel = 3 conteúdos por semana. Vigência imediata a partir da Semana 2.
+**Racional:** Consistência sustentável supera cadência alta e irregular. No orgânico no início, manter ritmo é mais importante do que volume. Cadência pode ser revisada para cima quando execução estiver consolidada por 4+ semanas.
+**Impacto:** Base editorial e tracker atualizados. Semanas futuras planejadas neste formato.
+
+---
+
+## [26/06/2026] — Carrossel "vida-sem-medo-regredir" enviado para reserva
+
+**Contexto:** Carrossel da Semana 1 não foi publicado. Semana 2 já tem 3 conteúdos definidos na nova cadência.
+**Decisão:** Não incluir na Semana 2. Manter como conteúdo reserva — entra em semana de menor capacidade ou quando o Pilar A Mulher 3R precisar de reforço aspiracional.
+**Racional:** Forçar o carrossel na Semana 2 iria contra a cadência recém-ajustada. O conteúdo tem teoria e guia prontos — pode entrar a qualquer momento sem trabalho extra.
+**Impacto:** Banco de reserva disponível. Pilar A Mulher 3R ausente na Semana 2 — entra em semana futura.
+
+---
+
 ## [22/06/2026] — P2 congelado e foco da semana definido
 
 **Contexto:** Weekly review — P2 parado há 15 dias, Semana 1 de conteúdo pendente de execução.
