@@ -1,8 +1,8 @@
 # Guia de Produção — reconhecer-primeiro-passo
 
 **Formato:** Carrossel Tema Forte
-**Total de slides:** 8
-**Roteiro aprovado:** roteiro.md (v1)
+**Total de slides:** 6
+**Roteiro aprovado:** roteiro.md (v2)
 **Criado em:** 26/06/2026
 
 ---
@@ -21,11 +21,11 @@ Usar a identidade visual já estabelecida da Mônica em todos os slides.
 
 | Elemento | Aplicação neste carrossel |
 |----------|--------------------------|
-| Cor primária escura | Capa (slide 1) e slides de destaque (slides 3 e 6) |
-| Cor neutra clara | Slides internos (slides 2, 4, 5, 7) |
-| Cor de acento | Frase-chave no slide 3 e texto de destaque no slide 5 |
+| Cor primária escura | Capa (slide 1) e slide de alívio (slide 4) |
+| Cor neutra clara | Slides internos (slides 2, 5, 6) |
+| Cor de acento | Fundo do slide 3 (o mais importante) e destaque na pergunta do slide 5 |
 | Tipografia principal | Títulos e frases de destaque |
-| Tipografia secundária | Textos de apoio, listas, texto de apoio nos slides |
+| Tipografia secundária | Exemplos práticos, textos de apoio |
 | Assinatura | Canto inferior discreto em todos os slides |
 
 ---
@@ -35,64 +35,56 @@ Usar a identidade visual já estabelecida da Mônica em todos os slides.
 ### Slide 1 — Capa
 - Fundo escuro (cor primária da marca)
 - "O que é Reconhecer" — fonte grande, centralizada, cor clara
-- "e por que é o passo que mais gera alívio" — fonte menor, abaixo, mesma cor ou ligeiramente mais suave
+- "e por que é o passo que mais gera alívio" — fonte menor, abaixo
 - Assinatura da Mônica no canto inferior
 
-### Slide 2 — O que NÃO é
+### Slide 2 — O problema
 - Fundo neutro claro (branco ou off-white)
-- Texto alinhado à esquerda com espaçamento generoso
-- Cada linha com espaço de respiro entre elas
-- Tom de "esclarecimento" — sem ícones de erro, o texto já faz o trabalho
+- Frase entre aspas ("Por que sou assim?") em destaque — maior ou cor diferente — no topo
+- Restante do texto em tamanho menor, espaçado abaixo
+- Linha final ("Porque não era a pergunta certa.") em itálico ou cor de acento discreta
 
-### Slide 3 — O que É (SLIDE DE DESTAQUE 1)
-- Fundo: cor de acento da identidade visual (a mais vibrante disponível)
-- Texto principal: grande, centralizado, cor clara — "Reconhecer é observar..."
-- Texto de apoio: fonte menor, itálico, cor levemente diferente — o exemplo prático entre aspas
-- Muito respiro visual — não compactar
+### Slide 3 — O que é Reconhecer (SLIDE DE DESTAQUE)
+- Fundo: cor de acento da identidade visual (o slide que mais se diferencia dos demais)
+- Texto principal: centralizado, cor clara — "Reconhecer não é descobrir..." + definição
+- Linha de separação ou espaço generoso antes do exemplo prático
+- Exemplo em itálico, fonte levemente menor: "'Tô ansiosa agora. Não é fome. Tô percebendo isso.'"
+- Muito respiro — não compactar
 
-### Slide 4 — Na prática
-- Fundo neutro claro
-- Cada percepção em parágrafo separado com espaçamento
-- Aspas visíveis em cada frase — são identificações, não afirmações de Mônica
-- Fonte: tamanho confortável, não comprimido
-
-### Slide 5 — O que muda (SLIDE MINIMALISTA)
-- Fundo neutro ou levemente diferenciado
-- "A pergunta que muda:" em fonte menor, acima
-- "Por que sou assim?" em fonte média, cor neutra/cinza
-- Seta (↓) centralizada, discreta
-- "O que está acontecendo comigo agora?" em fonte ligeiramente maior, cor de destaque
-- Muito espaço em branco — o vazio é parte do design aqui
-
-### Slide 6 — Por que gera alívio (SLIDE DE DESTAQUE 2)
-- Fundo escuro (igual ou similar à capa)
-- Tipografia clara, espaçada, centralizada
+### Slide 4 — Por que gera alívio
+- Fundo escuro (igual ou próximo da capa)
+- Tipografia clara, centralizada, espaçada
 - Respiro entre cada bloco de texto
-- "O que pode ser visto pode ser trabalhado." — negrito ou tamanho maior, última linha
+- "O que pode ser visto pode ser trabalhado." — última linha, negrito ou tamanho maior
 
-### Slide 7 — Contexto do método
+### Slide 5 — Como isso se conecta ao Método 3R
 - Fundo neutro
-- "Reconhecer é o primeiro R" em destaque
-- Os 3 Rs em sequência simples: pode ser texto (Reconhecer → Reorganizar → Reconstruir) com setas, ou círculos simples numerados
-- Tom educativo — não parece propaganda
+- "Reconhecer é o primeiro R do Método 3R." em destaque, acima
+- Espaço antes da transformação da pergunta
+- "Por que sou assim?" em cinza/neutro
+- Seta (→) centralizada
+- "O que está acontecendo comigo agora?" em cor de destaque, tamanho ligeiramente maior
+- "Essa virada é o começo." em fonte menor abaixo
 
-### Slide 8 — CTA
-- Fundo neutro ou cor suave
-- Pergunta centralizada em tamanho de destaque
+### Slide 6 — Fechamento + CTA
+- Fundo claro ou neutro
+- Frase de fechamento em destaque (maior): "O padrão que você consegue nomear não tem mais o mesmo poder sobre você."
+- Espaço de separação antes do CTA
+- CTA em tamanho menor: "Me conta nos comentários: qual padrão você já começou a ver?"
 - Assinatura da Mônica visível
-- Linha adicional opcional no rodapé: "Salva esse post."
+- Opcional no rodapé: "Salva esse post."
 
 ---
 
 ## 4. CHECKLIST ANTES DE PUBLICAR
 
-- [ ] Identidade visual consistente em todos os 8 slides
-- [ ] Capa chama atenção no feed (alto contraste, texto legível em miniatura)
-- [ ] Cada slide lido confortavelmente em 3-5 segundos
-- [ ] Slides 3 e 6 visualmente diferenciados — são os mais importantes
-- [ ] Slide 5 (antes/depois) minimalista — sem sobrecarregar
-- [ ] Slide 8 (CTA) com pergunta em destaque
-- [ ] Assinatura da Mônica presente em todos os slides
+- [ ] Identidade visual consistente em todos os 6 slides
+- [ ] Capa legível em miniatura no feed (texto visível mesmo pequeno)
+- [ ] Cada slide lido em 3-5 segundos — sem slide sobrecarregado
+- [ ] Slide 3 visualmente diferenciado — é o mais importante
+- [ ] Slide 5 com a seta visível e centralizada (transformação da pergunta)
+- [ ] Slide 6 com frase de fechamento ANTES do CTA — não inverter
+- [ ] Assinatura da Mônica em todos os slides
 - [ ] Nenhum erro ortográfico
 - [ ] Exportar em alta resolução
 
@@ -105,21 +97,21 @@ Usar a identidade visual já estabelecida da Mônica em todos os slides.
 ```
 O que é Reconhecer — e por que é o passo que mais gera alívio.
 
-A maioria acha que Reconhecer é descobrir o que está errado.
-Não é.
+"Por que sou assim?"
+Essa pergunta nunca chegou a lugar nenhum.
+Porque não era a pergunta certa.
 
-É observar, com curiosidade — sem julgamento.
-É nomear o que antes era um ruído de fundo constante.
+Reconhecer não é descobrir o que está errado.
+É observar o que acontece — com curiosidade, não com crítica.
 
-"Tô ansiosa. Não é fome. Tô percebendo isso."
-Esse momento de nomeação é o primeiro R do Método 3R.
-E geralmente é o que mais gera alívio.
+"Tô ansiosa agora. Não é fome. Tô percebendo isso."
+Esse momento de nomeação é o começo de tudo.
 
-Porque você para de ser o problema — e começa a ver o padrão.
-E o que pode ser visto pode ser trabalhado.
+Porque quando você Reconhece, você para de ser o problema.
+E começa a ver o padrão — de fora.
+O que pode ser visto pode ser trabalhado.
 
-Me conta nos comentários: qual padrão você viu em você
-que antes não conseguia nomear? ↓
+Me conta nos comentários: qual padrão você já começou a ver? ↓
 
 .
 .
@@ -131,12 +123,11 @@ que antes não conseguia nomear? ↓
 
 **Versão curta (alternativa):**
 ```
-Reconhecer não é descobrir o que está errado em você.
+"Por que sou assim?" nunca chegou a lugar nenhum.
+Porque não era a pergunta certa.
 
-É observar — sem julgamento. Com curiosidade.
-É nomear o padrão que antes era só um peso.
-
-Este é o primeiro R.
+Reconhecer é observar — com curiosidade, não com crítica.
+E isso já é alívio.
 
 Me conta: qual padrão você já começou a ver? ↓
 
@@ -147,19 +138,17 @@ Me conta: qual padrão você já começou a ver? ↓
 
 ## 6. CAPA / THUMBNAIL NO FEED
 
-A capa do carrossel (slide 1) é o que aparece no feed. Testar em miniatura antes de publicar — o texto "O que é Reconhecer" precisa ser legível mesmo pequeno.
-
-Se quiser destaque extra no feed: criar thumbnail alternativa com foto da Mônica + texto sobreposto (demanda produção extra, mas aumenta o clique inicial).
+A capa (slide 1) aparece no feed. Testar em miniatura antes de publicar — o texto "O que é Reconhecer" precisa ser legível mesmo pequeno.
 
 ---
 
 ## REAPROVEITAMENTO FUTURO
 
 Se este carrossel performar bem:
-- Adaptar slides 4 e 5 como posts estáticos separados
-- Usar como base para série: "O que é Reorganizar" e "O que é Reconstruir" (próximos do Pilar O Caminho)
-- O slide 5 (antes/depois da pergunta) tem potencial alto como estático isolado
+- Slide 5 (antes/depois da pergunta) tem potencial alto como post estático isolado
+- Usar como modelo para série: "O que é Reorganizar" e "O que é Reconstruir"
+- Slide 4 ("O que pode ser visto pode ser trabalhado.") pode virar frase de capa de Reel futuro
 
 ---
 
-*Criado em 26/06/2026 — Semana 2 do orgânico*
+*Criado em 26/06/2026 — Semana 2 do orgânico | v2: enxugado para 6 slides*
