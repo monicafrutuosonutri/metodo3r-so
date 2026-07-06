@@ -33,7 +33,7 @@ sensacionalismo — a força vem da precisão da cena, não do exagero.
 | 3 — Antecipar | "antes mesmo de sair de casa" | "Não por organização. Mas para não ser pega de surpresa." (fecha, menor) |
 | 4 — Eventos sociais | "qualquer escolha pode colocar tudo a perder" | "Uma festa, um jantar, um fim de semana…" (abre, menor) |
 | 5 — Virada | "Mas a confiança ainda não voltou." | "Isso não é frescura..." (abre) + "Muitas vezes, o peso mudou." (menor) |
-| 6 — Convite | "Siga para entender como sair do medo e reconstruir confiança" | quem é o perfil (abre, menor) |
+| 6 — Convite | "Siga para entender o que mantém esse alerta — e como reconstruir confiança" | quem é o perfil (abre, menor) |
 
 ---
 
@@ -74,8 +74,9 @@ publicidade em saúde. Estado após o refino aprovado:
 **🟢 Resolvido — nomes comerciais de medicamento**
 Hashtags `#ozempic` e `#mounjaro` foram **removidas**. Medicamentos de
 prescrição não devem ser anunciados ao público leigo (RDC ANVISA 96/2008), e
-o nutricionista não prescreve medicamento. Mantida apenas `#glp1` (classe
-farmacológica, não marca). O texto dos slides não cita nenhum medicamento.
+o nutricionista não prescreve medicamento. O conjunto final usa `#posglp1`
+(refere-se à fase pós-tratamento, sem citar marca nem classe específica). O
+texto dos slides não cita nenhum medicamento.
 
 **🟢 Resolvido — sem promessa de resultado / não-reganho**
 O CFN veda promessa e garantia de resultado. O carrossel não promete
@@ -91,15 +92,19 @@ substitui acompanhamento multiprofissional. O fixado não diagnostica ninguém
 linha editorial, deixar claro que casos de TCA pedem equipe (psicólogo/
 psiquiatra).
 
-**🟡 Atenção — `#emagrecimento`**
-Hashtag neutra, mas atrai olhar de fiscalização sobre promessas. O texto fala
-do *pós*-emagrecimento e não promete nada — risco baixo. Só sinalizado.
+**🟢 OK — hashtags focadas na fase, não na promessa**
+Conjunto final: `#nutriçãocomportamental #método3r #comportamentoalimentar
+#posglp1 #posemagrecimento`. Removidas `#emagrecimento` e `#confiançaalimentar`
+(a primeira atraía fiscalização sobre promessa; a segunda foi descartada a
+pedido). `#posemagrecimento` e `#posglp1` situam a fase (pós), não prometem
+resultado.
 
 **🟢 OK — linguagem proibida da marca**
 Zero ocorrência de "sem culpa", "equilíbrio" ou "relação saudável com a
 comida" no conteúdo.
 
-**Removida a pedido:** `#saúdementalalimentar` (fora da lista de hashtags).
+**Removidas a pedido:** `#ozempic`, `#mounjaro`, `#saúdementalalimentar`,
+`#emagrecimento`, `#confiançaalimentar`.
 
 ---
 

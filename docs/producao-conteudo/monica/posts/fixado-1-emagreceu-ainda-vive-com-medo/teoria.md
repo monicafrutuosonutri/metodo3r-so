@@ -62,7 +62,7 @@ engloba todos eles: **o alerta que não desligou mesmo depois que o peso mudou.*
 | 3 | Espelho — antecipar | Planejar a comida antes de sair, não por organização, mas por defesa |
 | 4 | Espelho — eventos sociais | Festa/jantar/fim de semana vividos como ameaça de "perder tudo" |
 | 5 | A virada | Tira o peso da culpa + nomeia a raiz em linguagem leve: "o peso mudou, mas a confiança ainda não voltou" |
-| 6 | Convite | Define pra quem é o perfil + CTA seguir (sair do medo, reconstruir confiança) |
+| 6 | Convite | Define pra quem é o perfil + CTA seguir (entender o que mantém o alerta, reconstruir confiança) |
 
 A virada acontece no slide 5: até ali é reconhecimento (dor), a partir dali
 é alívio + direção (não é você, é a confiança que não voltou). O slide 6

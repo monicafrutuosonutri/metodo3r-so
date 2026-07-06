@@ -67,8 +67,8 @@ Aqui eu falo com mulheres
 que emagreceram,
 mas ainda vivem em vigilância.
 
-Siga para entender como sair
-do medo e reconstruir confiança
+Siga para entender o que mantém esse alerta —
+e como reconstruir confiança
 nas suas escolhas.
 
 ---
@@ -97,7 +97,7 @@ Isso não é frescura. Nem falta de força de vontade.
 Muitas vezes, o peso mudou. Mas a confiança ainda não voltou.
 
 Aqui eu falo com mulheres que emagreceram, mas ainda vivem em vigilância.
-Siga para entender como sair do medo e reconstruir confiança nas suas escolhas.
+Siga para entender o que mantém esse alerta — e como reconstruir confiança nas suas escolhas.
 
 Me conta aqui embaixo: qual dessas cenas é a mais sua? ↓
 
@@ -105,8 +105,7 @@ Me conta aqui embaixo: qual dessas cenas é a mais sua? ↓
 .
 .
 
-#nutriçãocomportamental #método3r #reganhodepeso #comportamentoalimentar
-#glp1 #nutricionista #emagrecimento #confiançaalimentar
+#nutriçãocomportamental #método3r #comportamentoalimentar #posglp1 #posemagrecimento
 
 **Versão curta:**
 
@@ -115,11 +114,11 @@ Você emagreceu. Então por que ainda vive com medo?
 O peso mudou. Mas o alerta continuou.
 E, muitas vezes, a confiança ainda não voltou.
 
-Siga para entender como sair do medo e reconstruir confiança nas suas escolhas ↓
+Siga para entender o que mantém esse alerta — e como reconstruir confiança nas suas escolhas ↓
 
 Me conta: qual cena é a mais sua?
 
-#nutriçãocomportamental #método3r #glp1 #comportamentoalimentar
+#nutriçãocomportamental #método3r #posglp1 #comportamentoalimentar
 
 ---
 
