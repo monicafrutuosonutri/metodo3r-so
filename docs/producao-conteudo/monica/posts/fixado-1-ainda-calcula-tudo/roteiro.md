@@ -1,8 +1,9 @@
 # Roteiro — Fixado 1 (Carrossel Âncora)
 
 **Mônica Frutuoso | @monicafrutuoso.co**
-**Formato:** Carrossel — 7 slides | **Pilar:** O Espelho + convite
+**Formato:** Carrossel — 6 slides | **Pilar:** O Espelho + convite
 **Função:** Post fixado no topo do perfil
+**Tema:** Você emagreceu, mas ainda vive com medo?
 
 ---
 
@@ -10,77 +11,71 @@
 
 **SLIDE 1 — Capa**
 
-Você chegou no peso.
+Você emagreceu.
+Então por que ainda vive com medo?
 
-Mas ainda calcula
-cada garfada.
-
----
-
-**SLIDE 2 — Espelho (cena 1)**
-
-Você pesa todo dia —
-
-e o número decide
-como vai ser o seu humor.
+O peso mudou.
+Mas o alerta continuou.
 
 ---
 
-**SLIDE 3 — Espelho (cena 2)**
+**SLIDE 2 — Espelho (cena 1: a balança)**
 
-Você já combina o que vai comer
-antes de sair de casa.
+Você sobe na balança
+e o número decide o seu dia.
 
-Só pra não ser pega
+Não é só curiosidade.
+É como se ele dissesse
+se você pode relaxar ou não.
+
+---
+
+**SLIDE 3 — Espelho (cena 2: antecipar)**
+
+Você já pensa no que vai comer
+antes mesmo de sair de casa.
+
+Não por organização.
+Mas para não ser pega
 de surpresa.
 
 ---
 
-**SLIDE 4 — Espelho (cena 3)**
+**SLIDE 4 — Espelho (cena 3: eventos sociais)**
 
-E o domingo antes da festa
-já vem com um aperto no peito.
+Uma festa, um jantar,
+um fim de semana…
 
-Não pela festa.
-Pela comida.
+e parece que qualquer escolha
+pode colocar tudo a perder.
 
 ---
 
-**SLIDE 5 — O giro**
+**SLIDE 5 — A virada**
 
 Isso não é frescura.
 Nem falta de força de vontade.
 
-O peso era o sintoma.
-Não a causa.
+Muitas vezes, o peso mudou.
+Mas a confiança ainda não voltou.
 
 ---
 
-**SLIDE 6 — Nomear + pertencer**
+**SLIDE 6 — Convite**
 
-O que ninguém te avisou:
+Aqui eu falo com mulheres
+que emagreceram,
+mas ainda vivem em vigilância.
 
-emagrecer o corpo
-não emagrece o medo.
-
-E você não está sozinha nisso.
-
----
-
-**SLIDE 7 — Convite**
-
-Aqui eu falo com a mulher
-que emagreceu — e ainda vive vigiando.
-
-Segue pra entender o que
-ninguém te contou.
-E pra começar a se soltar.
+Siga para entender como sair
+do medo e reconstruir confiança
+nas suas escolhas.
 
 ---
 
 ## CTA
 
-**Primário:** Segue o perfil (fixado — objetivo é capturar a audiência certa).
+**Primário:** Seguir o perfil (fixado — objetivo é capturar a audiência certa).
 **Secundário (na legenda):** comentário de identificação.
 
 ---
@@ -89,21 +84,20 @@ E pra começar a se soltar.
 
 **Versão completa:**
 
-Você chegou no peso. Mas ainda calcula cada garfada.
+Você emagreceu. Então por que ainda vive com medo?
 
-Pesa todo dia — e o número decide o seu humor.
-Combina o que vai comer antes de sair de casa.
-O domingo antes da festa já vem com aperto no peito.
+O peso mudou. Mas o alerta continuou.
+
+Você sobe na balança e o número decide o seu dia.
+Você já pensa no que vai comer antes mesmo de sair de casa.
+Uma festa, um jantar, um fim de semana — e parece que qualquer escolha pode colocar tudo a perder.
 
 Isso não é frescura. Nem falta de força de vontade.
 
-O peso sempre foi o sintoma — não a causa.
-Porque emagrecer o corpo não emagrece o medo.
+Muitas vezes, o peso mudou. Mas a confiança ainda não voltou.
 
-E você não está sozinha nisso.
-
-Aqui eu falo com a mulher que emagreceu e ainda vive vigiando.
-Segue pra entender o que ninguém te contou — e pra começar a se soltar.
+Aqui eu falo com mulheres que emagreceram, mas ainda vivem em vigilância.
+Siga para entender como sair do medo e reconstruir confiança nas suas escolhas.
 
 Me conta aqui embaixo: qual dessas cenas é a mais sua? ↓
 
@@ -112,16 +106,16 @@ Me conta aqui embaixo: qual dessas cenas é a mais sua? ↓
 .
 
 #nutriçãocomportamental #método3r #reganhodepeso #comportamentoalimentar
-#glp1 #ozempic #mounjaro #nutricionista #emagrecimento #saúdementalalimentar
+#glp1 #nutricionista #emagrecimento #confiançaalimentar
 
 **Versão curta:**
 
-Você chegou no peso. Mas ainda calcula cada garfada.
+Você emagreceu. Então por que ainda vive com medo?
 
-Emagrecer o corpo não emagrece o medo.
-E você não está sozinha nisso.
+O peso mudou. Mas o alerta continuou.
+E, muitas vezes, a confiança ainda não voltou.
 
-Segue pra entender o que ninguém te contou ↓
+Siga para entender como sair do medo e reconstruir confiança nas suas escolhas ↓
 
 Me conta: qual cena é a mais sua?
 
@@ -129,4 +123,4 @@ Me conta: qual cena é a mais sua?
 
 ---
 
-*Roteiro — Fixado 1 | 06/07/2026. Ver `guia-producao.md` para hierarquia dos slides.*
+*Roteiro — Fixado 1 | atualizado 06/07/2026. Ver `guia-producao.md` para hierarquia dos slides e pontos de ética/CFN.*
