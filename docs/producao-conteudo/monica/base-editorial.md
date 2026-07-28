@@ -215,4 +215,23 @@ T23. A pergunta que quase ninguém faz depois que o peso desceu. Pilar 5.
 Aplicar sempre o checklist de docs/knowledge/regras-cfn.md antes de entregar qualquer roteiro ou lâmina.
 
 Nunca usar travessão.s
+## Assinatura e rodapé das artes
+
+
+
+O orgânico nunca carimba nome de produto na arte. Nada de "Confiança Blindada", "Blindagem Anti-Reganho" ou "Método 3R" no rodapé de carrossel ou post.
+
+O nome do produto vive na bio, na página de links e na landing page, nunca na peça de conteúdo.
+
+
+
+Rodapé permitido nas artes, escolher um:
+
+Opção 1, identidade profissional: Mônica Frutuoso, Nutrição Comportamental.
+
+Opção 2, posicionamento sem produto: Reconstruir a confiança depois do emagrecimento.
+
+
+
+Motivo: arte que carimba produto parece anúncio, é salva menos e entregue menos. O orgânico aquece, a bio converte.
 
