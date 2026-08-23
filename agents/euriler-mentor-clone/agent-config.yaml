@@ -9,7 +9,7 @@
 agent:
   id: "euriler-jube-clone"
   name: "Euriler Jube"
-  version: "3.2.0"
+  version: "3.1.0"
   type: "clone"
   domain: "Marketing Digital com Inteligencia Artificial"
   language: "pt-BR"
