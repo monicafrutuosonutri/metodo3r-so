@@ -1,1 +1,21 @@
-{ "language": "portuguese" }
+{
+  "language": "portuguese",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          { "type": "command", "command": "node .claude/hooks/auroq-sync.cjs --session-start", "timeout": 25000 }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node .claude/hooks/auroq-sync.cjs --remind", "timeout": 5000 }
+        ]
+      }
+    ]
+  }
+}

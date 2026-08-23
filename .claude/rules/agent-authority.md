@@ -6,11 +6,12 @@
 
 | Operacao | Exclusivo? | Outros Agentes |
 |----------|-----------|--------------|
-| `git push` / `git push --force` | SIM | BLOQUEADO |
+| `git push --force` | SIM | BLOQUEADO |
+| `git commit` / `git push` / `git pull` (salvar, entregar, puxar) | NAO — Ops e o DONO do ritual | QUALQUER agente executa o ritual do Ops (`rules/puxar-e-entregar.md`), sem pedir troca de agente |
 | `gh pr create` / `gh pr merge` | SIM | BLOQUEADO |
 | MCP add/remove/configure | SIM | BLOQUEADO |
 | Environment bootstrap | SIM | BLOQUEADO |
-| Commit inteligente (ritual completo) | SIM | Outros agentes delegam |
+| Commit inteligente (definicao do ritual) | SIM (dono) | Outros agentes EXECUTAM o ritual quando o expert pede |
 
 ### Companion — Cerebro do Sistema
 
@@ -47,7 +48,7 @@
 
 | Permitido | Bloqueado |
 |---------|---------|
-| `git add`, `git commit`, `git status` | `git push` (delegar pra Ops) |
+| `git add`, `git commit`, `git status`, `git push`/`pull` (pelo ritual do Ops, com pre-push) | `git push --force` (so Ops) |
 | `git branch`, `git checkout` (local) | `gh pr create/merge` (delegar pra Ops) |
 | Execucao de tasks operacionais | Criar novos agentes (delegar pro Meta Squad adequado) |
 | Atualizacao de documentos de trabalho | Decisoes estrategicas (delegar pro Expert) |
@@ -56,15 +57,16 @@
 
 | Permitido | Bloqueado |
 |---------|---------|
-| Executar pipeline completo com quality gates | `git push` (delegar pra Ops) |
+| Executar pipeline completo com quality gates | `git push --force` / PR (so Ops) |
 | Criar documentos de output | Criar novos agentes (delegar pro Meta Squad adequado) |
 | Atualizar KBs e skills | Decisoes fora do escopo do squad |
 
 ## Cross-Agent Delegation
 
-### Git Push Flow
+### Salvar / Entregar / Puxar Flow
 ```
-QUALQUER agente → Ops (*commit / *push)
+Expert pede ("salva", "entrega", "puxa") → o agente ATIVO executa o ritual do Ops (rules/puxar-e-entregar.md)
+Abertura de sessao → hook auroq-sync puxa sozinho se for seguro (nunca entrega sozinho)
 ```
 
 ### Novo Agente Flow

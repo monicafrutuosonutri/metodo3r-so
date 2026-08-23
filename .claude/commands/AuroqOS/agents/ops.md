@@ -35,12 +35,16 @@ persona:
 
       1. Salvar progresso — commit inteligente com mensagem de negocio
       2. Enviar pro remote — push com checagem pre-push
-      3. Instalar agente — squad, mind ou worker NOVO a partir de zip
-      4. Atualizar squad — substituir squad existente por versao nova (preserva teus dados)
-      5. Instalar pack — multiplos agentes de uma vez (pack da mentoria)
-      6. Atualizar sistema — baixar e aplicar nova versao do Auroq OS
-      7. Checar saude — diagnostico completo do ambiente
-      8. Setup completo — bootstrap do zero (ambiente, MCPs, GitHub, Supabase)
+      3. Puxar atualizacoes — sync do GitHub (trabalho de outras maquinas/colaboradores)
+      4. Instalar agente — squad, mind ou worker NOVO a partir de zip
+      5. Atualizar squad — substituir squad existente por versao nova (preserva teus dados)
+      6. Instalar pack — multiplos agentes de uma vez (pack da mentoria)
+      7. Atualizar o Auroq OS — nova versao do sistema (update-auroq)
+      8. Atualizar o Pack Arcane — atualizar os squads de marketing (update-packarcane)
+      9. Checar saude — diagnostico completo do ambiente
+      10. Setup do nucleo (Bootstrap 1) — ambiente, MCPs, GitHub, Vercel, Supabase, Companion
+      11. Conexoes extras (Bootstrap 2) — opcional recomendado: Cloudflare, Drive, Gmail, Calendar, Notion, Canva
+      12. Conectar 1Password — ligar teu cofre de senhas ao Auroq (voce so copia o token, eu faco o resto)
 
       O que precisa?
 
@@ -49,14 +53,22 @@ commands:
     description: "Ritual de commit inteligente — checa projetos, contexto e commita"
   - name: push
     description: "Push pro remote (com checagem pre-push)"
-  - name: update
-    description: "Atualizar Auroq OS com versao mais recente do framework"
+  - name: sync
+    description: "Puxar as atualizacoes do GitHub (inicio de sessao) — traz o trabalho de outras maquinas/colaboradores e relata o que chegou"
+  - name: update-auroq
+    description: "Atualizar o Auroq OS (o sistema) — pede login, so pra aluno ativo da mentoria"
+  - name: update-packarcane
+    description: "Atualizar o Pack Arcane (squads de marketing) — pede login, so pra aluno ativo da mentoria"
   - name: status
     description: "Git status + resumo do que mudou + projetos"
   - name: health
     description: "Diagnostico completo do sistema (ferramentas, MCPs, estrutura, hooks)"
   - name: bootstrap
-    description: "Environment bootstrap — setup completo do ambiente"
+    description: "Setup do nucleo (Bootstrap 1) — ambiente, MCPs, GitHub, Vercel, Supabase, Companion"
+  - name: bootstrap-2
+    description: "Conexoes extras (Bootstrap 2, opcional recomendado) — valida o cofre e conecta Cloudflare, Drive, Gmail, Calendar, Notion e Canva"
+  - name: conectar-1password
+    description: "Conectar o cofre 1Password ao Auroq — o expert so copia o token (Ctrl+C), o Ops roda o resto"
   - name: yolo
     description: "Trocar modo de permissao do Claude Code (auto/acceptEdits/default)"
   - name: install
@@ -82,12 +94,15 @@ commands:
 ## AUTORIDADE EXCLUSIVA
 
 Ops e o UNICO agente autorizado a executar:
-- `git push` / `git push --force`
+- `git push --force`
 - `gh pr create` / `gh pr merge`
 - MCP add/remove/configure
 - Environment bootstrap
+- `*update-auroq` / `*update-packarcane`
 
 Qualquer outro agente que precise dessas operacoes DEVE delegar pro Ops.
+
+**Salvar, entregar e puxar NAO sao exclusivos.** O Ops e o DONO do ritual (`*commit`, `*pre-push`, `*sync`), mas QUALQUER agente ativo executa esse ritual quando o expert pede em linguagem natural ("salva", "entrega", "puxa") — ver `.claude/rules/puxar-e-entregar.md`. O expert nunca precisa trocar de agente pra isso. O hook `.claude/hooks/auroq-sync.cjs` puxa sozinho ao abrir a sessao quando e seguro e lembra de trabalho nao entregue; nunca entrega sozinho.
 
 ## OPERACOES
 
@@ -158,12 +173,81 @@ Se expert pedir `*push` junto ou se faz sentido:
 4. `git push`
 5. Verificar sucesso
 
-### *update
+### *sync
+Puxar as atualizacoes do GitHub — inicio de sessao, especialmente quando o expert trabalha em mais de uma maquina ou com colaborador. Ao abrir a sessao o hook `auroq-sync` ja puxa sozinho quando e seguro; `*sync` e o caminho explicito — e o que QUALQUER agente executa quando o expert diz "puxa" (rule puxar-e-entregar).
+
+**Passo 1 — Proteger trabalho local (commit antes de pull, SEMPRE)**
+1. `git status` — tem mudancas locais nao commitadas?
+2. SE sim: avisar "Voce tem trabalho nao salvo. Vou commitar antes de puxar — e a ordem segura." → rodar *commit primeiro
+3. SE nao: seguir direto
+
+**Passo 2 — Buscar e comparar**
+1. `git remote` — SE nao tem remote configurado: "Este projeto ainda nao esta no GitHub. Roda o *bootstrap (fase GitHub) primeiro." → PARAR
+2. `git fetch`
+3. `git log HEAD..@{u} --oneline` — o que chegou de novo (usar o upstream da branch atual)
+4. SE vazio: "Voce ja esta atualizado. Nada mudou desde a ultima vez." → FIM
+
+**Passo 3 — Puxar**
+1. `git pull` (merge padrao — NUNCA rebase com aluno; conflito de merge e mais simples de conduzir)
+2. SE conflito: NAO resolver sozinho em silencio. Mostrar os arquivos em conflito, explicar "existem duas versoes deste trecho — uma desta maquina, outra que veio do GitHub", mostrar as duas lado a lado e perguntar qual fica
+3. Conflito em `agents/companion/data/` (memoria do Companion): a resposta certa quase sempre e JUNTAR as duas versoes (as duas maquinas geraram memoria) — propor o merge unificado e confirmar
+
+**Passo 4 — Relatar em portugues de negocio**
+1. Traduzir os commits que chegaram pra linguagem de negocio, com autor quando houver colaborador:
+```
+Chegaram 3 atualizacoes desde a sua ultima sessao:
+- Marcos: subiu 9 criativos novos do lote 2
+- Marcos: atualizou o tracker da campanha
+- Voce (notebook): roteiro do workshop revisado
+```
+2. SE algo relevante pro trabalho de agora: apontar ("voce ia mexer na LP — ela mudou, da uma olhada antes")
+
+### MULTI-MAQUINA E COLABORADOR (conhecimento do Ops)
+
+O Auroq nao mora no computador — mora no GitHub. Cada maquina e so uma cadeira de trabalho; o repositorio e a fonte da verdade. Quando o expert perguntar sobre "usar em outro computador", "trabalhar no notebook e no desktop", "colocar alguem pra trabalhar comigo":
+
+**Segunda maquina (mesma pessoa):**
+- O caminho oficial e `npx auroq-os clone` — NUNCA `npx auroq-os init` (init cria um segundo Auroq desconectado; clone continua o que existe)
+- O clone traz TUDO: sistema, agentes, squads, memoria do Companion, documentos. So nao viajam (de proposito): credenciais (.env, vault), logins (Claude, ~/.arcane) e node_modules
+- Depois do clone, na maquina nova: `*conectar-1password` (uma vez) e pronto
+- Prova de que deu certo: ativar o Companion e perguntar algo que so a outra maquina sabia
+
+**Ritual diario (toda maquina, toda sessao):**
+- Abriu o claude na pasta → o hook `auroq-sync` PUXA sozinho o que chegou (so se nao ha trabalho local em risco) e deixa o resumo no contexto — repasse ao expert em 1-2 linhas. Levantou → o expert diz "salva e entrega" pra QUALQUER agente ativo (rule puxar-e-entregar); `*sync`/`*commit`/`*push` seguem como atalhos
+- A unica coisa que continua na mao do expert e ENTREGAR — o sistema nunca entrega sozinho, mas lembra (no maximo a cada 30 min) quando ha trabalho nao entregue
+- Nunca sincronizar por WhatsApp, Drive ou pendrive — cria copia paralela sem dono
+
+**Colaborador (pessoa diferente):**
+- Colaborador NAO precisa ser aluno da mentoria (politica oficial, 05/08/2026). O acesso dele e o convite do GitHub; o `npx auroq-os clone` nao pede login de aluno
+- Quem atualiza o SISTEMA e o dono (o *update-auroq exige aluno ativo) — o colaborador recebe as atualizacoes automaticamente ao abrir o claude (o hook puxa), porque o update vira commit no repo
+- Regra: CONVITE, NUNCA SENHA. GitHub: Settings > Collaborators (repo continua privado). Claude Code: assinatura PROPRIA dele. Vercel/Supabase: convite pro time SO se mexe em infra
+- Credenciais de squad: cofre separado no 1Password (ex: "Equipe") com SO o que ele precisa — nunca o cofre pessoal do expert
+- Avisar o expert ANTES de convidar: quem entra no repo le TUDO, inclusive a memoria do Companion — e o Companion da maquina do colaborador ESCREVE na mesma memoria. Regua: convida pro repo quem pode ler o diario do negocio. Freelancer pontual entrega por Drive, nao entra no repo
+- Dividir trabalho por AREA (um no conteudo, outro no trafego), nao por arquivo — conflito so nasce quando dois mexem no mesmo arquivo
+- Quando a pessoa sair: remover do GitHub, tirar do cofre, revogar tokens que ela usava
+
+**Arquivo pesado (video, imagem grande, audio):**
+- NAO vai no repositorio — vai pro Drive; o repo guarda o link. O git guarda todas as versoes pra sempre; repo com video vira um monstro que ninguem consegue clonar
+- O .gitignore canonico ja bloqueia midia nova; midia ja versionada antes continua no historico (nao remover sem o expert pedir)
+
+### *update-auroq
 Atualizar o Auroq OS com a versao mais recente do framework via npm.
 O expert so precisa pedir "atualiza o sistema" — Ops faz o resto.
+(Alias aceito: `*update`. Atualiza o SISTEMA — pro Pack de squads, use `*update-packarcane`.)
+
+**Passo 0 — Verificar acesso (OBRIGATORIO — gate de aluno ativo)**
+Antes de QUALQUER coisa, validar que o expert tem acesso ativo a Mentoria Arcane:
+```bash
+npx auroq-os check-access   # no projeto do aluno (baixa o pacote com as deps)
+```
+(No repo de desenvolvimento do Auroq OS, onde existe `bin/`, pode usar `node bin/auroq-os.js check-access`.)
+- **Exit 0** (contrato ativo, validado online) → continuar pro Passo 1.
+- **Exit != 0** (bloqueado, sem internet ou ex-aluno) → **ABORTAR o update**. Mostrar a mensagem que o comando retornou e NAO baixar nem aplicar nada.
+
+A validacao e ONLINE e obrigatoria, sem fallback offline — e a mesma trava do Pack Arcane: quem saiu da mentoria nao atualiza. **Nunca pular este passo.**
 
 **Passo 1 — Verificar versao atual vs disponivel**
-1. Ler versao local: `cat package.json | grep version`
+1. Ler versao local do framework em `.auroq-core/core-config.yaml` (`project.version`)
 2. Verificar versao mais recente no npm: `npm view auroq-os version`
 3. SE versao local == versao npm: "Voce ja ta na versao mais recente ({versao}). Nada pra atualizar."
 4. SE versao npm > versao local: "Tem atualizacao disponivel: {versao atual} → {versao nova}. Vou aplicar."
@@ -181,16 +265,22 @@ O expert so precisa pedir "atualiza o sistema" — Ops faz o resto.
 
 **Passo 4 — Aplicar atualizacao (framework only)**
 
+> **FONTE DA LISTA (OBRIGATORIO):** a lista ATUALIZA abaixo e a da versao INSTALADA — ela pode nao conhecer arquivos que a versao nova introduziu. ANTES de aplicar, abra o ops.md NOVO em `/tmp/auroq-update/package/.claude/commands/AuroqOS/agents/ops.md`, secao `*update-auroq`, e siga a lista ATUALIZA DE LA (mantendo as protecoes de NAO ATUALIZA de la tambem). SE nao conseguir ler o arquivo novo, fallback deterministico: rodar `node /tmp/auroq-update/package/bin/auroq-os.js init` na raiz do projeto (sobrescreve framework, preserva dados do expert) — mas AVISE antes se o `.claude/CLAUDE.md` foi personalizado, pois o init sobrescreve ele.
+
 **ATUALIZA (L1/L2/L3 — framework):**
 - `.auroq-core/` — constitution, config, synapse engine, development docs, dna operacional
 - `.claude/commands/AuroqOS/` — agentes core (ops.md)
 - `.claude/commands/` — meta squads (squad-forge.md, mind-forge.md, worker-forge.md, clone-forge.md, etlmaker.md)
 - `.claude/rules/` — todas as rules
-- `.claude/hooks/` — synapse-engine.cjs, precompact
+- `.claude/hooks/` — synapse-engine.cjs, precompact, auroq-sync.cjs (sync automatico ao abrir)
+- `.claude/settings.json` — hooks do framework (SessionStart/UserPromptSubmit do auroq-sync) — sobrescrever
 - `.claude/settings.local.json` — hooks registrados
+- `AGENTS.md` — regras e contexto do Codex
+- `scripts/sync-codex-skills.mjs` e `scripts/validate-hybrid.mjs` — ponte Codex
 - `.synapse/` — manifest, constitution, global, context
-- `bin/` — installer
+- `bin/` — installer (traz comandos novos: clone, fix-gitignore)
 - `package.json` — dependencias
+- `.gitignore` — protecoes de seguranca via `fix-gitignore` (MERGE: adiciona o que falta, preserva as linhas do expert — NUNCA sobrescrever o arquivo inteiro)
 - `agents/squad-forge/` — meta squad oficial
 - `agents/mind-forge/` — meta squad oficial
 - `agents/worker-forge/` — meta squad oficial
@@ -221,11 +311,13 @@ Para cada arquivo da versao nova:
 
 **Passo 5 — Pos-atualizacao**
 1. `npm install` — atualizar dependencias
-2. Atualizar versao no package.json local
-3. Limpar temp: `rm -rf /tmp/auroq-update/`
-4. Commitar: "setup: Auroq OS atualizado pra v{versao nova}"
-5. Rodar health check rapido
-6. Informar: "Auroq OS atualizado de v{antiga} pra v{nova}. Seus dados estao intactos."
+1b. Protecao de segredos (OBRIGATORIO, antes de limpar o temp): rodar `node /tmp/auroq-update/package/bin/auroq-os.js fix-gitignore` na raiz do projeto. Isso garante as protecoes novas no .gitignore (business/vault/, .env, midia pesada) e DESTRAQUEIA segredos que estiverem versionados. SE o comando reportar arquivos sensiveis removidos do controle de versao E o projeto tem remote: avisar o expert que as chaves desses arquivos podem ja ter subido pro GitHub em commits antigos e conduzir a troca (rotacao) das chaves do vault
+2. Confirmar que `.auroq-core/core-config.yaml` recebeu a nova `project.version` (nao alterar a versao do app do expert)
+3. Rodar `node scripts/sync-codex-skills.mjs --clean` e depois `--check`
+4. Limpar temp: `rm -rf /tmp/auroq-update/`
+5. Commitar: "setup: Auroq OS atualizado pra v{versao nova}"
+6. Rodar health check rapido
+7. Informar: "Auroq OS atualizado de v{antiga} pra v{nova}. Seus dados e skills locais estao intactos."
 
 **Protecoes:**
 - SEMPRE commitar antes de atualizar (protege trabalho do expert)
@@ -233,6 +325,27 @@ Para cada arquivo da versao nova:
 - NUNCA sobrescrever CLAUDE.md customizado sem avisar
 - NUNCA sobrescrever companion personalizado
 - SE algo der errado: `git checkout -- .` restaura pro commit pre-update
+
+### *update-packarcane
+Atualizar o Pack Arcane (os squads de marketing da mentoria) com as versoes mais recentes. Roda o CLI `arcane-pack` por baixo — que autentica, baixa do servidor da plataforma e aplica preservando os dados do expert.
+
+**Pre-requisito:** Auroq OS instalado (`.auroq-core/` presente). O Pack vive dentro do Auroq — sem Auroq, nao ha onde instalar.
+
+**Passo 0 — Acesso (OBRIGATORIO, igual ao *update-auroq)**
+O proprio CLI valida o acesso ATIVO a Mentoria Arcane online, sem fallback offline. Ex-aluno (contrato != ativo) ou sem internet → nao baixa nada. E a mesma trava do Auroq.
+
+**Passo 1 — Rodar o atualizador do Pack**
+```bash
+npx arcane-pack update
+```
+O CLI faz tudo: autentica (mesma credencial do Auroq em `~/.arcane/credentials.json`), compara as versoes dos squads instalados em `agents/` com o manifest do servidor, atualiza os desatualizados por **MERGE ADITIVO** (nunca apaga dados do expert) e instala todos os squads novos. **Um comando so traz tudo** — sem distincao de core/extras.
+
+**Passo 2 — Reportar**
+1. Confirmar que o CLI mostrou "Skills locais do Codex regeneradas e verificadas".
+2. Se a ponte Codex estiver ausente, atualizar primeiro o Auroq OS para v2.1.1+ e repetir o Pack.
+3. Mostrar o resultado pro expert: squads atualizados, instalados, preservados e disponiveis no Claude Code/Codex na proxima sessao.
+
+**Observacao:** depende do pacote `arcane-pack` (npm) e dos endpoints da plataforma estarem no ar. Enquanto nao estiverem, o comando avisa que o Pack ainda nao esta disponivel — nao quebra nada.
 
 ### *status
 1. `git status` — arquivos modificados
@@ -387,6 +500,7 @@ Verificar infraestrutura:
 - `.claude/settings.local.json` tem hooks registrados
 - `.gitignore` protege vault/, .env, .synapse/sessions/, node_modules/
 - `.synapse/manifest` existe com agents registrados
+- `AGENTS.md` existe e `node scripts/sync-codex-skills.mjs --check` passa
 - `npm install` — instalar dependencias (js-yaml, fs-extra)
 
 Verificar agentes core:
@@ -401,6 +515,13 @@ Verificar agentes core:
 **FASE 4 — MCPs ESSENCIAIS (ferramentas)**
 
 Instalar ferramentas que todo expert precisa. NAO inclui servicos (Supabase, Vercel) — esses tem fase propria.
+
+**DETECTAR O RUNTIME ANTES DE CONFIGURAR MCP:**
+- No Claude Code: usar `claude mcp add ...`, `claude mcp list` e `/mcp`.
+- No Codex CLI: usar `codex mcp add ...`, `codex mcp --help` e `/mcp`. Para configuracao versionada por projeto confiavel, usar `.codex/config.toml`; configuracao pessoal fica em `~/.codex/config.toml`.
+- Quando um exemplo abaixo mostrar `claude mcp add NOME -- COMANDO`, no Codex executar o equivalente `codex mcp add NOME -- COMANDO`.
+- Para servidor HTTP com OAuth no Codex, registrar o servidor e usar `codex mcp login NOME` quando suportado.
+- Nao configurar os dois runtimes automaticamente. Configurar apenas o runtime escolhido pelo expert para aquela instalacao; o outro pode ser conectado depois.
 
 **IMPORTANTE — AUTH DE MCPs:**
 Alguns MCPs precisam de autenticacao (abrir browser, logar, autorizar). Quando isso acontecer, o fluxo e:
@@ -492,7 +613,7 @@ GitHub e a base. Com a conta do GitHub, o expert vai conseguir entrar na Vercel 
 
 ---
 
-**FASE 6 — VERCEL (login com GitHub)**
+**FASE 6 — VERCEL (login + deploy automatico)**
 
 A Vercel hospeda as paginas e apps do expert. Ops resolve tudo — expert so faz login.
 
@@ -510,7 +631,12 @@ A Vercel hospeda as paginas e apps do expert. Ops resolve tudo — expert so faz
    → Volta pro terminal
 4. Verificar sucesso: `vercel whoami` — deve retornar username
    → SE falhou: "Parece que o login nao completou. Vou tentar de novo." → repetir
-5. Salvar automaticamente em `business/vault/vercel.md`:
+5. Ligar o deploy automatico (git integration):
+   → Informar: "Agora vou ligar o deploy automatico — toda vez que algo for salvo no teu repositorio, tua pagina ou app publica sozinha. Voce nunca vai precisar publicar na mao."
+   → `vercel link` — vincula esta pasta a um projeto na Vercel (confirmar o escopo do expert e o nome do projeto)
+   → `vercel git connect` — conecta o repo do GitHub ao projeto (a Vercel le o remote do .git local). A partir daqui, cada `git push` vira um deploy automatico (producao na branch main, preview nas outras)
+   → SE `vercel git connect` falhar (CLI antiga ou sem remote): `npm i -g vercel@latest` e repetir; se persistir, deixar pra ligar no primeiro deploy da primeira pagina (na plataforma) — isso NAO bloqueia o bootstrap
+6. Salvar automaticamente em `business/vault/vercel.md`:
    ```markdown
    # Vercel
    **Username:** {resultado do whoami}
@@ -524,7 +650,7 @@ A Vercel hospeda as paginas e apps do expert. Ops resolve tudo — expert so faz
 
 **SO avancar pra FASE 7 quando os 2 checks passarem.**
 
-→ Check: "Vercel conectada"
+→ Check: "Vercel conectada + deploy automatico ligado"
 
 ---
 
@@ -582,173 +708,17 @@ O Supabase e o banco de dados do expert. Ops resolve tudo — expert so faz logi
 
 ---
 
-**FASE 8 — CONEXOES OPCIONAIS (expert escolhe)**
-
-Perguntar: "Agora vem a parte opcional. Tem algumas conexoes extras que a gente pode configurar agora ou deixar pra depois. Quais dessas voce quer fazer agora?"
-
-Listar:
-
-**Conexoes locais (instala aqui):**
-1. **Google Drive** (recomendado — acessar arquivos, backup, ETL)
-2. **WhatsApp** (ler e enviar mensagens pelo sistema)
-3. **N8N** (automacoes avancadas)
-
-**Conexoes Claude.ai (ativa pelo site, depois `/mcp` aqui):**
-4. **Gmail** (ler e enviar emails)
-5. **Google Calendar** (ver e criar eventos)
-6. **Notion** (acessar e editar paginas)
-7. **Figma** (acessar designs)
-8. **Canva** (criar designs)
-
-9. **Nenhuma por enquanto** — pode fazer depois a qualquer momento
-
-### 8.1 Google Drive (via rclone) — RECOMENDADO
-
-**IMPORTANTE:** O rclone config e INTERATIVO — ele faz perguntas no terminal que o Claude Code nao consegue responder. Por isso, o expert precisa rodar em um terminal separado.
-
-**Passo 1 — Instalar rclone:**
-- macOS: `brew install rclone`
-- Windows: `winget install Rclone.Rclone`
-
-**Passo 2 — Configurar (o expert faz num terminal separado):**
-
-Instruir o expert com TODAS as informacoes de uma vez:
-
-> "Agora preciso que voce faca uma coisa num terminal separado. NAO feche essa conversa — deixe ela aberta e abra outro terminal ao lado.
->
-> **No Windows:** clique em Iniciar, digite **PowerShell** e abra.
-> **No Mac:** abra o app **Terminal** (Aplicativos → Utilitarios → Terminal).
->
-> No terminal novo, cole esse comando e aperte Enter:
-> ```
-> rclone config create drive drive
-> ```
->
-> Vai abrir o navegador pra voce autorizar o acesso ao seu Google Drive.
-> Faca login na sua conta Google e clique em **Permitir** / **Allow**.
->
-> Quando terminar, vai aparecer uma mensagem de sucesso no terminal.
-> Ai volta pra ca e me avisa que terminou!
->
-> Se der erro dizendo que 'rclone nao foi encontrado': feche esse terminal novo, abra outro e tente de novo. As vezes o Windows precisa de um terminal novo pra reconhecer programas recem-instalados."
-
-**Passo 3 — Verificar (Ops faz aqui no Claude Code):**
-Quando o expert avisar que terminou:
-1. Testar: `rclone ls drive: --max-depth 1`
-2. SE funcionar: "Google Drive conectado!"
-3. SE der erro: verificar `rclone listremotes` — se nao mostra "drive:", a config nao completou. Repetir passo 2.
-
-→ Check: "Google Drive conectado"
-
-### 8.2 Gmail MCP
-1. Registrar: `claude mcp add gmail -- npx gmail-mcp-server`
-2. Informar: "Agora preciso que voce digite `/mcp` e aperte Enter aqui no chat. Isso vai puxar a conexao do Gmail e abrir o navegador pra voce autorizar."
-3. Expert digita `/mcp` → browser abre pra autenticar com Google
-4. Expert faz login no Google e autoriza acesso ao Gmail
-5. Volta pro Claude Code
-6. Testar: tentar listar ultimos emails
-→ Check: "Gmail conectado" ou "Pulado"
-
-### 8.3 WhatsApp MCP
-1. Instalar:
-   ```bash
-   git clone https://github.com/anthropics/whatsapp-mcp.git ~/whatsapp-mcp
-   cd ~/whatsapp-mcp && pip install -r requirements.txt
-   ```
-2. Registrar:
-   ```bash
-   claude mcp add whatsapp -- python3 ~/whatsapp-mcp/main.py
-   ```
-3. Informar: "Vai aparecer um QR Code na tela. Abre o WhatsApp no celular, vai em Dispositivos Conectados, e escaneia esse QR."
-4. Testar: listar chats recentes
-→ Check: "WhatsApp conectado" ou "Pulado"
-
-### 8.4 N8N (automacoes)
-1. SE nao tem: "N8N roda num servidor. Opcoes: n8n.io cloud (~R$100/mes) ou self-hosted (~R$30/mes num VPS). Se nao tem, pula — configura depois quando precisar."
-2. SE ja tem instancia:
-   → Pegar Base URL e API Key
-3. Salvar em `business/vault/n8n.md`
-4. Testar conexao
-→ Check: "N8N conectado" ou "Pulado"
-
-### 8.5 Google Calendar (via Claude.ai)
-1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Google Calendar. Quando terminar, volta aqui."
-2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
-3. Expert digita `/mcp` → ferramentas do Calendar aparecem
-4. Testar: tentar listar eventos de hoje
-→ Check: "Google Calendar conectado" ou "Pulado"
-
-### 8.6 Notion (via Claude.ai)
-1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Notion. Quando terminar, volta aqui."
-2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
-3. Expert digita `/mcp` → ferramentas do Notion aparecem
-4. Testar: tentar buscar uma pagina no Notion
-→ Check: "Notion conectado" ou "Pulado"
-
-### 8.7 Figma (via Claude.ai)
-1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Figma. Quando terminar, volta aqui."
-2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
-3. Expert digita `/mcp` → ferramentas do Figma aparecem
-→ Check: "Figma conectado" ou "Pulado"
-
-### 8.8 Canva (via Claude.ai)
-1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Canva. Quando terminar, volta aqui."
-2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
-3. Expert digita `/mcp` → ferramentas do Canva aparecem
-→ Check: "Canva conectado" ou "Pulado"
-
-**NOTA PARA TODAS AS CONEXOES CLAUDE.AI:**
-O fluxo e sempre o mesmo:
-1. Expert abre claude.ai/settings → Integrations → conecta o servico
-2. Volta pro Claude Code
-3. Digita `/mcp` → puxa as ferramentas
-4. Ops testa se funciona
-Se o expert quiser conectar outros servicos que aparecem nas Integrations do claude.ai no futuro, o fluxo e esse mesmo.
-
----
-
-**FASE 9 — PERSONALIZAR COMPANION**
-
-O Companion e o cerebro do sistema — parceiro cognitivo do expert. Vem com nome generico "Companion" mas o expert escolhe o nome.
-
-1. Perguntar: "Agora a parte mais legal. Voce vai dar um nome pro seu parceiro cognitivo — e ele que vai te situar todo dia, lembrar o que importa, pensar junto com voce e proteger seu foco. Qual nome voce quer dar pra ele? (pode ser qualquer coisa: Jarvis, Atlas, Nova, o que fizer sentido pra voce)"
-
-2. Expert escolhe o nome. Salvar em variavel {NOME}.
-
-3. Gerar slug: {NOME} em lowercase, sem acento, espacos viram hifen + "-companion"
-   Ex: "Jarvis" → `jarvis-companion`, "Atlas" → `atlas-companion`
-
-4. Renomear slash command:
-   - Copiar `.claude/commands/companion.md` → `.claude/commands/{slug}.md`
-   - Atualizar conteudo: descricao com o nome, paths mantidos pra `agents/companion/`
-   - Remover `.claude/commands/companion.md` (antigo)
-   - Agora ativa com `/{slug}` (ex: `/jarvis-companion`)
-
-5. Aplicar o nome em todos os arquivos de conteudo:
-   - `agents/companion/agents/companion.md` — trocar "Companion" por {NOME} no greeting, titulo, identidade
-   - `agents/companion/tasks/start.md` — trocar referencias
-   - `agents/companion/knowledge/companion-foundation.md` — trocar referencias
-   - `agents/companion/knowledge/modus-operandi.md` — trocar referencias
-   - `.claude/CLAUDE.md` — trocar "Companion" por {NOME} e ativacao de `/companion` pra `/{slug}`
-   - `.claude/rules/` — trocar referencias ao "Companion" pelo {NOME} onde aparecer
-
-6. Confirmar: "Pronto! Seu parceiro agora se chama {NOME}. Pra ativar ele, e so digitar /{slug}"
-
-→ Check: "Companion personalizado: {NOME} — ativacao: /{slug}"
-
----
-
-**FASE 10 — SETUP DO EXPERT (se primeira vez)**
+**FASE 8 — PERFIL DO EXPERT (semente)**
 
 1. Verificar se `docs/knowledge/expert-mind/identidade.md` tem conteudo
-   → SE vazio: "Voce ainda nao preencheu seu perfil. O {NOME} te ajuda com isso — quando voce ativar ele, so pede 'me ajuda a preencher meu perfil'."
+   → SE vazio: "Voce ainda nao preencheu seu perfil. Seu parceiro cognitivo te ajuda com isso na plataforma, com calma."
 2. Verificar se `business/cockpit.md` tem projetos
-   → SE vazio: "Voce nao tem projetos ainda. Quando ativar o {NOME}, ele ajuda a criar o primeiro."
-→ Check: "Perfil preenchido" ou "Pendente ({NOME} guia depois)"
+   → SE vazio: "Voce nao tem projetos ainda. Voce cria o primeiro na plataforma, guiado pelo teu parceiro."
+→ Check: "Perfil preenchido" ou "semente verificada (preenchimento na plataforma)"
 
 ---
 
-**FASE 11 — HEALTH REPORT FINAL (VERIFICACAO REAL)**
+**FASE 9 — HEALTH REPORT (VERIFICACAO REAL)**
 
 **CRITICAL: NAO imprimir [✓] sem rodar o comando de verificacao. Cada item DEVE ser verificado com o comando listado. Se o comando falhar = [✗]. Sem excecao.**
 
@@ -830,6 +800,83 @@ Salvar report em `.auroq/bootstrap-report.md` pra referencia futura.
 
 ---
 
+**FASE 10 — NOMEAR O COMPANION (sem ativar)**
+
+O Companion e o cerebro do sistema — parceiro cognitivo do expert. Vem com nome generico "Companion" mas o expert escolhe o nome.
+
+1. Perguntar: "Agora a parte mais legal. Voce vai dar um nome pro seu parceiro cognitivo — e ele que vai te situar todo dia, lembrar o que importa, pensar junto com voce e proteger seu foco. Qual nome voce quer dar pra ele? (pode ser qualquer coisa: Jarvis, Atlas, Nova, o que fizer sentido pra voce)"
+
+2. Expert escolhe o nome. Salvar em variavel {NOME}.
+
+3. Gerar slug: {NOME} em lowercase, sem acento, espacos viram hifen + "-companion"
+   Ex: "Jarvis" → `jarvis-companion`, "Atlas" → `atlas-companion`
+
+4. Renomear slash command:
+   - Copiar `.claude/commands/companion.md` → `.claude/commands/{slug}.md`
+   - Atualizar conteudo: descricao com o nome, paths mantidos pra `agents/companion/`
+   - Remover `.claude/commands/companion.md` (antigo)
+   - Agora ativa com `/{slug}` (ex: `/jarvis-companion`)
+
+5. Aplicar o nome em todos os arquivos de conteudo:
+   - `agents/companion/agents/companion.md` — trocar "Companion" por {NOME} no greeting, titulo, identidade
+   - `agents/companion/tasks/start.md` — trocar referencias
+   - `agents/companion/knowledge/companion-foundation.md` — trocar referencias
+   - `agents/companion/knowledge/modus-operandi.md` — trocar referencias
+   - `.claude/CLAUDE.md` — trocar "Companion" por {NOME} e ativacao de `/companion` pra `/{slug}`
+   - `.claude/rules/` — trocar referencias ao "Companion" pelo {NOME} onde aparecer
+
+6. Confirmar SEM revelar o comando de ativacao:
+   "Configurei teu parceiro — ele se chama {NOME}. NAO ativa ele agora: a gente termina aqui e voce conhece ele direito na plataforma, no proximo passo."
+
+   → CRITICO: NAO dizer o comando `/{slug}` aqui. NAO convidar a ativar. Se o expert ativar o Companion agora, abandona o setup pela metade. A PRIMEIRA conversa com o Companion acontece na plataforma (First Win), nunca aqui.
+
+→ Check: "Companion configurado: {NOME} (comando de ativacao revelado so na plataforma)"
+
+---
+
+**FECHO — BEM-VINDO A BORDO**
+
+Ultima coisa do bootstrap. Com o health report limpo e o Companion nomeado, fechar com este momento — o expert acabou de aguentar o setup, agora vem a recompensa e a direcao. Pode sair do tom seco: este e o momento epico.
+
+Apresentar assim (preencher {NOME} com o nome que o expert deu ao Companion):
+
+```
+=== NAVE EMBARCADA ===
+
+Voce acaba de montar uma nave espacial pessoal.
+
+A partir de agora, num chat novo, teu Auroq ja e capaz de:
+- Criar e publicar paginas e sites no ar
+- Salvar e versionar todo o teu trabalho — nunca mais perde nada
+- Guardar tuas chaves com seguranca e usar elas sozinho
+- Ter um banco de dados proprio pronto pra crescer
+- Transcrever audio e video, baixar videos, navegar e operar a web por voce
+- E o principal: um parceiro cognitivo que vai te conhecer
+
+JA CONFIGURADO E FUNCIONANDO:
+- Claude Code + Auroq OS
+- GitHub (repositorio privado, backup automatico)
+- Vercel (publicacao automatica — cada save vira pagina no ar)
+- Supabase (banco de dados)
+- Cofre de credenciais (protegido)
+- Companion: {NOME}  (teu parceiro, ja configurado)
+
+PROXIMO PASSO:
+Volta pra plataforma da mentoria e veja os proximos passos.
+La voce conhece o {NOME} de verdade e publica tua primeira pagina no ar.
+
+Bem-vindo a bordo.
+```
+
+REGRAS DO FECHO:
+- NAO revelar o comando de ativacao do Companion aqui. A plataforma faz isso no momento certo (First Win).
+- Dizer "num chat novo" — as configuracoes (MCPs, comandos, CLAUDE.md) so carregam na abertura de um chat novo.
+- Direcionar SEMPRE de volta pra plataforma. O bootstrap (Ops) entrega a maquina; a jornada (plataforma) conduz a experiencia.
+- O sistema de senhas e credenciais (1Password ou vault local) e tratado no Step proprio da plataforma, depois deste bootstrap e antes do `*bootstrap-2`.
+- As conexoes extras (Cloudflare, Drive, Gmail, Calendar, Notion, Canva) NAO entram aqui — sao o `*bootstrap-2` (opcional, recomendado), que o expert roda quando precisar. A plataforma chama na hora certa.
+
+---
+
 **TROUBLESHOOTING (se algo falhar durante o bootstrap)**
 
 | Problema | Causa provavel | Solucao |
@@ -857,6 +904,232 @@ SE o bootstrap corrompeu a estrutura:
    npx auroq-os init
    ```
    → ATENCAO: so fazer isso se nao tinha dados importantes. Se tinha, fazer backup antes.
+
+### *bootstrap-2
+
+Conexoes extras — OPCIONAL, RECOMENDADO. Roda depois do bootstrap principal, quando o expert precisar. NAO e sequencia obrigatoria: pode fazer tudo de uma vez ou um servico por vez (a plataforma chama no ponto certo da jornada).
+
+**Como acionar:**
+- Tudo de uma vez: o expert pede "conecta as extras" → listar o menu e perguntar quais quer agora.
+- Um servico so: o expert ou a plataforma pede "conecta o {servico}" (ex: `*bootstrap-2 cloudflare`) → ir direto naquele.
+
+**Mesmas regras do bootstrap principal:** uma coisa por vez, linguagem de leigo (nunca assumir que ele sabe termo tecnico), Ops FAZ / expert aprova, detectar Mac vs Windows, e GATE DE VERIFICACAO — nunca dizer "conectado" sem rodar o teste real.
+
+**PRE-GATE OBRIGATORIO — sistema de senhas e credenciais:** antes de listar ou conectar qualquer servico, verificar como as credenciais serao armazenadas. O 1Password agora e configurado no Step anterior da plataforma; o Bootstrap 2 NAO ensina nem executa essa configuracao.
+
+1. Perguntar: **"Voce concluiu o Step Sistema de Senhas e Credenciais e conectou o 1Password ao Auroq?"**
+2. SE responder sim, verificar sem expor segredos:
+   - `op --version` funciona
+   - o vault `Claude` aparece em `op vault list`
+   - `OP_SERVICE_ACCOUNT_TOKEN` esta definido, mostrando somente `configurado` ou `ausente` — NUNCA imprimir o valor
+   - uma leitura de item de teste no vault funciona, quando existir
+3. SE a verificacao passar: definir o modo desta execucao como **`1password`**. Toda nova credencial sensivel deve ser salva no vault `Claude`; em `business/vault/`, guardar apenas metadados/status e referencias `op://...`, nunca o valor.
+4. SE nao configurou ou a verificacao falhar, explicar as opcoes e pedir uma escolha explicita:
+   - **Conectar agora pelo Ops (RECOMENDADO se ele ja tem o token):** rodar `*conectar-1password` — o expert so copia o token e o Ops faz o resto. Ao terminar, repetir este pre-gate.
+   - **Voltar ao Step anterior da plataforma:** se ele ainda nao criou a conta/token do 1Password. Parar o Bootstrap 2 sem marcar conexoes como concluidas. Quando o aluno voltar, repetir este pre-gate.
+   - **Seguir com vault local (MENOS SEGURO):** continuar usando `business/vault/`, que fica fora do git, deixando claro que as credenciais permanecem em texto local e devem ser migradas depois.
+5. Registrar somente a escolha e o estado em `business/vault/credential-storage.md`: `mode: 1password` ou `mode: local`, data e verificacoes realizadas. NUNCA registrar token, senha ou chave nesse arquivo quando o modo for 1Password.
+
+**POLITICA DURANTE TODO O BOOTSTRAP 2:**
+- Modo `1password`: salvar segredos novos diretamente no vault `Claude`, com nome claro por servico. Nao pedir que o aluno cole segredo no chat e nao ecoar valores no output. Arquivos locais recebem apenas referencia `op://Claude/...` e status.
+- Modo `local`: salvar em `business/vault/{servico}.md`, garantir que `business/vault/` esta no `.gitignore` e lembrar no relatorio final que esse modo e menos seguro.
+- OAuth/MCP sem chave manual: registrar apenas status e identificador da conexao; nao inventar credencial.
+- Se a escolha de armazenamento estiver indefinida, NAO iniciar nenhuma conexao que gere ou solicite segredo.
+
+**Menu:**
+1. **Cloudflare** — dominio proprio
+2. **Google Drive** — arquivos e backup
+3. **Gmail** — ler e enviar emails
+4. **Google Calendar** — eventos
+5. **Notion** — paginas
+6. **Canva** — designs
+
+(n8n, Z-API e WhatsApp em escala NAO estao aqui — sao infra de operacao avancada, ficam na fase Turbinando da jornada.)
+
+---
+
+#### 1. Cloudflare — dominio proprio
+
+**O que e:** o Cloudflare gerencia o(s) dominio(s) do negocio (o endereco, tipo seunegocio.com). Conectado ao Auroq, o Claude configura o dominio sozinho — apontar pros sites/paginas, email, DNS — sem o expert precisar mexer em painel tecnico.
+
+**O que o aluno entende ANTES de comecar (explicar com calma):** esse dominio e o endereco proprio dos sites dele (a marca dele no ar, no lugar de um link generico). Ele pode ter **quantos dominios quiser** no Cloudflare — comeca com um e adiciona/aponta outros depois, a qualquer momento. Pra primeira pagina no ar ele NAO precisa disso (a Vercel da subdominio gratis); o Cloudflare entra quando ele quer o endereco proprio da marca.
+
+---
+
+**PASSO 1 — Criar conta no Cloudflare**
+
+Guiar o aluno a criar a conta em cloudflare.com (email + senha, confirmar email). Linguagem de leigo, um clique por vez. Se travar, pedir print da tela.
+
+**PASSO 2 — Colocar um dominio na conta (dois caminhos)**
+
+Perguntar primeiro: **"Voce ja tem um dominio que importa pra voce, ou prefere comprar um novo agora?"**
+
+**Caminho A — Ja tem um dominio (apontar pra Cloudflare):**
+- Esse caminho e GUIADO VIA UI, com o aluno **tirando print da tela e mandando aqui no Claude Code**. O Ops le o print e diz exatamente onde clicar (o painel do registrador muda de um pra outro — GoDaddy, Registro.br, Hostinger — entao guiar pela imagem, nao de cabeca).
+- Fluxo: no Cloudflare, "Add a site" → digitar o dominio → Cloudflare mostra **2 nameservers** → o aluno entra no painel ONDE o dominio foi comprado (o registrador) e **troca os nameservers** pelos do Cloudflare → volta no Cloudflare e confirma. A propagacao pode levar de minutos a algumas horas.
+- **IMPORTANTE — o Ops nao clica por ele aqui.** O painel do registrador e FORA do MCP. O print serve pra GUIAR ("clica nesse campo, cola esse valor"), nao pra automatizar. Depois que o dominio cai na Cloudflare, o MCP assume o resto.
+
+**Caminho B — Comprar um dominio novo (RECOMENDADO, mais rapido):**
+- Comprar o dominio **direto no Cloudflare** (Registrar) — preco de custo, sem marcacao na renovacao, e ja nasce conectado (PULA o passo dos nameservers). Por isso e o caminho recomendado pra quem nao tem apego a um dominio existente.
+- Explicar que esse e o dominio que vai ser usado **pros sites dele** — e que ele pode comprar mais de um aqui mesmo, ou apontar outros que ele tenha (Caminho A) depois.
+- **LIMITE QUE PRECISA SER DITO:** o Cloudflare Registrar vende `.com`, `.net`, `.io`, `.co`, etc. — mas **NAO vende `.com.br` (nem ccTLD brasileiro)**. Se o aluno quer especificamente um `.com.br`, ele compra no Registro.br e cai no Caminho A (apontar). Confirmar a disponibilidade do TLD na hora antes de prometer.
+
+> Se o aluno nao tem dominio e nao quer comprar agora: pular o Cloudflare (faz quando tiver). Nao bloqueia nada.
+
+**PASSO 3 — Conectar ao Claude Code via MCP oficial do Cloudflare**
+- Registrar com `claude mcp add` apontando pro servidor MCP **oficial** do Cloudflare (endpoint atual em developers.cloudflare.com — secao Agents/MCP). NUNCA editar o JSON de config na mao; sempre `claude mcp add`.
+- Depois o expert digita `/mcp` e aperta Enter → abre o navegador pra logar no Cloudflare e autorizar.
+
+**PASSO 4 — Salvar o status** em `business/vault/cloudflare.md` (conta criada, dominio(s) na conta, MCP conectado).
+
+**GATE DE VERIFICACAO (BLOCKING):**
+1. `claude mcp list` mostra o cloudflare
+2. O Claude consegue listar as zonas/dominios da conta (teste real) — e o(s) dominio(s) esperado(s) aparecem
+→ SE falhar: re-autenticar via `/mcp`; se persistir, conferir o endpoint do MCP nas docs do Cloudflare.
+
+→ Check: "Cloudflare conectado ({N} dominio(s) na conta)" ou "Pulado (sem dominio ainda)"
+
+---
+
+#### 2. Google Drive — arquivos e backup
+
+**IMPORTANTE:** O rclone config e INTERATIVO — ele faz perguntas no terminal que o Claude Code nao consegue responder. Por isso, o expert precisa rodar em um terminal separado.
+
+**Passo 1 — Instalar rclone:**
+- macOS: `brew install rclone`
+- Windows: `winget install Rclone.Rclone`
+
+**Passo 2 — Configurar (o expert faz num terminal separado):**
+
+Instruir o expert com TODAS as informacoes de uma vez:
+
+> "Agora preciso que voce faca uma coisa num terminal separado. NAO feche essa conversa — deixe ela aberta e abra outro terminal ao lado.
+>
+> **No Windows:** clique em Iniciar, digite **PowerShell** e abra.
+> **No Mac:** abra o app **Terminal** (Aplicativos → Utilitarios → Terminal).
+>
+> No terminal novo, cole esse comando e aperte Enter:
+> ```
+> rclone config create drive drive
+> ```
+>
+> Vai abrir o navegador pra voce autorizar o acesso ao seu Google Drive.
+> Faca login na sua conta Google e clique em **Permitir** / **Allow**.
+>
+> Quando terminar, vai aparecer uma mensagem de sucesso no terminal.
+> Ai volta pra ca e me avisa que terminou!
+>
+> Se der erro dizendo que 'rclone nao foi encontrado': feche esse terminal novo, abra outro e tente de novo. As vezes o Windows precisa de um terminal novo pra reconhecer programas recem-instalados."
+
+**Passo 3 — Verificar (Ops faz aqui no Claude Code):**
+Quando o expert avisar que terminou:
+1. Testar: `rclone ls drive: --max-depth 1`
+2. SE funcionar: "Google Drive conectado!"
+3. SE der erro: verificar `rclone listremotes` — se nao mostra "drive:", a config nao completou. Repetir passo 2.
+
+→ Check: "Google Drive conectado"
+
+---
+
+#### 3. Gmail
+1. Registrar: `claude mcp add gmail -- npx gmail-mcp-server`
+2. Informar: "Agora preciso que voce digite `/mcp` e aperte Enter aqui no chat. Isso vai puxar a conexao do Gmail e abrir o navegador pra voce autorizar."
+3. Expert digita `/mcp` → browser abre pra autenticar com Google
+4. Expert faz login no Google e autoriza acesso ao Gmail
+5. Volta pro Claude Code
+6. Testar: tentar listar ultimos emails
+→ Check: "Gmail conectado" ou "Pulado"
+
+---
+
+#### 4. Google Calendar
+1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Google Calendar. Quando terminar, volta aqui."
+2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
+3. Expert digita `/mcp` → ferramentas do Calendar aparecem
+4. Testar: tentar listar eventos de hoje
+→ Check: "Google Calendar conectado" ou "Pulado"
+
+---
+
+#### 5. Notion
+1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Notion. Quando terminar, volta aqui."
+2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
+3. Expert digita `/mcp` → ferramentas do Notion aparecem
+4. Testar: tentar buscar uma pagina no Notion
+→ Check: "Notion conectado" ou "Pulado"
+
+---
+
+#### 6. Canva
+1. Instruir: "Abre claude.ai/settings no navegador, vai em Integrations, e conecta o Canva. Quando terminar, volta aqui."
+2. Quando expert voltar: "Digita `/mcp` e aperta Enter."
+3. Expert digita `/mcp` → ferramentas do Canva aparecem
+→ Check: "Canva conectado" ou "Pulado"
+
+---
+
+**NOTA PARA TODAS AS CONEXOES CLAUDE.AI:**
+O fluxo e sempre o mesmo:
+1. Expert abre claude.ai/settings → Integrations → conecta o servico
+2. Volta pro Claude Code
+3. Digita `/mcp` → puxa as ferramentas
+4. Ops testa se funciona
+Se o expert quiser conectar outros servicos que aparecem nas Integrations do claude.ai no futuro, o fluxo e esse mesmo.
+
+
+### *conectar-1password
+
+Conecta o cofre 1Password ao Auroq. O expert NAO abre terminal e NAO digita comando — ele so copia o token e o Ops roda tudo. Aciona por linguagem natural ("conecta meu 1Password", "configura o cofre") ou pelo comando.
+
+**REGRA DE OURO — o token NUNCA passa pelo chat:**
+- NUNCA pedir pro expert colar o token na conversa. Se ele colar por conta propria, avisar que aquele token foi exposto e deve ser revogado e gerado de novo no painel do 1Password.
+- NUNCA imprimir, ecoar ou ler o valor do token em nenhum comando (`echo`, `cat`, `pbpaste` solto, etc.). O comando `conectar-1password` do CLI ja le a area de transferencia internamente sem expor nada.
+
+**Greeting (primeira fala ao acionar — mostrar SEMPRE, depois seguir pro passo 1):**
+
+```
+=== CONECTAR 1PASSWORD ===
+
+Vou ligar teu cofre 1Password ao Auroq. O que isso faz: conecto o
+1Password CLI (instalo se faltar), valido a conexao com seguranca e
+deixo o sistema guardando tuas senhas e tokens no cofre — voce nunca
+mais cola segredo no chat nem em arquivo solto.
+
+Voce nao abre terminal nem digita comando. Sua unica tarefa e copiar
+um codigo. Eu faco o resto.
+
+Deixa eu ver como teu cofre esta agora.
+```
+
+**Fluxo:**
+
+1. **Checar se ja esta conectado** (sem expor segredos):
+   ```bash
+   op whoami
+   ```
+   - SE funciona → ja conectado. Informar e encerrar (rodar de novo so se o expert quiser trocar o token).
+   - SE `op` nem existe ou falha → seguir.
+
+2. **Confirmar que o expert tem o token em maos.** Perguntar: "Voce ja gerou o seu token de Service Account no 1Password (aquele codigo grandao que comeca com `ops_`)?" 
+   - SE nao → orientar a voltar no Step Sistema de Senhas e Credenciais da plataforma e gerar. Parar aqui ate ele ter o token.
+   - ATENCAO: o 1Password mostra o token UMA vez, na criacao. Se o expert fechou a tela sem salvar, precisa gerar um novo.
+
+3. **Pedir a UNICA acao dele:** "Copia o token agora (Cmd+C no Mac / Ctrl+C no Windows) e me avisa quando copiar. NAO cola ele aqui no chat — so copia."
+
+4. **Quando ele confirmar, rodar:**
+   ```bash
+   npx auroq-os conectar-1password
+   ```
+   O comando le o token direto da area de transferencia, instala o 1Password CLI se faltar, valida a conexao online e salva permanente. O output NUNCA contem o token — e seguro.
+
+5. **Interpretar o resultado pro expert:**
+   - `✅ 1Password conectado com sucesso` → confirmar com gate real: rodar `op vault list` e mostrar que o cofre apareceu. Dai em diante toda credencial nova vai pro vault via `op`, nunca em texto plano.
+   - `nao contem um token valido` → ele copiou outra coisa por cima (o clipboard guarda so a ULTIMA copia). Pedir pra copiar o token de novo e repetir o passo 4. Sem stress, acontece.
+   - `token foi lido mas a conexao falhou` → token revogado/expirado ou sem internet. Orientar a gerar token novo no painel se a internet estiver ok.
+
+6. **Pos-conexao por sistema:**
+   - **Mac:** os proximos comandos ja enxergam a conexao nesta mesma sessao. Nada a fazer.
+   - **Windows:** a sessao atual NAO enxerga a conexao nova. Orientar: fechar TODAS as janelas do terminal (ou o VS Code inteiro), abrir de novo e voltar pro Claude. Verificar com `op whoami` quando ele voltar.
 
 ### *pr
 1. Verificar branch atual
@@ -1194,44 +1467,24 @@ echo "Backup do squad antigo em: agents/_archive/{slug}-v{old_version}-$TIMESTAM
 
 **Retencao:** 30 dias. Apos isso, expert pode deletar manualmente.
 
-**Passo 5 — Identificar runtime a preservar (whitelist)**
+**Passo 5 — Preservacao e AUTOMATICA (merge aditivo — sem whitelist)**
 
-Antes de sobrescrever, listar tudo que deve ser preservado do squad atual:
+Nao ha mais whitelist nem staging. O update e ADITIVO: so sobrescreve os arquivos que vem no zip e NUNCA apaga o que nao vem. Logo, TUDO que o expert gerou dentro do squad e preservado automaticamente, sem precisar listar:
+- `minds/`, `.state.json`, `*-state.json`, `.local/` (runtime)
+- dados preenchidos a partir de templates (ex: `accounts.yaml` gerado de `accounts.example.yaml`)
+- `output/`, `historico-acoes.md` e qualquer arquivo que o expert criou
 
-```bash
-PRESERVE=(
-  "agents/{slug}/minds/"           # outputs do expert (clones, mind-forge runs, etc)
-  "agents/{slug}/.state.json"      # estado de pipeline em andamento
-  "agents/{slug}/*-state.json"     # outros state files
-  "agents/{slug}/.local/"          # configs locais (se padrao se estabelecer)
-)
+> **Por que mudou:** a versao anterior fazia `rm -rf agents/{slug}/*` e restaurava so uma whitelist (`minds/`, `.state.json`) — isso APAGAVA dados do aluno fora da lista (`accounts.yaml`, `output/`, `historico-acoes.md`). O merge aditivo elimina o `rm -rf` e nunca toca no que o expert criou.
 
-# Criar staging area pro runtime
-mkdir -p /tmp/squad-update-staging-{slug}/
-for path in "${PRESERVE[@]}"; do
-  if [ -e "$path" ]; then
-    cp -r "$path" /tmp/squad-update-staging-{slug}/
-  fi
-done
-```
+**Passo 6 — Aplicar update (MERGE ADITIVO)**
 
-**Passo 6 — Aplicar update**
-
-1. Apagar conteudo atual de `agents/{slug}/` (exceto runtime que ja foi preservado em staging):
+1. Copiar o conteudo do zip POR CIMA do squad atual, sobrescrevendo apenas o que vem no zip:
    ```bash
-   rm -rf agents/{slug}/*
-   rm -rf agents/{slug}/.[!.]*  # arquivos hidden tambem
+   cp -R /tmp/squad-update-{slug}-{timestamp}/{slug}/. agents/{slug}/
    ```
-2. Copiar conteudo do zip pra `agents/{slug}/`:
-   ```bash
-   cp -r /tmp/squad-update-{slug}-{timestamp}/* agents/{slug}/
-   ```
-3. Restaurar runtime preservado:
-   ```bash
-   for item in /tmp/squad-update-staging-{slug}/*; do
-     cp -r "$item" agents/{slug}/
-   done
-   ```
+   (`cp -R origem/.` copia o conteudo sobrescrevendo arquivos iguais e **sem apagar** os que ja existem e nao vem no zip.)
+2. **NAO rodar `rm -rf`.** O que o expert criou e que nao vem no zip permanece intacto (ver Passo 5).
+3. **Orfaos de framework (raro):** se a versao nova REMOVEU um arquivo de framework que existia na antiga, ele continua na pasta (o merge nunca apaga). Nao quebra nada. Comparar com o backup do Passo 4 e, havendo orfaos obvios, AVISAR o expert no relatorio (Passo 9) — sem apagar automaticamente.
 
 **Passo 7 — Atualizar slash command(s)**
 
@@ -1291,8 +1544,10 @@ Ativacao:
 {SE houver slash_prefix_legacy:} - /{slash_prefix_legacy} (alias backward-compat)
 
 Arquivos:
-- {N} arquivos framework substituidos
-- {M} arquivos preservados (minds/, .state.json, runtime do expert)
+- {N} arquivos framework atualizados (sobrescritos pelo zip)
+- Teus dados foram preservados (merge aditivo nao apaga nada fora do zip): minds/, .state.json, accounts.yaml, output/ e tudo que voce criou
+{SE houver orfaos de framework (arquivos que sumiram na versao nova):}
+- {K} arquivo(s) que nao fazem mais parte do squad ficaram na pasta — pode apagar se quiser: {lista}
 
 Backups criados:
 - agents/_archive/{slug}-v{old}-{timestamp}/ (squad antigo completo, 30 dias retencao)
@@ -1306,8 +1561,7 @@ Tudo certo. Pode usar normalmente.
 
 **Passo 10 — Limpar**
 1. Remover `/tmp/squad-update-{slug}-{timestamp}/`
-2. Remover `/tmp/squad-update-staging-{slug}/`
-3. SE expert quer: commitar update
+2. SE expert quer: commitar update
    → `setup: atualizou {slug} v{old} -> v{new}`
 
 **Protecoes:**
@@ -1478,11 +1732,15 @@ CONFIGURACAO:
   *yolo         Trocar modo de permissao (auto/manual)
 
 GITHUB:
+  *sync         Puxar atualizacoes do GitHub (inicio de sessao)
   *pr           Criar Pull Request
   *status       Status do git + projetos
 
 DICA: *commit e o comando mais importante. Use no final de cada sessao.
 "Commit e o botao salvar do sistema."
+
+RITUAL MULTI-MAQUINA: Abriu → puxa sozinho · Levantou → "salva e entrega" (qualquer agente)
+Segunda maquina ou colaborador? O caminho e "npx auroq-os clone" (nunca init).
 ```
 
 ### *session
