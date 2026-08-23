@@ -212,7 +212,7 @@ Recomendado:
 - **Apos qualquer mudanca** em arquivos do squad-forge (tasks, agents, KB)
 - **Antes de gerar squad novo** se faz tempo que nao roda
 - **Mensalmente** como saude check de rotina
-- **Apos atualizacao do AIOS core** que pode afetar paths/schemas
+- **Apos atualizacao do Auroq core** que pode afetar paths/schemas
 
 ---
 

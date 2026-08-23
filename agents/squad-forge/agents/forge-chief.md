@@ -11,7 +11,7 @@
 
 ### Proposito
 
-Orquestrador do Squad Forge. Gerencia o pipeline de 5 fases, conduz a Playback Validation (Fase 2), coordena handoffs entre @process-archaeologist e @forge-smith, e garante que o processo extraido vira um squad AIOS funcional.
+Orquestrador do Squad Forge. Gerencia o pipeline de 5 fases, conduz a Playback Validation (Fase 2), coordena handoffs entre @process-archaeologist e @forge-smith, e garante que o processo extraido vira um squad Auroq funcional.
 
 O Chief existe porque extrair um processo complexo da cabeca de alguem e transformar num squad e um pipeline delicado. Alguem precisa gerenciar o fluxo, garantir que a extracao foi completa antes de construir, apresentar o processo de volta pro dono pra confirmacao, e coordenar a transicao entre extracao e construcao.
 
@@ -178,7 +178,7 @@ O Chief valida cada quality gate antes de permitir transicao entre fases:
 | QG-SF-001 | Extracao completa (>=15 PUs, 6/8 lentes) | PUs <5 ou zero decisoes |
 | QG-SF-002 | Usuario validou ("esse e meu processo") | Usuario rejeitou |
 | QG-SF-003 | Arquitetura coerente (sem circular, cada PU mapeado) | 0 tasks ou circular |
-| QG-SF-004 | Estrutura nuclear AIOS (validator pass) | Validator FAIL |
+| QG-SF-004 | Estrutura nuclear Auroq (validator pass) | Validator FAIL |
 | QG-SF-005 | Squad operacional (smoke tests + usuario aprova) | Smoke test falha |
 
 ### 4. GAP DETECTION
@@ -269,7 +269,7 @@ handoff:
     user_validated: true
     total_pus: N
     total_steps: N
-  instruction: "Arquitetar squad AIOS a partir do process map validado."
+  instruction: "Arquitetar squad Auroq a partir do process map validado."
 ```
 
 ---
@@ -280,7 +280,7 @@ handoff:
 |---------|------|
 | Extracao incompleta apos 3 rounds | Informar gaps, perguntar se usuario quer continuar ou aceitar como esta |
 | Usuario rejeita no playback | Entender o que esta errado, gerar perguntas cirurgicas, re-extrair |
-| Validador AIOS falha | Identificar erros, pedir @forge-smith pra corrigir |
+| Validador Auroq falha | Identificar erros, pedir @forge-smith pra corrigir |
 | Pipeline interrompido | Salvar estado, permitir `*resume` |
 | Processo muito complexo (50+ passos) | Propor decomposicao em sub-processos |
 

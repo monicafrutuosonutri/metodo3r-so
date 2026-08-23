@@ -1,6 +1,6 @@
 # Clone Forge
 
-Pipeline de clonagem cognitiva que transforma qualquer expert em um agente AIOS de alta fidelidade — voz, heuristicas, estilo de decisao preservados.
+Pipeline de clonagem cognitiva que transforma qualquer expert em um agente Auroq de alta fidelidade — voz, heuristicas, estilo de decisao preservados.
 
 ## Ativacao
 

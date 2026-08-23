@@ -168,7 +168,7 @@ autocontido:
 
   allowed_runtime_refs:
     - "squads/{this-squad}/"        # refs internas do proprio squad
-    - ".auroq-core/"                 # framework AIOS — todo aluno tem
+    - ".auroq-core/"                 # framework Auroq — todo aluno tem
     - "https://"                    # APIs/URLs externas (auth do aluno)
     - "http://localhost"            # dev local
 
@@ -191,7 +191,7 @@ autocontido:
       | grep -v "<!--" || echo "OK: nenhuma ref externa runtime"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# STORY-DRIVEN (Article III — Constitution AIOS)
+# STORY-DRIVEN (Article III — Constitution Auroq)
 # ─────────────────────────────────────────────────────────────────────────────
 story_driven:
   prd_required: true

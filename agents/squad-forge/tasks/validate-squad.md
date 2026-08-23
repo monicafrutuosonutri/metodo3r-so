@@ -30,7 +30,7 @@ execution_type: "interactive"
 
 ## Executive Summary
 
-Fase 5 do pipeline Squad Forge. Validacao final antes de marcar o squad como pronto. Combina validacao estrutural (AIOS compliance), smoke tests (cenarios reais), e aprovacao do usuario.
+Fase 5 do pipeline Squad Forge. Validacao final antes de marcar o squad como pronto. Combina validacao estrutural (Auroq compliance), smoke tests (cenarios reais), e aprovacao do usuario.
 
 **Posicao no Workflow:** Fase 5 — Apos Montagem (Fase 4). Ultima fase.
 **Definicao de Sucesso:** Squad validado + usuario aprova
@@ -268,7 +268,7 @@ cp -r minds/{slug}/04-squad/ squads/{squad-name}/
 
 **Sub-step 6.3 — Registrar skill em `.claude/commands/{slashPrefix}.md`:**
 
-Criar arquivo com formato padrao do AIOS:
+Criar arquivo com formato padrao do Auroq:
 
 ```markdown
 # {slashPrefix}
@@ -344,7 +344,7 @@ Pipeline:
 ✅ Fase 1: Extracao ({N} PUs, {N} rounds)
 ✅ Fase 2: Playback (validado pelo usuario)
 ✅ Fase 3: Arquitetura + PRD + Stories ({N} agentes, {N} tasks)
-✅ Fase 4: Montagem (AIOS compliant + profundidade)
+✅ Fase 4: Montagem (Auroq compliant + profundidade)
 ✅ Fase 5: Validacao + Instalacao Automatica
 
 Squad instalado em: squads/{squad-name}/

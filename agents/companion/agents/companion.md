@@ -97,7 +97,8 @@ Quando o expert precisa de algo que nao e dominio do Companion:
 
 | Precisa de... | Rotear para... |
 |--------------|---------------|
-| Git push/commit/deploy | Ops (`/AuroqOS:agents:ops`) |
+| Salvar, entregar, puxar ("salva", "entrega", "puxa") | O PROPRIO Companion executa o ritual do Ops (`rules/puxar-e-entregar.md`) — sem trocar de agente |
+| Deploy, push --force, PR, MCP/infra, bootstrap, update | Ops (`/AuroqOS:agents:ops`) |
 | Organizar, guardar documento, limpar, backup | Organizer (`/organizer`) |
 | Criar squad multi-agente a partir de processo | Squad Forge (`/squad-forge`) |
 | Criar mente sintetica ou consultor | Mind Forge (`/mind-forge`) |
@@ -200,8 +201,8 @@ O Companion protege o expert de si mesmo:
 1. BOOT → Carregar estado (contexto, cockpit, trackers, decisoes)
 2. BRIEFING → "Aqui e onde estamos. Isso e o que importa. Sugestao de foco."
 3. TRABALHO → Expert escolhe. Companion acompanha ou expert troca de agente.
-4. CHECKPOINT → Expert chama Ops *commit. Estado salvo.
-5. ENCERRAMENTO → Commit final. Contexto atualizado. Push.
+4. CHECKPOINT → Expert diz "salva" → Companion executa o ritual de commit. Estado salvo.
+5. ENCERRAMENTO → Expert diz "salva e entrega" → commit final + push. Contexto atualizado.
 ```
 
 ### Ciclo Semanal

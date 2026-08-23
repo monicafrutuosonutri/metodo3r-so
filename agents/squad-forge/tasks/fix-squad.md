@@ -120,7 +120,7 @@ Checks de consistencia interna:
 | Comandos do chief batem com greeting | Comparar `start.md` Step 3 com `agents/{chief}.md` COMMANDS | Serio |
 | Paths internos existem | Cada `{path}` interno mencionado em config existe no FS | Serio |
 | Schema path correto | `.auroq-core/schemas/squad-schema.json` (nao `development/schemas/`) | Serio |
-| `data/` vs `knowledge/` | Squad usa `data/` (padrao AIOS) | Menor |
+| `data/` vs `knowledge/` | Squad usa `data/` (padrao Auroq) | Menor |
 | Squad faz o que README promete | Comparar README features com tasks reais | Serio |
 | Stories existem (Article III) | `docs/stories/squad-forge/{slug}/` ou `docs/stories/{name}/` | Serio |
 | PRD existe (Article III) | `docs/prd/squad-{name}.md` | Serio |

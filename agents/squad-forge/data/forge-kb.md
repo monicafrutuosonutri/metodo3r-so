@@ -2,7 +2,7 @@
 
 ## O que e o Squad Forge
 
-Squad especialista em extracao profunda de processos e metodologias proprietarias do usuario. Transforma conhecimento tacito (que so existe na cabeca do dono) em squads AIOS funcionais.
+Squad especialista em extracao profunda de processos e metodologias proprietarias do usuario. Transforma conhecimento tacito (que so existe na cabeca do dono) em squads Auroq funcionais.
 
 ## Quando Usar
 
@@ -37,7 +37,7 @@ Fase 3: Arquitetura (15-30 min)
   → Gate: QG-SF-003
 
 Fase 4: Montagem (30-60 min)
-  → Gerar artefatos AIOS completos
+  → Gerar artefatos Auroq completos
   → Gate: QG-SF-004
 
 Fase 5: Validacao (10-20 min)
@@ -162,7 +162,7 @@ Na Fase 4 (assemble-squad, Step 6d), ANTES de prosseguir pro validator:
 
 **Cobertura < 80% = HALT.** Nao avanca ate completar.
 
-## Estrutura Nuclear AIOS (do Craft)
+## Estrutura Nuclear Auroq (do Craft)
 
 Todo squad gerado DEVE ter:
 - `squad.yaml` com name (kebab-case) + version (semver) — **NAO config.yaml** (deprecated)

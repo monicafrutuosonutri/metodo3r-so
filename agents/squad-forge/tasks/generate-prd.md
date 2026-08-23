@@ -40,7 +40,7 @@ Apos Playback validado (Fase 2), antes de Arquitetura (Fase 3), gerar PRD do squ
 
 ## Purpose
 
-Story-driven development e Article III da Constitution AIOS — NON-NEGOTIABLE. Hoje o squad-forge gera squad sem PRD, sem stories, sem rastreabilidade. Esta task corrige.
+Story-driven development e Article III da Constitution Auroq — NON-NEGOTIABLE. Hoje o squad-forge gera squad sem PRD, sem stories, sem rastreabilidade. Esta task corrige.
 
 PRD e ponte entre processo extraido (PUs) e arquitetura do squad. Sem PRD, decisoes arquiteturais ficam implicitas. Com PRD, sao defendidas.
 

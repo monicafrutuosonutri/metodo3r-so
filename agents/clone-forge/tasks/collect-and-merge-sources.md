@@ -319,7 +319,7 @@ tier_classification:
 3. Excepcoes automaticas de tier:
    - Assessment formal → sempre Tier 0
    - Entrevista profunda (Fase 1.5) → sempre Tier 0
-   - Skill AIOS → sempre Tier 1
+   - Skill Auroq → sempre Tier 1
    - Texto de terceiros sobre a pessoa → maximo Tier 3
 
 **Checkpoint:** Todos os fontes classificados por tier com score de curadoria.

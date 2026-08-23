@@ -240,7 +240,7 @@ Executar handoff para @process-archaeologist via extract-process task.
 | Processo ja tem documentacao | Oferecer UC3: "Ja tem doc? Posso pular extracao e ir direto pra construcao." |
 | Usuario quer extrair multiplos processos | Fazer 1 por vez: "Vamos comecar com o mais importante. Qual?" |
 | Usuario quer atualizar squad que nao existe | Listar squads disponiveis: "Esses sao os squads instalados: {lista}. Qual?" |
-| Usuario quer atualizar algo que nao e squad (ex: agente AIOS) | Redirecionar: "Isso e um agente core, nao squad. Posso ajudar de outra forma." |
+| Usuario quer atualizar algo que nao e squad (ex: agente Auroq) | Redirecionar: "Isso e um agente core, nao squad. Posso ajudar de outra forma." |
 
 ---
 

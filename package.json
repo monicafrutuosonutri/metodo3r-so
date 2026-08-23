@@ -5,5 +5,10 @@
   "private": true,
   "dependencies": {
     "js-yaml": "^4.1.0"
+  },
+  "scripts": {
+    "auroq:sync:codex": "node scripts/sync-codex-skills.mjs --clean",
+    "auroq:sync:codex:check": "node scripts/sync-codex-skills.mjs --check",
+    "auroq:validate": "node scripts/validate-hybrid.mjs"
   }
 }

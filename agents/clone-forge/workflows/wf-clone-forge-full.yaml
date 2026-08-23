@@ -100,7 +100,7 @@ phases:
 
     purpose: |
       Aceita qualquer formato: video, audio, PDF, docs, texto, YouTube,
-      redes sociais, AIOS skills, assessments. Normaliza tudo para markdown.
+      redes sociais, Auroq skills, assessments. Normaliza tudo para markdown.
 
     steps:
       - step: 1

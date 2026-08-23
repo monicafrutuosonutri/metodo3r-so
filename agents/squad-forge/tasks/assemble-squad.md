@@ -4,7 +4,7 @@ responsavel: "@forge-smith"
 responsavel_type: "agent"
 atomic_layer: "task"
 Entrada: "03-blueprint/squad-blueprint.yaml"
-Saida: "04-squad/ (diretorio completo do squad AIOS)"
+Saida: "04-squad/ (diretorio completo do squad Auroq)"
 Checklist:
   - "squad.yaml valido (name kebab-case + version semver)"
   - "agents/ com >=1 .md com frontmatter ou heading"
@@ -22,7 +22,7 @@ Checklist:
 execution_type: "semantic"
 ---
 
-# Task: Assemble Squad — Montagem dos Artefatos AIOS
+# Task: Assemble Squad — Montagem dos Artefatos Auroq
 
 **Task ID:** squad-forge/assemble-squad
 **Version:** 1.0.0
@@ -35,7 +35,7 @@ execution_type: "semantic"
 
 ## Executive Summary
 
-Fase 4 do pipeline Squad Forge. O @forge-smith gera todos os artefatos AIOS a partir do blueprint: squad.yaml, agents, tasks, workflows, checklists, knowledge base. Valida contra a estrutura nuclear do AIOS (squad-validator.js ou checklist interno).
+Fase 4 do pipeline Squad Forge. O @forge-smith gera todos os artefatos Auroq a partir do blueprint: squad.yaml, agents, tasks, workflows, checklists, knowledge base. Valida contra a estrutura nuclear do Auroq (squad-validator.js ou checklist interno).
 
 **Posicao no Workflow:** Fase 4 — Apos Arquitetura (Fase 3), antes de Validacao (Fase 5)
 **Definicao de Sucesso:** Squad completo que passa no squad-validator.js
@@ -45,7 +45,7 @@ Fase 4 do pipeline Squad Forge. O @forge-smith gera todos os artefatos AIOS a pa
 
 ## Purpose
 
-O blueprint diz O QUE o squad deve ser. Esta task CONSTROI o squad — gera cada arquivo seguindo os padroes AIOS. O resultado e um diretorio pronto pra copiar pra `squads/` e ativar.
+O blueprint diz O QUE o squad deve ser. Esta task CONSTROI o squad — gera cada arquivo seguindo os padroes Auroq. O resultado e um diretorio pronto pra copiar pra `squads/` e ativar.
 
 ---
 

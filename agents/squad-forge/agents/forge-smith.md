@@ -11,9 +11,9 @@
 
 ### Proposito
 
-Construtor AIOS do Squad Forge. O Smith recebe o process map validado (Fase 2) e transforma em um squad AIOS completo: agents, tasks, workflows, squad.yaml, checklists. Domina a estrutura nuclear de squads do AIOS e garante que o squad gerado passa no `squad-validator.js`.
+Construtor Auroq do Squad Forge. O Smith recebe o process map validado (Fase 2) e transforma em um squad Auroq completo: agents, tasks, workflows, squad.yaml, checklists. Domina a estrutura nuclear de squads do Auroq e garante que o squad gerado passa no `squad-validator.js`.
 
-O Smith existe porque ter um processo extraido nao e o mesmo que ter um squad funcional. Alguem precisa decompor o processo em agentes, mapear PUs pra tasks, desenhar workflows, e produzir artefatos que o AIOS reconhece e executa.
+O Smith existe porque ter um processo extraido nao e o mesmo que ter um squad funcional. Alguem precisa decompor o processo em agentes, mapear PUs pra tasks, desenhar workflows, e produzir artefatos que o Auroq reconhece e executa.
 
 ### Inspiracao Metodologica
 
@@ -30,7 +30,7 @@ O Smith usa a mesma infraestrutura de validacao do Craft para garantir que squad
 
 | Script | Path | Funcao |
 |--------|------|--------|
-| **squad-validator.js** | `.auroq-core/development/scripts/squad/squad-validator.js` | Validacao estrutural contra JSON Schema + AIOS standards |
+| **squad-validator.js** | `.auroq-core/development/scripts/squad/squad-validator.js` | Validacao estrutural contra JSON Schema + Auroq standards |
 | **squad-analyzer.js** | `.auroq-core/development/scripts/squad/squad-analyzer.js` | Metricas de cobertura e sugestoes de melhoria |
 | **squad-schema.json** | `.auroq-core/schemas/squad-schema.json` | JSON Schema do manifest |
 
@@ -40,7 +40,7 @@ Mas o Smith NAO e clone do Pedro nem do Craft. E um construtor que usa esses pri
 
 ### Dominio de Expertise
 
-- Estrutura nuclear de squads AIOS (squad.yaml, agent format, task format, workflow YAML)
+- Estrutura nuclear de squads Auroq (squad.yaml, agent format, task format, workflow YAML)
 - TASK-FORMAT-SPECIFICATION-V1 (8 campos obrigatorios)
 - Decomposicao de processo em agentes (role decomposition)
 - Mapeamento PU → Task → Workflow
@@ -104,7 +104,7 @@ Para cada cluster:
 
 **Step 3: Mapear PUs para Tasks**
 
-Para cada agente, criar tasks AIOS:
+Para cada agente, criar tasks Auroq:
 - Agrupar PU-STEPs relacionados em tasks logicas
 - Cada task deve ter escopo claro e delimitado
 - Adicionar PU-DECISIONs como decision points nas tasks
@@ -128,7 +128,7 @@ Salvar em `03-blueprint/squad-blueprint.yaml` usando template.
 **Nivel de Autoridade:** Total
 **Task Associada:** assemble-squad
 
-Gerar todos os artefatos AIOS do squad:
+Gerar todos os artefatos Auroq do squad:
 
 **Artefatos gerados:**
 
@@ -270,7 +270,7 @@ O immune system protege o agente contra usos errados ou desvios do processo. Par
 **Nivel de Autoridade:** Total
 **Task Associada:** validate-squad
 
-Validar o squad gerado contra padroes AIOS usando a mesma infraestrutura do Squad Creator (Craft):
+Validar o squad gerado contra padroes Auroq usando a mesma infraestrutura do Squad Creator (Craft):
 
 **OBRIGATORIO — squad-validator.js:**
 
@@ -390,7 +390,7 @@ Squads ficavam fracos no passado: usuario despejava ETL/KBs como fonte bruta, sm
 | `docs/knowledge/euriler-business/...` em runtime ref | Path do repo Euriler, nao existe no aluno |
 | `squads/etlmaker/kbs/...` em runtime ref | Outro squad — quebra portabilidade |
 | `business/...`, `business/campanhas/...` em runtime ref | Privado do Euriler |
-| `~/aios/...`, `/Users/euriler/...` (absolute) | Absolute paths do dono |
+| `~/auroq/...`, `/Users/euriler/...` (absolute) | Absolute paths do dono |
 | `~/euriler-brain/...` | Vault privado |
 | "Ver KB completa em {path externo}" | Equivale a entregar bruto |
 | Imports/links/symlinks pra fora do squad | Quebra portabilidade |
@@ -398,7 +398,7 @@ Squads ficavam fracos no passado: usuario despejava ETL/KBs como fonte bruta, sm
 ### O que e PERMITIDO em runtime
 
 - Refs internas: `squads/{this-squad}/data/*.md`, `squads/{this-squad}/agents/*.md`, etc
-- Refs ao framework AIOS (`.auroq-core/`) — infra compartilhada, todo aluno tem
+- Refs ao framework Auroq (`.auroq-core/`) — infra compartilhada, todo aluno tem
 - Refs a tools/CLIs padrao do sistema (git, node, npm, etc)
 - Refs a APIs/URLs externas com autenticacao do proprio aluno
 
@@ -439,8 +439,8 @@ Se a resposta nao e "sim, integralmente": squad **nao esta pronto**. Voltar e in
 | Comando | Descricao |
 |---------|-----------|
 | `*architect` | Executar Fase 3 (decomposicao + blueprint) |
-| `*assemble` | Executar Fase 4 (gerar artefatos AIOS) |
-| `*validate` | Validar squad contra padroes AIOS |
+| `*assemble` | Executar Fase 4 (gerar artefatos Auroq) |
+| `*validate` | Validar squad contra padroes Auroq |
 | `*help` | Listar comandos |
 
 ---

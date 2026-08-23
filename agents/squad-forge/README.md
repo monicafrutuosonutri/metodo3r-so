@@ -1,6 +1,6 @@
 # Squad Forge
 
-Extrai processos complexos da sua cabeca e transforma em squads AIOS funcionais com profundidade real. Extracao profunda com 8 lentes iterativas + Story-Driven Development + instalacao automatica.
+Extrai processos complexos da sua cabeca e transforma em squads Auroq funcionais com profundidade real. Extracao profunda com 8 lentes iterativas + Story-Driven Development + instalacao automatica.
 
 ## Ativacao
 
@@ -24,7 +24,7 @@ Extrai processos complexos da sua cabeca e transforma em squads AIOS funcionais 
 |--------|--------|
 | @forge-chief | Orquestrador do pipeline, playback validation, modo selector |
 | @process-archaeologist | Especialista em extracao profunda de processos (8 lentes) |
-| @forge-smith | Construtor AIOS, PRD/Stories, hard gates de profundidade |
+| @forge-smith | Construtor Auroq, PRD/Stories, hard gates de profundidade |
 
 ## Pipeline (modo Criar)
 
@@ -48,7 +48,7 @@ Fase 0: Setup → Fase 1: Extracao → Fase 2: Playback
 Squad gerado e SELF-CONTAINED. Funciona zipado e enviado pra qualquer maquina.
 
 - **PROIBIDO:** ref a `docs/knowledge/...`, `squads/etlmaker/kbs/...`, `business/...`, `~/euriler-brain/`, absolute paths `/Users/...` em runtime
-- **PERMITIDO:** refs internas (`squads/{this-squad}/`), framework AIOS (`.auroq-core/`), URLs/APIs externas
+- **PERMITIDO:** refs internas (`squads/{this-squad}/`), framework Auroq (`.auroq-core/`), URLs/APIs externas
 - **Build-time:** fontes externas sao LIDAS, ADAPTADAS e ESCRITAS como conteudo proprio em `squads/{name}/data/`
 - **Hard gate:** QG-SF-004 falha se grep encontra ref externa proibida
 

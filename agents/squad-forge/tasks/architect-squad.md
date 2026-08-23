@@ -31,7 +31,7 @@ execution_type: "semantic"
 
 ## Executive Summary
 
-Fase 3 do pipeline Squad Forge. O @forge-smith recebe o process map validado e transforma em arquitetura de squad AIOS: decompoe em agentes, mapeia PUs para tasks, desenha workflow e quality gates. Output: squad blueprint pronto pra montagem.
+Fase 3 do pipeline Squad Forge. O @forge-smith recebe o process map validado e transforma em arquitetura de squad Auroq: decompoe em agentes, mapeia PUs para tasks, desenha workflow e quality gates. Output: squad blueprint pronto pra montagem.
 
 **Posicao no Workflow:** Fase 3 — Apos Playback (Fase 2), antes de Montagem (Fase 4)
 **Definicao de Sucesso:** Blueprint coerente com cada PU mapeado, sem dependencia circular
@@ -97,7 +97,7 @@ HANDOFF -> assemble-squad
 
 ### Step 0: Generate PRD (delegacao para sub-task)
 
-> **Story-Driven Development — Article III da Constitution AIOS.**
+> **Story-Driven Development — Article III da Constitution Auroq.**
 >
 > ANTES de decompor em agentes, gerar PRD do squad. Sem PRD, decisoes arquiteturais ficam implicitas.
 

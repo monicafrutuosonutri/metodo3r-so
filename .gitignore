@@ -5,3 +5,31 @@ business/vault/
 .synapse/sessions/
 .synapse/metrics/
 *.log
+
+# ── Protecoes do Auroq OS (adicionadas automaticamente) ──
+# Segredos — NUNCA sobem pro GitHub
+.env.*.local
+.npmrc
+*.key
+*.pem
+
+# Runtime — se recria sozinho em cada maquina
+.auroq/
+.tmp/
+*.tmp
+
+# Skills do Codex — geradas por maquina
+.agents/skills/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Midia pesada — fica no Drive, nao no repo
+*.png
+*.jpeg
+*.jpg
+*.mp4
+*.mov
+*.mp3
+*.wav
