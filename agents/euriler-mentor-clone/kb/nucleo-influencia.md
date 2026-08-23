@@ -1,5 +1,7 @@
 # Nucleo de Influencia — Arcane (Experts)
 
+> **SNAPSHOT HISTORICO SUPERADO PARA POSICIONAMENTO.** Nao usar como promessa, publico ou nucleo vigente. Fonte canonica: `docs/knowledge/euriler-business/posicionamento/posicionamento-euriler-fonte-da-verdade.md`. A independencia de equipe/agencia/lancador/socio continua valida como aspiracao; outcome literal e claims de resultado nao.
+
 > Nucleo de influencia da mentoria Arcane — do zero a primeira venda.
 > Para a persona do publico amplo de captacao (workshop): `persona-workshop.md`
 > Para o posicionamento guarda-chuva da marca: `posicionamento-marca.md`

@@ -1,4 +1,6 @@
- # PERSONA CONSOLIDADA
+# PERSONA CONSOLIDADA
+
+> **SNAPSHOT HISTORICO SUPERADO PARA A MARCA EURILER.** Pode servir como evidencia/metodo da rota Expert, mas nao como publico vigente. Fonte canonica: `docs/knowledge/euriler-business/posicionamento/posicionamento-euriler-fonte-da-verdade.md`.
 ## O Expert que tem uma Mensagem para o Mundo
 
 **Documento estratégico definitivo**

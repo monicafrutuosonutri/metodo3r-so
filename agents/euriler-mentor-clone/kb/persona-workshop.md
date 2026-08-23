@@ -1,5 +1,7 @@
 # Persona do Workshop — Publico Amplo de Captacao
 
+> **SNAPSHOT HISTORICO SUPERADO.** Nao usar como persona vigente do Workshop ou da marca. Fonte canonica: `docs/knowledge/euriler-business/posicionamento/posicionamento-euriler-fonte-da-verdade.md`.
+
 > Documento estrategico do publico que entra pelo workshop NDF. Alimenta producao de conteudo (Metodo Audience), copy de anuncios, narrativa de vendas e posicionamento de captacao.
 > Baseado em 6.544 respostas de workshop + 3.610 aplicacoes de mentoria/IE + 73 respostas Tally pos-compra.
 > Criado: 23/03/2026 — Sessao 9 Jarvis
@@ -283,7 +285,7 @@ Nao e dev. Nao e tecnico. E um estrategista de negocios que construiu um negocio
 
 > "O futuro do trabalho ja chegou. A pergunta e se voce vai operar nele ou ser operado por ele."
 
-> "Eu nao sou programador. Sou um estrategista que usa IA como sistema operacional. E construi um negocio de meio milhao assim."
+> "Eu nao sou programador. Eu nao sou nem o cara da IA — sou o cara do MARKETING que dominou a IA. E rodo meu negocio inteiro assim, praticamente sozinho."
 
 **O que me indigna:**
 > "Gente boa, gente competente, gente que trabalha duro — sendo atropelada porque ninguem ensinou o jogo novo."
@@ -296,7 +298,7 @@ Nao e dev. Nao e tecnico. E um estrategista de negocios que construiu um negocio
 > "Eu sou Euriler Jube. Ensino profissionais a usar IA como sistema operacional de trabalho — pra produzir mais, depender menos, e operar no futuro que ja chegou."
 
 **Variacao (prova):**
-> "Construi um negocio de mais de meio milhao operando praticamente sozinho com IA. Agora ensino o sistema."
+> "Sao 9 anos de digital e mais de R$80 milhoes vendidos. Hoje eu rodo tudo praticamente sozinho com IA. Agora ensino o sistema."
 
 **Variacao (provocacao):**
 > "Enquanto todo mundo ta ensinando prompt, eu ensino sistema operacional. A diferenca? Prompt e brinquedo. Sistema e negocio."

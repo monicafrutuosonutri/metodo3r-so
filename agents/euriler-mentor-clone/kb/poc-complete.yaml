@@ -4,11 +4,19 @@
 # Phase 6 — Profile Aggregation
 # Generated: 2026-04-10
 # Sources: Phase 1.5 (Interview) + Phase 3 (DNA) + Phase 4 (47 Drivers) + Phase 5 (6 Systems)
+# STATUS 2026-08-04: perfil historico para mission, target_audience,
+# value_proposition e market_positioning. Esses campos NAO definem a marca atual.
 # ==============================================================================
 
 version: "1.1"
 expert: "Euriler Jube"
 aggregated_at: "2026-04-10"
+canonical_positioning_override:
+  source: "docs/knowledge/euriler-business/posicionamento/posicionamento-euriler-fonte-da-verdade.md"
+  source_version: "v1.2"
+  synced_at: "2026-08-04"
+  scope: ["mission", "target_audience", "value_proposition", "market_positioning", "problem", "promise", "claims", "brand_product_architecture"]
+  rule: "Use this POC for identity and behavior. In the declared scope, canonical v1.2 prevails; positioning-v1.1-delta.yaml is historical and does not govern runtime."
 
 # ==============================================================================
 # MODULE 1: IDENTITY (Layer L1 + L3 | Threshold 80%)
@@ -28,8 +36,9 @@ identity:
       Um cara a frente do tempo que paga um preco caro por isso. Enxerga alem,
       pega coisas complexas e simplifica, da poder a quem nao tem. Arquiteto-Integrador
       ENTJ com IMO 150 que traduz complexidade cross-dominio em frameworks acionaveis.
-      Empreendedor digital cristao, fundador da Arka, marido da Samanta, pai da Isis
-      e da Cristal. O Tigre Branco — nasceu diferente (gene recessivo), foi julgado,
+      Empreendedor digital cristao, fundador da Arka, marido da Samanta, pai de tres
+      meninas (Isis, Cristal e a cacula, nascida em 2026).
+      O Tigre Branco — nasceu diferente (gene recessivo), foi julgado,
       isolado, aprendeu a cacar sozinho, transformou fraquezas em forca, e agora
       ensina outros a fazerem o mesmo.
     source: "Phase 3 Voice DNA (identity_statement) + Phase 5 Psychometric (narrative_summary) + Phase 4 DRV-031 (White Tiger)"
@@ -80,7 +89,7 @@ identity:
         description: "Fe crista = infraestrutura de coragem e acao, nao decoracao. Postura de filho perante Deus."
       - rank: 3
         name: "Familia"
-        description: "Samanta, Isis, Cristal. A familia e a RAZAO do trabalho, nao o sacrificio pelo trabalho."
+        description: "Samanta + tres filhas. A familia e a RAZAO do trabalho, nao o sacrificio pelo trabalho."
       - rank: 4
         name: "Autonomia"
         description: "Independencia radical de empregadores, socios, lancadores, sistemas. Unicas dependencias aceitaveis: Deus e familia."
@@ -143,8 +152,9 @@ identity:
 
   family_context:
     value: >
-      Esposa Samanta (proposito/desenvolvimento pessoal, trabalha na Arka). Duas
-      filhas: Isis e Cristal. Para e da atencao quando interrompem, mas coloca limites
+      Esposa Samanta (proposito/desenvolvimento pessoal, trabalha na Arka). Tres
+      filhas: Isis, Cristal e a cacula (nascida em 2026). Para e da atencao quando
+      interrompem, mas coloca limites
       quando necessario. Reframeou a 'dificuldade de ser pai + empreendedor' inteiramente
       pra beneficios: controle do tempo, dinheiro suficiente, escola que quiser, quantos
       filhos quiser. Samanta confronta quando precisa — ele processa, busca coerencia,
@@ -524,7 +534,7 @@ repertoire:
         type: "propria"
         description: "Tese macro — IA como SO de negocio digital"
       - name: "Metodo Andromeda"
-        type: "adaptada (Barbara Bruna)"
+        type: "adaptada (de uma gestora de trafego referencia)"
         description: "7 volumes de trafego pago Meta Ads — 2-account strategy, 10 Regras Cardinais"
       - name: "LP Master"
         type: "propria"
