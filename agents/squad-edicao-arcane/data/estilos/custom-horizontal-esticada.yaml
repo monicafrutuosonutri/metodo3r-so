@@ -1,0 +1,19 @@
+# custom-horizontal-esticada — legenda neutra branca esticada pra video HORIZONTAL
+# Bebas Neue (forma condensada/esticada), branco puro, posicao baixa estilo filme.
+# Calibrado em 1280px (720p) com auto-escala via ref_width.
+
+nome: "custom-horizontal-esticada"
+descricao: "Bebas Neue branco puro, forma esticada, posicao baixa — horizontal/vendas."
+font: "Bebas Neue"
+fontsize: 58
+ref_width: 1280
+fontcolor: "white"
+borderw: 3
+bordercolor: "black"
+y_pos: 0.80
+mode: "single"
+shadow: false
+max_chars: 40
+max_chars_per_line: 38
+max_words: 8
+max_dur: 3.0

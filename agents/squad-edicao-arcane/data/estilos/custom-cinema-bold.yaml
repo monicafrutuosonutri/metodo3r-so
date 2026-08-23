@@ -1,0 +1,17 @@
+# custom-cinema-bold — Bebas em escala filme (menor + baixo), ainda classico
+
+nome: "custom-cinema-bold"
+descricao: "Bebas Neue branco stroke medio, escala filme horizontal (menor e mais baixo)."
+font: "Bebas Neue"
+fontsize: 48
+ref_width: 1920
+fontcolor: "white"
+borderw: 3
+bordercolor: "black"
+y_pos: 0.85
+mode: "single"
+shadow: false
+max_chars: 36
+max_chars_per_line: 34
+max_words: 7
+max_dur: 2.8

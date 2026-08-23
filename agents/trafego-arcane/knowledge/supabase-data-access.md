@@ -6,17 +6,33 @@ INSTRUCAO CRITICA: Sempre que precisar de metricas reais da campanha (vendas, le
 
 ## Credenciais
 
+**NUNCA escreva credencial neste arquivo nem em qualquer arquivo do squad.** As chaves vivem
+em variaveis de ambiente na sua maquina — o pacote nao carrega chave de ninguem.
+
+Crie um `.env` na raiz do seu projeto (o `.env` ja e ignorado pelo git e excluido do pack):
+
 ```
-SUPABASE_URL=https://tzvfkdqzdkftcqfourom.supabase.co
-SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM
-CAMPAIGN_REF=NDF0326
-# Launch slug do ciclo ativo (atualizar a cada shift):
-LAUNCH_SLUG=ndf-2026-03-28
+SUPABASE_URL=https://SEU-PROJETO.supabase.co
+SUPABASE_ANON_KEY=<sua chave anon do painel Supabase>
+CAMPAIGN_REF=<ref da sua campanha>
+LAUNCH_SLUG=<slug do ciclo ativo — atualizar a cada shift>
 ```
+
+Carregue antes de rodar os comandos:
+
+```bash
+set -a && source .env && set +a
+```
+
+Onde achar: painel do Supabase → Project Settings → API Keys. Se voce guarda segredos no
+1Password, prefira `export SUPABASE_ANON_KEY=$(op read "op://<vault>/<item>/<campo>")` —
+assim a chave nunca encosta no disco em texto claro.
+
+Todos os comandos abaixo usam `$SUPABASE_URL` e `$SUPABASE_ANON_KEY`.
 
 ## Dashboard Visual
 
-https://launch-command-center.vercel.app
+Se voce montou o painel do Launch Command Center, o endereco dele e o do seu proprio deploy.
 
 ---
 
@@ -25,11 +41,11 @@ https://launch-command-center.vercel.app
 ### 1. Dashboard Completo (total / ontem / hoje)
 
 ```bash
-curl -s -X POST 'https://tzvfkdqzdkftcqfourom.supabase.co/rest/v1/rpc/get_launch_dashboard' \
-  -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' \
+curl -s -X POST "$SUPABASE_URL/rest/v1/rpc/get_launch_dashboard" \
+  -H "apikey: $SUPABASE_ANON_KEY" \
+  -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
   -H 'Content-Type: application/json' \
-  -d '{"p_campaign_ref": "NDF0326"}' | python3 -m json.tool
+  -d '{"p_campaign_ref": "'"$CAMPAIGN_REF"'"}' | python3 -m json.tool
 ```
 
 **Retorna (por periodo: total, yesterday, today):**
@@ -52,11 +68,11 @@ curl -s -X POST 'https://tzvfkdqzdkftcqfourom.supabase.co/rest/v1/rpc/get_launch
 ### 2. Scoreboard de Criativos
 
 ```bash
-curl -s -X POST 'https://tzvfkdqzdkftcqfourom.supabase.co/rest/v1/rpc/get_creative_scoreboard' \
-  -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' \
+curl -s -X POST "$SUPABASE_URL/rest/v1/rpc/get_creative_scoreboard" \
+  -H "apikey: $SUPABASE_ANON_KEY" \
+  -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
   -H 'Content-Type: application/json' \
-  -d '{"p_campaign_ref": "NDF0326"}' | python3 -m json.tool
+  -d '{"p_campaign_ref": "'"$CAMPAIGN_REF"'"}' | python3 -m json.tool
 ```
 
 **Retorna (1 linha por criativo, ordenado por vendas desc):**
@@ -77,17 +93,17 @@ curl -s -X POST 'https://tzvfkdqzdkftcqfourom.supabase.co/rest/v1/rpc/get_creati
 ### 3. Vendas por Dia
 
 ```bash
-curl -s 'https://tzvfkdqzdkftcqfourom.supabase.co/rest/v1/v_campaign_sales?campaign_ref=eq.NDF0326&order=sale_date.asc' \
-  -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' | python3 -m json.tool
+curl -s "$SUPABASE_URL/rest/v1/v_campaign_sales?campaign_ref=eq.$CAMPAIGN_REF&order=sale_date.asc" \
+  -H "apikey: $SUPABASE_ANON_KEY" \
+  -H "Authorization: Bearer $SUPABASE_ANON_KEY" | python3 -m json.tool
 ```
 
 ### 4. Leads por Dia
 
 ```bash
-curl -s 'https://tzvfkdqzdkftcqfourom.supabase.co/rest/v1/v_campaign_leads?campaign_ref=eq.NDF0326&order=lead_date.asc' \
-  -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6dmZrZHF6ZGtmdGNxZm91cm9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTA2MTQsImV4cCI6MjA4NDUyNjYxNH0.Ajmg36iq6Aj3x9L5DjpYZKOYpnjImqxVtU9rw5vkEAM' | python3 -m json.tool
+curl -s "$SUPABASE_URL/rest/v1/v_campaign_leads?campaign_ref=eq.$CAMPAIGN_REF&order=lead_date.asc" \
+  -H "apikey: $SUPABASE_ANON_KEY" \
+  -H "Authorization: Bearer $SUPABASE_ANON_KEY" | python3 -m json.tool
 ```
 
 ---

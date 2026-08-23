@@ -1,0 +1,19 @@
+# custom-cinema-soft — documentario premium, sombra suave, sem contorno grosso
+
+nome: "custom-cinema-soft"
+descricao: "Montserrat branco com sombra suave, baixo na tela. Vibe documentario/premium."
+font: "Montserrat"
+fontsize: 40
+ref_width: 1920
+fontcolor: "white"
+borderw: 0
+shadow: true
+shadowx: 2
+shadowy: 2
+shadowcolor: "black@0.75"
+y_pos: 0.87
+mode: "single"
+max_chars: 42
+max_chars_per_line: 40
+max_words: 8
+max_dur: 3.0

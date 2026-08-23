@@ -1,22 +1,23 @@
 # SOP — Subir e Ajustar Campanha Meta Ads (Graph Marketing API)
 
-**Versão:** 1.1.0
+**Versão:** 1.2.0
 **Fonte:** Método Andromeda — Bárbara Bruna (parâmetros estratégicos)
-**Documentação técnica:** Meta Graph Marketing API v21.0 (validado contra payload real do Euriler em 2026-05-05)
-**Data extração:** 2026-05-05
-**Changelog v1.1.0:** corrigido `targeting_optimization: expansion_all` → `targeting_automation.advantage_audience: 1` (nome real do campo na v21). Adicionado `geo_locations.location_types`. Ajustado `attribution_spec` pra default real (`7d-click` apenas).
+**Documentação técnica:** Meta Graph Marketing API v26.0 (compliance validado em `validate_only` e readback real em 2026-08-23)
+**Data da última validação:** 2026-08-23
+**Changelog v1.2.0:** substitui o falso fix por texto `dsa_*` pela identidade verificada em `regional_regulation_identities`; adiciona `BRAZIL_REGULATION` + `VOLUNTARY_VERIFICATION`, preflight `validate_only` e readback bloqueante antes da ativação. Atualiza o runtime recomendado para v26.0.
+
+**Fonte técnica primária:** campo codegen oficial `REGIONAL_REGULATION_IDENTITIES` no [Meta Business SDK](https://github.com/facebook/facebook-php-business-sdk/blob/main/src/FacebookAds/Object/Fields/AdSetFields.php) + respostas/readbacks da Graph API da conta real. A documentação web da Meta pode exigir login; o contrato executável e o SDK oficial vencem nomes transitórios da interface.
 
 ---
 
-## ⚠️ Aviso Importante — MCP Meta Oficial
+## ⚠️ Regra — Este squad NÃO usa MCP Meta (opera por System User token)
 
-No momento desta extração, **NÃO existe MCP oficial Meta instalado no Auroq** (verificado via `claude mcp list` e `.mcp.json`). Por isso este SOP usa endpoints REST diretos do **Graph Marketing API** como contrato base.
+**O Tráfego Arcane opera SEMPRE via System User token + Graph Marketing API direta (curl/script). NUNCA via MCP Meta — mesmo que um MCP Meta esteja conectado na sessão.**
 
-**Quando o MCP Meta oficial for instalado**, qualquer ferramenta dele vai envelopar exatamente esses endpoints. Mapeamento: nome da tool MCP → endpoint REST aqui descrito.
+Pode existir um MCP "claude.ai Meta" disponível na sessão. **Ignore-o.** Ele autentica com a conta logada (OAuth), que **não é** o System User certo de cada BM — pode nem enxergar uma conta que só responde ao System User dela. Operar pelo MCP = risco de mexer na conta errada ou sem permissão. As credenciais certas, por conta, estão em `data/accounts.yaml` (cada BM aponta o `creds.helper`). Ver regra completa em `andromeda-rules.md` (⚙️ Regra de Operação do Squad).
 
 **Como usar esse documento:**
-- Como referência pra integração programática direta (Python SDK `facebook_business`, JS `facebook-nodejs-business-sdk`, ou HTTP cru)
-- Como contrato de testes pra validar que um MCP Meta cumpre o método
+- Como contrato dos endpoints REST do Graph Marketing API que o squad chama (HTTP cru via curl, ou SDK `facebook_business` / `facebook-nodejs-business-sdk`)
 - Como base pra escrever workers que sobem campanhas via n8n / scripts
 
 **Companion docs:**
@@ -30,10 +31,14 @@ No momento desta extração, **NÃO existe MCP oficial Meta instalado no Auroq**
 ```
 {ad_account_id}    = ID da conta de anúncios (ex: act_123456789)
 {access_token}     = token de longa duração com permissões ads_management + business_management
-{api_version}      = v20.0 (ou superior)
+{api_version}      = v26.0
 {pixel_id}         = ID do pixel
 {page_id}          = ID da página Facebook
 {ig_user_id}       = ID do perfil Instagram (Instagram User ID)
+{dsa_beneficiary}  = anunciante exibido publicamente na Biblioteca de Anúncios
+{dsa_payor}        = pagador exibido publicamente na Biblioteca de Anúncios
+{beneficiary_id}   = ID da empresa verificada escolhida como anunciante
+{payer_id}         = ID da empresa verificada escolhida como pagador
 ```
 
 **Endpoint base:**
@@ -135,7 +140,20 @@ Equivalente API do "partilhar até 20% do orçamento" (UI):
 }
 ```
 
-Quando trabalhando em ABO, a partilha é controlada por `is_budget_schedule_enabled` ou via configuração do Meta (campos exatos podem variar por versão).
+**Em ABO (orçamento no conjunto), o campo validado é `is_adset_budget_sharing_enabled` no nível da CAMPANHA — e é OBRIGATÓRIO:**
+
+```json
+{
+  "name": "TESTE_NDF_L0X",
+  "objective": "OUTCOME_SALES",
+  "special_ad_categories": [],
+  "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+  "is_adset_budget_sharing_enabled": true,   // ← obrigatório em ABO; true = partilha 20% ligada
+  "status": "PAUSED"
+}
+```
+
+> **Pegadinha validada (2026-06-29):** sem `is_adset_budget_sharing_enabled` ao criar campanha ABO, a Meta rejeita com `error_subcode 4834011` ("É necessário especificar True ou False... se você não estiver usando o orçamento da campanha"). Sempre incluir. `true` = padrão Andromeda (partilha de 20%).
 
 **Decisão Andromeda:**
 
@@ -177,6 +195,59 @@ Guardar `{campaign_id}` para os adsets.
 POST /{api_version}/act_{ad_account_id}/adsets
 ```
 
+### Anunciante e pagador verificados — OBRIGATÓRIO
+
+A tela atual da Meta **"Identifique quem se beneficia dos anúncios e quem paga por eles"** é configurada no nível do **adset**, não na campanha nem no anúncio.
+
+O contrato vigente da API é por **ID de identidade verificada**, não por nome livre:
+
+```json
+{
+  "regional_regulated_categories": [
+    "BRAZIL_REGULATION",
+    "VOLUNTARY_VERIFICATION"
+  ],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "{beneficiary_id}",
+    "universal_payer": "{payer_id}"
+  }
+}
+```
+
+Mapeamento UI → API:
+
+| UI Meta | API |
+|---------|-----|
+| Anunciante / beneficiário verificado | `regional_regulation_identities.universal_beneficiary` |
+| Pagador verificado | `regional_regulation_identities.universal_payer` |
+| Regulação brasileira | `regional_regulated_categories[] = BRAZIL_REGULATION` |
+| Verificação voluntária | `regional_regulated_categories[] = VOLUNTARY_VERIFICATION` |
+
+Default operacional **já comprovado por readback** para campanhas Euriler/NDF na BM `Anuncios Euriler 1`:
+
+```json
+{
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "1674529833798927",
+    "universal_payer": "1674529833798927"
+  }
+}
+```
+
+Esse ID é o BM/portfólio empresarial verificado da operação atual. **Não reutilizar cegamente em aluno, cliente, outra BM ou outra conta.** Resolver pelo `accounts.yaml` e confirmar em readback de um adset vigente. Se anunciante e pagador forem diferentes, cada chave recebe o ID verificado correto.
+
+`dsa_beneficiary` e `dsa_payor` são campos legados de texto. Podem continuar como informação complementar quando a conta devolver/preencher esses campos, mas **não satisfazem** a seleção obrigatória do anunciante verificado. Em teste real de 23/08/2026, `dsa_*` sozinho continuou falhando com `3858634`; `regional_regulation_identities` passou em `validate_only` mesmo sem `dsa_*`.
+
+#### Preflight obrigatório antes da criação
+
+1. Ler conta: `GET /act_{id}?fields=id,name,business,default_dsa_beneficiary,default_dsa_payor`.
+2. Ler um adset ativo da mesma conta: `fields=regional_regulated_categories,regional_regulation_identities`.
+3. Comparar os IDs com o perfil de compliance do `accounts.yaml`; divergência = **STOP**, não inferir.
+4. Depois do preview aprovado, executar o payload final com `execution_options=["validate_only"]`.
+5. Só fazer o POST real se o retorno for `{"success":true}`.
+6. Após criar/copiar, fazer readback dos dois campos e bloquear ativação se estiverem ausentes ou diferentes do preview.
+
 ### Payload Andromeda — [ESCALA] Conjunto 1 (Advantage+ Puro)
 
 ```json
@@ -188,6 +259,11 @@ POST /{api_version}/act_{ad_account_id}/adsets
   "billing_event": "IMPRESSIONS",
   "optimization_goal": "OFFSITE_CONVERSIONS",
   "destination_type": "WEBSITE",
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "{beneficiary_id}",
+    "universal_payer": "{payer_id}"
+  },
   "promoted_object": {
     "pixel_id": "{pixel_id}",
     "custom_event_type": "LEAD"
@@ -218,6 +294,11 @@ POST /{api_version}/act_{ad_account_id}/adsets
   "billing_event": "IMPRESSIONS",
   "optimization_goal": "OFFSITE_CONVERSIONS",
   "destination_type": "WEBSITE",
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "{beneficiary_id}",
+    "universal_payer": "{payer_id}"
+  },
   "promoted_object": {
     "pixel_id": "{pixel_id}",
     "custom_event_type": "LEAD"
@@ -255,6 +336,11 @@ POST /{api_version}/act_{ad_account_id}/adsets
   "billing_event": "IMPRESSIONS",
   "optimization_goal": "OFFSITE_CONVERSIONS",
   "destination_type": "WEBSITE",
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "{beneficiary_id}",
+    "universal_payer": "{payer_id}"
+  },
   "promoted_object": {
     "pixel_id": "{pixel_id}",
     "custom_event_type": "LEAD"
@@ -454,7 +540,7 @@ POST /{api_version}/act_{ad_account_id}/adcreatives
   "name": "C1-Quebra-Padrao-V1",
   "object_story_spec": {
     "page_id": "{page_id}",
-    "instagram_actor_id": "{ig_user_id}",
+    "instagram_user_id": "{ig_user_id}",
     "video_data": {
       "video_id": "{video_id}",
       "image_url": "https://...",
@@ -468,9 +554,9 @@ POST /{api_version}/act_{ad_account_id}/adcreatives
   },
   "degrees_of_freedom_spec": {
     "creative_features_spec": {
-      "standard_enhancements": {"enroll_status": "OPT_IN"},
-      "image_brightness_and_contrast": {"enroll_status": "OPT_IN"},
+      "text_optimizations": {"enroll_status": "OPT_IN"},
       "image_uncrop": {"enroll_status": "OPT_OUT"},
+      "image_animation": {"enroll_status": "OPT_OUT"},
       "video_auto_crop": {"enroll_status": "OPT_IN"}
     }
   }
@@ -484,7 +570,7 @@ POST /{api_version}/act_{ad_account_id}/adcreatives
   "name": "C1-Conteudo-Valor-Static-1",
   "object_story_spec": {
     "page_id": "{page_id}",
-    "instagram_actor_id": "{ig_user_id}",
+    "instagram_user_id": "{ig_user_id}",
     "link_data": {
       "image_hash": "{image_hash}",
       "link": "https://seusite.com.br/inscricao?utm_source=meta&utm_medium=ads&utm_campaign=escala",
@@ -527,8 +613,8 @@ Cada feature aceita: `OPT_IN` (ativar), `OPT_OUT` (desativar).
 
 | Feature | Decisão Andromeda |
 |---------|-------------------|
-| `standard_enhancements` (retoque, contraste) | ❌ DESCONTINUADO set/2026 — dá HTTP 400 (subcode 3858504). Ver Gotcha #12 |
-| `image_brightness_and_contrast` | `OPT_IN` |
+| `standard_enhancements` | ❌ DESCONTINUADO no payload — dá HTTP 400 (subcode 3858504). Ver Gotcha #12 |
+| `image_brightness_and_contrast` | ❌ não enviar junto do antigo pacote padrão |
 | `text_optimizations` (gerar variações de texto — 5 textos) | `OPT_IN` (vem ativo) |
 | `image_templates` (geração de imagens variantes) | `OPT_IN` se já vier ativo |
 | `image_uncrop` (sobreposição) | `OPT_OUT` (Bárbara: "vai que faz merda") |
@@ -928,6 +1014,9 @@ Exemplo — pausar ad com CPA acima de R$5:
     [ ] daily_budget igual em todos (centavos)
     [ ] optimization_goal: OFFSITE_CONVERSIONS
     [ ] destination_type: WEBSITE (ou omitir se OUTCOME_SALES)
+    [ ] regional_regulated_categories inclui BRAZIL_REGULATION + VOLUNTARY_VERIFICATION
+    [ ] regional_regulation_identities com universal_beneficiary + universal_payer verificados
+    [ ] validate_only passou antes do POST real
     [ ] promoted_object: pixel + custom_event_type
     [ ] targeting_automation.advantage_audience: 1
     [ ] sem bid_amount (CPA Máx)
@@ -940,22 +1029,24 @@ Exemplo — pausar ad com CPA acima de R$5:
     [ ] 3 × C2 (média)
     [ ] 3 × C3 (alta)
     [ ] Cada creative com:
-        - object_story_spec.page_id e instagram_actor_id
+        - object_story_spec.page_id e instagram_user_id
         - call_to_action definido (regra: 100% dos ads)
         - link com UTMs
         - degrees_of_freedom_spec.creative_features_spec:
-            * standard_enhancements: OPT_IN
             * text_optimizations: OPT_IN (5 variações automáticas)
             * image_uncrop: OPT_OUT
             * image_animation: OPT_OUT (3D)
+            * video_auto_crop: OPT_IN (vídeo)
 
 [ ] ADS (instanciar creatives nos adsets)
     [ ] adset_id correto
     [ ] creative.creative_id
     [ ] status: PAUSED
 
-[ ] PUBLICAR
-    [ ] status: ACTIVE em campanha → adsets → ads (nessa ordem)
+[ ] PUBLICAR (segunda aprovação humana)
+    [ ] ativar ADS primeiro enquanto os pais seguem PAUSED
+    [ ] ativar ADSETS depois
+    [ ] ativar CAMPANHA por último (evita entrega parcial)
 ```
 
 ---
@@ -1040,22 +1131,53 @@ custom_audiences = [{'id': a['id']} for a in source['custom_audiences']]
 - `execution_options` — não existe mais (HTTP 400)
 - `contextual_bundling_spec` — requer GK específico (`contextual_bundle_test_api_accounts`) — pular pra contas comuns
 
-### 5. `targeting.brand_safety_content_filter_levels`
+### 5. Identidade regulatória / `compliance_section` `3858634`
+
+Sintoma:
+
+```
+Transparência dos anúncios
+Selecione o anunciante e o pagador
+```
+
+Ou via API:
+
+```
+3858634 / compliance_section / anunciante ausente
+```
+
+**Diagnóstico atualizado em 23/08/2026 (Graph API v26.0):** `dsa_beneficiary`/`dsa_payor` e os defaults de texto da conta não selecionam a entidade verificada. A criação do zero passou a funcionar quando o payload incluiu:
+
+```json
+{
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "{ID_VERIFICADO}",
+    "universal_payer": "{ID_VERIFICADO}"
+  }
+}
+```
+
+Evidência da conta real: os adsets ativos devolvem os dois IDs em `regional_regulation_identities`, enquanto `dsa_*` não aparece. Quatro `validate_only` confirmaram: texto `dsa_*` e categorias sem identidade falharam com `3858634`; a identidade passou com e sem `dsa_*`.
+
+**Método primário vigente:** criar do zero com identidade regulatória explícita e validar antes. **Duplicação virou fallback**, útil quando a conta/versão ainda bloqueia o POST correto ou quando é necessário preservar outra configuração opaca. Ver `knowledge/sop-subir-campanha-duplicacao.md`.
+
+### 6. `targeting.brand_safety_content_filter_levels`
 
 Default Meta é `['FACEBOOK_FULL_INVENTORY']` (mais restritivo). Andromeda padrão usa `['FACEBOOK_RELAXED', 'AN_RELAXED']` (maior alcance). **Setar explícito** se quer match L01.
 
-### 6. `targeting.age_range` redundante
+### 7. `targeting.age_range` redundante
 
 L01 antigo tem `age_range: [18, 65]` E `age_min: 18`, `age_max: 65`. Em campanhas novas, basta `age_min/max` — `age_range` é redundante mas não atrapalha.
 
-### 7. Rate limit Meta — code 17
+### 8. Rate limit Meta — code 17
 
 Sintoma: `"User request limit reached"` — espera ~1h pra liberar. Conta típica aguenta ~200-400 calls/hora. Em pipelines de criação massiva (3 campanhas + 18 adsets + 144 ads), prepare:
 - Sleep 0.4-1s entre calls
 - Cache configs do template (L01) uma vez só
 - Use upload paralelo (5 workers) só pra uploads — adcreative/ads em sequência
 
-### 8. Ordem de criação importa
+### 9. Ordem de criação importa
 
 Criar adsets/ads **com `status: ACTIVE`** quando a campanha ainda está sem ads pode dar erro de orçamento. **Pattern seguro:**
 
@@ -1067,7 +1189,7 @@ Criar adsets/ads **com `status: ACTIVE`** quando a campanha ainda está sem ads 
 5. Ativar campanha (PATCH status: ACTIVE)
 ```
 
-### 9. URL UTMify do Euriler
+### 10. URL UTMify do Euriler
 
 URL canônica (não simplificar — `xcod` é hash da loja UTMify):
 
@@ -1075,14 +1197,22 @@ URL canônica (não simplificar — `xcod` é hash da loja UTMify):
 https://digitaldofuturo.ai/?utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&xcod=FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}
 ```
 
-### 10. Endpoint `/copies` da campanha — quando NÃO usar
+### 11. Endpoint `/copies` — FALLBACK pra subir lote novo quando a conta trava (anti-`3858634`)
 
-`POST /campaigns/{id}/copies` clona campanha **incluindo todos os ads antigos**. Se objetivo é "campanha nova com criativos novos", uma das duas:
+**Atualizado 2026-08-23:** o método primário é criar do zero com `regional_regulation_identities` e `regional_regulated_categories`, precedido por `validate_only`. `/copies` é fallback quando o payload correto ainda trava ou para preservar configuração opaca. Não usar duplicação para esconder identidade ausente: a cópia precisa devolver os mesmos IDs no readback.
 
-a) `/copies` + listar todos ads do clone + setar status DELETED neles + criar novos ads (mais calls)
-b) Criar campanha do zero replicando configs + criar adsets + criar ads (caminho usado nesta missão)
+**Padrão validado — duplicar no nível do CONJUNTO** (não da campanha):
 
-**Se voce quer fidelidade 100% pra L01 com mínimo esforço,** vai de (a). **Se quer estrutura customizada (mais adsets),** vai de (b).
+1. Criar a campanha nova do zero (campanha NÃO trava): `POST /campaigns` com `is_adset_budget_sharing_enabled`.
+2. Pra cada conjunto: `POST /{src_adset_id}/copies` com `campaign_id={nova}`, **`deep_copy=false`** (não arrasta os ads antigos), `status_option=PAUSED` → `copied_adset_id`.
+3. `POST /{copied_adset_id}` pra renomear + `daily_budget`. **Não editar targeting** (pode re-disparar 3858634).
+4. `POST /act/ads` pendurando os criativos NOVOS nas cópias.
+
+A cópia **herda o targeting da fonte** (interesses/públicos do tipo certo) **e o vínculo de compliance** — por isso passa. **Não modifica a fonte.**
+
+> Duplicar no nível da **campanha** (`POST /campaigns/{id}/copies`) arrasta os ads antigos; se for por aí, use `deep_copy=false` ou limpe os ads do clone. Preferir o nível do **conjunto** (acima) pra montar lote com criativos novos.
+
+**SOP completo:** `knowledge/sop-subir-campanha-duplicacao.md`.
 
 ### 11. Validação pós-criação obrigatória
 
@@ -1126,4 +1256,4 @@ Remover `standard_enhancements` e `image_brightness_and_contrast` (faziam parte 
 
 ---
 
-*Documento operacional do squad de tráfego — endpoints REST validados contra Graph Marketing API v21.0. Parâmetros estratégicos fielmente extraídos do método.*
+*Documento operacional do squad de tráfego — compliance e contrato de criação validados contra Graph Marketing API v26.0 em 23/08/2026. Parâmetros estratégicos fielmente extraídos do método.*

@@ -1,0 +1,141 @@
+# ===============================================================================
+# SQUAD: Carrossel Arcane
+# Squad de producao de carrosseis e posts estaticos pra Instagram
+# ===============================================================================
+
+name: squad-carrossel-arcane
+title: "Carrossel Arcane"
+version: "1.2.0"
+author: "Euriler Jube (Arka / Mentoria Arcane)"
+description: >
+  Squad de 4 agentes (1 chief + 3 specialists) que produz a ARTE de carrosseis e
+  posts estaticos pra Instagram — nao escreve a copy. Trabalha em duas camadas
+  visuais: (1) ARTE EM CSS, a moldura do post feita em HTML+CSS dentro do Claude
+  Code, sem custo de API — criada pelo Identity Designer como template reutilizavel;
+  (2) IMAGEM GERADA POR IA (GPT Image 2 / Nano Banana Pro), a ilustracao que encena
+  a tese do card (card{N}-FINAL.png) — criada pelo Image Director, que tambem salva
+  o estilo de imagem do aluno como padrao reutilizavel. Um carrossel pode usar as
+  duas camadas: a imagem de IA entra dentro da moldura CSS. Producer junta copy +
+  template + imagens e entrega os PNGs finais.
+  KB embarcada — squad 100% autocontido pra alunos Arcane.
+
+slash_prefix: "squad-carrossel-arcane"
+pattern_prefix: "CA"
+target_user: "Aluno da Mentoria Arcane que quer produzir carrosseis Instagram com identidade visual propria"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# USE CASES
+# ─────────────────────────────────────────────────────────────────────────────
+use_cases:
+  - id: UC1
+    name: "Primeiro Uso — Setup de Identidade"
+    description: "Aluno chega sem templates. Identity Designer conduz criacao iterativa de 3-5 templates baseados em referencias visuais e identidade do aluno."
+  - id: UC2
+    name: "Producao Normal"
+    description: "Aluno ja tem templates. Cola copy + escolhe template + Producer monta PNGs em ~/Downloads/."
+  - id: UC3
+    name: "Adicionar Templates"
+    description: "Aluno volta no Identity Designer pra criar templates adicionais sem refazer os existentes."
+  - id: UC4
+    name: "Gerar Imagens de Conteudo"
+    description: "Image Director recebe o texto do carrossel, calibra o estilo (template salvo ou referencias), produz as imagens de alto nivel de cada card (batch ou incremental), cristaliza o template e entrega card{N}-FINAL.png pro Producer montar."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TIER SYSTEM
+# ─────────────────────────────────────────────────────────────────────────────
+tiers:
+  orchestrator:
+    - carrossel-chief
+  tier_1:
+    - identity-designer
+    - image-director
+    - producer
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AGENTS
+# ─────────────────────────────────────────────────────────────────────────────
+agents:
+  - id: carrossel-chief
+    file: agents/carrossel-chief.md
+    role: orchestrator
+    description: "Roteia pra Identity Designer (setup) ou Producer (producao)"
+
+  - id: identity-designer
+    file: agents/identity-designer.md
+    role: tier_1
+    description: "Cria templates visuais do aluno em loop iterativo"
+
+  - id: image-director
+    file: agents/image-director.md
+    role: tier_1
+    description: "Cria as imagens de conteudo de alto nivel de cada card (encena a tese); templates de estilo reutilizaveis; entrega card{N}-FINAL.png pro Producer"
+
+  - id: producer
+    file: agents/producer.md
+    role: tier_1
+    description: "Monta carrossel/post usando templates salvos"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TASKS
+# ─────────────────────────────────────────────────────────────────────────────
+tasks:
+  - file: tasks/start.md
+  - file: tasks/setup-identity.md
+  - file: tasks/add-template.md
+  - file: tasks/calibrate-image-style.md
+  - file: tasks/produce-card-images.md
+  - file: tasks/save-image-style.md
+  - file: tasks/produce-carousel.md
+  - file: tasks/produce-static-post.md
+  - file: tasks/list-templates.md
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WORKFLOWS
+# ─────────────────────────────────────────────────────────────────────────────
+workflows:
+  - file: workflows/wf-production.md
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KNOWLEDGE BASE (embarcada — autocontido)
+# ─────────────────────────────────────────────────────────────────────────────
+knowledge:
+  - file: knowledge/design-principles.md
+  - file: knowledge/instagram-specs.md
+  - file: knowledge/apis-imagem.md
+  - file: knowledge/infer-slides.md
+  - file: knowledge/render-html-png.md
+  # Imagens de conteudo de alto nivel (Image Director)
+  - file: knowledge/imagens-padrao-euriler.md          # metodologia geral
+  - file: knowledge/prompts-reais-carrossel-mythos.md  # banco de prompts post 1
+  - file: knowledge/prompts-reais-fable2-bloqueio.md   # banco de prompts post 2
+  # Templates de estilo de imagem
+  - file: knowledge/image-styles/euriler/meta.yaml
+  - file: knowledge/image-styles/euriler/style.md
+  - file: knowledge/image-styles/euriler/examples.md
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DATA
+# ─────────────────────────────────────────────────────────────────────────────
+data:
+  - file: data/templates-schema.yaml
+  - file: data/api-providers.yaml
+  - file: data/image-providers.yaml
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OUTPUT
+# ─────────────────────────────────────────────────────────────────────────────
+output:
+  templates_dir: "~/.carrossel-arcane/templates/"          # templates visuais (moldura — Identity Designer)
+  image_styles_dir: "~/.carrossel-arcane/image-styles/"    # templates de estilo de imagem (Image Director)
+  config_dir: "~/.carrossel-arcane/config/"
+  output_dir: "~/Downloads/{nome-do-carrossel}/"           # card{N}-FINAL.png (Image Director) + slide-NN.png (Producer)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DEPENDENCIES
+# ─────────────────────────────────────────────────────────────────────────────
+dependencies:
+  required:
+    - "Chromium ou Chrome (pra renderizar HTML → PNG)"
+    - "Python 3.x (pra manipulacao de imagens via PIL)"
+  optional:
+    - "Chave de API de geracao de imagem (OpenAI gpt-image, Google Gemini, ou Nano Banana) — so se for usar placeholders AI"

@@ -5,6 +5,88 @@
 
 ---
 
+## ⚙️ REGRAS DE OPERACAO DO SQUAD
+
+> Regras TECNICAS do squad (como ele fala com a Meta e como guarda memoria), nao do metodo Andromeda — mas igualmente inegociaveis. Lidas na ativacao.
+
+### 1. System User token, NUNCA MCP
+
+**O Trafego Arcane opera SEMPRE via System User token + Graph Marketing API direta (curl/script). NUNCA via MCP Meta — mesmo que um MCP Meta esteja conectado na sessao.**
+
+Por que:
+- O MCP "claude.ai Meta" autentica com a conta logada (OAuth do usuario). Essa identidade **nao e a mesma** dos System Users do squad — o MCP pode nem enxergar uma conta que so responde ao System User especifico dela (acontece com contas de BMs antigas / de outro portfolio).
+- Cada BM/conta tem o System User certo, com as permissoes certas. O token garante identidade e acesso corretos **por conta**.
+- Todo o metodo (SOPs, nomenclatura, payloads, helpers de credencial) e construido sobre os endpoints REST do Graph. O MCP, no maximo, envelopa esses mesmos endpoints — sem ganho e com risco de operar na conta errada.
+
+**Como carregar credenciais (por conta):** consultar `data/accounts.yaml` → cada BM aponta o `creds.helper` que faz `source` e exporta as `META_*` daquela conta (token vindo do `.env` ou do 1Password — nunca hardcoded).
+
+**Auto-checagem:** se voce (agente) se pegar prestes a chamar uma tool `mcp__*_Meta__*`, PARE. Use o helper de credencial + curl no Graph API.
+
+### 2. Toda acao registrada no historico (QG-LOG-001)
+
+**Nenhuma escrita no Meta esta CONCLUIDA ate estar registrada em `data/historico-acoes.md`.** O squad faz coisas (sobe campanha, muda budget, mata criativo, decide nao escalar) e PRECISA lembrar entre chats — senao abre um chat novo e nao sabe o que ja fez.
+
+Registrar via helper (1 linha por OPERACAO, nao por call de API):
+
+```bash
+bash data/log-action.sh --agent {seu-id} --account {alias} \
+  --action "{o que fez}" --summary "{detalhe + IDs + antes->depois}" \
+  --result "{resultado}" --ref {produto} [--kind write|decision]
+```
+
+- **Quando:** logo apos cada escrita confirmada no Meta (`--kind write`) E em cada decisao-chave mesmo sem execucao (`--kind decision`, ex: "decidi nao escalar L04 — CPA R$130").
+- **Granularidade:** 1 entrada por operacao significativa (os IDs afetados vao no `--summary`), nao 1 por POST.
+- **Fechamento:** o relatorio ao usuario SEMPRE termina com "✅ registrado no historico". Se faltou, a operacao nao acabou.
+- **Leitura:** o historico e lido na ativacao (`*start`) e no `*status` — e a memoria de trabalho do squad.
+
+### 3. Subir lote novo: identidade regulatoria + `validate_only` antes de criar (`3858634`)
+
+**Metodo PRIMARIO = criar do zero** com a identidade verificada explicitamente no adset. Desde 23/08/2026, o contrato correto e `regional_regulation_identities`; `dsa_beneficiary`/`dsa_payor` sao texto legado e nao resolvem "anunciante ausente".
+
+**Protocolo (decision tree):**
+1. Resolver no registry os IDs verificados de anunciante e pagador; nunca inferir o ID de outro cliente/BM.
+2. Montar cada adset com `regional_regulated_categories=[BRAZIL_REGULATION,VOLUNTARY_VERIFICATION]` e `regional_regulation_identities={universal_beneficiary,universal_payer}`.
+3. Mostrar nome legal + IDs no preview humano e obter aprovacao.
+4. Rodar o payload final com `execution_options=["validate_only"]`; retorno precisa ser `success:true`.
+5. Criar tudo PAUSED e fazer readback dos IDs/categorias antes de ativar.
+6. Se ainda vier **3858634 com IDs corretos**, usar fallback por duplicacao de fonte que JA ENTREGA **e tem exatamente a mesma identidade**. Sem semente valida: concluir verificacao ou criar pela UI e confirmar por readback.
+
+- SOP completo (fallback + caso sem-semente): **`knowledge/sop-subir-campanha-duplicacao.md`**.
+- `dsa_*`, default textual da conta e categorias sem identidade **nao** substituem `regional_regulation_identities`.
+- O `validate_only` usa POST, mas nao cria objeto; no fluxo do squad ele roda somente sobre o payload ja aprovado no preview.
+- Duplicar pra construir lote **nao** viola a RC-04 (escala vertical): criativos sao NOVOS, so a config e clonada.
+
+### 4. Lancamento com evento ao vivo: o CALENDARIO do gasto e decisao, nao so o valor
+
+Em ciclo com **data marcada** (workshop/masterclass/live), ingresso comprado **longe do evento vale
+muito menos**. Evidencia propria da operacao NDF (3 ciclos, 2.736 ingressos, estudo 2026-07-29):
+
+| Antecedencia da compra | Comparece D1 | Converte em mentoria |
+|---|---|---|
+| ate 23 dias do evento | **38,4%** | **4,18%** |
+| mais de 23 dias | 25,5% | 1,68% |
+| | razao 1,50x (p=0,000001) | razao **2,48x** (p=0,0013) |
+
+**Protocolo:**
+1. Contar os dias ate o cutoff antes de definir budget.
+2. **> 23 dias pro evento → modo minimo.** Budget de manutencao (mantem campeoes vivos + roda testes).
+3. **<= 23 dias → escalar.** E aqui que o dinheiro compra ingresso que comparece e converte.
+4. **NUNCA** justificar volume alto no inicio do ciclo com "aquecer o algoritmo" — o ingresso gerado
+   ali converte 2,5x menos. Quando o Euriler subiu o ritmo diario de R$2.587 (mai) pra R$3.250 (jun),
+   trouxe **30% MENOS ingressos** e o CPA saltou de R$85 pra R$158.
+5. **Ao ler resultado, comparar fase contra fase** (mesma distancia do evento). Comparar janela
+   pos-evento contra semana do evento infla qualquer queda e produz diagnostico falso.
+
+⚠️ **Nao afirmar que "e o comparecimento".** Decomposicao: so ~11% da queda de conversao passa pelo
+comparecimento; ~86% e propensao da pessoa (quem compra cedo converte pior **mesmo assistindo o
+workshop inteiro**). Contramedida pra quem ja comprou cedo = cadencia de contato, nao budget — no
+canal Bia (recovery/convite) o efeito **desaparece**.
+
+- Detalhamento, robustez, limitacoes e reprodutibilidade: **`knowledge/timing-captacao-ciclo.md`**.
+
+
+---
+
 ## Estrategia (RC-01 a RC-11)
 
 ### RC-01. Duas contas separadas — Teste e Escala

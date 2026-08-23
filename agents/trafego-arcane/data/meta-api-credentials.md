@@ -1,6 +1,6 @@
 # Meta API — Credenciais e Configuração
 
-**Última validação:** 2026-05-05 (Graph API v21.0)
+**Última validação:** 2026-08-23 (Graph API v26.0)
 
 Este documento descreve **o que** o squad precisa de credencial Meta e **como armazenar com segurança**. O squad não impõe um gerenciador específico — escolha o que tiver instalado.
 
@@ -15,7 +15,7 @@ Antes de configurar credenciais, garanta que você tem:
 | **Conta Meta Business Manager** | https://business.facebook.com | A casa do seu negócio |
 | **App Meta** com Marketing API habilitada | https://developers.facebook.com/apps | Tipo "Business". Anote o `app_id` |
 | **System User** no Business Manager | BM → Configurações → Usuários do sistema | Cria usuário "Admin" do sistema |
-| **System User Token** (long-lived, não expira) | BM → System User → Gerar token | **Permissões mínimas a marcar:** `ads_management`, `ads_read`, `business_management`, `pages_manage_ads`, `pages_read_engagement` |
+| **System User Token** (long-lived, não expira) | BM → System User → Gerar token | **Permissões a marcar:** `ads_management`, `ads_read`, `business_management`, `pages_manage_ads`, `pages_manage_posts`, `pages_read_engagement`. (Marcar `pages_manage_ads` **e** `pages_manage_posts` — divergência antiga entre os docs; as duas não atrapalham, confirmar qual é exigida pra dark post na próxima criação real. Mesma lista da KB Step 9f.) |
 | **Conta de Anúncio** atribuída ao System User | BM → Contas de Anúncio → Atribuir pessoas → seu System User com função "Admin" | Sem isso o token não enxerga a conta |
 | **Página Facebook** atribuída ao System User | BM → Páginas → Atribuir pessoas → seu System User com função "Anunciante" | Pra publicar anúncios |
 | **Pixel** instalado no site + atribuído ao BM | Events Manager → Configurar pixel | Anote o `pixel_id` |
@@ -30,15 +30,15 @@ Independente de onde você guarde, são estes os 9 valores que o squad precisa:
 | Campo | Tipo | Exemplo | Como obter |
 |-------|------|---------|------------|
 | `META_TOKEN` | secreto | `EAA...DZD` | System User Token (não expira) |
-| `META_API_VERSION` | texto | `v21.0` | Versão Graph API a usar |
-| `META_APP_ID` | texto | `1234567890123456` | ID do app Meta |
+| `META_API_VERSION` | texto | `v26.0` | Versão Graph API a usar |
+| `META_APP_ID` | texto **(opcional)** | `1234567890123456` | ID do app Meta. **Não é usado em operação** (as chamadas usam token + IDs de conta) — só referência pra abrir o app no painel. Não precisa coletar no setup; se quiser registrar, sai de `GET /debug_token`. |
 | `META_BM_ID` | texto | `123456789012345` | Business Manager ID |
 | `META_ACCT_MAIN` | texto | `act_999888777666555` | Conta de anúncios principal (formato `act_NNNN`) |
 | `META_ACCT_ESCALA` | texto opcional | `act_NNNN` | Conta dedicada Escala (se separada) |
 | `META_ACCT_TESTE` | texto opcional | `act_NNNN` | Conta dedicada Teste (se separada) |
 | `META_PIXEL` | texto | `111122223333444` | ID do Pixel |
 | `META_PAGE` | texto | `555444333222111` | ID da Página Facebook |
-| `META_IG` | texto | `17841400000000000` | Instagram Business Account ID. Descobre com: `curl "https://graph.facebook.com/v21.0/{PAGE}?fields=instagram_business_account&access_token={TOKEN}"` |
+| `META_IG` | texto | `17841400000000000` | Instagram Business Account ID. Descobre com: `curl "https://graph.facebook.com/v26.0/{PAGE}?fields=instagram_business_account&access_token={TOKEN}"` |
 
 ---
 
@@ -52,7 +52,7 @@ Você seta as `META_*` no shell antes de chamar o squad. Útil pra testes rápid
 
 ```bash
 export META_TOKEN="EAA..."
-export META_API_VERSION="v21.0"
+export META_API_VERSION="v26.0"
 export META_BM_ID="123456789012345"
 export META_ACCT_MAIN="act_999888777666555"
 export META_PIXEL="111122223333444"
@@ -71,7 +71,7 @@ Crie `data/.env` (gitignored) na raiz do squad com:
 ```bash
 # data/.env — NÃO COMMITAR
 META_TOKEN=EAA...
-META_API_VERSION=v21.0
+META_API_VERSION=v26.0
 META_APP_ID=1234567890123456
 META_BM_ID=123456789012345
 META_ACCT_MAIN=act_999888777666555
@@ -140,7 +140,7 @@ Ao final imprime o resumo (sem expor o token):
 
 ```
 ✓ Meta API creds carregadas (origem: env|.env|1Password)
-  - API: v21.0
+  - API: v26.0
   - BM: 123456789012345
   - Main account: act_999888777666555
   - Pixel: 111122223333444
@@ -157,6 +157,8 @@ curl -s "https://graph.facebook.com/${META_API_VERSION}/me?access_token=${META_T
 ```
 
 Deve retornar `{"name":"NomeDoApp","id":"NNN..."}`. Se retornar erro, token está errado, expirado ou sem permissão.
+
+**Health-check (4 checagens reais):** depois do `source`, rode `meta_healthcheck` — confere `account_status`, frescor do pixel, IG vinculado e readback de `regional_regulation_identities` nos adsets. Usado pelo `setup-operator` no Step 9.5.
 
 ---
 

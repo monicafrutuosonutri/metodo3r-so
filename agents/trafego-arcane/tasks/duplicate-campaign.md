@@ -9,6 +9,7 @@ Checklist:
   - "Campanha origem identificada e lida via API"
   - "Ajustes do usuário coletados (delta vs origem)"
   - "Custom Audiences reaproveitadas (não duplicadas)"
+  - "Identidade regulatória verificada preservada/resolvida nos adsets"
   - "Payload da nova campanha montado com delta aplicado"
   - "Quality Gate de fidelidade Andromeda passou"
   - "Preview com diff (origem vs cópia) apresentado e confirmado"
@@ -114,7 +115,7 @@ CAMP_ID="${1}"
 curl -s "https://graph.facebook.com/${META_API_VERSION}/${CAMP_ID}?fields=id,name,objective,status,bid_strategy,daily_budget,lifetime_budget,special_ad_categories,buying_type,is_skadnetwork_attribution&access_token=${META_TOKEN}" > /tmp/campaign.json
 
 # 2.2 Adsets da campanha
-curl -s "https://graph.facebook.com/${META_API_VERSION}/${CAMP_ID}/adsets?fields=id,name,status,optimization_goal,destination_type,bid_strategy,bid_amount,daily_budget,billing_event,promoted_object,attribution_spec,targeting&limit=50&access_token=${META_TOKEN}" > /tmp/adsets.json
+curl -s "https://graph.facebook.com/${META_API_VERSION}/${CAMP_ID}/adsets?fields=id,name,status,optimization_goal,destination_type,bid_strategy,bid_amount,daily_budget,billing_event,promoted_object,attribution_spec,targeting,regional_regulated_categories,regional_regulation_identities,dsa_beneficiary,dsa_payor&limit=50&access_token=${META_TOKEN}" > /tmp/adsets.json
 
 # 2.3 Ads da campanha (com creative_id linkado)
 curl -s "https://graph.facebook.com/${META_API_VERSION}/${CAMP_ID}/ads?fields=id,name,adset_id,creative{id,name,object_story_spec,degrees_of_freedom_spec}&limit=200&access_token=${META_TOKEN}" > /tmp/ads.json
@@ -199,6 +200,9 @@ Pra cada adset original:
 | `daily_budget` | RECALCULA se verba mudou |
 | `optimization_goal` | MANTÉM |
 | `destination_type` | MANTÉM |
+| `regional_regulated_categories` | MANTÉM; em BR exige as categorias vigentes |
+| `regional_regulation_identities` | Preserva só na mesma identidade; em outra BM/cliente resolve IDs próprios |
+| `dsa_beneficiary` / `dsa_payor` | Legado; não satisfaz a seleção verificada |
 | `promoted_object.pixel_id` | MANTÉM (a menos que conta destino seja outra) |
 | `promoted_object.custom_event_type` | MANTÉM |
 | `targeting.geo_locations` | MUDA se internacional (tipo=3) |
@@ -233,7 +237,7 @@ Mesma lógica do setup-scale: 9 creatives × 6 adsets = 54 ads (Caminho A) ou 9 
 
 ### Step 6: Quality Gate
 
-Mesmos 47 checks de fidelidade Andromeda do setup-scale (`data/qg-fidelidade-andromeda.yaml`).
+Mesmos 48 checks de fidelidade Andromeda do setup-scale (`data/qg-fidelidade-andromeda.yaml`).
 
 ### Step 7: Preview com Diff
 
@@ -255,13 +259,14 @@ DIFF (o que mudou da origem pra cópia):
   Objetivo           │ {objective}        │ {objective}       │ não
   Verba/dia (total)  │ R$ {origem}        │ R$ {nova}         │ {sim/não}
   País target        │ {origem}           │ {destino}         │ {sim/não}
+  IDs regulatórios   │ {identity_origem}  │ {identity_destino}│ {mantém/resolve}
   Custom Audiences   │ {ids_origem}       │ {ids_destino}     │ {reaproveita/cria}
   Creatives          │ 9 originais        │ 9 novos / mesmos  │ {sim/não}
 
 CAMPANHA NOVA — payload completo:
   {detalhes técnicos seguindo formato do preview-campanha-tmpl.md}
 
-FIDELIDADE ANDROMEDA: ✓ {N}/47 checks passaram
+FIDELIDADE ANDROMEDA: ✓ {N}/48 checks passaram
 {gaps se houver}
 
 ⚠️ AVISOS:
@@ -282,9 +287,11 @@ Confirmar e duplicar tudo PAUSED? [s/N]
 
 ### Step 9: Executar criação
 
+> ⚠️ **Compliance:** criar do zero com `regional_regulation_identities`, rodar `validate_only` e confirmar readback. Se ainda houver `3858634`, duplicar via `/copies` apenas de referência com a mesma identidade. Método completo: `knowledge/sop-subir-campanha-duplicacao.md`.
+
 Mesma sequência do setup-scale Step 8:
-1. POST campaign (PAUSED)
-2. POST 6 adsets (PAUSED)
+1. POST campaign (PAUSED) — incluir `is_adset_budget_sharing_enabled` se ABO
+2. `validate_only` dos 6 payloads; depois POST PAUSED — ou `/copies` da referência compatível se ainda travar
 3. POST 9 creatives (se trocou)
 4. POST 54 ads (PAUSED)
 
@@ -340,6 +347,8 @@ Mesmo do setup-scale. Ver `data/qg-fidelidade-andromeda.yaml`.
 - [ ] DIFF apresentado claramente
 - [ ] Custom Audiences resolvidas (reuso ou criação)
 - [ ] Creatives resolvidos (mantém / troca / cria)
+- [ ] Identidades verificadas e categorias BR corretas em todos os adsets
+- [ ] `validate_only` e readback passaram antes da ativação
 - [ ] Aviso anti-padrão se for "duplicar pra escalar"
 
 ### QG-PREV-001 — Preview confirmado

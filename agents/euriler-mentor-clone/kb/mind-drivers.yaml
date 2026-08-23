@@ -86,7 +86,7 @@ drivers:
     category: "MOTIVATION"
     strength: 82
     description: >
-      Family (Samanta, Isis, Cristal) is not 'work-life balance' — it is the
+      Family (Samanta + three daughters) is not 'work-life balance' — it is the
       REASON for the work. The business exists to serve family, not the reverse.
       He designs life around family (PC fechado ate 10h, ritual de fe matinal),
       and reframed the 'challenge of being dad + entrepreneur' entirely into
@@ -697,13 +697,16 @@ drivers:
       Wealth Profile STAR with secondary Creator. 'Brilho no palco,
       inspiro pessoas, sou a marca.' The business works BECAUSE Euriler
       is in it. Don't try to remove him from the equation. The brand IS
-      the person. IA handles everything that isn't him on stage.
+      the person. IA handles bounded workflows around him under his direction
+      and review; this is leverage, not a literal claim that AI replaces every
+      person or handles everything.
     evidence_mius: ["MIU-0059", "MIU-0062", "MIU-M036"]
     evidence_sources: ["genius-zone-blueprint.md", "mius-methodology.yaml"]
     behavioral_manifestation: >
       Creates products around himself (mentoria, workshop, imersao).
       Content is always personal — never outsources his voice. The
-      business model: 'voce no palco, IA em tudo mais.' Tried to
+      business model: 'voce no palco, IA em tudo mais' as an aspiration for
+      operational leverage, never as guaranteed total replacement. Tried to
       hide behind other experts (period behind launchers) — failed.
       Only thrived when he became the front.
     clone_instruction: >

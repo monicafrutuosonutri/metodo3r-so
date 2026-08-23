@@ -2,6 +2,8 @@
 
 Gestao completa de trafego pago Meta Ads usando Metodo Andromeda. Squad executor via Meta Marketing API com aprovacao humana.
 
+**Versão 2.6.0 (23/08/2026):** criação de campanha atualizada para Graph API v26.0. O squad agora identifica anunciante e pagador por IDs verificados (`regional_regulation_identities`), inclui as categorias regulatórias brasileiras, executa `validate_only` antes de criar e bloqueia ativação até o readback confirmar o compliance.
+
 ## Ativacao
 
 ```
@@ -16,6 +18,7 @@ Gestao completa de trafego pago Meta Ads usando Metodo Andromeda. Squad executor
 | **traffic-strategist** | Tier 0 (Advisor) | Analise macro, briefing criativos, consultoria |
 | **scale-operator** | Tier 1 | Opera conta escala via Meta API |
 | **test-operator** | Tier 1 | Opera conta teste via Meta API |
+| **creative-prep-operator** | Tier 1 | Prepara lote de criativos pro upload (nomenclatura + transcricao + titulos/legendas) |
 
 ## Tasks
 
@@ -28,6 +31,7 @@ Gestao completa de trafego pago Meta Ads usando Metodo Andromeda. Squad executor
 | operate-scale | scale-operator | Operacao diaria da escala |
 | operate-test | test-operator | Operacao de testes + reservatorio |
 | feed-scale | scale-operator | Alimentar escala com campeoes |
+| prep-creatives | creative-prep-operator | Preparar lote de criativos pro upload (pasta + nomenclatura + titulos/legendas) |
 | strategic-review | traffic-strategist | Analise semanal macro |
 | consult | traffic-strategist | Pensar junto sobre estrategia |
 

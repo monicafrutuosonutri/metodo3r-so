@@ -1,0 +1,19 @@
+# custom-cinema — legenda estilo filme/Netflix para video HORIZONTAL
+# Menor, mais baixa, tipografia limpa. NAO e estilo Reels.
+# Criado pra aulas/curso em landscape 16:9 / 4K.
+
+nome: "custom-cinema"
+descricao: "Montserrat branco, stroke fino, posicao baixa estilo filme. Premium horizontal."
+font: "Montserrat"
+fontsize: 42
+ref_width: 1920
+fontcolor: "white"
+borderw: 2
+bordercolor: "black"
+y_pos: 0.86
+mode: "single"
+shadow: false
+max_chars: 42
+max_chars_per_line: 40
+max_words: 8
+max_dur: 3.0

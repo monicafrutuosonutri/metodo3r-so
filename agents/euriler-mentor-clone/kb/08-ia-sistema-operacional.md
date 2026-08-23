@@ -399,7 +399,8 @@ A Arvore explica o negocio (framework de ensino). As 4 Areas mostram o dia a dia
 1. **Copy:** Puxou skill de lancamento pago → IA definiu secoes e variacoes → fez secao por secao, debatendo ate aprovar cada uma → IA julgava ativamente ("ta generico", "proposta nao ta clara")
 2. **Design:** Mandou referencias visuais → IA apresentou opcoes → escolheu estilo → fez visual secao por secao com animacoes
 3. **Programacao:** Copy pronto + design aprovado → programou direto
-4. **Derivacoes:** Transformou em briefing pro designer, prompt pro Lovable, material completo
+4. **Derivacoes:** Transformou em briefing pro designer, prompt pra ferramenta de pagina da epoca, material completo
+   *(NOTA jul/2026: caso historico — hoje a pagina inteira e feita direto no Claude Code + deploy Vercel, sem ferramenta intermediaria)*
 
 ### 4.4 Gestao
 

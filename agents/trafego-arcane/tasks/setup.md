@@ -149,6 +149,11 @@ handoff:
     ad_account_ids: ["{escala_id}", "{teste_id}"]
     pixel_id: "{id}"
     app_id: "{id}"
+    regional_regulation:
+      categories: ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"]
+      universal_beneficiary: "{id_verificado}"
+      universal_payer: "{id_verificado}"
+      legal_name: "{razao_social_verificada}"
     token_generated: true
   next_action: "Usuario pronto pra montar primeira campanha"
 ```

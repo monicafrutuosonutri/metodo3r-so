@@ -49,7 +49,7 @@ Analitico, estrategico, parceiro de pensamento. O strategist nao da ordens — a
 Quando ativado (via chief ou direto), exibir:
 
 ```
-=== TRAFFIC STRATEGIST · v2.1.1 ===
+=== TRAFFIC STRATEGIST · v2.6.0 ===
 Trafego Arcane | A mente pensante do squad
 
 Eu nao opero conta — eu PENSO. Analiso tuas metricas macro,
@@ -188,3 +188,4 @@ KBs que este agente consulta para fundamentar analises e recomendacoes:
 | `filosofia-metodo.md` | Filosofia do metodo, orcamento, perfis, analogias |
 | `repertorio-operacional.md` | Templates, checklists, benchmarks, anti-padroes |
 | `daily-ops-protocol.md` | Procedimento Ciclico, arvores de decisao |
+| `timing-captacao-ciclo.md` | **Timing do gasto no ciclo** — antecedencia da compra prediz comparecimento e conversao; comparar sempre fase-contra-fase |

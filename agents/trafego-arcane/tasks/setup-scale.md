@@ -8,12 +8,13 @@ Saida: "Campanha Andromeda PAUSED na conta de Escala, fiel ao método, pronta pr
 Checklist:
   - "Custom Audiences validadas (Step 0 rodou)"
   - "Payload completo montado conforme SOP"
+  - "Anunciante e pagador verificados configurados (regional_regulation_identities)"
   - "Quality Gate de fidelidade Andromeda passou"
   - "Preview apresentado e confirmado pelo usuário"
   - "Campanha + 6 conjuntos + 9 ads criados (PAUSED)"
   - "IDs e link do Gerenciador retornados ao usuário"
 execution_type: "interactive"
-quality_gate: "QG-FA-001 (47 checks de fidelidade Andromeda) + QG-PREV-001 (preview confirmado)"
+quality_gate: "QG-FA-001 (48 checks de fidelidade Andromeda) + QG-PREV-001 (preview confirmado)"
 ---
 
 # Task: Setup Scale Campaign — Subir Campanha Escala Andromeda
@@ -31,10 +32,13 @@ Cria a **campanha de Escala** seguindo estritamente o método Andromeda da Bárb
 **Fontes de verdade:**
 - `knowledge/sop-campanha-ui.md` — passo a passo conceitual
 - `knowledge/sop-campanha-api.md` — payloads REST
+- `knowledge/sop-subir-campanha-duplicacao.md` — fallback por duplicação se IDs corretos ainda falharem ⚠️
 - `knowledge/sop-campanha-mapping.md` — paridade UI ↔ API
 - `knowledge/criativos-avaliacao.md` — distribuição C1/C2/C3 dos 9 ads
 
 **Toda escrita na Meta API requer aprovação humana via preview.**
+
+> ⚠️ **Método de criação dos conjuntos:** criar do zero com `regional_regulation_identities` + categorias BR e rodar `validate_only` antes. Duplicação é fallback somente se o payload correto ainda travar. Ver `knowledge/sop-campanha-api.md` e `knowledge/sop-subir-campanha-duplicacao.md`.
 
 ---
 
@@ -48,6 +52,9 @@ START
   |
   v
 1. Carregar credenciais Meta (load-meta-creds.sh)
+  |
+  v
+1.5 Preflight compliance: registry + adset real + IDs verificados
   |
   v
 2. Coletar contexto do usuário:
@@ -64,8 +71,8 @@ START
 4. Montar PAYLOAD completo (campanha + 6 adsets + 9 creatives + 9 ads × 6)
   |
   v
-5. Rodar QG-FA-001 (47 checks de fidelidade Andromeda)
-   ↳ Se score < 47: ajustar antes de mostrar
+5. Rodar QG-FA-001 (48 checks de fidelidade Andromeda)
+   ↳ Se score < 48: ajustar antes de mostrar
   |
   v
 6. PREVIEW HUMANO (legível, não JSON cru)
@@ -88,7 +95,7 @@ START
   v
 10. PERGUNTAR: "Ativar agora ou quer revisar no Gerenciador antes?"
     ├─ Revisar primeiro → para aqui
-    └─ Ativar → PATCH status=ACTIVE em sequência (campaign → adsets → ads)
+    └─ Ativar → PATCH status=ACTIVE em sequência (ads → adsets → campaign)
   |
   v
 END
@@ -143,6 +150,13 @@ questions:
     field: tem_email_list
   - q: "Negócio é local (entrega só num raio geográfico)?"
     field: eh_local
+  - q: "Confirma este anunciante/beneficiário e este pagador verificados?"
+    field: identidade_regulatoria
+    default:
+      legal_name: "do accounts.yaml"
+      universal_beneficiary: "do accounts.yaml + readback"
+      universal_payer: "do accounts.yaml + readback"
+    rule: "Obrigatório no nível adset. IDs precisam bater com registry e adset válido; não aceitar só nome textual."
 ```
 
 ### Step 3: Mapear OBJECTIVE
@@ -192,6 +206,11 @@ budget_per_adset = (verba_diaria_total // 6) * 100  # em centavos
   "billing_event": "IMPRESSIONS",
   "optimization_goal": "OFFSITE_CONVERSIONS",
   "destination_type": "WEBSITE",
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "{beneficiary_id}",
+    "universal_payer": "{payer_id}"
+  },
   "promoted_object": {
     "pixel_id": "{META_PIXEL}",
     "custom_event_type": "{custom_event_type}"
@@ -299,7 +318,7 @@ Pra cada criativo trazido pelo usuário:
   "name": "C{nivel}-{subtipo}-{slug}",
   "object_story_spec": {
     "page_id": "{META_PAGE}",
-    "instagram_actor_id": "{META_IG}",
+    "instagram_user_id": "{META_IG}",
     "video_data": {
       "video_id": "{video_id}",
       "image_url": "{thumbnail_url}",
@@ -313,8 +332,10 @@ Pra cada criativo trazido pelo usuário:
   },
   "degrees_of_freedom_spec": {
     "creative_features_spec": {
-      "standard_enhancements": {"enroll_status": "OPT_IN"},
-      "image_brightness_and_contrast": {"enroll_status": "OPT_IN"}
+      "text_optimizations": {"enroll_status": "OPT_IN"},
+      "image_uncrop": {"enroll_status": "OPT_OUT"},
+      "image_animation": {"enroll_status": "OPT_OUT"},
+      "video_auto_crop": {"enroll_status": "OPT_IN"}
     }
   }
 }
@@ -362,7 +383,7 @@ Default: Caminho A. Confirmar com usuário se diferente.
 
 ### Step 5: Quality Gate QG-FA-001 (Fidelidade Andromeda)
 
-Antes do preview, rodar 47 checks contra o payload montado. Lista completa em `data/qg-fidelidade-andromeda.yaml`.
+Antes do preview, rodar 48 checks contra o payload montado. Lista completa em `data/qg-fidelidade-andromeda.yaml`.
 
 Top 10 checks críticos:
 
@@ -377,9 +398,12 @@ Top 10 checks críticos:
 [ ] Sem publisher_platforms (Adv+ Placements)
 [ ] Sem bid_amount (CPA Máx vazio)
 [ ] Conjunto 6 com 4 custom_audiences quentes
+[ ] Todos os adsets com BRAZIL_REGULATION + VOLUNTARY_VERIFICATION
+[ ] Todos com universal_beneficiary + universal_payer iguais ao preview/registry
+[ ] dsa_* não foi usado como substituto dos IDs verificados
 ```
 
-Se algum check falhou: ajustar payload e re-rodar QG. Score deve ser **47/47** ou justificativa explícita do gap (ex: "menos de 9 criativos").
+Se algum check falhou: ajustar payload e re-rodar QG. Score deve ser **48/48** ou justificativa explícita do gap (ex: "menos de 9 criativos").
 
 ### Step 6: Preview Humano
 
@@ -405,6 +429,8 @@ CAMPANHA
   6. QUENTE_Audiencia-completa — 4 públicos personalizados
 
   Todos: Adv+ Audience ON, Adv+ Placements ON, sem CPA Máx
+  Compliance: Anunciante {legal_name} ({beneficiary_id}) | Pagador ({payer_id})
+  Regulação: BRAZIL_REGULATION + VOLUNTARY_VERIFICATION
   Excluindo: {compradores_180d / leads_180d}
   Pixel: {META_PIXEL} | Evento: {custom_event_type}
 
@@ -425,7 +451,7 @@ CAMPANHA
   CTA padrão: {cta_type}
   Link de destino: {landing_page}
 
-FIDELIDADE ANDROMEDA: ✓ {N}/47 checks passaram
+FIDELIDADE ANDROMEDA: ✓ {N}/48 checks passaram
 {lista de gaps se houver}
 
 GAPS DECLARADOS:
@@ -445,6 +471,10 @@ Confirmar e subir tudo PAUSED? [s/N]
 | Cancela | Aborta, limpa estado, retorna |
 
 ### Step 8: Execução na ordem
+
+Antes de qualquer criação real, enviar cada payload de adset com
+`execution_options=["validate_only"]`. Todos precisam retornar `success:true`.
+Esse preflight usa o mesmo payload já aprovado no Step 7 e não cria objetos.
 
 ```bash
 # 8.1 Campaign
@@ -477,6 +507,18 @@ done
 
 **Tudo PAUSED.** Não ativar nada nesta etapa.
 
+### Step 8.5: Readback bloqueante
+
+Ler todos os adsets com:
+
+```
+fields=id,name,effective_status,issues_info,regional_regulated_categories,regional_regulation_identities
+```
+
+Só seguir se os IDs de beneficiário/pagador forem exatamente os aprovados e as
+categorias incluírem `BRAZIL_REGULATION` + `VOLUNTARY_VERIFICATION`. Ausência,
+divergência ou `WITH_ISSUES` = STOP; não ativar.
+
 ### Step 9: Resultado
 
 ```
@@ -508,9 +550,9 @@ Próximo passo:
 2. Ou eu já ativo direto?
 
 Se quiser ativar, eu rodo:
-  PATCH campanha → ACTIVE
-  PATCH 6 adsets → ACTIVE
   PATCH 54 ads → ACTIVE
+  PATCH 6 adsets → ACTIVE
+  PATCH campanha → ACTIVE
 
 Qual? [revisar/ativar]
 ```
@@ -518,18 +560,26 @@ Qual? [revisar/ativar]
 Se "ativar":
 
 ```bash
-curl -X POST ".../{CAMPAIGN_ID}" -d "status=ACTIVE" -d "..."
-for ADSET_ID in adsets[]; do
-  curl -X POST ".../{ADSET_ID}" -d "status=ACTIVE" -d "..."
-done
 for AD_ID in ads[]; do
   curl -X POST ".../{AD_ID}" -d "status=ACTIVE" -d "..."
 done
+for ADSET_ID in adsets[]; do
+  curl -X POST ".../{ADSET_ID}" -d "status=ACTIVE" -d "..."
+done
+curl -X POST ".../{CAMPAIGN_ID}" -d "status=ACTIVE" -d "..."
 ```
 
-Confirmar mudança de status:
+Confirmar mudança de status — e **registrar no histórico (QG-LOG-001):**
+```bash
+bash data/log-action.sh --agent scale-operator --account {alias} \
+  --action "Subida campanha {nome}" \
+  --summary "{estrutura: N conjuntos × M criativos = K ads, budget/dia, pixel, IDs}" \
+  --result "{K/K ACTIVE}" --ref {produto}
+```
+
 ```
 ✅ Campanha ATIVA. Algoritmo Meta vai começar a impressionar nos próximos minutos.
+✅ registrado no histórico.
 
 Próximas 24h: Bárbara recomenda observar quais criativos NÃO gastam nada
 (IA já julgou ruins). Esses devem ser pausados.
@@ -546,7 +596,7 @@ Quer que eu volte daqui a 24h pra rodar o triagem inicial?
 
 ### QG-FA-001 — Fidelidade Andromeda
 
-Definido em `data/qg-fidelidade-andromeda.yaml`. 47 checks, score mínimo 47/47 ou gaps declarados.
+Definido em `data/qg-fidelidade-andromeda.yaml`. 48 checks, score mínimo 48/48 ou gaps declarados.
 
 ### QG-PREV-001 — Preview confirmado
 

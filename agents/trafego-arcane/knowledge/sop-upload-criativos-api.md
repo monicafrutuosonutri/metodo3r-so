@@ -15,6 +15,9 @@
 1. Re-encode ffmpeg (ANTES do upload)
    ↓
 2. Upload simples se ≤95MB / chunked se >95MB
+   (assinatura de quem ignorou isso: 1ª tentativa devolve resposta NÃO-JSON/HTML,
+    retry devolve code 381 subcode 1363021 "problem uploading your video" —
+    visto 05/08/2026 com vídeos de 274-452MB; NÃO é transient, é tamanho: vá pro chunked)
    ↓
 3. Wait video_status == 'ready' (poll 8-10s)
    ↓
@@ -71,7 +74,7 @@ ffmpeg -y -i input.mp4 \
 ```python
 with open(path, 'rb') as f:
     r = requests.post(
-        f"https://graph.facebook.com/v21.0/{acct}/advideos",
+        f"https://graph.facebook.com/v26.0/{acct}/advideos",
         data={'access_token': token, 'name': name},
         files={'source': (filename, f, 'video/mp4')},
         timeout=600,
@@ -269,8 +272,8 @@ import json, os, time, requests
 from concurrent.futures import ThreadPoolExecutor
 
 token = open('/tmp/token.txt').read().strip()
-acct = 'act_898704878534613'
-v = 'v21.0'
+acct = 'act_999888777666555'
+v = 'v26.0'
 base = f"https://graph.facebook.com/{v}"
 
 # 1. Upload videos (paralelo)
@@ -342,7 +345,7 @@ def create_video_ad(adset_id, video_id, thumb, copy, ad_name):
 
 - [ ] Vídeos re-encodados com ffmpeg (faststart + yuv420p)
 - [ ] Vídeos >2min em 720p preventivo
-- [ ] Token Meta carregado do 1Password (`op read "op://claude/Meta API Token (bms velhas)/notesPlain"` → parse `META_ACCESS_TOKEN=`)
+- [ ] Token Meta carregado do 1Password (`op read "op://<seu-vault>/<seu-item-meta>/notesPlain"` → parse `META_ACCESS_TOKEN=`)
 - [ ] Page ID + Pixel ID + Ad Account ID identificados
 - [ ] Copies + títulos prontos POR vídeo (sem placeholders)
 - [ ] URL UTMify completa (com `xcod`)

@@ -1,6 +1,6 @@
 # QG-FA-001 — Quality Gate de Fidelidade Andromeda
-# 47 checks programáticos contra payload de campanha antes do POST.
-# Score mínimo: 47/47 OU gaps explicitamente declarados ao usuário no preview.
+# 48 checks programáticos contra payload de campanha antes do POST.
+# Score mínimo: 48/48 OU gaps explicitamente declarados ao usuário no preview.
 #
 # Cada check tem:
 #   - id: identificador único
@@ -17,8 +17,8 @@
 
 version: "1.0.0"
 date: "2026-05-08"
-total_checks: 47
-target_score: 47
+total_checks: 48
+target_score: 48
 
 checks:
 
@@ -101,7 +101,7 @@ checks:
     source: "Aula 04-Teste: 'regras automáticas pode usar com cuidado'"
 
   # ─────────────────────────────────────────────────────────────
-  # NÍVEL 2 — ADSETS (20 checks)
+  # NÍVEL 2 — ADSETS (21 checks)
   # ─────────────────────────────────────────────────────────────
 
   - id: FA-ADSET-01
@@ -247,6 +247,14 @@ checks:
     rule_logic: "all adsets: name matches ^(ADV_Puro|ADV_Int-[a-z-]+|QUENTE_[a-z-]+|ADV_HiperSeg-[a-z-]+|TESTE_[A-Z]+_[a-z-]+)$"
     source: "nomenclatura-protocol.md"
 
+  - id: FA-ADSET-21
+    level: adset
+    severity: blocker
+    check: "Todos os adsets identificam anunciante e pagador verificados para a regulação brasileira"
+    rule_logic: "all adsets: regional_regulated_categories contains BRAZIL_REGULATION && VOLUNTARY_VERIFICATION && regional_regulation_identities.universal_beneficiary && regional_regulation_identities.universal_payer"
+    source: "sop-campanha-api.md § Anunciante e pagador verificados"
+    note: "dsa_beneficiary/dsa_payor são texto legado e não satisfazem este gate. IDs devem bater com o preview e o registry."
+
   # ─────────────────────────────────────────────────────────────
   # NÍVEL 3 — CREATIVES & ADS (12 checks)
   # ─────────────────────────────────────────────────────────────
@@ -297,8 +305,8 @@ checks:
   - id: FA-CREATIVE-07
     level: creative
     severity: warning
-    check: "Creatives têm instagram_actor_id (anuncia também no IG)"
-    rule_logic: "all creatives: object_story_spec.instagram_actor_id"
+    check: "Creatives têm instagram_user_id (anuncia também no IG)"
+    rule_logic: "all creatives: object_story_spec.instagram_user_id"
     source: "Best practice — sem isso, anúncio só roda em FB"
 
   - id: FA-CREATIVE-08
@@ -311,8 +319,9 @@ checks:
   - id: FA-CREATIVE-09
     level: creative
     severity: info
-    check: "Recursos auto OPT_IN: standard_enhancements, text_optimizations"
-    rule_logic: "creatives: standard_enhancements OPT_IN && text_optimizations OPT_IN"
+    check: "Recursos automáticos usam features individuais aceitas"
+    rule_logic: "all creatives: standard_enhancements absent && text_optimizations OPT_IN; videos: video_auto_crop OPT_IN"
+    note: "standard_enhancements foi descontinuado no payload e causa subcode 3858504; pode reaparecer apenas no readback normalizado pela Meta."
     source: "Aula 09-Q&A: 'Tudo que está aqui em melhoria, que ele já está ativo, deixa'"
 
   - id: FA-CREATIVE-10
@@ -382,15 +391,15 @@ checks:
 summary:
   by_level:
     campaign: 10
-    adset: 20
+    adset: 21
     creative: 10
     ad: 2
     account: 5
   by_severity:
-    blocker: 22
-    warning: 18
+    blocker: 24
+    warning: 17
     info: 7
-  total: 47
+  total: 48
 
 # ─────────────────────────────────────────────────────────────
 # COMO O SQUAD USA
@@ -404,12 +413,12 @@ usage:
     - "Conta passes/fails por severity"
     - "Se algum BLOCKER falhou: bloquear, ajustar payload, re-rodar"
     - "Se WARNING falhou: declarar gap explícito no preview"
-    - "Score final apresentado: '{N}/47 checks passaram'"
+    - "Score final apresentado: '{N}/48 checks passaram'"
   output_format: |
-    FIDELIDADE ANDROMEDA: 45/47
+    FIDELIDADE ANDROMEDA: 46/48
 
-    BLOCKERS: 0/22 ✓
-    WARNINGS: 2/18 falharam:
+    BLOCKERS: 0/24 ✓
+    WARNINGS: 2/17 falharam:
       ⚠ FA-CREATIVE-01: usuário tem 7 creatives (faltam 2 — não é blocker mas reduz robustez)
       ⚠ FA-ACCT-02: lista de e-mail vazia (audiência quente vai contar com 3/4)
     INFO: tudo OK

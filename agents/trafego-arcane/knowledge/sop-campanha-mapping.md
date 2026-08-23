@@ -1,6 +1,6 @@
 # Mapeamento UI ↔ API — Subir Campanha Andromeda
 
-**Versão:** 1.0.0
+**Versão:** 1.1.0
 **Propósito:** tabela cruzada entre o nome do campo no Gerenciador de Anúncios da Meta (UI humana) e o equivalente JSON na Graph Marketing API. Cada linha carrega o **valor padrão Andromeda** pra Conta de Escala.
 
 **Companion:** `sop-campanha-ui.md`, `sop-campanha-api.md`.
@@ -35,6 +35,10 @@
 | Conjunto de dados (Pixel) | `promoted_object.pixel_id` | `{pixel_id}` | `03` |
 | Evento de conversão | `promoted_object.custom_event_type` | `"LEAD"` ou `"PURCHASE"` | `03` |
 | Objetivo de desempenho (Otimização) | `optimization_goal` | `"OFFSITE_CONVERSIONS"` | `03` |
+| Identificar anunciante / beneficiário | `regional_regulation_identities.universal_beneficiary` | ID da empresa verificada escolhido no preview | Compliance Meta v26 |
+| Identificar pagador | `regional_regulation_identities.universal_payer` | ID da empresa verificada escolhido no preview | Compliance Meta v26 |
+| Regulação regional | `regional_regulated_categories` | `["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"]` para a operação BR validada | Compliance Meta v26 |
+| Nome DSA legado | `dsa_beneficiary` / `dsa_payor` | Complementar; NÃO substitui os IDs verificados | Legado |
 | Maximizar nº conversões vs valor | `bid_strategy` (na CAMPANHA) | `"LOWEST_COST_WITHOUT_CAP"` | `03` |
 | Objetivo de custo de resultado (CPA Máximo) | `bid_amount` | OMITIR (deixar em branco) | `03` |
 | ROAS Mínimo | `bid_amount` (com `LOWEST_COST_WITH_MIN_ROAS` na campanha) | OMITIR | `04` |
@@ -85,7 +89,7 @@
 | UI (Gerenciador) | API (campo JSON) | Valor padrão Andromeda | Fonte |
 |------------------|------------------|------------------------|-------|
 | Identidade > Página Facebook | `object_story_spec.page_id` | `{page_id}` da marca | — |
-| Identidade > Conta Instagram | `object_story_spec.instagram_actor_id` | `{ig_user_id}` da marca | — |
+| Identidade > Conta Instagram | `object_story_spec.instagram_user_id` | `{ig_user_id}` da marca | — |
 | Formato > Imagem | `object_story_spec.link_data.image_hash` | hash da imagem | — |
 | Formato > Vídeo | `object_story_spec.video_data.video_id` | id do vídeo | — |
 | Formato > Carrossel | `object_story_spec.link_data.child_attachments` | array de cartões | — |
@@ -102,7 +106,7 @@
 |------------------|------------------------------------------------------------------------|------------------|-------|
 | Geração de imagens (Adv+) | `image_templates` | `OPT_IN` se já vier ativo | `09-Q&A` |
 | Variação de texto (5 textos) | `text_optimizations` | `OPT_IN` (default) | `09-Q&A` |
-| Retoque visual / contraste | `image_brightness_and_contrast` ou `standard_enhancements` | `OPT_IN` | `09-Q&A` |
+| Aprimoramentos automáticos | features individuais em `creative_features_spec` | somente features aceitas; nunca enviar `standard_enhancements` | API v26 |
 | Animação de imagem (3D) | `image_animation` | `OPT_OUT` | `09-Q&A` |
 | Sobreposição | `image_uncrop` | `OPT_OUT` ("vai que faz merda") | `09-Q&A` |
 | Música de fundo | `music` | `OPT_IN` se já vier ativo | `09-Q&A` |
@@ -184,6 +188,9 @@ ADSET (×6)
 [ ] destination_type WEBSITE ↔ Site
 [ ] promoted_object.pixel_id + custom_event_type ↔ Pixel + Evento
 [ ] optimization_goal OFFSITE_CONVERSIONS ↔ Otimização para Conversões
+[ ] universal_beneficiary + universal_payer ↔ Anunciante/Pagador verificados
+[ ] regional_regulated_categories ↔ BRAZIL_REGULATION + VOLUNTARY_VERIFICATION
+[ ] dsa_* tratado como legado, nunca como substituto da identidade
 [ ] sem bid_amount ↔ CPA Máximo vazio
 [ ] sem value_rules_set ↔ Regras de valor não mexidas
 [ ] attribution_spec padrão ↔ Janela padrão
@@ -196,7 +203,7 @@ ADSET (×6)
 [ ] exclusions.custom_audiences ↔ Exclusões (compradores/leads)
 
 CREATIVE
-[ ] page_id + instagram_actor_id ↔ Identidade
+[ ] page_id + instagram_user_id ↔ Identidade
 [ ] message com CTA verbal/textual ↔ Texto principal + CTA
 [ ] link com UTMs ↔ URL do site
 [ ] call_to_action.type ↔ Botão de CTA
@@ -249,4 +256,4 @@ Em 2026-05-05 inspecionei a campanha ativa do Euriler via API pra validar nomes 
 
 ---
 
-*Documento operacional do squad — paridade UI ↔ API verificada contra Graph Marketing API v21.0.*
+*Documento operacional do squad — paridade regulatória UI ↔ API revalidada contra Graph Marketing API v26.0 em 23/08/2026.*

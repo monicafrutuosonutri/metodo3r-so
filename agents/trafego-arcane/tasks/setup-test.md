@@ -9,6 +9,7 @@ Checklist:
   - "Hipótese de teste explícita (1 variável só)"
   - "Custom Audiences validadas"
   - "Payload base (Andromeda) montado"
+  - "Identidade regulatória verificada preenchida/preservada"
   - "Variação isolada aplicada apenas na variável testada"
   - "Preview com diff (Escala vs Teste) apresentado"
   - "Quality Gate passou"
@@ -154,6 +155,10 @@ Idem ao setup-scale (produto, destino, verba, criativos disponíveis). Diferenç
 
 Mesmo payload que setup-scale produziria (Andromeda padrão). Ver `tasks/setup-scale.md` Step 4 pra detalhes.
 
+**Guardrail de compliance:** `regional_regulation_identities` e as categorias BR são obrigatórios no adset e não contam como variável de teste. Beneficiário/pagador devem permanecer iguais ao preview e ao registry mesmo quando o teste altera público, objetivo, destino, CBO/ABO ou bid strategy. `dsa_*` é legado e não substitui os IDs.
+
+> ⚠️ **Criação dos conjuntos:** método primário = criar do zero com `regional_regulation_identities`, `validate_only` e readback. Duplicação (`/copies`, `deep_copy=false`) fica como fallback e só pode herdar fonte com a mesma identidade. Método completo: `knowledge/sop-subir-campanha-duplicacao.md`. Lembrar `is_adset_budget_sharing_enabled=true` na campanha ABO.
+
 ### Step 6: Aplicar variação isolada
 
 Conforme variável testada, modificar **apenas** o campo correspondente. Detalhes técnicos do diff em `knowledge/sop-campanha-api.md` (seções "Divergências [TESTE] vs [ESCALA]").
@@ -282,7 +287,16 @@ Confirmar e subir PAUSED? [s/N]
 
 (aprovação, execução, resultado, ativar?). Ver `tasks/setup-scale.md` Steps 7-10.
 
-Após ativar, registrar no log de testes:
+Após ativar, registrar **no histórico de ações (QG-LOG-001)** — a memória que sobrevive entre chats:
+
+```bash
+bash data/log-action.sh --agent test-operator --account {alias} \
+  --action "Subida teste {variavel}" \
+  --summary "campanha {id}, hipótese {...}, critério {...}, janela {N}d" \
+  --result "ATIVA, running" --ref {produto}
+```
+
+E o detalhe do teste pra avaliação posterior:
 
 ```yaml
 test_log:

@@ -10,6 +10,7 @@ Checklist:
   - "Campeao validado no teste (CPA <= Estrela Guia)"
   - "Criativo subido na escala com nomenclatura"
   - "UTMs configurados"
+  - "Novos conjuntos criados com identidade verificada + categorias BR"
   - "NAO adicionado a conjuntos bons existentes (CR-05)"
 execution_type: "interactive"
 ---
@@ -87,8 +88,27 @@ POST /act_{scale_id}/adsets
   optimization_goal: "OFFSITE_CONVERSIONS"
   billing_event: "IMPRESSIONS"
   daily_budget: {budget}
+  regional_regulated_categories: ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"]
+  regional_regulation_identities:
+    universal_beneficiary: "{BENEFICIARY_ID_VERIFICADO}"
+    universal_payer: "{PAYER_ID_VERIFICADO}"
   targeting: {audience_spec}
 ```
+
+Resolver os IDs no `accounts.yaml` e confirmar em readback de adset válido.
+Default comprovado da BM nova Euriler/NDF:
+
+```json
+{
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "1674529833798927",
+    "universal_payer": "1674529833798927"
+  }
+}
+```
+
+Depois do preview aprovado: `validate_only` → criação PAUSED → readback dos IDs/categorias. Não ativar se divergir.
 
 ### Step 5: Subir criativos na escala
 

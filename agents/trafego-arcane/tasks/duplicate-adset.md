@@ -9,6 +9,7 @@ Checklist:
   - "Adset origem identificado e lido via API"
   - "Decisão sobre destino (mesma campanha ou outra)"
   - "Ajustes coletados (público / orçamento / criativos)"
+  - "Identidade regulatória verificada preservada ou resolvida no destino"
   - "Validação anti-padrão (não duplicar adset bom 'pra escalar')"
   - "Preview com diff (origem vs cópia) apresentado e confirmado"
   - "Adset + ads vinculados criados (PAUSED)"
@@ -104,7 +105,7 @@ source ./data/load-meta-creds.sh
 ADSET_ID="${1}"
 
 # Adset com targeting completo
-curl -s "https://graph.facebook.com/${META_API_VERSION}/${ADSET_ID}?fields=id,name,campaign_id,status,optimization_goal,destination_type,bid_strategy,bid_amount,daily_budget,billing_event,promoted_object,attribution_spec,targeting&access_token=${META_TOKEN}" > /tmp/adset.json
+curl -s "https://graph.facebook.com/${META_API_VERSION}/${ADSET_ID}?fields=id,name,campaign_id,status,optimization_goal,destination_type,bid_strategy,bid_amount,daily_budget,billing_event,promoted_object,attribution_spec,targeting,regional_regulated_categories,regional_regulation_identities,dsa_beneficiary,dsa_payor&access_token=${META_TOKEN}" > /tmp/adset.json
 
 # Ads do adset (com creative_id linkado)
 curl -s "https://graph.facebook.com/${META_API_VERSION}/${ADSET_ID}/ads?fields=id,name,creative{id,name}&limit=50&access_token=${META_TOKEN}" > /tmp/adset_ads.json
@@ -185,6 +186,9 @@ Pra duplicar, me diz:
 | `promoted_object` | MANTÉM |
 | `attribution_spec` | MANTÉM |
 | `billing_event` | MANTÉM |
+| `regional_regulated_categories` | MANTÉM; em BR exige BRAZIL_REGULATION + VOLUNTARY_VERIFICATION |
+| `regional_regulation_identities` | MANTÉM somente se bater com destino/preview; senão resolver IDs verificados corretos |
+| `dsa_beneficiary` / `dsa_payor` | Legado; nunca usar como substituto dos IDs |
 | `targeting.geo_locations` | MANTÉM (a menos que mude) |
 | `targeting.flexible_spec` | MUDA se tipo=1 ou 2 (interesses diferentes) |
 | `targeting.custom_audiences` | MUDA se tipo=2 ou 4 |
@@ -229,6 +233,7 @@ DIFF:
   Interesses         │ {origem_list}      │ {novo_list}       │ {sim/não}
   Custom Audiences   │ {origem}           │ {destino}         │ {sim/não}
   Exclusões          │ {origem}           │ {nova}            │ {sim/não}
+  IDs regulatórios   │ {identity_origem}  │ {identity_destino}│ {mantém/resolve}
   Ads vinculados     │ {N origem}         │ {N novo}          │ {mantém/troca}
 
 ADSET NOVO — payload:
@@ -315,6 +320,9 @@ Regra do método: máximo 3-4 sugestões por conjunto, 1 cluster por conjunto. N
 - [ ] Aviso anti-padrão se for "escalar adset bom"
 - [ ] Targeting do novo adset não compete com origem (mesmo público em conjuntos diferentes da mesma campanha = competição interna — Lei 4 dos Públicos)
 - [ ] Custom Audiences resolvidas (reuso ou recriação se conta destino diferente)
+- [ ] `regional_regulation_identities` preenchido e igual ao preview/registry
+- [ ] Categorias BR preservadas
+- [ ] `validate_only` passou e readback confirmou os IDs antes da ativação
 
 ### QG-PREV-001 — Preview confirmado
 

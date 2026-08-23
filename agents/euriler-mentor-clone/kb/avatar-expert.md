@@ -4,9 +4,13 @@ date: 2026-03
 type: reference
 scope: avatar / publico-alvo do expert
 nota: Este documento e sobre QUEM e o publico e O QUE ele sente. NAO e sobre a solucao (PMI/PNI) nem sobre o sistema (SO de IA). A conexao com as solucoes fica nos outros documentos.
+status: route_specific_historical_reference
+canonical_source: docs/knowledge/euriler-business/posicionamento/posicionamento-euriler-fonte-da-verdade.md
 ---
 
 # Avatar do Expert — Estudo de Publico-Alvo
+
+> **REFERENCIA DA ROTA EXPERT, NAO AVATAR UNIVERSAL.** Expert e rota, nao catraca da marca Euriler. A fonte canonica vigente vence em publico e posicionamento.
 
 > Quem e o expert. O que ele sonha. O cenario que enfrenta. O problema que carrega. Os inimigos que o prendem. Por que a IA e libertacao pra ele.
 

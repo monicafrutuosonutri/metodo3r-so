@@ -1,4 +1,4 @@
-# Clone Euriler — Mentor Digital · v2.0.0
+# Clone Euriler — Mentor Digital · v3.2.0
 
 ## O que e isso?
 Clone digital completo do Euriler Jube. Parte da entrega da mentoria Arcane.

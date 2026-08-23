@@ -90,9 +90,43 @@ POST /act_{ad_account_id}/adsets
   optimization_goal: "OFFSITE_CONVERSIONS"
   billing_event: "IMPRESSIONS"
   daily_budget: {value_in_cents}
+  regional_regulated_categories: ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"]
+  regional_regulation_identities: {
+    "universal_beneficiary": "{BENEFICIARY_ID_VERIFICADO}",
+    "universal_payer": "{PAYER_ID_VERIFICADO}"
+  }
   targeting: {targeting_spec}
   status: "PAUSED"
 ```
+
+`regional_regulation_identities` é o contrato atual para selecionar anunciante e pagador verificados. Os campos `dsa_beneficiary`/`dsa_payor` são texto legado e não resolvem `3858634`. Default comprovado da BM nova Euriler/NDF:
+
+```json
+{
+  "regional_regulated_categories": ["BRAZIL_REGULATION", "VOLUNTARY_VERIFICATION"],
+  "regional_regulation_identities": {
+    "universal_beneficiary": "1674529833798927",
+    "universal_payer": "1674529833798927"
+  }
+}
+```
+
+### Preflight e readback de compliance
+
+```bash
+# Fonte real dos IDs: registry + adset válido da mesma operação
+GET /{adset_id}?fields=regional_regulated_categories,regional_regulation_identities
+
+# Depois do preview aprovado: validar sem criar
+POST /act_{id}/adsets
+  execution_options: ["validate_only"]
+  ...payload final completo...
+
+# Depois de criar/copiar: bloquear ativação se houver divergência
+GET /{novo_adset_id}?fields=effective_status,issues_info,regional_regulated_categories,regional_regulation_identities
+```
+
+Evidência 23/08/2026, Graph API v26.0: `dsa_*` sozinho e categorias sem identidade falharam com `3858634`; `regional_regulation_identities` passou em `validate_only`.
 
 ### Targeting — Advantage+ sem sugestoes (ADV_Puro)
 ```json
@@ -261,3 +295,86 @@ curl -s "https://graph.facebook.com/${META_API_VERSION}/${META_PAGE}?fields=inst
 ```
 
 Ambos são obrigatórios no `object_story_spec` pra veicular em FB + IG.
+
+### Setup de conta de anúncio nova via API (validado 05/08/2026 — Conta Escala Andromeda)
+
+Sequência pra deixar uma conta recém-criada operável, tudo via System User token da BM dona:
+
+**1. Compartilhar o pixel da BM com a conta nova** (sem isso, adset não otimiza PURCHASE):
+```bash
+# write
+curl -s -X POST "https://graph.facebook.com/${META_API_VERSION}/${PIXEL_ID}/shared_accounts" \
+  -d "business=${BM_ID}" -d "account_id=${ACCT_SEM_PREFIXO}" -d "access_token=${META_TOKEN}"
+# verificar dos DOIS lados:
+#   GET /${PIXEL_ID}/shared_accounts?business=${BM_ID}   ← lista as contas
+#   GET /act_${ID}/adspixels?fields=id,name              ← conta enxerga o pixel
+```
+
+**2. Compartilhar públicos (custom audiences) de outra conta:**
+```bash
+curl -s -X POST "https://graph.facebook.com/${META_API_VERSION}/${AUDIENCE_ID}/adaccounts" \
+  --data-urlencode 'adaccounts=["<ACCT_DESTINO_SEM_PREFIXO>"]' -d "access_token=${META_TOKEN}"
+# resposta: {"success":true,...}; verificar: GET /act_${DESTINO}/customaudiences?fields=id,name,account_id
+# (account_id no retorno = dono original; público aparece como compartilhado)
+```
+
+**3. Meio de pagamento** — só via Gerenciador (humano). Checar via API:
+```bash
+curl -s "https://graph.facebook.com/${META_API_VERSION}/act_${ID}?fields=funding_source_details,is_prepay_account&access_token=${META_TOKEN}"
+# funding_source_details ausente = SEM cartão anexado → nada roda
+```
+
+**4. Limite de gasto diário da Meta (adtrust): NÃO é legível via API.**
+- O campo `adtrust_dsl` foi REMOVIDO (v21 responde `(#100) nonexisting field`). Conferir no Gerenciador.
+- **Comportamento observado (05/08/2026):** conta nova nasce com ~R$200/dia; ao anexar um cartão que JÁ TEM
+  histórico de billing limpo na mesma BM (mesmo VISA da Conta Teste, ~R$259k pagos), o limite saltou pra
+  **~R$11k/dia na hora** — a conta herda a confiança do instrumento de pagamento. Lição de setup: em conta
+  nova de escala, anexar o cartão veterano (não um cartão virgem) pra não nascer estrangulado.
+
+**⚠️ Armadilha de shell:** o cwd reseta entre comandos — `source data/load-meta-creds.sh` com path relativo
+falha SILENCIOSO e o curl vai sem token. Erros enganosos resultantes: POST → `GraphMethodException subcode 33`
+("does not exist / missing permissions"), GET → `(#200) Provide valid app ID`. Antes de diagnosticar permissão,
+conferir `echo ${#META_TOKEN}` (204 = ok, 0 = source falhou). Sempre `cd` absoluto no MESMO comando do source.
+
+---
+
+## Advantage+ Creative via API (validado 07/08/2026 — Conta Escala)
+
+**A armadilha:** omitir `degrees_of_freedom_spec` ao criar o adcreative **NÃO** significa "default da Meta ligado". A Meta grava as **82 features em `OPT_OUT`** — Advantage+ Creative 100% desligado, e a pontuação de oportunidade cai. Para ligar, é obrigatório enviar o campo explicitamente.
+
+**Causa raiz que trava o payload:** `standard_enhancements` foi **DESCONTINUADO**. Qualquer payload que o inclua falha com:
+> "O recurso de inclusão do campo de aprimoramentos padrão no criativo foi descontinuado. Defina recursos individuais."
+
+Isso vale mesmo para o trio que criativos antigos ainda exibem (`standard_enhancements` + `text_optimizations` + `video_auto_crop`) — eles são legado e não podem ser recriados assim.
+
+**Receita que funciona** (65 features aceitas em conta de tráfego direto para site):
+
+```python
+EXCLUIR = {'standard_enhancements', 'standard_enhancements_catalog', 'catalog_feed_tag',
+           'customize_product_recommendation', 'dha_optimization', 'product_browsing',
+           'product_extensions', 'product_metadata_automation', 'product_tags',
+           'wa_mm_image_filtering', 'wa_mm_text_truncation_length', 'local_store_extension',
+           'app_highlights', 'dynamic_partner_content', 'hide_price', 'image_background_gen',
+           'carousel_to_video', 'multi_creative_post_carousel'}
+dof = {'creative_features_spec': {f: {'enroll_status': 'OPT_IN'} for f in FEATURES if f not in EXCLUIR}}
+```
+
+Resultado efetivo: **55-57 OPT_IN por anúncio** — a Meta desativa sozinha as ~17 que não se aplicam ao formato (features de imagem em criativo de vídeo, e vice-versa). Isso é esperado, não é erro.
+
+⚠️ **Creative é imutável.** `POST /{creative_id}` com `degrees_of_freedom_spec` falha (subcode `1815573`, "especifique nome, status ou rótulos"). Para corrigir um lote já subido: criar creatives novos e trocar em cada anúncio com `POST /{ad_id}` + `creative={"creative_id": novo}` — o anúncio continua ACTIVE e não perde o ID.
+
+✅ **A pontuação de oportunidade CHEGA pela API** (retestado 17/08/2026 em v23.0 — a nota anterior dizia que não, estava desatualizada):
+
+- Score da conta: `GET /act_{id}?fields=opportunity_score` → `{"opportunity_score": 89}` (Escala em 17/08; Teste 75).
+- Recomendações com detalhe: `GET /act_{id}/recommendations` → lista com `type`, `recommendation_stage`, `object_ids` afetados, `lift_estimate` e `opportunity_score_lift` (quantos pontos a recomendação vale). Score + soma dos lifts ≈ 100.
+- Aplicar a recomendação continua sendo mudança estrutural normal (não existe "aceitar" via API) — avaliar caso a caso; recomendação da Meta não é ordem.
+
+## Estrear conta de anúncio nova — 3 travas em sequência (07/08/2026)
+
+Ordem em que aparecem ao subir a primeira campanha numa conta recém-criada da mesma BM:
+
+1. **System User sem escrita** → `code 200 / subcode 2490585`. Ter validado *leitura* não garante escrita. Fix: `POST /act_{id}/assigned_users` com `user={su_id}`, `business={bm_id}`, `tasks=["MANAGE","ADVERTISE","ANALYZE","DRAFT"]`.
+2. **Instagram não vinculado** → o adcreative é criado normalmente, mas o **anúncio** falha com `subcode 1487790` ("objeto promovido inválido"). Fix: `POST /{ig_user_id}/authorized_adaccounts` com `account_id={id}` — **sem** o prefixo `act_` (com prefixo retorna erro genérico de parâmetro). Creatives criados ANTES do vínculo continuam quebrados: recriar.
+3. **`image_hash` não é cross-account** → mesma assinatura (`1487790`), e só nos estáticos. A Meta *aceita criar* o creative com hash de outra conta, mas o anúncio quebra. Fix: `GET /act_{origem}/adimages?hashes=[...]` → baixar a `url` → re-upload multipart em `/act_{destino}/adimages`. **`video_id` É reutilizável** entre contas da mesma BM (só remover `image_hash` do `video_data`, senão dá `ObjectStorySpecRedundant` subcode 1443051).
+
+> Diagnóstico rápido: se só os estáticos falham e os vídeos passam, é a trava 3. Se falha tudo, é a 2.

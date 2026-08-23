@@ -1,6 +1,6 @@
 # SOP — Subir e Ajustar Campanha Meta Ads (UI Humana)
 
-**Versão:** 1.0.0
+**Versão:** 1.1.0
 **Fonte:** Método Andromeda — Bárbara Bruna
 **Data extração:** 2026-05-05
 **Escopo:** procedimento minucioso de subida e ajuste de campanha pelo Gerenciador de Anúncios da Meta, fiel ao que o método ensina.
@@ -129,6 +129,22 @@ Não há nomenclatura mais detalhada definida nas 3 aulas principais. Para nomen
 ---
 
 ## NÍVEL 2 — CONJUNTO DE ANÚNCIOS
+
+### 2.0 Identificar anunciante e pagador — obrigatório no Brasil
+
+A interface atual pode mostrar **"Identifique quem se beneficia dos anúncios e quem paga por eles"** ou **"Selecione o anunciante e o pagador"**. Essa escolha não é texto livre: selecione a **empresa verificada** apresentada pela Meta.
+
+Procedimento:
+
+1. Em **Anunciante/Beneficiário**, escolher a entidade legal verificada responsável pela oferta.
+2. Em **Pagador**, escolher quem efetivamente paga os anúncios.
+3. Se forem a mesma empresa, selecionar a mesma identidade nos dois campos; não apenas repetir o nome em uma caixa de texto.
+4. Confirmar que a UI não mostra pendência de verificação nem `Anunciante ausente`.
+5. No preview, registrar nome legal + ID verificado. Na API, isso corresponde a `regional_regulation_identities`, não aos campos legados `dsa_*`.
+
+Para a BM atual `Anuncios Euriler 1`, o readback de 23/08/2026 confirmou a identidade `1674529833798927` como beneficiário e pagador. Em outra BM/cliente, selecionar e validar a identidade própria; nunca copiar esse ID por conveniência.
+
+Se a identidade não aparecer na lista, **não publicar nem contornar por duplicação cega**. Concluir a verificação da empresa/portfólio ou escolher uma identidade realmente autorizada.
 
 ### 2.1 Destino / Conversão
 
@@ -827,6 +843,9 @@ NÍVEL 1 — CAMPANHA
 [ ] Categoria especial NÃO marcada (se não aplicar)
 
 NÍVEL 2 — CONJUNTO (replicar p/ cada um dos 6+)
+[ ] Anunciante/beneficiário verificado selecionado (não apenas nome digitado)
+[ ] Pagador verificado selecionado
+[ ] Nome legal + IDs conferem com o preview e a BM/cliente corretos
 [ ] Destino: Site (Escala)
 [ ] Pixel selecionado + evento correto (Lead ou Compra)
 [ ] Otimização: Maximizar nº de conversões
