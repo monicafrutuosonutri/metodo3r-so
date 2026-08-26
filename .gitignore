@@ -33,3 +33,8 @@ Thumbs.db
 *.mov
 *.mp3
 *.wav
+
+# Squad Edicao Arcane — dependencias pesadas, reinstalaveis via install.py
+agents/squad-edicao-arcane/.venv/
+agents/squad-edicao-arcane/models/
+agents/squad-edicao-arcane/bin/
