@@ -194,7 +194,7 @@ for st, en, tx in events:
 graph = "[0:v]" + ",".join(filters) + "[outv]"
 ff = _common.tmp_path(".txt")
 open(ff,"w",encoding="utf-8").write(graph)
-subprocess.run([FFMPEG,"-y","-i",video,"-filter_complex_script",ff,
+subprocess.run([FFMPEG,"-y","-i",video,*_common.filter_script_args(ff),
     "-map","[outv]","-map","0:a",
     "-c:v","libx264","-preset","fast","-crf","18",
     "-pix_fmt","yuv420p","-profile:v","main","-level","4.0",

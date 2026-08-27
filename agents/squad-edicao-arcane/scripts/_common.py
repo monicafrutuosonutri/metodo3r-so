@@ -207,3 +207,40 @@ def drawtext_font_opt(style):
     if ff:
         return _drawtext_fontfile_value(ff)
     return f"font='{style['font']}'"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Filtergraph vindo de arquivo (compatibilidade ffmpeg 6/7 x 8/9)
+# ─────────────────────────────────────────────────────────────────────────────
+# O ffmpeg 8.0 REMOVEU a opcao `-filter_complex_script`. O substituto e a sintaxe
+# `-/<opcao> <arquivo>` ("le o valor desta opcao do arquivo"), disponivel do 7.0
+# em diante. Sem isso, o ffmpeg do winget (9.x) morre com:
+#     Unrecognized option 'filter_complex_script'.
+# Detectado no Windows com Gyan.FFmpeg 9.0.1 em 26/08/2026.
+_FF_MAJOR = None
+
+
+def ffmpeg_major():
+    """Versao major do ffmpeg resolvido. Cacheado. 0 se nao der pra determinar."""
+    global _FF_MAJOR
+    if _FF_MAJOR is None:
+        import re, subprocess
+        try:
+            out = subprocess.run([ffmpeg(), "-hide_banner", "-version"],
+                capture_output=True, text=True).stdout
+            m = re.search(r"ffmpeg version n?(\d+)", out)
+            _FF_MAJOR = int(m.group(1)) if m else 0
+        except Exception:
+            _FF_MAJOR = 0
+    return _FF_MAJOR
+
+
+def filter_script_args(path):
+    """Args pra passar um filtergraph que esta num arquivo, na sintaxe que o
+    ffmpeg instalado entende. Usar assim:
+
+        subprocess.run([FFMPEG, "-y", "-i", video, *filter_script_args(ff), ...])
+    """
+    if ffmpeg_major() >= 7:
+        return ["-/filter_complex", path]
+    return ["-filter_complex_script", path]

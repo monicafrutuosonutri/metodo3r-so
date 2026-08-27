@@ -67,7 +67,7 @@ parts.append("".join(f"[v{i}][a{i}]" for i in range(len(segs)))
     + f"concat=n={len(segs)}:v=1:a=1[outv][outa]")
 ff = _common.tmp_path(".txt")
 open(ff,"w").write("\n".join(parts))
-subprocess.run([FFMPEG,"-y","-i",video,"-filter_complex_script",ff,
+subprocess.run([FFMPEG,"-y","-i",video,*_common.filter_script_args(ff),
     "-map","[outv]","-map","[outa]",
     "-c:v","libx264","-preset","fast","-crf","18",
     "-pix_fmt","yuv420p","-profile:v","main","-level","4.0",

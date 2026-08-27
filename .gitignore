@@ -38,3 +38,7 @@ Thumbs.db
 agents/squad-edicao-arcane/.venv/
 agents/squad-edicao-arcane/models/
 agents/squad-edicao-arcane/bin/
+
+# Python bytecode
+__pycache__/
+*.pyc

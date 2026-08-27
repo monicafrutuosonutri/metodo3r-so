@@ -53,7 +53,7 @@ ff = _common.tmp_path(".txt")
 open(ff, "w").write(filtergraph)
 
 subprocess.run([FFMPEG, "-y", "-i", video, "-stream_loop", "-1", "-i", trilha,
-    "-filter_complex_script", ff,
+    *_common.filter_script_args(ff),
     "-map", "0:v", "-map", "[aout]",
     "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", f"{dur}",
     output], check=True)
