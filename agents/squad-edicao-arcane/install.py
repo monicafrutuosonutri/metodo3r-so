@@ -32,7 +32,10 @@ MODEL_SIZE = _common.MODEL_SIZE  # bytes esperados do ggml-medium.bin (detecta d
 # Pinado numa versao que TEM o asset whisper-bin-x64.zip (o v1.7.4 antigo dava 404).
 WHISPER_WIN_URL = "https://github.com/ggml-org/whisper.cpp/releases/download/v1.9.1/whisper-bin-x64.zip"
 PIP_PACKAGES = ["silero-vad", "torch", "torchaudio", "scipy", "numpy",
-                "fonttools", "pyyaml", "opencv-python-headless"]
+                "fonttools", "pyyaml",
+                # <5: o OpenCV 5.0 removeu cv2.CascadeClassifier, que o
+                # video-produce-zoom.py usa pra detectar rosto (Haar cascade).
+                "opencv-python-headless<5"]
 
 WARNINGS = []
 

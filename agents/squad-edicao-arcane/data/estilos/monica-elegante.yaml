@@ -1,0 +1,31 @@
+# Estilo MONICA-ELEGANTE — padrao da Mônica Frutuoso
+# Constantia Bold (serifada humanista) em marrom escuro sobre halo branco suave.
+#
+# POR QUE MARROM E NAO BEGE: o cenario dela e bege/creme e a roupa costuma ser
+# clara. Legenda bege (testada em 26/08/2026) perde legibilidade — o texto some
+# no fundo. O marrom #2E241C e o mesmo bege escurecido: mantem a familia de cor
+# do feed e resolve o contraste.
+#
+# CUIDADO: estilo calibrado pra FUNDO CLARO. Em video gravado em ambiente escuro
+# o marrom some — nesse caso troque fontcolor pra 0xF5EFE6 (off-white) e o
+# shadowcolor pra black@0.6.
+
+nome: "monica-elegante"
+descricao: "Constantia Bold marrom escuro com halo branco suave. Serifada, sofisticada, sem estridencia. Pra fundo claro."
+font: "Constantia"
+fontfile: "Constantia-Bold.ttf"
+fontsize: 58
+ref_width: 1080            # fonte/stroke escalam por largura_real/1080
+fontcolor: "0x2E241C"
+borderw: 0
+shadow: true
+shadowx: 1
+shadowy: 1
+shadowcolor: "white@0.35"
+y_pos: 0.80
+mode: "single"             # sem split de cor — nada de palavra em destaque
+uppercase: false           # serifada pede caixa original; CAIXA ALTA e coisa de Bebas
+max_chars: 34
+max_chars_per_line: 32
+max_words: 7
+max_dur: 2.8

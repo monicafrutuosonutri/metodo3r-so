@@ -10,15 +10,37 @@ Cross-platform (porta do antigo video-transcribe.sh). Precisa de ffmpeg + whispe
 O modelo eh resolvido por _common.model_path() (env WHISPER_MODEL -> default Mac ->
 <squad>/models/ggml-medium.bin). O prompt pre-alimenta nomes proprios do expert.
 """
-import sys, os, subprocess, argparse, tempfile
+import sys, subprocess, os, argparse, tempfile, io
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import _common
 
+SQUAD_DIR = _common.SQUAD_DIR
+
 FFMPEG = _common.ffmpeg()
 WHISPER = _common.whisper_cli()
 MODEL = _common.model_path()
-PROMPT = "Euriler, Workshop Negocio Digital do Futuro, Bia, Arka, NDF, inteligencia artificial, lancador"
+# O prompt do whisper sai do dicionario do expert (data/nomes-proprios.yaml).
+# Antes ficava hardcoded aqui com os nomes de outra pessoa — o que contaminava a
+# transcricao de QUALQUER video (o whisper tenta encaixar os nomes que recebe).
+def _build_prompt():
+    """Monta o --prompt a partir de nomes_corretos do dicionario do expert.
+    Volta string vazia se o arquivo nao existir ou estiver sem nomes — melhor
+    prompt vazio do que prompt com nome errado."""
+    caminho = os.path.join(SQUAD_DIR, "data", "nomes-proprios.yaml")
+    if not os.path.isfile(caminho):
+        return ""
+    try:
+        import yaml
+        with io.open(caminho, encoding="utf-8") as f:
+            dados = yaml.safe_load(f) or {}
+        nomes = [str(n).strip() for n in (dados.get("nomes_corretos") or []) if str(n).strip()]
+        return ", ".join(nomes)
+    except Exception:
+        return ""
+
+
+PROMPT = _build_prompt()
 
 p = argparse.ArgumentParser()
 p.add_argument("video")

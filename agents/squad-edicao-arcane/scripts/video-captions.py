@@ -78,6 +78,10 @@ events = []
 i = 0
 MAX_CHARS_GROUP = s["max_chars"]   # tamanho total alvo apos agrupar
 MAX_WORDS, MAX_DUR = s["max_words"], s["max_dur"]
+# CAIXA ALTA: default True (Bebas Neue e all-caps por design — os estilos viral/
+# neutro dependem disso). Estilos serifados passam `uppercase: false` pra manter
+# a caixa original do transcript, que e o que da o ar editorial.
+UPPERCASE = s.get("uppercase", True)
 while i < len(raw_events):
     st, en, tx = raw_events[i]
     words = tx.split()
@@ -89,7 +93,8 @@ while i < len(raw_events):
                 and raw_events[j][1]-st <= MAX_DUR):
             words += nxt; en = raw_events[j][1]; j += 1
         else: break
-    events.append((st, en, " ".join(words).upper().rstrip(".,;:")))
+    texto = " ".join(words)
+    events.append((st, en, (texto.upper() if UPPERCASE else texto).rstrip(".,;:")))
     i = j
 
 # ─── helpers ───

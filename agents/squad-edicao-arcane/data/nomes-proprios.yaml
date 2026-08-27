@@ -1,7 +1,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# nomes-proprios.yaml
+# nomes-proprios.yaml — Mônica Frutuoso
 # ─────────────────────────────────────────────────────────────────────────────
-# Configuravel por cada expert. O squad usa esse arquivo em DOIS lugares:
+# O squad usa esse arquivo em DOIS lugares:
 #
 # 1. video-transcribe.py: alimenta o whisper com `--prompt` (whisper transcreve
 #    melhor nomes proprios quando recebe contexto)
@@ -9,46 +9,89 @@
 # 2. revisao do @scribe na main thread: o agente conhece os nomes corretos e
 #    corrige variantes erradas conforme o dicionario abaixo
 #
-# Preencha com os nomes do SEU mundo: seu nome, equipe, produtos, marca,
-# termos tecnicos do nicho, palavras incomuns. Quanto mais completo, melhor
-# a transcricao.
-#
-# CRITICO: NAO deixe esse arquivo com exemplos de outras pessoas. O whisper
-# vai tentar transcrever esses nomes na fala de QUALQUER video que voce
-# editar — se ficar "Euriler" aqui, sua transcricao vai ter "Euriler" no
-# meio dela mesmo voce nao tendo dito isso.
+# CRITICO: so coloque aqui nomes que VOCE realmente fala nos seus videos. O
+# whisper tenta encaixar esses nomes na fala de QUALQUER video que voce editar.
 # ─────────────────────────────────────────────────────────────────────────────
 
 # Lista plana de nomes corretos — vai pro --prompt do whisper
-# APAGUE OS EXEMPLOS ABAIXO E COLOQUE OS SEUS antes de editar o 1o video.
 nomes_corretos:
-  - "Euriler"
-  - "Euriler Jubé"
-  - "Arcane"
-  - "Arka"
-  - "NDF"
-  - "Negócio Digital do Futuro"
-  - "PMI"
-  - "Propósito"
-  - "Mentoria Arcane"
+  # Nome e marca
+  - "Mônica Frutuoso"
+  - "Método 3R"
+  - "Reconhecer, Reorganizar, Reconstruir"
+  - "Confiança Blindada"
+  - "Blindagem Antirreganho"
+  # Area e credenciais
+  - "nutrição comportamental"
+  - "nutricionista comportamental"
+  - "CRN-3"
+  - "Sophie Deram"
+  # Termos tecnicos do nicho
+  - "interocepção"
+  - "saciedade"
+  - "compulsão alimentar"
+  - "reganho de peso"
+  - "efeito sanfona"
+  - "comportamento alimentar"
+  - "fome emocional"
+  - "escala de fome"
+  - "mindful eating"
+  - "análogo de GLP-1"
+  - "agonista de GLP-1"
+  - "caneta emagrecedora"
+  - "Ozempic"
+  - "Mounjaro"
+  - "semaglutida"
+  - "tirzepatida"
 
 # Correcoes automaticas aplicadas pelo @scribe quando le o transcript bruto.
 # Formato: errado (como whisper transcreveu) -> correto (como deveria ser)
 # Case-insensitive na busca, exato na substituicao.
 #
-# Voce vai descobrir as suas com o tempo: edite o primeiro video, veja como
-# o whisper transcreveu seu nome / sua marca, e adicione aqui as variacoes
-# erradas que aparecerem.
+# As abaixo sao PALPITES iniciais das variantes mais provaveis. Confirme com o
+# uso: edite um video, veja como o whisper de fato errou, ajuste esta lista.
 correcoes_automaticas:
-  # - errado: "Sue Nome"     # como whisper transcreveu errado
-  #   correto: "Seu Nome"
+  - errado: "Monica Frutuoso"
+    correto: "Mônica Frutuoso"
+  - errado: "Metodo 3R"
+    correto: "Método 3R"
+  - errado: "Método 3 R"
+    correto: "Método 3R"
+  - errado: "metodo três R"
+    correto: "Método 3R"
+  - errado: "CRN 3"
+    correto: "CRN-3"
+  - errado: "GLP1"
+    correto: "GLP-1"
+  - errado: "GLP 1"
+    correto: "GLP-1"
+  - errado: "Sofi Deram"
+    correto: "Sophie Deram"
+  - errado: "Sophie Deran"
+    correto: "Sophie Deram"
+  - errado: "mindfull eating"
+    correto: "mindful eating"
+  - errado: "zenpique"
+    correto: "Ozempic"
+  - errado: "ozempique"
+    correto: "Ozempic"
+  - errado: "monjaro"
+    correto: "Mounjaro"
+  - errado: "manjaro"
+    correto: "Mounjaro"
 
 # Correcoes de acentuacao recorrentes (whisper as vezes esquece acento em pt-BR).
-# O @scribe varre o transcript e aplica essas. As 2 abaixo sao quase universais
-# em portugues brasileiro — deixe ou ajuste conforme seu vocabulario.
+# O @scribe varre o transcript e aplica essas.
 correcoes_ortografia:
-  - errado: "Negocio"
-    correto: "Negócio"
   - errado: "voce "          # com espaco pra evitar afetar "vocês"
     correto: "você "
-  # Adicione conforme aparecer erro recorrente nos seus videos
+  - errado: "Monica"
+    correto: "Mônica"
+  - errado: "nutricao"
+    correto: "nutrição"
+  - errado: "interocepcao"
+    correto: "interocepção"
+  - errado: "compulsao"
+    correto: "compulsão"
+  - errado: "confianca"
+    correto: "confiança"

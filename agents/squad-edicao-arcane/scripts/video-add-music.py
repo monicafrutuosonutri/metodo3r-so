@@ -56,6 +56,10 @@ subprocess.run([FFMPEG, "-y", "-i", video, "-stream_loop", "-1", "-i", trilha,
     *_common.filter_script_args(ff),
     "-map", "0:v", "-map", "[aout]",
     "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", f"{dur}",
+    # faststart: move o moov atom pro inicio. Sem isso o player baixa o arquivo
+    # quase inteiro antes de comecar — os outros scripts ja faziam, este era o
+    # unico da cadeia que nao fazia, e como e o ULTIMO passo, o final saia sem.
+    "-movflags", "+faststart",
     output], check=True)
 os.remove(ff)
 
