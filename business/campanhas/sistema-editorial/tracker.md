@@ -8,7 +8,7 @@
 **Início:** 05/09/2026
 **Deadline:** sem deadline fixo
 **Dono geral:** Monica Frutuoso
-**Status:** Ativo — Fase 1 (diagnóstico de cobertura). Nada construído ainda
+**Status:** Ativo — Fase 1 concluída em 05/09. Diagnóstico feito, nada construído ainda
 
 ---
 
@@ -63,8 +63,14 @@ R$ 19,90. Glossário e pilares em [contexto/regras-estrategicas.md](contexto/reg
 | 11 | Captura de métricas | Nenhum agente dedicado | **Lacuna crítica** — bloqueia o componente 12 |
 | 12 | Aprendizado contínuo com desempenho real | Não existe | Depende de 11 |
 
-> Esta tabela é **hipótese de cobertura**, não diagnóstico. A Fase 1 existe para verificá-la
-> lendo o que cada squad realmente faz — não o que o nome sugere.
+> ⚠️ **Esta tabela era a hipótese de 05/09 e já foi verificada.** O diagnóstico real está em
+> [`contexto/cobertura-squads.md`](contexto/cobertura-squads.md) — leia ele, não esta tabela.
+>
+> **O que o diagnóstico mudou:** são **10** squads Arcane instalados, não 9. Os componentes 1, 2,
+> 3 e 4 **têm** recurso existente (Iris, Aria, Núcleo, EDI do low-ticket) — o que falta neles é
+> persistência e cadência, não capacidade. O componente 5 (séries) é lacuna fina, não parcial.
+> Os componentes 11 (captura de métricas) e 8 (gate CFN) se confirmaram como as lacunas reais.
+> **Nenhuma lacuna comprovada autoriza criar squad novo.**
 
 ---
 
@@ -73,12 +79,12 @@ R$ 19,90. Glossário e pilares em [contexto/regras-estrategicas.md](contexto/reg
 | # | Fase | Status | Início | Fim |
 |---|------|--------|--------|-----|
 | 0 | Registro da direção | Done | 05/09/2026 | 05/09/2026 |
-| 1 | Diagnóstico de cobertura — o que os squads existentes já resolvem | Não iniciado | — | — |
+| 1 | Diagnóstico de cobertura — o que os squads existentes já resolvem | **Done** | 05/09/2026 | 05/09/2026 |
 | 2 | Desenho do fluxo ponta a ponta | Não iniciado | — | — |
 | 3 | Construção das lacunas reais | Não iniciado | — | — |
 | 4 | Rodagem — próximos roteiros nascem dentro do sistema | Não iniciado | — | — |
 
-**Fase atual:** 1 — Diagnóstico de cobertura (não iniciada)
+**Fase atual:** 2 — Desenho do fluxo ponta a ponta (não iniciada). Fase 1 fechada em 05/09 — ver `contexto/cobertura-squads.md`
 
 ---
 
@@ -87,10 +93,13 @@ R$ 19,90. Glossário e pilares em [contexto/regras-estrategicas.md](contexto/reg
 | Tarefa | Dono | Status | Depende de | Notas |
 |--------|------|--------|------------|-------|
 | Criar estrutura de pastas da frente | Sistema | **Done — 05/09** | — | 8 áreas com README de função. Regras estratégicas registradas em `contexto/` |
-| Ler o inventário funcional do Pack Arcane | Sistema | Não iniciado | — | Já existe, commitado em 26/08 |
-| Mapear cobertura real dos 9 squads contra os 12 componentes | Sistema | Não iniciado | Inventário | Confirmar ou derrubar a tabela acima |
-| Identificar lacunas reais (o que nenhum squad cobre) | Sistema | Não iniciado | Mapeamento | |
-| Decidir: adaptar squad existente ou criar novo | Monica | Não iniciado | Lacunas | Decisão da Monica, não do sistema |
+| Ler o inventário funcional do Pack Arcane | Sistema | **Done — 05/09** | — | `INVENTARIO-PACK-COMPLETO.md` válido. `INVENTARIO-SQUADS.md` seção 3 obsoleta (diz que o squad de edição não existe) |
+| Mapear cobertura real dos squads contra os 12 componentes | Sistema | **Done — 05/09** | Inventário | Diagnóstico em `contexto/cobertura-squads.md`. São 10 squads Arcane, não 9 |
+| Identificar lacunas reais (o que nenhum squad cobre) | Sistema | **Done — 05/09** | Mapeamento | Reais: gate CFN (8) e captura de métricas (11). Fina: lógica de série (5). O resto é persistência/cadência/ativação |
+| Decidir: adaptar squad existente ou criar novo | Monica | Não iniciado | Lacunas | Recomendação do diagnóstico: **não criar squad**. Decisão é da Monica |
+| Rodar 1 Reel piloto ponta a ponta no Squad de Edição | Monica + Sistema | Não iniciado | Vídeo bruto novo | Ambiente verde (`doctor.py` 25/25 em 05/09). Convenção registrada em `midia/README.md`. Condição 2 do critério de encerramento da frente |
+| Decidir sobre "Blindagem Antirreganho" no dicionário do whisper | Monica | **Done — 05/09** | — | Monica decidiu remover. Termo saiu de `squad-edicao-arcane/data/nomes-proprios.yaml` |
+| Registrar fontes de repertório profissional | Sistema | **Done — 05/09** | — | Método Sophie e Meal Prep (Martha Guterres) em `contexto/fontes-repertorio.md`, com a regra "repertório ≠ conteúdo" e o veto de posicionamento |
 
 ---
 
@@ -116,6 +125,8 @@ Ao fechar: salvar contexto, fazer commit e abrir a frente **Distribuição Multi
 
 ## LOG
 
+- 05/09 — @companion: **Decisões da Monica registradas.** (1) "Blindagem Antirreganho" removido do dicionário do whisper em `squad-edicao-arcane/data/nomes-proprios.yaml` — linguagem legada não deve mais ser induzida na transcrição. (2) Duas fontes de repertório profissional registradas em `contexto/fontes-repertorio.md`: **Formação Método Sophie de Terapia Nutricional** (base da abordagem comportamental — alimenta O Caminho e A Perspectiva) e **Meal Prep Express, Martha Guterres** (repertório complementar de organização e praticidade — alimenta stories e bastidores, com **veto explícito** de deslizar o posicionamento para meal prep, dieta ou planejamento rígido; a conexão é organização como redução de atrito e fadiga de decisão). Regra preservada em ambas: **curso/formação é fonte de repertório, não fonte de conteúdo** — não copiar material do curso, não transformar aula em post automaticamente, não assumir conteúdo proprietário não fornecido pela Monica.
+- 05/09 — @companion: **Fase 1 concluída — diagnóstico de cobertura feito.** Varredura por leitura direta de `squad.yaml`, `agents/*.md`, `tasks/*.md`, workflows e scripts dos squads instalados. Resultado em `contexto/cobertura-squads.md`. Achados: são 10 squads Arcane (não 9); `INVENTARIO-SQUADS.md` seção 3 está obsoleta; lacunas reais são gate CFN e captura de métricas, ambas resolvíveis sem criar agente; ambiente do Squad de Edição verificado verde (`doctor.py` 25/25, 0 avisos); termo legado "Blindagem Antirreganho" encontrado no dicionário do whisper. Convenção de mídia registrada em `midia/README.md` (documenta o que já se praticava, sem mudar o fluxo). **Nenhum squad novo recomendado.**
 - 05/09 — @companion: estrutura de pastas criada (contexto, pesquisa, persona-angulos, series, roteiros, producao, metricas, aprendizados), cada uma com README de função. Regras estratégicas registradas em `contexto/regras-estrategicas.md`: meta operacional da Monica, 13 etapas que o sistema assume progressivamente, princípio de reuso antes de criação, capacidade antes de volume. Frente futura Distribuição Multicanal registrada em `business/campanhas/distribuicao-multicanal/` — não construir.
 - 05/09 — @companion: projeto criado na reconciliação de 05/09. Direção estratégica registrada com os 12 componentes, meta operacional (Monica em direção, escolha, aprovação e gravação) e princípio de reuso de squads. Hipótese de cobertura montada a partir dos agentes instalados. Nada construído ainda — Fase 1 é diagnóstico.
 

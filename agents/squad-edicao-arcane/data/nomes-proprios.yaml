@@ -20,7 +20,8 @@ nomes_corretos:
   - "Método 3R"
   - "Reconhecer, Reorganizar, Reconstruir"
   - "Confiança Blindada"
-  - "Blindagem Antirreganho"
+  # "Blindagem Antirreganho" REMOVIDO em 05/09/2026 — linguagem legada, proibida pela
+  # régua CFN (docs/knowledge/regras-cfn.md). Não deve ser induzida no whisper.
   # Area e credenciais
   - "nutrição comportamental"
   - "nutricionista comportamental"
