@@ -13,7 +13,7 @@ Decisões da Mônica em 05/09/2026. Régua de conteúdo: [`regras-cfn.md`](../re
 | Termo | O que é | Onde usar |
 |-------|---------|-----------|
 | **Confiança Blindada** | Nome comercial do produto | Conteúdo, LP, anúncio, legenda, material de venda, qualquer coisa que a audiência vê |
-| **Estado de Alerta** | Nome do problema / inimigo editorial | É assim que o problema é nomeado em todo conteúdo |
+| **Estado de Alerta** | **Pilar editorial 2** — a lente da vigilância, medo, controle e esforço mental em torno da comida | Ao tratar *esse* fenômeno em conteúdo. Não é o tema guarda-chuva nem o único problema tratado |
 | **Método 3R** | Estrutura interna da metodologia (as 3 etapas) | **Somente** documentação interna, formação e material de bastidor, quando necessário |
 
 ### Termos LEGADOS — não são linguagem vigente
@@ -21,7 +21,7 @@ Decisões da Mônica em 05/09/2026. Régua de conteúdo: [`regras-cfn.md`](../re
 | Termo legado | Situação | Substituto |
 |--------------|----------|-----------|
 | **Blindagem Anti-Reganho** | Legado. Não usar | Confiança Blindada |
-| **Maldição da Vigilância** | Legado. Não usar | Estado de Alerta |
+| **Maldição da Vigilância** | Legado. Não usar | "Estado de Alerta" (pilar 2) ao nomear o fenômeno |
 | **Mulher 3R** | Legado. Não usar em conteúdo público | Descrever a transformação sem rótulo de identidade |
 
 Os termos legados aparecem em conteúdo já produzido e em documentos datados. Ali eles são
@@ -80,7 +80,11 @@ O Confiança Blindada **não concorre** com:
 
 **Posição única:** reconstrução de confiança alimentar e segurança emocional pós-emagrecimento com GLP-1.
 
-**Posicionamento vigente (05/09/2026):** reconstrução de confiança e autonomia depois do emagrecimento — sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso.
+**Posicionamento vigente, guarda-chuva (05/09/2026):** Reconstrução de confiança e autonomia depois do emagrecimento: sair da dependência exclusiva de referências externas e desenvolver leitura interna de fome, saciedade, impulso e necessidades do corpo.
+
+Esse posicionamento **não se reduz** a nenhum pilar editorial isolado. Os cinco pilares
+(O Espelho, O Estado de Alerta, O Caminho, O Depois, A Perspectiva) são lentes de exploração,
+descritos em `docs/producao-conteudo/monica/base-editorial.md`.
 
 ---
 

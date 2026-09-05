@@ -27,11 +27,18 @@ Todo o resto é progressivamente delegado ao sistema (as 13 etapas em
 no Pack Arcane e no Auroq. Criar componente novo **apenas quando houver lacuna comprovada**
 (Constitution Art. VI — REUSE > ADAPT > CREATE).
 
-**Fonte de verdade do negócio:** produto comercial **Confiança Blindada**, preço **R$ 67,00**,
-problema editorial nomeado como **Estado de Alerta**. Método 3R é estrutura interna, nunca nome
-comercial. Expert: Mônica Frutuoso, nutricionista comportamental, CRN-3 46207, 11 anos de atuação.
+**Fonte de verdade do negócio:** produto comercial **Confiança Blindada**, preço **R$ 67,00**.
+Método 3R é estrutura interna, nunca nome comercial. Expert: Mônica Frutuoso, nutricionista
+comportamental, CRN-3 46207, 11 anos de atuação.
+
+**Posicionamento guarda-chuva:** Reconstrução de confiança e autonomia depois do emagrecimento: sair da dependência exclusiva de referências externas e desenvolver leitura interna de fome, saciedade, impulso e necessidades do corpo.
+
+**Os 5 pilares editoriais** — O Espelho, O Estado de Alerta, O Caminho, O Depois e A Perspectiva
+— são **lentes** para explorar múltiplos territórios e ângulos, não cinco assuntos repetitivos.
+O sistema não pode reduzir o posicionamento a nenhuma delas.
+
 Linguagem legada (não usar): "Blindagem Anti-Reganho", "Maldição da Vigilância", "Mulher 3R",
-R$ 19,90. Glossário completo em [contexto/regras-estrategicas.md](contexto/regras-estrategicas.md).
+R$ 19,90. Glossário e pilares em [contexto/regras-estrategicas.md](contexto/regras-estrategicas.md).
 
 > **Onde a documentação desta frente mora:** dentro de `business/campanhas/sistema-editorial/`.
 > Nada novo desta frente entra em `validacao-metodo-3r/` — aquele path é endereço técnico

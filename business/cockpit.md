@@ -13,13 +13,14 @@
 |------|---------|
 | Produto comercial | **Confiança Blindada** |
 | Preço | **R$ 67,00** |
-| Problema / inimigo editorial | **Estado de Alerta** |
 | Método 3R | Estrutura/metodologia **interna**, só quando necessário — nunca nome comercial |
 | Expert | Mônica Frutuoso — nutricionista comportamental, CRN-3 46207, 11 anos de atuação |
-| Posicionamento | Reconstrução de confiança e autonomia depois do emagrecimento: sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso |
+| Posicionamento guarda-chuva | Reconstrução de confiança e autonomia depois do emagrecimento: sair da dependência exclusiva de referências externas e desenvolver leitura interna de fome, saciedade, impulso e necessidades do corpo |
+| Pilares editoriais | O Espelho · O Estado de Alerta · O Caminho · O Depois · A Perspectiva — são **lentes**, não assuntos fixos |
 
 **Linguagem legada — não vigente:** "Blindagem Anti-Reganho", "Maldição da Vigilância"
-(hoje: Estado de Alerta), "Mulher 3R" e o preço R$ 19,90. Aparecem em conteúdo produzido e
+(o fenômeno da vigilância hoje é nomeado pelo pilar **Estado de Alerta**), "Mulher 3R" e o
+preço R$ 19,90. Aparecem em conteúdo produzido e
 documentos datados como **registro histórico**, nunca como linguagem atual.
 
 *Paths com `metodo-3r` no nome são endereços técnicos legados, mantidos por compatibilidade —

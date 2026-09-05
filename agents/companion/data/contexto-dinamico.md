@@ -6,7 +6,6 @@
 
 **Expert:** Mônica Frutuoso — nutricionista comportamental, CRN-3 46207, 11 anos de atuação
 **Produto comercial:** **Confiança Blindada**
-**Problema / inimigo editorial:** **Estado de Alerta** (termo vigente)
 **Estrutura interna da metodologia:** Método 3R — só quando necessário, **nunca** como nome comercial
 **Linguagem legada (não vigente):** "Blindagem Anti-Reganho", "Maldição da Vigilância", "Mulher 3R", preço R$ 19,90
 **Fase na jornada Arcane:** Semente/Broto — produto existe, validando comunicação e conversão
@@ -17,9 +16,20 @@
 
 Ajuda mulheres que emagreceram com GLP-1 a reconstruírem a confiança em si mesmas — não o peso perdido, a segurança emocional para não viver refém do medo do reganho.
 
-## Posicionamento vigente
+## Posicionamento vigente (guarda-chuva)
 
-Reconstrução de confiança e autonomia depois do emagrecimento: sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso.
+Reconstrução de confiança e autonomia depois do emagrecimento: sair da dependência exclusiva de referências externas e desenvolver leitura interna de fome, saciedade, impulso e necessidades do corpo.
+
+**Os 5 pilares editoriais** são **lentes** para explorar múltiplos territórios e ângulos —
+não cinco assuntos que se repetem, e nenhum deles resume o posicionamento:
+
+1. **O Espelho** — identificação: situações concretas, pensamentos e dores em que ela se reconhece
+2. **O Estado de Alerta** — vigilância, medo, controle, antecipação e esforço mental em torno da comida
+3. **O Caminho** — educação prática: fome, saciedade, impulso, interocepção, autonomia, ferramentas
+4. **O Depois** — como pode ser uma vida com mais confiança, presença e flexibilidade, sem prometer resultado
+5. **A Perspectiva** — leitura profissional da Mônica: conceitos, tendências, GLP-1 quando pertinente, cultura alimentar
+
+Base editorial: `docs/producao-conteudo/monica/base-editorial.md`.
 
 ## Ativo mais importante
 

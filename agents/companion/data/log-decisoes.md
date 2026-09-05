@@ -4,6 +4,25 @@
 
 ---
 
+## [05/09/2026] — Correção: "Estado de Alerta" é pilar editorial, não o tema guarda-chuva
+
+**Contexto:** Na consolidação do glossário mais cedo nesta sessão, "Estado de Alerta" foi registrado como "o problema / inimigo editorial" do negócio. A leitura veio da régua CFN, que diz "o inimigo se chama o estado de alerta" — uma regra de **como nomear o fenômeno da vigilância em copy**, generalizada indevidamente para posicionamento.
+**Decisão:** "Estado de Alerta" é **o pilar editorial 2** — a lente da vigilância, medo, controle, antecipação e esforço mental em torno da comida. **Não é** o tema guarda-chuva nem o único problema tratado pela comunicação.
+
+*Posicionamento guarda-chuva:* Mônica Frutuoso trabalha a reconstrução de confiança e autonomia depois do emagrecimento, ajudando mulheres a sair da dependência exclusiva de referências externas e desenvolver leitura interna de fome, saciedade, impulso e necessidades do corpo.
+
+*Os 5 pilares editoriais vigentes, como **lentes** e não como assuntos repetitivos:*
+1. **O Espelho** — identificação: situações concretas, pensamentos e dores em que ela se reconhece
+2. **O Estado de Alerta** — vigilância, medo, controle, antecipação e esforço mental em torno da comida
+3. **O Caminho** — educação prática: comportamento alimentar, fome, saciedade, impulso, interocepção, autonomia e ferramentas aplicáveis
+4. **O Depois** — como pode ser uma vida com mais confiança, presença, flexibilidade e autonomia em situações concretas, sem prometer resultado
+5. **A Perspectiva** — leitura profissional da Mônica: conceitos, tendências, comportamento, GLP-1 quando pertinente, cultura alimentar e temas que ampliem autoridade
+
+**Racional:** Reduzir o posicionamento a um pilar estreitaria toda a comunicação a um único território e transformaria os pilares em cinco assuntos fixos girando em círculo. Eles existem para abrir ângulos, não para fechar pauta.
+**Impacto:** Corrigido em `regras-estrategicas.md`, `handoff-proxima-frente.md`, `tracker.md` e `README.md` do Sistema Editorial, no cockpit, no contexto dinâmico e no glossário de `produto.md`. O termo "Estado de Alerta" permanece vigente quando usado especificamente para essa lente — inclusive como substituto de "Maldição da Vigilância". Base editorial de referência: `docs/producao-conteudo/monica/base-editorial.md`.
+
+---
+
 ## [05/09/2026] — Glossário definitivo: linguagem vigente x linguagem legada
 
 **Contexto:** Fechamento da frente de higienização. A Mônica fechou quais termos seguem em uso e quais viraram legado.
@@ -11,7 +30,7 @@
 
 *Vigentes:*
 - **Confiança Blindada** — nome comercial (R$ 67,00)
-- **Estado de Alerta** — termo para nomear o problema / inimigo editorial
+- **Estado de Alerta** — termo para nomear o fenômeno da vigilância *(corrigido no mesmo dia: é o **pilar editorial 2**, não o tema guarda-chuva — ver a decisão no topo deste log)*
 - **Método 3R** — somente estrutura/metodologia interna, quando necessário
 
 *Legados (não são linguagem vigente):*

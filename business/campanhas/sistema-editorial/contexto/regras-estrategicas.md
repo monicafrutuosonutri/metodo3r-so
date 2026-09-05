@@ -65,13 +65,31 @@ Nenhum aumento de volume antes de o sistema reduzir o trabalho manual por post.
 |------|---------|
 | Produto comercial | **Confiança Blindada** |
 | Preço | **R$ 67,00** |
-| Problema / inimigo editorial | **Estado de Alerta** |
 | Método 3R | Estrutura/metodologia **interna**, só quando necessário — nunca nome comercial |
 | Expert | Mônica Frutuoso — nutricionista comportamental, CRN-3 46207, 11 anos de atuação |
-| Posicionamento | Reconstrução de confiança e autonomia depois do emagrecimento: sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso |
+| Posicionamento guarda-chuva | Reconstrução de confiança e autonomia depois do emagrecimento: sair da dependência exclusiva de referências externas e desenvolver leitura interna de fome, saciedade, impulso e necessidades do corpo |
 
 **Linguagem legada — nunca usar como vigente:** "Blindagem Anti-Reganho", "Maldição da
 Vigilância", "Mulher 3R", preço R$ 19,90.
+
+### Os 5 pilares editoriais
+
+São **lentes** para explorar múltiplos territórios e ângulos — não cinco assuntos fixos que
+se repetem.
+
+| # | Pilar | Lente |
+|---|-------|-------|
+| 1 | **O Espelho** | Identificação: situações concretas, pensamentos e dores que fazem a mulher se reconhecer |
+| 2 | **O Estado de Alerta** | Vigilância, medo, controle, antecipação e esforço mental em torno da comida |
+| 3 | **O Caminho** | Educação prática: comportamento alimentar, fome, saciedade, impulso, interocepção, autonomia e ferramentas aplicáveis |
+| 4 | **O Depois** | Como pode ser uma vida com mais confiança, presença, flexibilidade e autonomia, em situações concretas — sem prometer resultado |
+| 5 | **A Perspectiva** | A leitura profissional da Mônica: conceitos, tendências, comportamento, GLP-1 quando pertinente, cultura alimentar e temas que ampliem autoridade |
+
+**"Estado de Alerta" é o pilar 2** — a lente da vigilância. É o termo vigente para nomear
+*esse* fenômeno em conteúdo (substituindo "Maldição da Vigilância"). **Não é** o tema
+guarda-chuva nem o único problema tratado pela comunicação.
+
+Base editorial completa: `docs/producao-conteudo/monica/base-editorial.md`.
 
 Régua de conteúdo obrigatória: `docs/knowledge/regras-cfn.md`.
 Glossário canônico: `docs/knowledge/expert-business/produto.md`.
