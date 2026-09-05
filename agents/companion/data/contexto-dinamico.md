@@ -5,32 +5,15 @@
 ## Status Geral
 
 **Expert:** Mônica Frutuoso — nutricionista comportamental (10+ anos)
-**Projeto central:** Método 3R – Blindagem Anti-Reganho
+**Produto comercial:** **Confiança Blindada**
+**Estrutura interna da metodologia:** Método 3R — **nunca** usar como nome comercial
 **Fase na jornada Arcane:** Semente/Broto — produto existe, validando comunicação e conversão
-**Pack instalado:** pack-arcane-completo (9 agentes)
-**Backup:** GitHub privado configurado — `origin` → https://github.com/monicafrutuosonutri/metodo3r-so (branch `main`). Desde 19/06/2026.
+**Pack instalado:** Pack Arcane (9 squads) + Auroq OS v2.2.3
+**Backup:** GitHub privado — `origin` → https://github.com/monicafrutuosonutri/metodo3r-so (branch `main`)
 
 ## Negócio em uma frase
 
 Ajuda mulheres que emagreceram com GLP-1 a reconstruírem a confiança em si mesmas — não o peso perdido, a segurança emocional para não viver refém do medo do reganho.
-
-## Projetos Ativos
-
-**P1 — Validação Método 3R** (tracker: business/campanhas/validacao-metodo-3r/tracker.md)
-- Status: Fase 1 — Diagnóstico (em andamento)
-- Dois tracks separados:
-  - **Track A (tráfego pago existente):** métricas disponíveis com Monica, materiais antigos rodando — análise pendente
-  - **Track B (conteúdo orgânico novo):** Semana 1 criada pelo sistema, pendente de execução (gravar → diagramar → publicar → analisar → vencedores viram criativos pagos)
-- **Cadência oficial:** 2 Reels + 1 carrossel = 3 posts/semana (a partir da Semana 2)
-- **Next actions imediatas:**
-  1. Gravar Reel 1: contar-caloria-dependencia (roteiro pronto)
-  2. Gravar Reel 2: emagreceu-ainda-se-sente-presa (roteiro pronto)
-  3. Diagramar carrossel: reconhecer-primeiro-passo (guia pronto)
-
-**P2 — Estruturação do Ecossistema** (tracker: business/campanhas/ecossistema-metodo-3r/tracker.md)
-- Status: **CONGELADO até 29/06/2026**
-- Motivo: foco na execução da Semana 1 de conteúdo orgânico
-- Retomar após Semana 1 publicada ou em 29/06 no próximo weekly review
 
 ## Ativo mais importante
 
@@ -38,36 +21,59 @@ Capacidade de criar conexão, confiança e acolhimento — NÃO o conhecimento t
 
 ## Produto
 
-- **Método 3R – Blindagem Anti-Reganho** — programa digital (Guia + Aplicativo)
-- Preço: R$ 19,90 (fase de validação low ticket)
-- 3 ferramentas: Escala de Fome, Diário Alimentar e Comportamental, Pausa Consciente
+- **Confiança Blindada** — programa digital (Guia + Aplicativo)
+- **Preço vigente: NÃO CONFIRMADO.** A LP v3 (12/07/2026) documenta R$ 67. A referência antiga de R$ 19,90 está descontinuada e não deve ser usada.
+- Estrutura interna: Método 3R — 3 ferramentas (Escala de Fome, Diário Alimentar e Comportamental, Pausa Consciente)
 - Esteira: low ticket → consulta individual → comunidade → mentoria premium (futuro)
+- Vendas conhecidas: 1 compra real (data não confirmada) + 1 compra teste (08/2026). **Sem atribuição confiável a conteúdo.**
+
+## Projetos Ativos
+
+**P1 — Validação Confiança Blindada** (tracker: business/campanhas/validacao-metodo-3r/tracker.md)
+- Status: Fase 1 (Diagnóstico) — **bloqueado por ausência de dado**
+- 20 conteúdos escritos e commitados entre 21/07 e 28/08. **Nenhum com status de publicação confirmado.**
+- Next: Monica confirma o que foi ao ar + define método de captura de métricas
+
+**P2 — Sistema Editorial** (tracker: business/campanhas/sistema-editorial/tracker.md)
+- Status: Fase 1 (Diagnóstico de cobertura) — criado em 05/09
+- Próxima grande frente. 12 componentes, de pesquisa contínua a aprendizado com desempenho real
+- Meta operacional: Monica só em direção estratégica, escolha, aprovação e gravação
+- Princípio: usar squads existentes primeiro; criar novo só diante de lacuna real
+- Next: mapear cobertura dos 9 squads contra os 12 componentes
+
+**Fila (não executar ainda):** Distribuição Multicanal — TikTok, YouTube Shorts, reformulação do canal do YouTube. Abre quando o Sistema Editorial estiver rodando e 1 Reel tiver passado pelo fluxo completo de edição.
+
+**Congelado:** Estruturação do Ecossistema — parado desde 22/06. Reavaliar em 12/09 (fundir com Sistema Editorial ou arquivar).
 
 ## Onde Parou
 
-Sessão de 26/06/2026 — ajuste de cadência e planejamento da Semana 2.
+**Sessão de 05/09/2026 — reconciliação + weekly review atrasada (75 dias).**
 
-Semana 1 encerrada com execução parcial:
-- Reel 1 (medo-festa-no-peso): publicado ✓
-- Carrossel 1 (maldicao-vigilancia): status a confirmar com Monica
-- Reel 2 (contar-caloria-dependencia): não gravado — carry para Semana 2
-- Carrossel 2 (vida-sem-medo-regredir): não publicado — status: reserva
+O sistema tinha perdido sincronia com a realidade: tracker e contexto paravam em 26/06 enquanto o trabalho seguiu até 28/08. A sessão reconstruiu a verdade a partir do histórico de commits e separou fato de suposição.
 
-Decisões tomadas em 26/06:
-1. Cadência oficial ajustada: 2 Reels + 1 carrossel = 3 posts/semana
-2. Semana 2 aprovada por Monica (Reel carry + 2 novos)
-3. Roteiros e guias de produção da Semana 2 criados
+**O que ficou estabelecido:**
 
-Próximas ações:
-1. Monica grava Reel 1: contar-caloria-dependencia (roteiro pronto em posts/contar-caloria-dependencia/)
-2. Monica grava Reel 2: emagreceu-ainda-se-sente-presa (roteiro pronto em posts/emagreceu-ainda-se-sente-presa/)
-3. Monica diagrama carrossel: reconhecer-primeiro-passo (guia pronto em posts/reconhecer-primeiro-passo/)
+1. **Produção editorial confirmada:** 20 conteúdos escritos entre 21/07 e 28/08 (mês 1 s01-s04, mês 2 s01 e s02). Base editorial foi *reconstruída* em 21/07 — o material de junho é ciclo anterior.
+2. **Status de publicação: NÃO CONFIRMADO em todos os 20.** Roteiro pronto e commit não são evidência de publicação. Regra permanente registrada no tracker.
+3. **28/08 → 05/09: ATIVIDADE REAL NÃO RECONCILIADA.** Sem evidência de blocker técnico. Também não se afirma que nada foi feito.
+4. **Lacunas do sistema registradas como blockers:** sem captura de métricas, sem registro de publicação, sem registro qualitativo (comentários/DMs), vendas sem atribuição.
+5. **Squad de Edição: validado em testes**, não comprovado em Reel publicado.
+6. **LP Confiança Blindada:** copy e spec prontos desde 12/07. Não confirmado se está no ar.
+7. **Cadência 3 posts/semana é meta editorial, não capacidade comprovada.** Já houve semana em que a grade não foi cumprida.
 
-**Weekly review:** próximo em 29/06/2026.
+**Próximas ações (nesta ordem):**
+1. Monica confirma o que foi publicado, gravado e editado dos 20 conteúdos
+2. Monica confirma se a LP está no ar e o preço vigente
+3. Definir método de captura de métricas (manual, export ou automatizado)
+4. Iniciar diagnóstico de cobertura do Sistema Editorial
+
+**Nada de roteiro novo até a reconciliação fechar.**
+
+**Weekly review:** próximo em 12/09/2026. A partir de agora, semanal de verdade — 75 dias de intervalo foi o que produziu esta dessincronia.
 
 ---
 
-*Última atualização: 26/06/2026*
+*Última atualização: 05/09/2026*
 
-**Infra (19/06/2026):** Auditoria completa do sistema realizada. Backup GitHub privado configurado e primeiro push feito (10 commits, branch `main`). Telemetria do Synapse (`.synapse/metrics/`) movida para o `.gitignore`. Pendência conhecida: `gh` CLI não instalada (push usa o autenticador gráfico do Windows, que pode travar dentro do Claude Code mas conclui).
-
+**Infra (19/06/2026):** Backup GitHub privado configurado. Telemetria do Synapse (`.synapse/metrics/`) no `.gitignore`. Pendência conhecida: `gh` CLI não instalada (push usa o autenticador gráfico do Windows, que pode travar dentro do Claude Code mas conclui).
+**Infra (26/08/2026):** Squad de Edição rodando ponta a ponta no Windows — ffmpeg 9, ducking calibrado pelo nível real da voz, estilo de legenda e dicionário da Monica definidos. Mídia pesada fica fora do repo (`midia/` coberta pelo `.gitignore` para vídeo, áudio e imagem).

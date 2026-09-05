@@ -4,6 +4,74 @@
 
 ---
 
+## [05/09/2026] — Nome comercial corrigido: Confiança Blindada
+
+**Contexto:** Reconciliação de 05/09. A base de conhecimento do sistema tratava "Método 3R – Blindagem Anti-Reganho" como nome de produto, herdado do onboarding de 07/06.
+**Decisão:** O produto comercial chama-se **Confiança Blindada**. "Método 3R" é a **estrutura interna** da metodologia e não deve aparecer como nome comercial em conteúdo, LP, anúncio, legenda ou material de venda.
+**Racional:** A LP aprovada em 12/07/2026 já usa Confiança Blindada como nome de produto (URL confianca.monicafrutuoso.com.br). O sistema estava desatualizado em relação à realidade comercial.
+**Impacto:** Todo agente que gerar conteúdo, copy ou material comercial usa Confiança Blindada. Método 3R só em documentação interna de metodologia. Paths de pasta legados (`validacao-metodo-3r/`, `ecossistema-metodo-3r/`) mantidos para não quebrar links.
+
+---
+
+## [05/09/2026] — Preço de R$ 19,90 descontinuado como referência
+
+**Contexto:** O sistema carregava R$ 19,90 como preço atual desde 07/06.
+**Decisão:** R$ 19,90 não é mais referência de preço. Preço vigente: **NÃO CONFIRMADO** até validação da Monica.
+**Racional:** A LP v3 (12/07/2026) documenta R$ 67. Não há confirmação de qual valor está em vigor hoje. Registrar um preço errado é pior do que registrar a ausência de dado.
+**Impacto:** Nenhum agente cita preço em conteúdo ou material até a Monica confirmar. Pendência aberta no tracker de Validação.
+
+---
+
+## [05/09/2026] — Publicação exige evidência: roteiro pronto não é post publicado
+
+**Contexto:** O sistema perdeu sincronia entre planejamento e realidade. 20 conteúdos foram escritos e commitados entre 21/07 e 28/08, mas não existe registro de quais foram ao ar.
+**Decisão:** Separar formalmente **produção editorial** (confirmável por commit) de **status de publicação** (só confirmável por evidência: print, link do post, data informada pela Monica ou registro de métrica). Tudo sem evidência fica marcado como NÃO CONFIRMADO.
+**Racional:** Inferir publicação a partir de roteiro pronto ou commit foi exatamente o que produziu a dessincronia. Um sistema que preenche lacuna com suposição orienta errado e contamina toda decisão seguinte.
+**Impacto:** Regra permanente para todos os agentes. Nenhum agente marca conteúdo como publicado sem evidência. "Não confirmado" passa a ser status válido no cockpit e nos trackers.
+
+---
+
+## [05/09/2026] — Captura de métricas e banco de linguagem viram parte do sistema
+
+**Contexto:** A Fase 1 do projeto de Validação existe para diagnosticar o que funciona. Após 3 meses, não há uma única métrica capturada nem registro sistemático de resposta qualitativa.
+**Decisão:** Captura de métricas e banco de linguagem da audiência deixam de ser tarefa avulsa e passam a ser componentes permanentes do sistema.
+- **Métricas prioritárias:** visualizações, alcance, tempo médio/retenção, salvamentos, compartilhamentos, comentários, seguidores ganhos pelo conteúdo.
+- **Banco de linguagem:** comentários, DMs, caixinhas, perguntas e respostas reais — as palavras da persona.
+**Racional:** Sem dado de desempenho, a fase de diagnóstico não fecha e a de ajustes não pode começar. Sem as palavras reais da audiência, o conteúdo se alimenta da suposição da própria criadora.
+**Impacto:** Método de captura (manual, export do Instagram ou automatizado) ainda a definir — é decisão pendente. Vira pré-requisito do componente de aprendizado contínuo do Sistema Editorial.
+
+---
+
+## [05/09/2026] — Próxima grande frente: Sistema Editorial
+
+**Contexto:** A produção de conteúdo vinha sendo artesanal, semana a semana, dependente da Monica em quase todas as etapas.
+**Decisão:** Abrir o projeto **Sistema Editorial** com 12 componentes: pesquisa contínua, banco de ângulos da persona, pesquisa de formatos de alta retenção e viralidade, séries de conteúdo, matriz combinatória (dor, situação concreta, pensamento, comportamento, custo, desejo, objeção, mecanismo), roteiros, carrosséis, revisão CFN, revisão Meta, edição automatizada, captura de métricas e aprendizado contínuo com desempenho real.
+**Racional:** Aumentar volume sem reduzir trabalho manual quebra a operação — a cadência de 3 posts/semana já se mostrou não sustentável. A capacidade precisa vir antes do volume.
+**Impacto:**
+- **Meta operacional:** Monica permanece em direção estratégica, escolha, aprovação e gravação. O resto é progressivamente delegado ao sistema.
+- **Princípio de arquitetura:** usar os squads existentes primeiro; criar worker ou squad novo apenas diante de lacuna real comprovada.
+- Fase 1 é diagnóstico de cobertura, não construção.
+
+---
+
+## [05/09/2026] — Cadência de 3 posts/semana é meta, não capacidade comprovada
+
+**Contexto:** A decisão de 26/06 estabeleceu 3 posts/semana como cadência oficial. Na prática, houve semana recente em que a grade não foi cumprida integralmente.
+**Decisão:** A grade (segunda Reel, quarta carrossel, quinta Reel, mais terça quando houver conteúdo de apresentação/produto/consulta) permanece como **meta editorial**, não como cadência operacional comprovadamente sustentável.
+**Racional:** Tratar meta como capacidade real gera planejamento que não se cumpre e sensação de fracasso recorrente. A arquitetura nova precisa aumentar capacidade antes de aumentar volume.
+**Impacto:** Nenhum aumento de volume até o Sistema Editorial reduzir o trabalho manual. Revisão da cadência quando houver 4+ semanas de execução consolidada.
+
+---
+
+## [05/09/2026] — Weekly review volta a ser semanal
+
+**Contexto:** Última weekly review em 22/06. A seguinte aconteceu em 05/09 — 75 dias depois. Esse intervalo é a causa direta da dessincronia entre sistema e realidade.
+**Decisão:** Weekly review semanal, sem pular. Próxima em 12/09/2026.
+**Racional:** O custo de 20 minutos por semana é infinitamente menor que o custo de reconstruir 3 meses de estado a partir de log de commit — e de operar meses inteiros sem saber o que está funcionando.
+**Impacto:** O Companion escala a review no boot de cada sessão. Acima de 14 dias, para tudo e força a review antes de qualquer trabalho novo.
+
+---
+
 ## [26/06/2026] — Cadência oficial de conteúdo ajustada para 3 posts semanais
 
 **Contexto:** Semana 1 de conteúdo orgânico executada parcialmente — Reel 2 não foi gravado. Cadência de 4 posts/semana ficou acima da capacidade real de execução.

@@ -7,7 +7,12 @@
 **Início:** 07/06/2026
 **Deadline:** sem deadline fixo — projeto contínuo de médio prazo
 **Dono geral:** Monica Frutuoso
-**Status:** Congelado (até 29/06/2026)
+**Status:** Congelado desde 22/06/2026 — destino a decidir no review de 12/09/2026
+
+> **Nota (05/09/2026):** a data de retomada (29/06) passou sem retomada. Parte do escopo
+> deste projeto foi absorvida na prática pelo projeto **Sistema Editorial**
+> (`business/campanhas/sistema-editorial/tracker.md`). Decidir no review de 12/09:
+> fundir com o Sistema Editorial ou arquivar.
 
 ---
 

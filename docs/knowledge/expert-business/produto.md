@@ -1,22 +1,41 @@
-# Produto e Esteira — Método 3R
+# Produto e Esteira — Confiança Blindada
 
 > Estrutura comercial atual e visão de expansão do negócio de Mônica Frutuoso.
 
 ---
 
+## NOMENCLATURA — REGRA INEGOCIÁVEL
+
+| Termo | O que é | Onde usar |
+|-------|---------|-----------|
+| **Confiança Blindada** | Nome comercial do produto | Conteúdo, LP, anúncio, legenda, material de venda, qualquer coisa que a audiência vê |
+| **Método 3R** | Estrutura interna da metodologia (as 3 etapas) | Documentação interna, formação, material de bastidor |
+
+**Método 3R não é nome de produto.** Nenhum agente deste sistema deve usá-lo como nome comercial.
+
+---
+
 ## Produto principal atual
 
-**Nome:** Método 3R – Blindagem Anti-Reganho
+**Nome:** Confiança Blindada
 **Formato:** Programa digital
-**Fase:** Validação (low ticket)
-**Preço:** R$ 19,90
+**Fase:** Validação
+**Preço:** **NÃO CONFIRMADO** — ver abaixo
+
+### Situação do preço (05/09/2026)
+
+- A referência antiga de **R$ 19,90 está descontinuada** e não deve ser usada.
+- A LP v3 (12/07/2026) documenta **R$ 67**.
+- Qual valor está vigente hoje: **pendente de confirmação da Monica.**
+
+Até a confirmação, nenhum agente cita preço em conteúdo, copy ou material de venda.
 
 ### Componentes
 
-- **Guia Método 3R** — material de base do programa
+- **Guia** — material de base do programa
 - **Aplicativo próprio** — onde vivem as ferramentas centrais
 
-### Ferramentas no aplicativo
+### Ferramentas no aplicativo (as 3 do Método 3R)
 
 | Ferramenta | O que faz |
 |-----------|-----------|
@@ -26,9 +45,18 @@
 
 ---
 
+## Página de vendas
+
+**URL prevista:** confianca.monicafrutuoso.com.br
+**Copy:** 14 blocos (método Maxxima + régua CFN), autoria Quinn / Squad Low Ticket Arcane, v3 de 12/07/2026
+**Status do documento:** aprovado no conteúdo, pronto para montagem
+**Está no ar?** **NÃO CONFIRMADO**
+
+---
+
 ## Posicionamento do produto
 
-O Método 3R **não concorre** com:
+O Confiança Blindada **não concorre** com:
 - Dietas
 - Planos alimentares
 - Programas de emagrecimento tradicionais
@@ -53,9 +81,9 @@ O Método 3R **não concorre** com:
 
 ## Princípio central do produto
 
-> O Método 3R não foi criado para gerar dependência da criadora. Foi criado para gerar autonomia na cliente.
+> O produto não foi criado para gerar dependência da criadora. Foi criado para gerar autonomia na cliente.
 
-O sucesso do método acontece quando a mulher deixa de depender de regras, vigilância constante ou validação externa e passa a confiar cada vez mais em si mesma.
+O sucesso acontece quando a mulher deixa de depender de regras, vigilância constante ou validação externa e passa a confiar cada vez mais em si mesma.
 
 ---
 
@@ -67,8 +95,16 @@ Objetivo desta fase:
 - Validar a experiência da usuária
 - Validar a percepção de valor
 
-Preço de validação: R$ 19,90 (low ticket).
-Ajustes de posicionamento e precificação serão feitos com base nos aprendizados desta fase.
+**Estado em 05/09/2026:** a fase não pode ser concluída — não existe captura de métricas nem registro de publicação. Ver [tracker de Validação](../../../business/campanhas/validacao-metodo-3r/tracker.md).
+
+### Vendas conhecidas
+
+| Venda | Quando | Atribuição |
+|-------|--------|-----------|
+| Primeira compra real | Anterior a 08/2026 (data não confirmada) | Sem atribuição confiável |
+| Compra teste | 08/2026 | Sem atribuição confiável — é teste, não valida demanda |
+
+**Regra:** não atribuir venda a conteúdo sem evidência.
 
 ---
 
@@ -76,7 +112,7 @@ Ajustes de posicionamento e precificação serão feitos com base nos aprendizad
 
 ```
 ENTRADA
-Método 3R – Blindagem Anti-Reganho (R$ 19,90 — low ticket)
+Confiança Blindada (low ticket — preço a confirmar)
     ↓
 PRÓXIMO NÍVEL
 Consulta nutricional individual com abordagem comportamental
@@ -92,7 +128,7 @@ EXPANSÕES FUTURAS
 
 ## Visão de longo prazo
 
-O Método 3R não é apenas um produto — é a porta de entrada para um ecossistema.
+O Confiança Blindada não é apenas um produto — é a porta de entrada para um ecossistema.
 
 **Objetivo:** transformar a Mulher 3R em uma identidade e construir uma comunidade forte em torno dessa transformação.
 
@@ -110,4 +146,5 @@ A dor que o método resolve não é exclusiva do Brasil. Mulheres do mundo intei
 
 ---
 
-*Atualizado em: 07/06/2026*
+*Criado em: 07/06/2026*
+*Atualizado em: 05/09/2026 — nomenclatura comercial corrigida, preço marcado como não confirmado, status da LP e vendas registrados*
