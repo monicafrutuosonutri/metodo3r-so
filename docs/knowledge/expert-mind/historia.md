@@ -4,11 +4,11 @@
 
 ## Linha do tempo
 
-- **10+ anos atrás** — Início como nutricionista comportamental
+- **11 anos atrás** — Início como nutricionista comportamental (CRN-3 46207)
 - **Ao longo do tempo** — Percebeu que o maior talento não era o plano alimentar, mas a escuta, a conexão humana e a capacidade de ajudar pessoas a enxergarem o que elas mesmas não percebem
 - **Recentemente** — Observou uma dor crescente: mulheres que emagreceram com GLP-1 (Ozempic, Mounjaro, canetas emagrecedoras) mas continuam vivendo com medo de recuperar o peso
 - **Ponto de virada** — Aprofundou pesquisa de persona e descobriu: o problema não é o reganho. É a insegurança. Essas mulheres não precisam manter o peso — precisam reconstruir a confiança em si mesmas.
-- **2025-2026** — Está construindo o Método 3R e entrando na Arcane para estruturar o negócio digital
+- **2025-2026** — Está construindo o Método 3R (metodologia interna) e lançando o produto **Confiança Blindada**; entrou na Arcane para estruturar o negócio digital
 
 ## Pontos de virada
 

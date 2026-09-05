@@ -6,12 +6,27 @@
 
 ## NOMENCLATURA — REGRA INEGOCIÁVEL
 
+Decisões da Mônica em 05/09/2026. Régua de conteúdo: [`regras-cfn.md`](../regras-cfn.md).
+
+### Termos vigentes
+
 | Termo | O que é | Onde usar |
 |-------|---------|-----------|
 | **Confiança Blindada** | Nome comercial do produto | Conteúdo, LP, anúncio, legenda, material de venda, qualquer coisa que a audiência vê |
-| **Método 3R** | Estrutura interna da metodologia (as 3 etapas) | Documentação interna, formação, material de bastidor |
+| **Estado de Alerta** | Nome do problema / inimigo editorial | É assim que o problema é nomeado em todo conteúdo |
+| **Método 3R** | Estrutura interna da metodologia (as 3 etapas) | **Somente** documentação interna, formação e material de bastidor, quando necessário |
 
-**Método 3R não é nome de produto.** Nenhum agente deste sistema deve usá-lo como nome comercial.
+### Termos LEGADOS — não são linguagem vigente
+
+| Termo legado | Situação | Substituto |
+|--------------|----------|-----------|
+| **Blindagem Anti-Reganho** | Legado. Não usar | Confiança Blindada |
+| **Maldição da Vigilância** | Legado. Não usar | Estado de Alerta |
+| **Mulher 3R** | Legado. Não usar em conteúdo público | Descrever a transformação sem rótulo de identidade |
+
+Os termos legados aparecem em conteúdo já produzido e em documentos datados. Ali eles são
+**registro histórico** — não autorizam reuso. Nenhum agente deste sistema deve tratá-los
+como linguagem vigente.
 
 ---
 
@@ -20,15 +35,15 @@
 **Nome:** Confiança Blindada
 **Formato:** Programa digital
 **Fase:** Validação
-**Preço:** **NÃO CONFIRMADO** — ver abaixo
+**Responsável técnica:** Mônica Frutuoso — nutricionista comportamental, CRN-3 46207, 11 anos de atuação
+**Preço:** **R$ 67,00** — confirmado pela Monica em 05/09/2026
 
-### Situação do preço (05/09/2026)
+### Histórico de preço
 
-- A referência antiga de **R$ 19,90 está descontinuada** e não deve ser usada.
-- A LP v3 (12/07/2026) documenta **R$ 67**.
-- Qual valor está vigente hoje: **pendente de confirmação da Monica.**
-
-Até a confirmação, nenhum agente cita preço em conteúdo, copy ou material de venda.
+| Valor | Período | Situação |
+|-------|---------|----------|
+| R$ 19,90 | Onboarding de 07/06/2026 | **Descontinuado.** Não usar em nenhum material |
+| R$ 67,00 | Desde a LP v3 (12/07/2026), confirmado em 05/09/2026 | **Vigente** |
 
 ### Componentes
 
@@ -64,6 +79,8 @@ O Confiança Blindada **não concorre** com:
 **Concorre com** o vazio que existe depois do emagrecimento — a lacuna entre "emagreci" e "me sinto segura e autônoma".
 
 **Posição única:** reconstrução de confiança alimentar e segurança emocional pós-emagrecimento com GLP-1.
+
+**Posicionamento vigente (05/09/2026):** reconstrução de confiança e autonomia depois do emagrecimento — sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso.
 
 ---
 
@@ -112,13 +129,13 @@ Objetivo desta fase:
 
 ```
 ENTRADA
-Confiança Blindada (low ticket — preço a confirmar)
+Confiança Blindada (low ticket — R$ 67,00)
     ↓
 PRÓXIMO NÍVEL
 Consulta nutricional individual com abordagem comportamental
     ↓
 EXPANSÕES FUTURAS
-├── Comunidade Mulher 3R
+├── Comunidade (rótulo "Mulher 3R" é legado — nome a definir)
 ├── Programa de acompanhamento em grupo
 ├── Mentoria premium
 └── Formação para profissionais da saúde
@@ -130,7 +147,7 @@ EXPANSÕES FUTURAS
 
 O Confiança Blindada não é apenas um produto — é a porta de entrada para um ecossistema.
 
-**Objetivo:** transformar a Mulher 3R em uma identidade e construir uma comunidade forte em torno dessa transformação.
+**Objetivo:** transformar a mulher que passou por essa jornada em uma identidade compartilhada e construir uma comunidade forte em torno dessa transformação. *(O rótulo "Mulher 3R", usado até 07/2026, é **linguagem legada** — a identidade permanece como conceito, o nome não é vigente.)*
 
 **Princípio de construção:** gerar autonomia, não dependência. A marca existe para que a mulher precise cada vez menos dela — porque ela passou a confiar em si mesma.
 
@@ -147,4 +164,4 @@ A dor que o método resolve não é exclusiva do Brasil. Mulheres do mundo intei
 ---
 
 *Criado em: 07/06/2026*
-*Atualizado em: 05/09/2026 — nomenclatura comercial corrigida, preço marcado como não confirmado, status da LP e vendas registrados*
+*Atualizado em: 05/09/2026 — nomenclatura comercial corrigida, preço confirmado em R$ 67,00, credenciais e posicionamento vigente registrados, status da LP e vendas documentados*

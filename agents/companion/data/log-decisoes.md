@@ -4,6 +4,68 @@
 
 ---
 
+## [05/09/2026] — Glossário definitivo: linguagem vigente x linguagem legada
+
+**Contexto:** Fechamento da frente de higienização. A Mônica fechou quais termos seguem em uso e quais viraram legado.
+**Decisão:**
+
+*Vigentes:*
+- **Confiança Blindada** — nome comercial (R$ 67,00)
+- **Estado de Alerta** — termo para nomear o problema / inimigo editorial
+- **Método 3R** — somente estrutura/metodologia interna, quando necessário
+
+*Legados (não são linguagem vigente):*
+- **Blindagem Anti-Reganho** → Confiança Blindada
+- **Maldição da Vigilância** → Estado de Alerta
+- **Mulher 3R** → descrever a transformação sem rótulo de identidade
+- **R$ 19,90** → R$ 67,00
+
+**Racional:** A régua CFN (`docs/knowledge/regras-cfn.md`) já operava com essas regras desde julho, mas os documentos de conhecimento ainda apresentavam "Mulher 3R" e "Maldição da Vigilância" como linguagem viva. Um agente que lesse o Exocortex geraria conteúdo com termo proibido pela própria régua.
+**Impacto:** Glossário canônico em `docs/knowledge/expert-business/produto.md`, replicado na Fonte de Verdade do cockpit e no contexto dinâmico. Os termos legados permanecem em conteúdo já produzido e em documentos datados — ali são **registro histórico** e não autorizam reuso. Paths técnicos com `metodo-3r` seguem válidos por compatibilidade de links e histórico.
+
+---
+
+## [05/09/2026] — Ecossistema fica congelado/legado; auditoria geral do repositório é frente futura
+
+**Contexto:** Havia a pendência de decidir, no review de 12/09, se o projeto Estruturação do Ecossistema seria fundido com o Sistema Editorial ou arquivado.
+**Decisão:** `business/campanhas/ecossistema-metodo-3r/` permanece **congelado/legado**. **Não fundir agora.** O destino dele — e de toda a documentação e nomenclatura legada do repositório — será tratado numa **auditoria geral**, decidida mas não agendada.
+**Racional:** Fundir agora consumiria energia de reorganização num momento em que a prioridade é fazer o Sistema Editorial funcionar. Arquivar às cegas perderia contexto. Congelar custa nada e preserva tudo.
+**Impacto:** A auditoria abre somente depois que o **Sistema Editorial estiver funcionando** e a **Distribuição Multicanal estiver operacional em Instagram, TikTok e YouTube**. Até lá, nada de legado é movido, consolidado ou removido. Pendência sai do review de 12/09 e vai para o backlog como frente futura.
+
+---
+
+## [05/09/2026] — Raiz oficial da documentação do Sistema Editorial
+
+**Contexto:** Definir onde nasce a documentação da nova frente, evitando repetir a mistura de épocas que causou a dessincronia.
+**Decisão:** A raiz oficial de toda documentação nova desta frente é **`business/campanhas/sistema-editorial/`**. Nada novo do Sistema Editorial entra em `validacao-metodo-3r/`.
+**Racional:** `validacao-metodo-3r/` é o projeto de diagnóstico do produto atual e um endereço técnico legado. Misturar as duas frentes num mesmo lugar produz documento de época diferente convivendo sem distinção — exatamente o problema corrigido nesta sessão.
+**Impacto:** Estrutura criada com 8 áreas (contexto, pesquisa, persona-angulos, series, roteiros, producao, metricas, aprendizados), cada uma com README de função. Conteúdo do ciclo anterior permanece em `docs/producao-conteudo/monica/` — não é movido.
+
+---
+
+## [05/09/2026] — Fonte de verdade definitiva: preço, credenciais e posicionamento
+
+**Contexto:** Higienização factual conduzida logo após a reconciliação do mesmo dia. A Monica fechou os dados que estavam marcados como não confirmados.
+**Decisão:** Fica estabelecida a fonte de verdade atual do negócio:
+- Produto comercial: **Confiança Blindada**
+- Preço vigente: **R$ 67,00** (a referência de R$ 19,90 está descontinuada)
+- "Método 3R" existe **somente** como estrutura/metodologia interna do produto — nunca como nome comercial em conteúdo, legenda, anúncio, LP, produto ou comunicação pública
+- Expert: **Mônica Frutuoso, nutricionista comportamental, CRN-3 46207, 11 anos de atuação**
+- Posicionamento: reconstrução de confiança e autonomia depois do emagrecimento, com foco em sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso
+**Racional:** A decisão anterior de 05/09 registrou o preço como NÃO CONFIRMADO por ausência de dado. A Monica confirmou R$ 67,00 na mesma sessão, e aproveitou para corrigir credenciais (o sistema dizia "10+ anos", sem CRN) e explicitar o posicionamento vigente.
+**Impacto:** Substitui a pendência de preço aberta na decisão anterior. Documentação ativa higienizada com separação explícita de três camadas: **informação vigente** (estado atual do negócio), **informação histórica** (registrada e datada, preservada como histórico) e **endereço técnico legado** (paths como `validacao-metodo-3r/`, mantidos por compatibilidade, sem valor semântico). Informação antiga não pode mais aparecer como estado atual.
+
+---
+
+## [05/09/2026] — Sistema Editorial ganha estrutura própria de pastas
+
+**Contexto:** Documentos do Sistema Editorial começariam a nascer dentro da pasta legada `validacao-metodo-3r/`, misturando duas frentes com naturezas diferentes.
+**Decisão:** O Sistema Editorial passa a ter raiz própria em `business/campanhas/sistema-editorial/`, com áreas para contexto, pesquisa, ângulos de persona, séries, roteiros, produção, métricas e aprendizados. Toda documentação nova da frente nasce ali.
+**Racional:** Separar frente de validação (diagnóstico de algo que já existe) de frente de construção (o sistema que vai produzir daqui pra frente). Misturar as duas repetiria o problema que gerou a dessincronia: documento de época diferente convivendo no mesmo lugar sem distinção.
+**Impacto:** Pastas criadas apenas onde há função estrutural clara, cada uma com README curto. Nenhum documento vazio criado. `distribuicao-multicanal/` fica registrada como dependência futura, sem execução.
+
+---
+
 ## [05/09/2026] — Nome comercial corrigido: Confiança Blindada
 
 **Contexto:** Reconciliação de 05/09. A base de conhecimento do sistema tratava "Método 3R – Blindagem Anti-Reganho" como nome de produto, herdado do onboarding de 07/06.
@@ -17,6 +79,7 @@
 
 **Contexto:** O sistema carregava R$ 19,90 como preço atual desde 07/06.
 **Decisão:** R$ 19,90 não é mais referência de preço. Preço vigente: **NÃO CONFIRMADO** até validação da Monica.
+**Status:** *superada na mesma sessão — a Monica confirmou R$ 67,00. Ver a decisão "Fonte de verdade definitiva" no topo deste log.*
 **Racional:** A LP v3 (12/07/2026) documenta R$ 67. Não há confirmação de qual valor está em vigor hoje. Registrar um preço errado é pior do que registrar a ausência de dado.
 **Impacto:** Nenhum agente cita preço em conteúdo ou material até a Monica confirmar. Pendência aberta no tracker de Validação.
 
@@ -130,6 +193,7 @@
 
 **Contexto:** Produto principal sendo lançado no mercado.
 **Decisão:** Método 3R sendo validado como low ticket a R$19,90 nesta fase.
+**Status (05/09/2026):** *histórico. Superada — produto comercial é Confiança Blindada, preço vigente R$ 67,00.*
 **Racional:** Objetivo da fase é validar comunicação, oferta, experiência da usuária e percepção de valor — não escalar. Aprendizados desta fase guiarão ajustes de posicionamento e precificação futura.
 **Impacto:** Métricas desta fase são qualitativas (conecta com a persona?) e quantitativas (converte?). Decisão de preço futuro depende dos resultados.
 

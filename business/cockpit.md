@@ -7,8 +7,24 @@
 **Última atualização:** 05/09/2026 (reconciliação + weekly review atrasada)
 **Próximo review:** 12/09/2026
 
-> **Nomenclatura:** o produto comercial é **Confiança Blindada**.
-> "Método 3R" é a estrutura interna da metodologia — nunca nome comercial.
+## FONTE DE VERDADE (05/09/2026)
+
+| Dado | Vigente |
+|------|---------|
+| Produto comercial | **Confiança Blindada** |
+| Preço | **R$ 67,00** |
+| Problema / inimigo editorial | **Estado de Alerta** |
+| Método 3R | Estrutura/metodologia **interna**, só quando necessário — nunca nome comercial |
+| Expert | Mônica Frutuoso — nutricionista comportamental, CRN-3 46207, 11 anos de atuação |
+| Posicionamento | Reconstrução de confiança e autonomia depois do emagrecimento: sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso |
+
+**Linguagem legada — não vigente:** "Blindagem Anti-Reganho", "Maldição da Vigilância"
+(hoje: Estado de Alerta), "Mulher 3R" e o preço R$ 19,90. Aparecem em conteúdo produzido e
+documentos datados como **registro histórico**, nunca como linguagem atual.
+
+*Paths com `metodo-3r` no nome são endereços técnicos legados, mantidos por compatibilidade —
+não representam o estado do negócio.*
+*Régua de conteúdo: `docs/knowledge/regras-cfn.md`. Glossário: `docs/knowledge/expert-business/produto.md`.*
 
 ---
 
@@ -17,7 +33,7 @@
 | # | Projeto | Objetivo | Next Action | Dono | Status | Tracker |
 |---|---------|----------|-------------|------|--------|---------|
 | 1 | Validação Confiança Blindada | Validar comunicação, oferta, percepção de valor e conversão no mercado BR | Monica confirma o que foi publicado (20 conteúdos) + definir método de captura de métricas | Monica | Ativo — bloqueado por falta de dado | [tracker](campanhas/validacao-metodo-3r/tracker.md) |
-| 2 | Sistema Editorial | Produzir conteúdo com base em pesquisa e aprendizado de desempenho real, tirando a Monica do trabalho manual | Mapear cobertura real dos 9 squads contra os 12 componentes | Monica | Ativo — Fase 1 (diagnóstico) | [tracker](campanhas/sistema-editorial/tracker.md) |
+| 2 | Sistema Editorial | Produzir conteúdo com base em pesquisa e aprendizado de desempenho real, tirando a Monica do trabalho manual | Mapear cobertura real dos 9 squads contra os 12 componentes | Monica | Ativo — Fase 1 (diagnóstico) | [tracker](campanhas/sistema-editorial/tracker.md) · raiz própria em `campanhas/sistema-editorial/` |
 
 **Vaga livre:** 1
 
@@ -27,7 +43,7 @@
 
 | # | Projeto | Objetivo | Depende de | Prioridade |
 |---|---------|----------|------------|------------|
-| 1 | Distribuição Multicanal | Reaproveitar conteúdo para TikTok e YouTube Shorts, adaptar por plataforma, reformular o canal do YouTube (capa, foto, descrição, bio, estrutura de distribuição) | Sistema Editorial rodando + 1 Reel no fluxo completo de edição | Alta — **não executar ainda** |
+| 1 | Distribuição Multicanal | Reaproveitar conteúdo para TikTok e YouTube Shorts, adaptar por plataforma, reformular o canal do YouTube (capa, foto, descrição, bio, estrutura de distribuição) | Sistema Editorial rodando + novos roteiros no sistema + 1 Reel no fluxo completo de edição | Alta — **não executar ainda**. Registrada em `campanhas/distribuicao-multicanal/` |
 
 ---
 
@@ -36,7 +52,7 @@
 | Ideia | Origem | Notas |
 |-------|--------|-------|
 | Banco de linguagem da audiência | Monica (05/09) | Comentários, DMs, caixinhas, perguntas — palavras reais da persona. Vai virar componente do Sistema Editorial |
-| Comunidade Mulher 3R | Monica | Expansão futura após validação do produto principal |
+| Comunidade | Monica | Expansão futura após validação. Rótulo "Mulher 3R" é legado — nome a definir |
 | Programa em grupo | Monica | Próximo nível da esteira após consulta individual |
 | Expansão internacional | Monica | "Validar localmente. Escalar globalmente." — visão de longo prazo |
 | Formação para profissionais da saúde | Monica | Topo da esteira de valor — futuro |
@@ -47,7 +63,7 @@
 
 | Projeto | Objetivo | Por que parou | Retomar em |
 |---------|----------|---------------|------------|
-| Estruturação do Ecossistema | Centralizar conhecimento, processos e inteligência no sistema próprio | Congelado em 22/06 para focar na execução de conteúdo. Nunca retomado — na prática, boa parte do escopo foi absorvida pelo Sistema Editorial | Reavaliar no review de 12/09 — pode ser fundido ou arquivado |
+| Estruturação do Ecossistema | Centralizar conhecimento, processos e inteligência no sistema próprio | Congelado em 22/06 para focar na execução de conteúdo | **CONGELADO/LEGADO por decisão de 05/09.** Não fundir com o Sistema Editorial agora. Destino tratado na auditoria geral do repositório (frente futura) |
 
 ---
 

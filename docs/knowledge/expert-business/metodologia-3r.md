@@ -1,5 +1,10 @@
 # Método 3R — Metodologia Completa
 
+> **Documento interno.** Descreve a **estrutura da metodologia** que sustenta o produto.
+> O produto comercial chama-se **Confiança Blindada** (R$ 67,00) — é esse nome que aparece
+> em conteúdo, LP, anúncio e qualquer comunicação pública. "Método 3R" fica aqui dentro,
+> em documentação interna, formação e material de bastidor.
+
 > Framework central do negócio de Mônica Frutuoso.
 > Método digital para mulheres pós-GLP-1 desenvolverem autonomia alimentar, segurança emocional e confiança.
 
@@ -28,7 +33,7 @@ A simplicidade é intencional e é um diferencial — não uma limitação.
 ## Formato de entrega
 
 - **Programa digital**
-- **Componentes:** Guia Método 3R + Aplicativo próprio
+- **Componentes:** Guia + Aplicativo próprio *(internamente: as 3 ferramentas do Método 3R)*
 - **Público:** Mulheres que emagreceram com GLP-1 (Ozempic, Mounjaro, canetas emagrecedoras) e vivem com medo de recuperar o peso
 
 ---
@@ -148,7 +153,9 @@ Ela para de viver tentando evitar o reganho e passa a viver com confiança na pr
 
 ### A identidade que emerge
 
-**A Mulher 3R** — não vive tentando não engordar. Ela vive confiando em si mesma.
+**A mulher ao final da jornada** — não vive tentando não engordar. Ela vive confiando em si mesma.
+
+> *Rótulo legado: "Mulher 3R". Não usar em conteúdo público (régua CFN).*
 
 ---
 
@@ -176,7 +183,7 @@ Reconstrói a confiança em si mesma.
 Desenvolve autonomia alimentar e segurança emocional.
 
 SAI:
-Mulher 3R.
+A mulher que confia em si mesma. *(Rótulo legado: "Mulher 3R" — não vigente.)*
 Não vive tentando não engordar.
 Vive confiando em si mesma.
 ```

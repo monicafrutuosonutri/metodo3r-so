@@ -1,13 +1,14 @@
 # TRACKER — Sistema Editorial
 
 > Execução viva do projeto. Todos os agentes leem e atualizam este arquivo.
-> Playbook: —
+> Estrutura da frente: [README](README.md)
+> **Regras estratégicas (ler antes de trabalhar):** [contexto/regras-estrategicas.md](contexto/regras-estrategicas.md)
 > Cockpit: [cockpit](../../cockpit.md)
 
 **Início:** 05/09/2026
 **Deadline:** sem deadline fixo
 **Dono geral:** Monica Frutuoso
-**Status:** Ativo — Fase 0 (desenho, ainda não construir)
+**Status:** Ativo — Fase 1 (diagnóstico de cobertura). Nada construído ainda
 
 ---
 
@@ -15,14 +16,26 @@
 
 Construir o sistema editorial que produz conteúdo com base em pesquisa e aprendizado real de desempenho — substituindo a produção artesanal semana a semana.
 
-**Meta operacional:** a Monica permanece principalmente no que exige expertise humana —
-**direção estratégica, escolha, aprovação e gravação**. Todo o resto é progressivamente
-delegado ao sistema.
+**Meta operacional:** a Monica permanece principalmente no que exige julgamento, credencial
+ou presença — **direção estratégica, escolha, aprovação, expertise profissional e gravação**.
+Todo o resto é progressivamente delegado ao sistema (as 13 etapas em
+[contexto/regras-estrategicas.md](contexto/regras-estrategicas.md)).
 
 **Princípio de construção:** reduzir trabalho manual e aumentar capacidade **antes** de aumentar volume.
 
-**Princípio de arquitetura:** usar os squads existentes primeiro. Criar worker ou squad novo
-**apenas quando houver lacuna real comprovada** (Constitution Art. VI — REUSE > ADAPT > CREATE).
+**Princípio de arquitetura:** usar primeiro os squads, agents, workers e skills já disponíveis
+no Pack Arcane e no Auroq. Criar componente novo **apenas quando houver lacuna comprovada**
+(Constitution Art. VI — REUSE > ADAPT > CREATE).
+
+**Fonte de verdade do negócio:** produto comercial **Confiança Blindada**, preço **R$ 67,00**,
+problema editorial nomeado como **Estado de Alerta**. Método 3R é estrutura interna, nunca nome
+comercial. Expert: Mônica Frutuoso, nutricionista comportamental, CRN-3 46207, 11 anos de atuação.
+Linguagem legada (não usar): "Blindagem Anti-Reganho", "Maldição da Vigilância", "Mulher 3R",
+R$ 19,90. Glossário completo em [contexto/regras-estrategicas.md](contexto/regras-estrategicas.md).
+
+> **Onde a documentação desta frente mora:** dentro de `business/campanhas/sistema-editorial/`.
+> Nada novo desta frente entra em `validacao-metodo-3r/` — aquele path é endereço técnico
+> legado do projeto de validação, mantido só por compatibilidade de links.
 
 ---
 
@@ -66,6 +79,7 @@ delegado ao sistema.
 
 | Tarefa | Dono | Status | Depende de | Notas |
 |--------|------|--------|------------|-------|
+| Criar estrutura de pastas da frente | Sistema | **Done — 05/09** | — | 8 áreas com README de função. Regras estratégicas registradas em `contexto/` |
 | Ler o inventário funcional do Pack Arcane | Sistema | Não iniciado | — | Já existe, commitado em 26/08 |
 | Mapear cobertura real dos 9 squads contra os 12 componentes | Sistema | Não iniciado | Inventário | Confirmar ou derrubar a tabela acima |
 | Identificar lacunas reais (o que nenhum squad cobre) | Sistema | Não iniciado | Mapeamento | |
@@ -95,6 +109,7 @@ Ao fechar: salvar contexto, fazer commit e abrir a frente **Distribuição Multi
 
 ## LOG
 
+- 05/09 — @companion: estrutura de pastas criada (contexto, pesquisa, persona-angulos, series, roteiros, producao, metricas, aprendizados), cada uma com README de função. Regras estratégicas registradas em `contexto/regras-estrategicas.md`: meta operacional da Monica, 13 etapas que o sistema assume progressivamente, princípio de reuso antes de criação, capacidade antes de volume. Frente futura Distribuição Multicanal registrada em `business/campanhas/distribuicao-multicanal/` — não construir.
 - 05/09 — @companion: projeto criado na reconciliação de 05/09. Direção estratégica registrada com os 12 componentes, meta operacional (Monica em direção, escolha, aprovação e gravação) e princípio de reuso de squads. Hipótese de cobertura montada a partir dos agentes instalados. Nada construído ainda — Fase 1 é diagnóstico.
 
 ---

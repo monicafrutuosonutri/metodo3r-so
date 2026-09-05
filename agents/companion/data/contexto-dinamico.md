@@ -4,9 +4,11 @@
 
 ## Status Geral
 
-**Expert:** Mônica Frutuoso — nutricionista comportamental (10+ anos)
+**Expert:** Mônica Frutuoso — nutricionista comportamental, CRN-3 46207, 11 anos de atuação
 **Produto comercial:** **Confiança Blindada**
-**Estrutura interna da metodologia:** Método 3R — **nunca** usar como nome comercial
+**Problema / inimigo editorial:** **Estado de Alerta** (termo vigente)
+**Estrutura interna da metodologia:** Método 3R — só quando necessário, **nunca** como nome comercial
+**Linguagem legada (não vigente):** "Blindagem Anti-Reganho", "Maldição da Vigilância", "Mulher 3R", preço R$ 19,90
 **Fase na jornada Arcane:** Semente/Broto — produto existe, validando comunicação e conversão
 **Pack instalado:** Pack Arcane (9 squads) + Auroq OS v2.2.3
 **Backup:** GitHub privado — `origin` → https://github.com/monicafrutuosonutri/metodo3r-so (branch `main`)
@@ -15,6 +17,10 @@
 
 Ajuda mulheres que emagreceram com GLP-1 a reconstruírem a confiança em si mesmas — não o peso perdido, a segurança emocional para não viver refém do medo do reganho.
 
+## Posicionamento vigente
+
+Reconstrução de confiança e autonomia depois do emagrecimento: sair da vigilância externa e desenvolver leitura interna de fome, saciedade e impulso.
+
 ## Ativo mais importante
 
 Capacidade de criar conexão, confiança e acolhimento — NÃO o conhecimento técnico em nutrição. Sem marketing agressivo. Toda recomendação deve ser alinhada com marca humana e autêntica.
@@ -22,7 +28,7 @@ Capacidade de criar conexão, confiança e acolhimento — NÃO o conhecimento t
 ## Produto
 
 - **Confiança Blindada** — programa digital (Guia + Aplicativo)
-- **Preço vigente: NÃO CONFIRMADO.** A LP v3 (12/07/2026) documenta R$ 67. A referência antiga de R$ 19,90 está descontinuada e não deve ser usada.
+- **Preço vigente: R$ 67,00** — confirmado pela Monica em 05/09/2026. *(Histórico: a referência de R$ 19,90 do onboarding de 07/06 está descontinuada.)*
 - Estrutura interna: Método 3R — 3 ferramentas (Escala de Fome, Diário Alimentar e Comportamental, Pausa Consciente)
 - Esteira: low ticket → consulta individual → comunidade → mentoria premium (futuro)
 - Vendas conhecidas: 1 compra real (data não confirmada) + 1 compra teste (08/2026). **Sem atribuição confiável a conteúdo.**
@@ -63,9 +69,11 @@ O sistema tinha perdido sincronia com a realidade: tracker e contexto paravam em
 
 **Próximas ações (nesta ordem):**
 1. Monica confirma o que foi publicado, gravado e editado dos 20 conteúdos
-2. Monica confirma se a LP está no ar e o preço vigente
+2. Monica confirma se a LP está no ar
 3. Definir método de captura de métricas (manual, export ou automatizado)
 4. Iniciar diagnóstico de cobertura do Sistema Editorial
+
+**Higienização de 05/09 (segunda parte da sessão):** preço confirmado em R$ 67,00, credenciais corrigidas (CRN-3 46207, 11 anos), posicionamento vigente registrado e documentação ativa varrida para separar informação vigente de histórica. Estrutura do Sistema Editorial criada em `business/campanhas/sistema-editorial/`.
 
 **Nada de roteiro novo até a reconciliação fechar.**
 

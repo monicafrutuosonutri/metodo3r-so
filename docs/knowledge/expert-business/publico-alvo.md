@@ -35,7 +35,9 @@
 
 ## Identidade aspiracional
 
-**A Mulher 3R** — não vive tentando não engordar. Ela vive confiando em si mesma.
+**A mulher ao final da jornada** — não vive tentando não engordar. Ela vive confiando em si mesma.
+
+> *Rótulo legado: "Mulher 3R". Não usar em conteúdo público (régua CFN).*
 
 Esta é a identidade que o método propõe. É um movimento de identidade, não apenas de resultado físico.
 

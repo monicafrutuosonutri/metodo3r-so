@@ -1,5 +1,12 @@
 # Checkpoint Estratégico — Sessão de Onboarding
 
+> **DOCUMENTO HISTÓRICO — não é estado atual do negócio.**
+> Snapshot congelado do onboarding de 07/06/2026, preservado como registro de origem.
+> Dados aqui que foram superados: "Método 3R – Blindagem Anti-Reganho" como nome de
+> produto (hoje: **Confiança Blindada**), preço R$ 19,90 (hoje: **R$ 67,00**) e
+> "10+ anos" de atuação (hoje: **CRN-3 46207, 11 anos**).
+> Estado atual vigente: `agents/companion/data/contexto-dinamico.md` e `business/cockpit.md`.
+
 **Data:** 07/06/2026
 **Sessão:** Onboarding completo do sistema
 **Expert:** Mônica Frutuoso

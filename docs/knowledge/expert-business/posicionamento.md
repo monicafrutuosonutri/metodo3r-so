@@ -4,7 +4,7 @@
 
 ## O que eu faço
 
-Método 3R — ajudo mulheres que usaram medicamentos emagrecedores (GLP-1) a desenvolverem autonomia alimentar, segurança emocional e confiança para manter seus resultados sem viver reféns do medo da fome, do reganho ou da dependência emocional do medicamento.
+Confiança Blindada — ajudo mulheres que usaram medicamentos emagrecedores (GLP-1) a desenvolverem autonomia alimentar, segurança emocional e confiança para manter seus resultados sem viver reféns do medo da fome, do reganho ou da dependência emocional do medicamento.
 
 ## Para quem
 
@@ -20,24 +20,26 @@ Essas mulheres não precisam apenas manter o peso — precisam reconstruir a con
 
 Você vai desenvolver autonomia alimentar, segurança emocional e confiança para manter seus resultados sem viver com medo — e sem depender emocionalmente do medicamento.
 
-**Identidade aspiracional do público:** A Mulher 3R não vive tentando não engordar. Ela vive confiando em si mesma.
+**Identidade aspiracional do público:** ela não vive tentando não engordar. Ela vive confiando em si mesma.
 
-## Os 3 pilares do Método 3R
+> *O rótulo "Mulher 3R" para essa identidade é **linguagem legada** (até 07/2026) e não deve aparecer em conteúdo público. O conceito continua; o nome, não.*
+
+## Os 3 pilares do Método 3R *(estrutura interna)*
 
 1. **Reconhecer** — perceber o que está de fato acontecendo (a causa oculta)
 2. **Reorganizar** — reestruturar a relação com a comida e consigo mesma
-3. **Reconstruir** — construir a identidade de Mulher 3R — autônoma, segura, confiante
+3. **Reconstruir** — construir a identidade da mulher autônoma, segura e confiante
 
 ## Meu diferencial
 
-- 10+ anos de nutrição comportamental com foco em escuta profunda e conexão humana
+- 11 anos de nutrição comportamental (CRN-3 46207) com foco em escuta profunda e conexão humana
 - Não trabalha apenas com a alimentação — acessa a camada emocional que outras abordagens ignoram
 - Marca humana, sem marketing apelativo: confiança e autenticidade como pilares
-- Visão de movimento: não é só produto digital — é marca + comunidade + identidade (Mulher 3R)
+- Visão de movimento: não é só produto digital — é marca + comunidade + identidade compartilhada
 
 ## Visão de marca
 
-Construir uma marca, uma comunidade e um movimento em torno da identidade da Mulher 3R. Uma marca forte, humana, confiável e com impacto real — sem promessas agressivas.
+Construir uma marca, uma comunidade e um movimento em torno dessa identidade. Uma marca forte, humana, confiável e com impacto real — sem promessas agressivas.
 
 ---
 

@@ -10,10 +10,14 @@
 **Status:** Ativo
 **Última reconciliação:** 05/09/2026
 
-> **Nota de nomenclatura:** o produto comercial chama-se **Confiança Blindada**.
-> "Método 3R" é a **estrutura interna** da metodologia e NÃO deve ser usado como nome
-> comercial em conteúdo, LP, anúncio ou legenda. O path desta pasta
-> (`validacao-metodo-3r/`) é legado interno e foi mantido para não quebrar links.
+> **Nota de nomenclatura:** o produto comercial chama-se **Confiança Blindada**,
+> preço vigente **R$ 67,00**. "Método 3R" é a **estrutura interna** da metodologia e NÃO
+> deve ser usado como nome comercial em conteúdo, LP, anúncio ou legenda.
+>
+> **Endereço técnico legado:** o path desta pasta (`validacao-metodo-3r/`) é um endereço
+> antigo mantido de propósito para não quebrar links e histórico. Ele **não** representa o
+> nome do produto nem o estado atual do negócio. Documentos novos do Sistema Editorial
+> **não** entram aqui — vão para `business/campanhas/sistema-editorial/`.
 
 ---
 
@@ -125,7 +129,7 @@ sem evidência (print, link do post, data informada pela Monica ou registro de m
 | **[Reconciliação — desbloqueia tudo]** | | | | |
 | Confirmar o que de fato foi publicado (20 itens) | Monica | Não iniciado | — | Sem isso a Fase 1 não fecha |
 | Confirmar se a LP está no ar e em que URL | Monica | Não iniciado | — | |
-| Confirmar preço vigente do Confiança Blindada | Monica | Não iniciado | — | LP v3 (12/07) documenta R$ 67. Precisa validação |
+| Confirmar preço vigente do Confiança Blindada | Monica | **Done — 05/09** | — | **R$ 67,00.** R$ 19,90 descontinuado |
 | Reconciliar atividade de 28/08 a 05/09 | Monica | Não iniciado | — | ATIVIDADE REAL NÃO RECONCILIADA |
 | **[Instrumentação — pré-requisito da Fase 2]** | | | | |
 | Definir método de captura de métricas | Monica + sistema | Não iniciado | — | Manual, export do Instagram ou automatizado — a decidir |
@@ -197,6 +201,7 @@ de produção **antes** de aumentar volume.
 
 > Mais recente primeiro.
 
+- 05/09 — @companion (higienização): preço confirmado pela Monica em **R$ 67,00**; credenciais corrigidas (CRN-3 46207, 11 anos de atuação); posicionamento vigente registrado; documentação ativa varrida para separar informação vigente de histórica.
 - 05/09 — @companion: **reconciliação + weekly review atrasada (75 dias).** Tracker reconstruído a partir do histórico de commits de 26/06 a 28/08. Separados PRODUÇÃO EDITORIAL (confirmada: 20 conteúdos) e STATUS DE PUBLICAÇÃO (não confirmado: todos). Nomenclatura corrigida: produto comercial = Confiança Blindada; Método 3R = estrutura interna. Preço R$ 19,90 removido como referência atual. 5 blockers de instrumentação registrados. Período 28/08→05/09 marcado como ATIVIDADE REAL NÃO RECONCILIADA.
 - 28/08 — mês 2 semana 2 escrita: cansaço mental, é pra mim, carrossel decisão, magra vs paz.
 - 26/08 — Squad de Edição operacional no Windows: ffmpeg 9, ducking calibrado pelo nível real da voz, estilo de legenda e dicionário da Monica. Validado em testes.

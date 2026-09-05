@@ -1,7 +1,16 @@
 # Base Editorial Inicial — Mônica Frutuoso
-**Produto:** Método 3R – Blindagem Anti-Reganho
+
+> **BASE EDITORIAL LEGADA (junho/2026) — substituída.**
+> A base vigente é `base-editorial.md`, reconstruída em 21/07/2026. Este documento fica
+> como registro do primeiro ciclo editorial.
+> **Toda a "linguagem proprietária" listada neste documento é LEGADA** (decisão de
+> 05/09/2026): "Blindagem Anti-Reganho", "Maldição da Vigilância" e "Mulher 3R" não são
+> linguagem vigente. O termo vigente para nomear o problema é **Estado de Alerta**; o produto
+> comercial é **Confiança Blindada**. Régua em vigor: `docs/knowledge/regras-cfn.md`.
+
+**Produto (à época):** Método 3R – Blindagem Anti-Reganho *(hoje: Confiança Blindada)*
 **Criada em:** 16/06/2026
-**Status:** Ativa
+**Status:** **Legada** — substituída por `base-editorial.md` em 21/07/2026
 
 ---
 
