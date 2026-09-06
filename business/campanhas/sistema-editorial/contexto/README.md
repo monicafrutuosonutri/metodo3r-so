@@ -6,5 +6,6 @@ Decisões, direção e estado da frente. O que um agente precisa ler antes de tr
 - Decisões de arquitetura da frente
 - Diagnóstico de cobertura dos squads (Fase 1)
 - Fontes de repertório profissional da Mônica (formações que alimentam o sistema)
+- **Briefing editorial** — a calibração que todo agente lê antes de produzir conteúdo público
 
 O estado de execução fica no `tracker.md` da raiz, não aqui.
