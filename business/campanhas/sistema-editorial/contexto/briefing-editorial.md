@@ -68,12 +68,27 @@ monocultura**: nos dois casos a escolha deixa de ser editorial.
 |---|---|
 | **Custo da vigilância** | investimento financeiro no tratamento · tempo e energia mental · medo de errar · imprevisibilidade |
 | **Vida real** | vida social · viagens · restaurante · família · rotina · trabalho · ambiente alimentar · organização da rotina |
-| **Corpo e leitura interna** | interocepção · fome e saciedade · impulso · sono · movimento · composição corporal quando tecnicamente pertinente · massa muscular quando tecnicamente pertinente |
+| **Corpo e leitura interna** | interocepção · fome e saciedade · impulso · sono · movimento |
 | **Identidade e autonomia** | identidade depois do emagrecimento · autonomia · tomada de decisão · comportamento depois que o corpo mudou · conhecimento nutricional sem confiança interna |
 | **Contexto** | GLP-1 quando pertinente · expectativas criadas pela cultura de dieta |
 
 A lista é aberta. Território novo que sirva ao posicionamento é bem-vindo e deve ser
 acrescentado aqui quando aparecer.
+
+### Fora de escopo editorial, por decisão da Mônica (06/09/2026)
+
+**Composição corporal, massa muscular e perda de massa magra não são territórios editoriais
+deste projeto.** Foram retirados da tabela acima.
+
+Isso vale para conteúdo orgânico e para qualquer proposta de pauta: o Sistema Editorial não
+propõe, não sustenta e não desenvolve ângulo nestes assuntos, mesmo quando aparecer evidência
+científica boa ou oportunidade forte de circulação.
+
+Dado sobre perda de massa magra que apareça em pesquisa fica arquivado como nota de pesquisa
+**bloqueada para geração de pauta**, nunca como repertório ativo.
+
+**Só voltam se a própria Mônica pedir explicitamente.** Nenhum agente reabre estes territórios
+por conta própria.
 
 ## 5. Critérios de seleção semanal
 
@@ -195,3 +210,135 @@ a rule de preflight em `.claude/rules/custom-do-aluno.md` redireciona a leitura.
 O banco de temas vigente concentra-se nos assuntos citados na seção 3 desta página. Ele
 continua válido como ponto de partida, e deve ser **ampliado** com os territórios da seção 4
 conforme a produção avançar.
+
+---
+
+## 13. Slot de apresentação e planejamento conjunto da semana
+
+**Registrado em:** 06/09/2026. Direção da Mônica.
+
+O Mês 2 tem um **slot de apresentação nas terças-feiras**. São posts perenes, que existem
+porque chega público novo pelo tráfego pago. Eles apresentam o trabalho, não vendem.
+
+| Semana | Terça | Estado |
+|---|---|---|
+| M2S01 | Vídeo do app Confiança Blindada | produzido |
+| M2S02 | Vídeo "É pra mim?", para quem o perfil é e para quem talvez não seja agora | roteiro pronto |
+| M2S03 | Vídeo da **consulta**, o acompanhamento individual, começando pelo desejo e pelo problema e só depois mostrando o formato | a roteirizar |
+| M2S04 | sem post de terça, semana normal de três conteúdos | |
+
+### A regra
+
+**Quando houver post de apresentação na terça, os outros três conteúdos da semana são
+planejados em conjunto com ele.** A semana não pode virar uma sequência que pareça comercial.
+
+Na prática, em semana com apresentação:
+
+- **Segunda:** gera identificação ou interesse. **Não** colocar conteúdo próximo de oferta,
+  investimento, compra, preço ou contratação
+- **Quarta:** aprofunda ou educa, entrega valor sem pedir nada em troca
+- **Quinta:** identificação, perspectiva ou outro ângulo forte, sempre sem venda
+
+Consequência prática de planejamento: se a única peça com a leitura profissional da Mônica na
+semana for o próprio vídeo de apresentação, a semana inteira lê como funil. Garantir pelo menos
+um conteúdo de autoridade sobre assunto que não tem nada a vender.
+
+Territórios com carga comercial, como investimento financeiro no tratamento, ficam guardados
+para semanas **sem** post de apresentação.
+
+---
+
+## 14. Os dois motores de descoberta
+
+**Registrado em:** 06/09/2026. Direção da Mônica.
+
+Além do banco de temas e dos territórios, o Sistema Editorial tem dois motores de descoberta.
+Eles não substituem o evergreen: entram **quando produzem ideia mais forte** do que as pautas
+disponíveis. Nenhum dos dois é obrigatório numa semana.
+
+Donos: **Iris** (`/squad-conteudo-arcane`) é a dona da descoberta editorial, via
+`tasks/sugerir-tema-do-momento.md` e `tasks/pesquisar-temas.md`. **Vera**
+(`/squad-anuncios-arcane`) entra quando o que se busca é circulação de mercado e leitura de
+concorrência. **Não se cria squad novo para isto.**
+
+### 14.1 Motor de Oportunidade, ou Hype
+
+Antes da seleção semanal, quando houver acesso a pesquisa atual, verificar:
+
+- assuntos em alta
+- formatos ou discussões com alta circulação
+- falas, notícias ou acontecimentos relevantes
+- perguntas recorrentes ganhando atenção
+- conceitos sendo muito discutidos nas redes
+
+**Só sobe para a Mônica quando houver conexão real** com comportamento alimentar, confiança e
+autonomia depois do emagrecimento, relação com a comida, GLP-1 quando pertinente, vida real da
+persona, ou um dos cinco pilares.
+
+Vetos: usar trend só porque está em alta, forçar conexão, copiar criador, reproduzir narrativa
+viral sem passar pela autoridade da Mônica.
+
+Oportunidade forte pode virar Reel ou carrossel **mesmo fora do calendário previsto**.
+
+### 14.2 Motor de Evidência, ou Artigos
+
+Pesquisar estudos, revisões, consensos, guidelines e literatura que possam explicar um
+fenômeno, tornar uma perspectiva mais palpável, sustentar um conceito, acrescentar dado ou
+número relevante, corrigir crença comum ou ampliar autoridade profissional.
+
+**Ao usar ciência, registrar sempre:**
+
+| Campo | Obrigatório |
+|---|---|
+| Título | sim |
+| Autores | quando pertinente |
+| Ano | sim |
+| Tipo de publicação ou de estudo | sim |
+| Link, DOI ou referência recuperável | sim |
+| Qual afirmação do conteúdo aquela fonte sustenta | sim |
+
+#### Regra crítica
+
+**Nenhum número, porcentagem, risco, prevalência ou resultado pode ser usado se não estiver
+explicitamente sustentado pela fonte consultada.**
+
+Não transformar:
+
+- associação em causalidade
+- resultado de estudo isolado em verdade universal
+- mecanismo hipotético em fato
+- evidência científica em promessa de resultado
+
+A Mônica não precisa citar o artigo inteiro no vídeo. O sistema **traduz** a evidência para
+linguagem simples, concreta e compreensível na primeira escuta. A ficha completa da fonte fica
+no documento de teoria do post, não no roteiro falado.
+
+---
+
+## 15. A ordem da seleção semanal
+
+Antes de Iris propor os temas da semana, três consultas, nesta ordem:
+
+| # | Consulta | Fonte |
+|---|---|---|
+| **A** | Conteúdos recentes da própria Mônica | `docs/producao-conteudo/monica/posts/` e `business/campanhas/sistema-editorial/roteiros/` |
+| **B** | Territórios e banco editorial vigente | seção 4 desta página e `docs/producao-conteudo/monica/base-editorial.md` |
+| **C** | Oportunidades atuais e evidência científica pertinente | motores da seção 14 |
+
+A consulta C **não obriga** a semana a ter trend, estudo ou notícia. Ela entra apenas quando
+gera ideia mais forte que o evergreen disponível.
+
+### Sinalização na proposta
+
+Quando um achado sustentar uma pauta, Iris marca a proposta com
+
+```
+[OPORTUNIDADE]
+```
+ou
+```
+[EVIDÊNCIA]
+```
+
+e explica **em uma linha** por que vale produzir agora. Proposta sem marcação é evergreen, e
+isso é normal.
