@@ -1,0 +1,32 @@
+# Estilo MONICA-ELEGANTE-ESCURO — variante do monica-elegante pra FUNDO ESCURO
+# Criado em 07/09/2026 pelo @finisher no piloto "e-pra-mim".
+#
+# POR QUE EXISTE: o monica-elegante usa marrom #2E241C (quase preto), calibrado
+# pra cenario bege/creme com roupa clara. No piloto de 07/09 a Monica gravou de
+# moletom verde MUITO escuro, e a faixa da legenda (y_pos 0.80) cai inteira sobre
+# a roupa — o marrom sumiria. O proprio monica-elegante.yaml ja documenta essa
+# saida: "troque fontcolor pra 0xF5EFE6 (off-white) e o shadowcolor pra black@0.6".
+# Este arquivo materializa essa receita pra nao precisar refazer na mao toda vez.
+#
+# QUANDO USAR: roupa escura, cenario escuro, contraluz. Rode o preview de frames
+# antes — se a faixa y 0.75-0.93 estiver clara, use o monica-elegante normal.
+
+nome: "monica-elegante-escuro"
+descricao: "Constantia Bold off-white com sombra preta. Mesma familia do monica-elegante, calibrada pra fundo escuro."
+font: "Constantia"
+fontfile: "Constantia-Bold.ttf"
+fontsize: 58
+ref_width: 1080            # fonte/stroke escalam por largura_real/1080
+fontcolor: "0xF5EFE6"      # off-white (era 0x2E241C no fundo claro)
+borderw: 0
+shadow: true
+shadowx: 1
+shadowy: 1
+shadowcolor: "black@0.6"   # sombra escura (era white@0.35 no fundo claro)
+y_pos: 0.80
+mode: "single"             # sem split de cor — nada de palavra em destaque
+uppercase: false           # serifada pede caixa original; CAIXA ALTA e coisa de Bebas
+max_chars: 34
+max_chars_per_line: 32
+max_words: 7
+max_dur: 2.8

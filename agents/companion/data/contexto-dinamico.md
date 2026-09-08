@@ -91,7 +91,21 @@ O sistema tinha perdido sincronia com a realidade: tracker e contexto paravam em
 
 ---
 
-*Última atualização: 05/09/2026*
+*Última atualização: 07/09/2026*
+
+**Sessão de 07/09 — piloto de edição e preset MÔNICA NATURAL.** O primeiro Reel piloto real
+("É pra mim?") rodou ponta a ponta no Squad de Edição, com os 6 quality gates e o gate CFN
+aprovados. O pipeline técnico está validado no Windows. **A direção criativa default do Pack
+foi reprovada pela Monica** — aceleração 1.2x, zoom automático e trilha saíram. A V2, gerada a
+partir do corte já aprovado, foi aprovada e virou o preset **MÔNICA NATURAL** (1.0x, zero zoom,
+zero trilha, cortes naturais, legenda elegante), registrado em
+`docs/producao-conteudo/monica/edicao/preset-monica-natural.md` e na rule `custom-do-aluno.md`.
+Nada do Pack Arcane foi alterado.
+
+**Onde paramos:** o piloto foi teste de fluxo, não peça de publicação. **A próxima sessão começa
+pela regravação do mesmo Reel "É pra mim?" com microfone**, com intenção de publicação real,
+editada com o preset como default. Os arquivos do piloto (V1 reprovada, V2 aprovada e
+intermediários) seguem em `midia/saida/` para comparação — a Monica pediu para não limpar.
 
 **Infra (19/06/2026):** Backup GitHub privado configurado. Telemetria do Synapse (`.synapse/metrics/`) no `.gitignore`. Pendência conhecida: `gh` CLI não instalada (push usa o autenticador gráfico do Windows, que pode travar dentro do Claude Code mas conclui).
 **Infra (26/08/2026):** Squad de Edição rodando ponta a ponta no Windows — ffmpeg 9, ducking calibrado pelo nível real da voz, estilo de legenda e dicionário da Monica definidos. Mídia pesada fica fora do repo (`midia/` coberta pelo `.gitignore` para vídeo, áudio e imagem).

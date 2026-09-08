@@ -111,3 +111,73 @@ genérico. A correção é cirúrgica: troca o que viola, preserva a força do r
 
 Os quality gates do Pack permanecem dela: ela crava o tema (QG-SCA-002) e ela aprova o roteiro
 (QG-SCA-004). O preflight organiza a proposta; não decide no lugar dela.
+
+---
+
+# Preset de edição — MÔNICA NATURAL
+
+> Registrado em 07/09/2026, a partir do feedback da Mônica sobre a V1 do piloto
+> `2026-09-07-piloto-e-pra-mim`. Vale para o Squad de Edição Arcane e para qualquer
+> agente ou skill que edite vídeo da Mônica.
+>
+> Esta rule existe para calibrar a edição **sem editar o Pack Arcane**. Nenhum arquivo
+> em `agents/squad-edicao-arcane/` deve ser modificado para aplicar o que está aqui.
+>
+> **Documento completo:** `docs/producao-conteudo/monica/edicao/preset-monica-natural.md`
+
+## Princípio
+
+A edição deve parecer **uma conversa boa e bem cuidada**, não um vídeo acelerado por
+algoritmo. Prioridade: clareza, presença, confiança, acolhimento. Ritmo humano.
+
+## Defaults inegociáveis
+
+Ao editar vídeo da Mônica, estes são os defaults. Só mudam com pedido **explícito** dela.
+
+| Dimensão | Default |
+|---|---|
+| Velocidade | **1.0x** — nunca acelerar automaticamente |
+| Zoom | **nenhum** — sem classificação automática, sem punch-in |
+| Trilha | **OFF** — voz original é o áudio principal |
+| Cortes | naturais, micro-respiros preservados |
+| Legenda | `monica-elegante` (fundo claro) / `monica-elegante-escuro` (fundo escuro) |
+| Efeitos, b-roll, tela dividida, elementos de reação | nenhum |
+
+## O que isso muda no pipeline do Pack
+
+O workflow `pipeline-edicao.md` do Pack traz 1.2x, zoom e trilha como default. **Aqui
+esses três estão desligados.** Os steps 3c (speed-up), 4 (zoom) e 5b (add-music) **não
+rodam** para conteúdo da Mônica.
+
+Como não há aceleração, os timestamps do transcript batem 1:1 com o vídeo: **não passar
+a flag `--speed`** para `video-captions.py` (o default 1.0 é o correto).
+
+## Cortes — não endurecer
+
+Os cortes atuais foram aprovados. Não deixar o cutter mais agressivo, não aumentar
+jumpcuts. Remover somente silêncio morto, erros, recomeços e pausas claramente excessivas.
+
+O QG-SEA-002 alerta quando a redução fica abaixo de 30%. Na fala da Mônica isso é
+**esperado** (ela fala com pouca pausa morta) e **não** deve motivar corte mais agressivo.
+
+## Zoom — exceção, nunca regra
+
+Baseline é zero zoom, enquadramento estático. Quando for autorizado: no máximo 1 a 3
+momentos no Reel inteiro, com razão editorial clara, intensidade muito sutil. Nunca
+câmera em movimento constante. **Nunca zoom para fabricar dramaticidade.**
+
+## Trilha — ausência, não volume baixo
+
+Não adicionar música automaticamente. Música só entra quando a Mônica pedir. Se ela
+reprovar a trilha, a correção é **remover**, não abaixar o volume.
+
+## Antes de queimar legenda: checar o fundo
+
+Extrair frames e olhar a faixa entre 75% e 93% da altura (onde a legenda cai). Fundo
+claro → `monica-elegante`. Fundo escuro → `monica-elegante-escuro`. O estilo marrom
+some sobre roupa escura.
+
+## O que continua sendo decisão da Mônica
+
+A direção criativa é dela. Este preset é a baseline segura, não um teto: qualquer
+desvio (zoom, trilha, velocidade) precisa de pedido explícito dela, caso a caso.

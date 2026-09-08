@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "source": "2026-09-07-piloto-e-pra-mim_speed.mp4",
+    "duration": 83.05,
+    "zoom_levels": {"normal": 1.0, "emphasis": 1.18, "critical": 1.43},
+    "total_sections": 21,
+    "nota": "timestamps sao PRE-speed (do transcript_revisado). produce-zoom reescala com --speed 1.2"
+  },
+  "sections": [
+    {"start": 0.000,  "end": 2.680,  "label": "normal",   "text": "Se você chegou até aqui agora,"},
+    {"start": 2.680,  "end": 5.480,  "label": "emphasis", "text": "deixa eu te contar rapidinho se esse perfil é pra você."},
+    {"start": 5.480,  "end": 9.920,  "label": "normal",   "text": "Eu sou a Mônica, sou nutricionista comportamental e ao longo"},
+    {"start": 9.920,  "end": 13.620, "label": "emphasis", "text": "desses, acho que quase 11, 12 anos atendendo,"},
+    {"start": 13.620, "end": 15.800, "label": "emphasis", "text": "tem uma coisa que eu percebi. A"},
+    {"start": 15.800, "end": 21.820, "label": "critical", "text": "mulher, ela vive vigiando a comida, calcula tudo antes ou revisa tudo depois."},
+    {"start": 21.820, "end": 25.580, "label": "critical", "text": "Ela não consegue comer em paz, ela não consegue ter paz. Isso"},
+    {"start": 25.580, "end": 29.160, "label": "emphasis", "text": "acontece com quem já emagreceu e continua com medo."},
+    {"start": 29.160, "end": 35.060, "label": "emphasis", "text": "Mas também acontece com quem passou a vida inteira de dieta em dieta, de regra em regra,"},
+    {"start": 35.060, "end": 38.930, "label": "emphasis", "text": "sem nunca conseguir descansar dessa cabeça que não para. Se é"},
+    {"start": 38.930, "end": 41.520, "label": "critical", "text": "assim com você, aqui é o seu lugar."},
+    {"start": 41.520, "end": 48.360, "label": "emphasis", "text": "E se por acaso o seu corpo mudou com a ajuda do medicamento, tipo as canetas de GLP-1, também."},
+    {"start": 48.360, "end": 54.640, "label": "normal",   "text": "Só deixa eu te dizer uma coisinha, qualquer decisão sobre o seu medicamento é sempre do seu médico, tá?"},
+    {"start": 54.640, "end": 59.120, "label": "emphasis", "text": "Aqui eu só falo sobre comportamento alimentar. Então, agora talvez,"},
+    {"start": 59.120, "end": 60.700, "label": "critical", "text": "não seja o seu lugar agora,"},
+    {"start": 60.700, "end": 67.680, "label": "normal",   "text": "se o que você procura hoje é um cardápio ou uma dieta rígida pra seguir. Isso é super legítimo,"},
+    {"start": 67.680, "end": 70.040, "label": "normal",   "text": "tudo bem. Só que não é o que eu trato"},
+    {"start": 70.040, "end": 74.100, "label": "emphasis", "text": "aqui. O que eu trato é da relação com a comida, o medo, o"},
+    {"start": 74.100, "end": 77.180, "label": "critical", "text": "cálculo, a vigilância que não desliga nunca."},
+    {"start": 77.180, "end": 79.170, "label": "normal",   "text": "Se isso fez sentido pra você,"},
+    {"start": 79.170, "end": 83.050, "label": "critical", "text": "fica aqui comigo porque toda semana vai ter conteúdo."}
+  ]
+}

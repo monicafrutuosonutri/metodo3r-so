@@ -4,6 +4,33 @@
 
 ---
 
+## [07/09/2026] — Preset de edição MÔNICA NATURAL aprovado; direção criativa default do Pack reprovada
+
+**Contexto:** Primeiro Reel piloto real do Squad de Edição ("É pra mim?", 1min42s). O pipeline rodou ponta a ponta com todos os quality gates aprovados e o gate CFN 10/10. A execução técnica funcionou, mas a V1 saiu com os defaults do Pack Arcane: fala acelerada em 1.2x, zoom automático em 21 seções e trilha de fundo. A Monica assistiu e reprovou a direção criativa: a edição ficou inquieta, o rosto aproximado demais em vários momentos, e o conjunto não representa como ela se comunica.
+
+**Decisão:** o preset oficial de edição do projeto passa a ser **MÔNICA NATURAL**.
+
+*Princípio:* a edição deve parecer **uma conversa boa e bem cuidada, não um vídeo acelerado por algoritmo**. Prioridade para naturalidade, presença, confiança e acolhimento.
+
+*Defaults aprovados:*
+- velocidade **1.0x**, fala natural, nunca acelerar automaticamente
+- cortes **apenas** de erros, recomeços, silêncio morto e pausas excessivas — micro-respiros e cadência humana preservados
+- **zero trilha** por padrão: música só entra quando ela pedir
+- **zero zoom** automático: zoom vira exceção (1 a 3 momentos por Reel, razão editorial clara, intensidade sutil, nunca para fabricar dramaticidade)
+- sem b-roll automático, efeitos decorativos ou tela dividida
+- legendas elegantes (`monica-elegante` em fundo claro, `monica-elegante-escuro` em fundo escuro)
+
+**Racional:** o Pack Arcane traz 1.2x, zoom dinâmico e trilha como default porque é calibrado para o padrão de Reels de alta energia. A comunicação da Monica é o oposto disso — ela trabalha acolhimento e confiança, e os recursos que criam urgência artificial contradizem o posicionamento. Aceleração come a respiração que dá o tom; zoom constante cria uma inquietação que a mensagem não pede; trilha disputa com a voz. Os cortes, ao contrário, foram aprovados como estão: **não endurecer o cutter** mesmo quando o QG-SEA-002 alertar redução baixa, porque ela fala com pouca pausa morta.
+
+**Impacto:**
+- Todo vídeo da Monica passa a ser editado com esses defaults; desvio exige pedido explícito dela, caso a caso.
+- Persistido **fora do Pack Arcane**, para sobreviver a updates: documento completo em `docs/producao-conteudo/monica/edicao/preset-monica-natural.md` e regra executável em `.claude/rules/custom-do-aluno.md` (com `settings.local.json`, os únicos lugares de config que o update preserva).
+- Steps 3c (speed-up), 4 (zoom) e 5b (trilha) do `pipeline-edicao.md` não rodam para conteúdo dela.
+- Nasceu também o estilo `monica-elegante-escuro`: o marrom do estilo padrão some sobre roupa escura. Como o arquivo precisa morar dentro do Pack para o script enxergar, há cópia de segurança em `docs/producao-conteudo/monica/edicao/`.
+- V1 e V2 do piloto preservadas em `midia/saida/` para comparação. O piloto foi teste de fluxo, não peça de publicação.
+
+**Próximo passo:** a Monica regrava o mesmo Reel com microfone, com intenção de publicação real, e a edição usa o preset MÔNICA NATURAL como default.
+
 ## [05/09/2026] — Correção: "Estado de Alerta" é pilar editorial, não o tema guarda-chuva
 
 **Contexto:** Na consolidação do glossário mais cedo nesta sessão, "Estado de Alerta" foi registrado como "o problema / inimigo editorial" do negócio. A leitura veio da régua CFN, que diz "o inimigo se chama o estado de alerta" — uma regra de **como nomear o fenômeno da vigilância em copy**, generalizada indevidamente para posicionamento.
