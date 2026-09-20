@@ -5,9 +5,9 @@ Cenário: casa
 Tema: a cultura do antes e depois e a direção do crédito
 Pilar: 5 com porta de entrada de identificação
 Classificação: **`[OPORTUNIDADE EDITORIAL]`**
-Duração estimada: **cerca de 67 segundos** (185 palavras faladas, ver seção 6)
+Duração estimada: **cerca de 66 segundos** (181 palavras faladas, ver seção 6)
 Teoria e ficha de fonte: [`teoria.md`](teoria.md)
-Status: **V2, aprovada pela Mônica em 20/09/2026**, com as correções da revisão Mônica + GPT aplicadas.
+Status: **V3, aprovada pela Mônica em 20/09/2026.** Correções finais de copy aplicadas.
 
 **O que mudou da V1 para a V2, cinco correções:**
 
@@ -21,6 +21,14 @@ Status: **V2, aprovada pela Mônica em 20/09/2026**, com as correções da revis
 4. **Fecho reescrito pelo fenômeno cultural**, sem afirmar nada sobre a vida de quem assiste.
 5. **Legenda encurtada**, sem a enumeração inventada de "filho criado, trabalho feito, amizade
    mantida, conta paga".
+
+**O que mudou da V2 para a V3, uma correção:** o bloco do desenvolvimento ficou menos
+assertivo sobre a cultura. Saíram "a gente aprendeu a contar emagrecimento de um jeito só",
+"esse formato não mostra só mudança, ele distribui papel" e "e não tem foto do meio", que
+afirmavam como a cultura funciona. Entraram "é muito comum o emagrecimento ser contado assim"
+e "quando a história fica resumida a essas duas imagens, é fácil uma foto ocupar o lugar do
+problema e a outra, da solução", que descrevem uma tendência em vez de decretar uma regra.
+Hook, virada e fecho preservados.
 
 ---
 
@@ -38,10 +46,10 @@ E eu fiquei com essa frase na cabeça por um motivo que não é sobre ela.
 
 **Desenvolvimento**
 
-A gente aprendeu a contar emagrecimento de um jeito só. Antes e depois. Duas fotos lado a lado.
+É muito comum o emagrecimento ser contado assim: antes e depois. Duas fotos lado a lado.
 
-Esse formato não mostra só mudança. Ele distribui papel. Numa das fotos fica o problema. Na
-outra, a solução. E não tem foto do meio.
+Quando a história fica resumida a essas duas imagens, é fácil uma foto ocupar o lugar do
+problema e a outra, da solução.
 
 Não existe esse formato: a mesma pessoa, em dois momentos, sem que uma das duas precise estar
 errada.
@@ -101,8 +109,9 @@ não é denúncia, não é emoção contida. É interesse profissional genuíno.
 sem imitar voz, sem dramatizar, sem dar entonação de frase de efeito. Vale uma pausa curta
 depois dela, antes de dizer quem falou.
 
-**Ponto crítico 1:** "E não tem foto do meio." Frase seca, pausa depois. É ela que abre espaço
-para a virada.
+**Ponto crítico 1:** "é fácil uma foto ocupar o lugar do problema e a outra, da solução."
+Frase inteira, pausa depois. É ela que abre espaço para a virada. Sai como constatação
+tranquila, não como crítica a quem posta antes e depois.
 
 **Ponto crítico 2:** "É também uma forma de dar crédito à mulher que existia antes." Frase
 inteira, sem pressa. É a tese da peça, e ela é uma constatação tranquila, não uma correção de
@@ -125,7 +134,7 @@ conforme a roupa.
 
 ## 5. Autoauditoria, checklist regras-cfn.md
 
-Rodado sobre a V2.
+Rodado sobre a V3.
 
 1. **Promessa de peso, manutenção ou resultado?** Não. A peça não afirma que algo melhora e
    não fala de desfecho. Aprovado.
@@ -146,7 +155,7 @@ Rodado sobre a V2.
 
 ### Auditoria da classificação `[OPORTUNIDADE EDITORIAL]`
 
-- **Não afirma padrão de persona.** Verificado linha a linha na V2. Depois da correção 3, a
+- **Não afirma padrão de persona.** Verificado linha a linha na V3. Depois da correção 3, a
   peça **não tem nenhuma frase dirigida à espectadora**. O sujeito do falado é sempre a
   cultura, a frase citada ou "aquela pessoa" da fotografia. A palavra "você" não aparece
 - **A conformidade ficou na construção, não narrada.** Era esse o ponto da correção: a peça
@@ -169,13 +178,13 @@ gratidão, é crédito") e ela saiu na V2. Não termina em pergunta aberta.
 
 | | |
 |---|---|
-| Palavras faladas | 185 |
+| Palavras faladas | 181 |
 | Ritmo de referência | 165,6 palavras por minuto, medido no piloto aprovado |
-| **Duração estimada** | **cerca de 67 segundos** |
-| Faixa provável (155 a 175 ppm) | 63 a 72 segundos |
+| **Duração estimada** | **cerca de 66 segundos** |
+| Faixa provável (155 a 175 ppm) | 62 a 70 segundos |
 
 Dentro da faixa de 180 a 240 palavras pedida na direção da semana, na margem inferior. As
-correções da V2 retiraram 6 palavras líquidas.
+correções da V2 e da V3 retiraram 10 palavras líquidas em relação à V1.
 
 **Não encurtar mais sem revisão.** A peça está perto do piso da faixa, e os dois blocos que
 sobrariam para corte (a descrição do formato e o fecho) são justamente o argumento e a

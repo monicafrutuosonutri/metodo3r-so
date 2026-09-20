@@ -5,7 +5,7 @@ Tema: como uma experiência presente ganha significado de futuro e gera medo
 Pilar: 3, O Caminho
 Função: aprofundar e nomear
 Classificação: **`[VALIDADO QUALITATIVAMENTE]`**
-Status: **V1, aprovada pela Mônica em 20/09/2026**
+Status: **V2, aprovada pela Mônica em 20/09/2026.** Versão final das lâminas aplicada.
 
 ---
 
@@ -45,18 +45,30 @@ futuro.** Não é ensinar fome, não é ensinar saciedade, não é ensinar a ide
 
 ## 3. Estrutura das lâminas
 
-1. Capa: a fome voltou e chegou um medo junto, que não é medo da fome
-2. O que aconteceu de fato: a fome reapareceu, e isso é informação sobre agora
-3. O que ela vira: deixa de ser sensação e vira pergunta sobre o futuro
-4. O medo, nomeado: não é da fome, é do que ela pode estar anunciando
-5. O que isso faz: sensação que vira anúncio muda de função
-6. **O limite, obrigatória:** ninguém pode dizer daqui o que vai acontecer, e decisão de
-   tratamento é do profissional
-7. O que chega junto: parte é a fome de hoje, parte é uma pergunta sem resposta disponível
-8. Fecho: sentir medo quando a fome muda não é exagero, e por quê
+1. A fome voltou, e junto com ela pode vir um medo enorme
+2. O que está acontecendo agora: a fome aparece hoje, talvez mais forte, talvez em momentos em
+   que estava menos presente
+3. A virada: a sensação deixa de falar apenas daquele momento e levanta uma pergunta sobre o
+   futuro
+4. Por que assusta: não apenas pelo que está sendo sentido, mas pelo que aquilo parece poder
+   significar depois
+5. O mecanismo nomeado: uma sensação do presente carregando uma previsão que ela não tem como
+   fazer
+6. **O limite, obrigatória:** a fome de hoje não consegue responder o que vai acontecer amanhã
+7. O que chega junto: uma sensação acontecendo agora e uma preocupação com o que ainda nem
+   aconteceu
+8. Fecho: talvez o difícil não seja apenas sentir fome, é sentir fome e ao mesmo tempo tentar
+   descobrir o futuro através dela
 
 A lâmina 6 é obrigatória e não pode ser cortada por espaço. Ela é o que separa esta peça de
 uma previsão.
+
+**Mudança da V1 para a V2, importante:** a V1 tinha uma lâmina que mencionava tratamento e
+medicação e devolvia a decisão ao profissional. Ela **foi removida** na versão final, e o
+disclaimer médico saiu com ela, porque a peça não entra mais em decisão terapêutica em nenhum
+ponto. O limite migrou para a lâmina 6, que agora é sobre o alcance da sensação no tempo, não
+sobre conduta clínica. A linguagem também ficou mais hedgeada: "pode vir", "pode ganhar",
+"talvez".
 
 ## 4. Regra doutrinária aplicada
 
@@ -65,14 +77,13 @@ psicológica, que é o que a regra autoriza. E não faz nenhuma das quatro coisa
 
 | Proibição | Como a peça cumpre |
 |---|---|
-| Confirmar que o evento temido vai acontecer | Lâmina 6 diz explicitamente que não dá para dizer daqui |
-| Prometer que comportamento alimentar impede | Nenhuma lâmina oferece conduta, técnica ou saída |
+| Confirmar que o evento temido vai acontecer | Lâmina 6: a fome de hoje não consegue responder o que vai acontecer amanhã. A peça não afirma desfecho em direção nenhuma |
+| Prometer que comportamento alimentar impede | Nenhuma lâmina oferece conduta, e a lâmina 7 diz que isso não faz o medo desaparecer |
 | Apresentar autonomia como garantia de manutenção | A palavra autonomia não aparece, e não há promessa |
-| Sugerir que autonomia permite parar medicamento | A lâmina 6 devolve a decisão ao profissional |
+| Sugerir que autonomia permite parar medicamento | Medicação não é citada em nenhuma lâmina da versão final |
 
-**Autonomia comportamental não é independência de medicamento.** A peça não encosta nesse
-terreno: ela não propõe nada sobre tratamento, e a única menção a tratamento é para dizer que
-o assunto é com quem acompanha a pessoa.
+**Autonomia comportamental não é independência de medicamento.** Na versão final a peça não
+encosta nesse terreno de forma alguma: tratamento e medicação não aparecem em nenhuma lâmina.
 
 ## 5. O que este post não faz
 

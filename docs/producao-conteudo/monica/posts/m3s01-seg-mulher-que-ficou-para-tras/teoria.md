@@ -5,7 +5,7 @@ Tema: a cultura do antes e depois e a direção do crédito dentro de uma narrat
 Pilar: 5, A Perspectiva, com porta de entrada de identificação
 Função: posicionar autoridade e abrir reflexão
 Classificação: **`[OPORTUNIDADE EDITORIAL]`**
-Status: **V2, aprovada pela Mônica em 20/09/2026**
+Status: **V3, aprovada pela Mônica em 20/09/2026**
 
 **Ajuste em relação ao tracker:** a M3S01 registrou esta peça como Pilar 1 com fecho 5. Na
 escrita ela se firmou como Pilar 5 com porta de entrada, porque a classificação
@@ -34,9 +34,13 @@ Mesma regra aplicada ao carrossel do sono e ao Reel do selo: número não entra.
 
 ## 2. Tese
 
-A cultura conta emagrecimento num formato só, o antes e depois. Esse formato não mostra
-apenas mudança: ele distribui papéis. Uma das imagens carrega o problema, a outra carrega a
-solução, e não existe formato popular para "a mesma pessoa, em dois momentos".
+É muito comum o emagrecimento ser contado no formato antes e depois. Quando a história fica
+resumida a duas imagens, fica fácil uma delas ocupar o lugar do problema e a outra, o da
+solução. E não existe formato popular para "a mesma pessoa, em dois momentos".
+
+**Formulação corrigida na V3:** a peça descreve uma tendência, não decreta uma regra sobre a
+cultura. Ficam banidas as construções "a gente aprendeu a contar emagrecimento de um jeito só"
+e "esse formato distribui papel", que afirmavam demais.
 
 A frase citada faz o movimento contrário: coloca a mulher anterior como **autora** da atual,
 não como versão a ser corrigida. É também uma forma de dar crédito à mulher que existia antes.

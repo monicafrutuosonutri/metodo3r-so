@@ -5,9 +5,9 @@ Cenário: carro, parado
 Tema: prazer como uma das informações da experiência alimentar
 Pilar: 5, A Perspectiva
 Classificação: **`[REPERTÓRIO PROFISSIONAL]`**
-Duração estimada: **cerca de 67 segundos** (186 palavras faladas, ver seção 6)
+Duração estimada: **cerca de 43 segundos** (120 palavras faladas, ver seção 6)
 Teoria: [`teoria.md`](teoria.md)
-Status: **V2, aprovada pela Mônica em 20/09/2026**, com as correções da revisão Mônica + GPT aplicadas.
+Status: **V3, aprovada pela Mônica em 20/09/2026.** Versão final, mais curta.
 
 **O que mudou da V1 para a V2, seis correções:**
 
@@ -26,6 +26,17 @@ Status: **V2, aprovada pela Mônica em 20/09/2026**, com as correções da revis
 6. **Fecho reescrito** com a definição da Nutrição Comportamental, e menos tom de aula no
    conjunto: saíram as construções didáticas do tipo "a gente aprendeu que".
 
+**O que mudou da V2 para a V3, duas correções:**
+
+1. **Fora todas as afirmações de frequência.** Saíram "costuma ser a primeira coisa que sai da
+   conta", "a pergunta quase sempre é se estava certa", "raramente a pergunta é se aquilo foi
+   bom", "às vezes a refeição está completa" e "costuma ser descartada". Nenhuma delas tinha
+   base de pesquisa, e todas soavam como frequência observada. No lugar entraram formulações de
+   possibilidade: "pode ficar de fora", "pode ter tudo que parecia necessário", "pode ter várias
+   razões".
+2. **Roteiro encurtado.** A peça terminou onde a ideia termina, e não foi esticada para
+   alcançar o piso de 180 palavras. Decisão registrada na seção 6.
+
 ---
 
 ## 1. Falado
@@ -36,32 +47,26 @@ Prazer também é informação quando a gente come.
 
 **Intro**
 
-E ele costuma ser a primeira coisa que sai da conta.
-
-Quando alguém avalia uma refeição, a pergunta quase sempre é se estava certa. Se tinha o que
-precisava ter. Raramente a pergunta é se aquilo foi bom.
+Quando uma refeição é avaliada apenas pelo que ela deveria ter, uma pergunta pode ficar de
+fora: aquilo foi satisfatório?
 
 **Conteúdo**
 
-Só que o prazer pode ajudar a perceber uma coisa que a outra pergunta não alcança: se aquela
-experiência foi satisfatória, ou se alguma coisa ainda ficou faltando.
+Porque prazer também informa sobre a experiência.
 
-E isso não é detalhe.
-
-Às vezes a refeição está completa, tem tudo que precisa ter, e mesmo assim fica uma sensação
-de que faltou alguma coisa.
+Uma refeição pode ter tudo que parecia necessário e, ainda assim, deixar uma sensação de que
+faltou alguma coisa.
 
 **As possibilidades**
 
-Pode ser muita coisa. Pode ser o momento, pode ser o contexto, pode ser que aquilo não fosse
-bem o que a pessoa queria naquela hora.
-
-O que dá pra dizer é que essa informação existe, e ela costuma ser descartada antes de alguém
-olhar pra ela.
+E isso pode ter várias razões. O momento, o contexto, a vontade daquela hora, a própria
+experiência com aquela comida.
 
 **O limite**
 
-Prazer não precisa mandar sozinho na escolha. Mas também não precisa ser retirado da equação.
+Não significa que prazer precise decidir sozinho o que vai para o prato.
+
+Significa que ele também não precisa ser retirado da equação.
 
 **Fecho**
 
@@ -86,11 +91,11 @@ queimada. Sem overlay de meio, sem overlay de fecho, sem emoji, sem seta, sem ca
 
 Curta e complementar. Não repete o falado.
 
-> Quando a única pergunta feita sobre uma refeição é se ela estava certa, sobra uma pergunta
-> sem resposta: essa refeição foi satisfatória?
+> Quando uma refeição é avaliada apenas pelo que ela deveria ter, outra pergunta pode ficar
+> sem resposta: aquilo foi satisfatório?
 >
-> Isso não vira regra nova e não vira permissão pra nada. É uma informação a mais sobre o que
-> aconteceu, que costuma ser descartada antes de ser lida.
+> Isso não vira regra nova e não vira permissão pra nada. É uma informação a mais sobre a
+> experiência de comer.
 >
 > Mônica Frutuoso, Nutrição Comportamental.
 
@@ -109,16 +114,17 @@ cadência de explicação.
 **O hook é uma afirmação tranquila.** Não é provocação, não é manchete. Sai no tom de quem
 está começando uma conversa, não de quem vai contrariar alguém.
 
-**Ponto crítico 1:** "Raramente a pergunta é se aquilo foi bom." Pausa curta depois. É a frase
-que abre o assunto.
+**Ponto crítico 1:** "uma pergunta pode ficar de fora: aquilo foi satisfatório?" Pausa curta
+depois da pergunta. É ela que abre o assunto.
 
-**Ponto crítico 2:** o bloco das possibilidades, de "Pode ser muita coisa" até "naquela hora".
+**Ponto crítico 2:** o bloco das possibilidades, de "E isso pode ter várias razões" até
+"aquela comida".
 Sai em ritmo corrido, como quem lista alternativas de verdade, sem dar peso maior a nenhuma
 delas. Se uma soar como a resposta certa, a peça vira explicação única, que é justamente o que
 a revisão pediu para tirar.
 
-**Ponto crítico 3:** "Prazer não precisa mandar sozinho na escolha. Mas também não precisa ser
-retirado da equação." As duas frases inteiras, sem emendar. **Não podem ser cortadas na edição
+**Ponto crítico 3:** "Não significa que prazer precise decidir sozinho o que vai para o
+prato. Significa que ele também não precisa ser retirado da equação." As duas frases inteiras, sem emendar. **Não podem ser cortadas na edição
 em nenhuma hipótese:** são elas que impedem a peça de virar liberação geral.
 
 **Ponto crítico 4, o fecho.** As duas frases finais são a definição que a peça veio entregar.
@@ -136,7 +142,7 @@ conforme a roupa.
 
 ## 5. Autoauditoria, checklist regras-cfn.md
 
-Rodado sobre a V2.
+Rodado sobre a V3.
 
 1. **Promessa de peso, manutenção ou resultado?** Não. A peça é conceitual e não afirma
    desfecho. Aprovado.
@@ -158,11 +164,13 @@ Rodado sobre a V2.
 
 - **Não simula validação de persona.** Varredura feita: não aparece "acontece muito com você",
   "eu vejo isso em toda mulher", nem afirmação de frequência na audiência
-- **Construção impessoal em todo o conteúdo.** "Alguém", "a pessoa", "às vezes". A palavra
+- **Construção impessoal em todo o conteúdo.** O sujeito é sempre "uma refeição". A palavra
   "você" não aparece em nenhuma linha do falado
-- **A descrição hedgeada substituiu o exemplo declarado.** A V1 usava "um exemplo que eu uso
-  pra explicar isso", que é construção de aula. A V2 usa "às vezes", que é impessoal e não
-  atribui a experiência a ninguém
+- **Zero afirmações de frequência, verificado por varredura na V3.** Não aparecem "costuma",
+  "quase sempre", "raramente", "às vezes", "a maioria", nem equivalente. Todas as formulações
+  são de possibilidade: "pode ficar de fora", "pode ter tudo que parecia necessário", "pode ter
+  várias razões". Esta foi a correção central da V3, e ela é o que separa repertório
+  profissional de retrato de persona sem pesquisa
 - **Repertório não virou conteúdo.** Nenhum material, técnica ou linguagem proprietária da
   formação entra na peça
 
@@ -173,7 +181,8 @@ Rodado sobre a V2.
 - **Sem explicação única.** "Pode ser o momento, pode ser o contexto, pode ser que aquilo não
   fosse bem o que a pessoa queria" substitui a causalidade da V1
 - **Sem afirmação forte sobre o que o prazer diz.** A formulação é "pode ajudar a perceber"
-- **Adequado contra inadequado aparece uma vez**, na intro, e não sustenta o argumento
+- **Adequado contra inadequado saiu de vez.** A V3 fala em "avaliada apenas pelo que ela
+  deveria ter", que descreve um critério sem montar uma oposição
 
 ### Auditoria das palavras vetadas nesta semana
 
@@ -197,12 +206,19 @@ construção de contraste é a do limite, que é a formulação pedida na revis�
 
 | | |
 |---|---|
-| Palavras faladas | 186 |
+| Palavras faladas | 120 |
 | Ritmo de referência | 165,6 palavras por minuto, medido no piloto aprovado |
-| **Duração estimada** | **cerca de 67 segundos** |
-| Faixa provável (155 a 175 ppm) | 64 a 72 segundos |
+| **Duração estimada** | **cerca de 43 segundos** |
+| Faixa provável (155 a 175 ppm) | 41 a 46 segundos |
 
-Dentro da faixa de 180 a 240 palavras pedida na direção da semana.
+**Abaixo da faixa de 180 a 240 palavras, por decisão da revisão.** A direção foi explícita:
+não aumentar o roteiro apenas para chegar a 180 palavras, porque a ideia pode terminar antes.
+Ela termina antes.
 
-**Se precisar encurtar na gravação**, o corte de menor dano é "E isso não é detalhe.". **O
-bloco do limite e o fecho não são cortáveis.**
+O corte veio quase todo da retirada das afirmações de frequência, que eram o que dava volume
+à V2 sem acrescentar argumento. O que sobrou é a ideia inteira: prazer informa, uma refeição
+pode deixar sensação de falta, as razões podem ser várias, prazer não decide sozinho e também
+não sai da equação, e a definição da Nutrição Comportamental.
+
+**Não esticar na gravação.** Se faltar tempo de tela, a solução é ritmo mais pausado, não
+texto novo. Esta é a peça mais curta da semana e é assim de propósito.

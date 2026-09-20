@@ -5,7 +5,7 @@ Tema: A fome voltou e o medo chegou junto
 Pilar: 3, O Caminho
 Classificação: **`[VALIDADO QUALITATIVAMENTE]`**
 Teoria: [`teoria.md`](teoria.md)
-Status: **V1, aprovada pela Mônica em 20/09/2026**
+Status: **V2, aprovada pela Mônica em 20/09/2026.** Versão final das lâminas aplicada.
 
 Recorte: o momento em que uma experiência presente ganha significado de futuro. O objeto não é
 fome, é o que a fome passou a significar.
@@ -15,6 +15,13 @@ audiência, nenhum pensamento literal, nenhuma cena apresentada como captura rea
 gatilho nomeado, nenhuma afirmação de frequência. Construção impessoal e hedgeada do começo
 ao fim.
 
+**O que mudou da V1 para a V2:** as oito lâminas foram substituídas pela versão final
+aprovada. A lâmina que mencionava tratamento e medicação **foi removida**, e com ela saiu o
+disclaimer médico, porque esta versão não entra em decisão terapêutica em nenhum momento. O
+limite que aquela lâmina carregava passou a ser feito pela lâmina 6, que trata do alcance da
+sensação no tempo em vez de tratar de conduta clínica. A linguagem ficou mais hedgeada no
+conjunto: "pode vir", "pode ganhar", "talvez".
+
 Identidade visual da marca, já estabelecida, mantida sem alteração.
 
 Total de 8 lâminas.
@@ -23,47 +30,63 @@ Total de 8 lâminas.
 
 ## 1. Texto de cada lâmina
 
-### Lâmina 1, Capa
-- Título: A fome voltou. E chegou um medo junto.
-- Corpo: Só que o medo costuma não ser da fome. Arrasta.
+Versão final aprovada. O texto de cada lâmina é o que está abaixo, na íntegra. A direção de
+arte define hierarquia visual, nunca reescreve.
 
-### Lâmina 2, O que aconteceu
-- Título: Primeiro, o que de fato aconteceu.
-- Corpo: A fome reapareceu. Talvez mais forte, talvez em momentos em que ela tinha ficado
-  quieta. Isso é uma informação sobre agora. Sobre hoje.
+### Lâmina 1
+A fome voltou.
+E junto com ela pode vir um medo enorme.
 
-### Lâmina 3, O que ela vira
-- Título: Ela nem sempre consegue continuar sendo sobre hoje.
-- Corpo: Muito rápido ela deixa de ser uma sensação e vira uma pergunta sobre o que vem
-  depois. A partir daí ela não está mais sendo sentida. Está sendo interpretada.
+Arrasta.
 
-### Lâmina 4, O medo, nomeado
-- Título: E aí dá pra ver do que é o medo.
-- Corpo: Não da fome em si. Do que ela pode estar anunciando. De que aquilo que tinha ficado
-  mais fácil esteja começando a mudar de novo.
+### Lâmina 2
+A fome aparece hoje.
 
-### Lâmina 5, O que isso faz
-- Título: Quando uma sensação vira anúncio, ela muda de função.
-- Corpo: Ela deixa de ser uma coisa que se sente e passa a ser uma coisa que se acompanha.
-  Cada vez que reaparece, não chega como fome. Chega como possível confirmação.
+Talvez mais forte.
+Talvez em momentos em que ela estava menos presente.
 
-### Lâmina 6, O limite
-- Título: E aqui tem uma parte que não dá pra responder daqui.
-- Corpo: Ninguém consegue dizer o que vai acontecer no seu caso. Nem que vai mudar, nem que
-  não vai. Qualquer decisão sobre tratamento ou medicação é com o profissional que acompanha
-  você.
+Até aqui, existe uma experiência acontecendo agora.
 
-### Lâmina 7, O que chega junto
-- Título: Uma parte do peso é de hoje. A outra ainda não aconteceu.
-- Corpo: Parte do que está pesando é a fome de agora. Parte é uma pergunta sobre o que vem
-  depois, que não tem resposta disponível hoje. As duas chegam ao mesmo tempo, e costumam ser
-  sentidas como uma coisa só.
+### Lâmina 3
+Só que ela pode ganhar um significado muito maior.
 
-### Lâmina 8, A conclusão
-- Título: Sentir medo quando a fome muda não é exagero.
-- Corpo: É o que costuma acontecer quando uma sensação passa a carregar uma pergunta que
-  ninguém consegue responder ainda.
-- Rodapé: Mônica Frutuoso, Nutrição Comportamental.
+A sensação deixa de falar apenas daquele momento.
+
+Ela começa a levantar uma pergunta sobre o futuro.
+
+### Lâmina 4
+E é aí que a fome pode assustar tanto.
+
+Não apenas pelo que está sendo sentido agora.
+
+Mas pelo que aquilo parece poder significar depois.
+
+### Lâmina 5
+Uma sensação do presente começa a carregar uma previsão que ela não tem como fazer.
+
+E toda vez que aparece novamente, o medo pode ganhar mais espaço.
+
+### Lâmina 6
+A fome de hoje não consegue responder o que vai acontecer amanhã.
+
+Sentir algo novamente não transforma essa sensação em previsão.
+
+Ela continua sendo uma informação do momento presente.
+
+### Lâmina 7
+Isso não faz o medo desaparecer.
+
+Mas ajuda a perceber que duas coisas chegaram juntas:
+
+uma sensação acontecendo agora
+e uma preocupação com o que ainda nem aconteceu.
+
+### Lâmina 8
+Talvez o que esteja tão difícil não seja apenas sentir fome novamente.
+
+É sentir fome e, ao mesmo tempo, tentar descobrir o futuro através dela.
+
+Rodapé: Mônica Frutuoso, Nutrição Comportamental.
 
 ---
 
@@ -93,15 +116,17 @@ tipografia ou layout.
 
 **Onde a hierarquia importa mais:**
 
-- **Lâmina 3.** É a virada do post. O contraste está entre "sentida" e "interpretada", e as
-  duas palavras precisam ser a última coisa que o olho pega.
-- **Lâmina 4.** Carrega o nome do medo. O corpo é curto de propósito, e não deve ganhar
-  adorno visual nenhum.
-- **Lâmina 5.** O contraste está entre "se sente" e "se acompanha".
+- **Lâmina 3.** É a virada do post. A última linha, "ela começa a levantar uma pergunta sobre
+  o futuro", precisa ser a que o olho pega primeiro.
+- **Lâmina 4.** Carrega o nome do medo. Texto curto de propósito, sem adorno visual nenhum.
+- **Lâmina 5.** A frase sobre a previsão que a sensação não tem como fazer é o centro. Não
+  quebrar em duas linhas de peso igual.
 - **Lâmina 6.** **Mesmo peso visual das demais, nunca menos.** Não tratar como observação
   final, não reduzir corpo, não jogar para rodapé, não usar tipografia menor. Ela é o que
   impede o post de virar previsão.
-- **Lâmina 8.** O título carrega a peça. "Não é exagero" é a frase que a leitora leva.
+- **Lâmina 7.** As duas últimas linhas ficam visualmente separadas, porque a lâmina depende de
+  elas serem lidas como duas coisas distintas chegando juntas.
+- **Lâmina 8.** É o fecho e a frase que a leitora leva.
 
 **Vetos de imagem:**
 
@@ -124,13 +149,12 @@ tipografia ou layout.
    medicamento, estar no peso, regredir. Verificado lâmina a lâmina, inclusive nas
    formulações sobre o futuro, que são as de maior risco nesta peça. Aprovado.
 3. **Blindagem ligada a corpo ou resultado?** A palavra não aparece. Aprovado.
-4. **GLP-1 sem disclaimer próximo?** GLP-1, Ozempic e Mounjaro não são citados. A lâmina 6
-   menciona tratamento e medicação de forma genérica e, no mesmo corpo de texto, devolve a
-   decisão ao profissional que acompanha. O disclaimer está dentro da peça, na mesma lâmina da
-   menção. Aprovado.
-5. **Sugere mudança de conduta medicamentosa?** Não. A peça não opina sobre tratamento, não
-   sugere iniciar, reduzir, trocar, pausar ou parar nada, e não responde pergunta clínica.
-   Aprovado.
+4. **GLP-1 sem disclaimer próximo?** Não há gatilho. GLP-1, Ozempic e Mounjaro não são
+   citados, e **a versão final não menciona tratamento nem medicação em nenhuma lâmina**. A
+   lâmina que fazia essa menção foi removida na revisão final, junto com o disclaimer que ela
+   carregava, porque a peça deixou de entrar em decisão terapêutica. Aprovado.
+5. **Sugere mudança de conduta medicamentosa?** Não. Conduta, tratamento e medicação não
+   aparecem, e nenhuma pergunta clínica é respondida. Aprovado.
 6. **Testemunho pessoal da Mônica?** Não. Nenhuma experiência pessoal, nenhum paciente
    identificável. Aprovado.
 7. **Prova social do produto?** Não. Sem produto, preço, checkout ou depoimento. Aprovado.
@@ -140,13 +164,15 @@ tipografia ou layout.
 
 ### Auditoria da regra doutrinária, `contexto-mestre-persona.md` §7
 
-- **Nomeia o medo:** sim, lâminas 1, 4 e 8. É o que a regra autoriza
-- **Confirma que o evento temido vai acontecer?** Não. Lâmina 6 diz o contrário, de forma
-  explícita e simétrica: nem que vai, nem que não vai
-- **Promete que comportamento alimentar impede?** Não. Nenhuma lâmina oferece conduta
+- **Nomeia o medo:** sim, lâminas 1, 4, 5 e 8. É exatamente o que a regra autoriza
+- **Confirma que o evento temido vai acontecer?** Não. A lâmina 6 diz que a fome de hoje não
+  consegue responder o que vai acontecer amanhã, e a peça não afirma desfecho em direção
+  nenhuma
+- **Promete que comportamento alimentar impede?** Não. Nenhuma lâmina oferece conduta, técnica
+  ou saída. A lâmina 7 diz explicitamente que isso não faz o medo desaparecer
 - **Apresenta autonomia como garantia?** Não. A palavra autonomia não aparece na peça
-- **Sugere que autonomia permite parar medicamento?** Não. A lâmina 6 devolve a decisão ao
-  profissional, que é o oposto disso
+- **Sugere que autonomia permite parar medicamento?** Não, e na versão final **medicação não
+  é citada em nenhuma lâmina**, então a peça não encosta no tema
 
 ### Auditoria da classificação `[VALIDADO QUALITATIVAMENTE]`
 
@@ -156,9 +182,10 @@ tipografia ou layout.
 - **Nenhuma aspas de audiência.** Verificado: não há uma única citação atribuída a alguém
 - **Nenhum pensamento literal.** Nenhuma lâmina diz o que a pessoa pensa, com as palavras dela
 - **Nenhuma cena apresentada como captura real.** Não há horário, local, refeição, dia da
-  semana nem gatilho nomeado. A construção é impessoal: "a fome reapareceu", "talvez"
-- **Nenhuma afirmação de frequência.** As formulações são "costuma", "nem sempre", "talvez".
-  Não aparece "isso acontece com toda mulher" nem equivalente
+  semana nem gatilho nomeado. A construção é impessoal e hedgeada: "a fome aparece hoje",
+  "talvez mais forte", "pode vir", "pode ganhar"
+- **Nenhuma afirmação de frequência observada.** As formulações são de possibilidade, não de
+  medida. Não aparece "isso acontece com toda mulher" nem equivalente
 - **A cena vetada não entrou.** "Meia hora depois do almoço" e o pensamento "começou", da
   hipótese H-06, não aparecem em nenhuma forma
 

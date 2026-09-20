@@ -5,7 +5,7 @@ Tema: prazer como uma das informações da experiência alimentar
 Pilar: 5, A Perspectiva
 Função: posicionar autoridade, ensinar um conceito
 Classificação: **`[REPERTÓRIO PROFISSIONAL]`**
-Status: **V2, aprovada pela Mônica em 20/09/2026**
+Status: **V3, aprovada pela Mônica em 20/09/2026.** Versão final, mais curta.
 
 Repertório de apoio: Formação Método Sophie de Terapia Nutricional, registrada em
 `contexto/fontes-repertorio.md`. Usada como **raciocínio**, nunca como conteúdo copiado.
@@ -17,24 +17,29 @@ Território aberto aqui, virgem em 29 conteúdos: **prazer**.
 
 ## 1. Tese
 
-Prazer também é informação quando a gente come, e costuma ser a primeira coisa que sai da
-conta. Quando uma refeição é avaliada, a pergunta quase sempre é se ela estava certa.
-Raramente a pergunta é se aquilo foi bom.
+Prazer também é informação quando a gente come. Quando uma refeição é avaliada apenas pelo que
+ela deveria ter, uma pergunta pode ficar de fora: aquilo foi satisfatório?
 
-O prazer **pode ajudar a perceber** uma coisa que a primeira pergunta não alcança: se aquela
-experiência foi satisfatória, ou se alguma coisa ainda ficou faltando.
+Uma refeição pode ter tudo que parecia necessário e ainda assim deixar uma sensação de que
+faltou alguma coisa. As razões podem ser várias, e a peça não elege nenhuma: o momento, o
+contexto, a vontade daquela hora, a própria experiência com aquela comida.
 
-Quando fica faltando, as razões podem ser várias, e a peça não elege uma. Pode ser o momento,
-pode ser o contexto, pode ser que aquilo não fosse bem o que a pessoa queria naquela hora. O
-que a peça sustenta é que essa informação existe e costuma ser descartada antes de ser lida.
+O que a peça sustenta é que essa informação existe e pode ajudar a entender a experiência de
+comer.
 
-**Formulações banidas, correção da revisão:** "prazer, na nutrição, quase sempre foi tratado
-como risco", que é generalização histórica ampla demais, e "o prazer diz se aquilo era o que a
-pessoa estava procurando", que afirma forte demais. Também fica banida a causalidade única "a
-procura continua porque o que ela foi buscar não chegou".
+**Formulações banidas, acumuladas nas revisões:**
+
+- "prazer, na nutrição, quase sempre foi tratado como risco", generalização histórica ampla
+  demais
+- "o prazer diz se aquilo era o que a pessoa estava procurando", afirmação forte demais
+- "a procura continua porque o que ela foi buscar não chegou", causalidade única
+- **toda afirmação de frequência:** "costuma", "quase sempre", "raramente", "às vezes" e
+  equivalentes. Banidas na V3 porque soam como frequência observada, e esta peça é repertório
+  profissional, não retrato de persona validado por pesquisa
 
 **Adequado contra inadequado não é a espinha da peça.** Na V1 essa oposição sustentava o
-argumento inteiro. Na V2 ela aparece uma vez, na intro, como observação, e sai de cena.
+argumento inteiro. Na V3 ela desapareceu: o que existe é "avaliada apenas pelo que ela deveria
+ter", que descreve um critério sem montar uma oposição.
 
 ## 2. O limite, obrigatório e inegociável
 
@@ -53,13 +58,14 @@ Esta peça ensina. Ela **não** retrata a audiência.
 **Proibidas, em qualquer variação:** "isso acontece muito com você", "eu vejo isso em toda
 mulher", "toda mulher que emagreceu passa por isso", "eu sei que você faz isso".
 
-A descrição usada é **impessoal e hedgeada**: entra com "às vezes", e o sujeito é sempre
-"alguém" ou "a pessoa". Não é cena observada, não é paciente, não é retrato de quem assiste.
-A palavra "você" não aparece no falado.
+A descrição usada é **impessoal e em possibilidade**: o sujeito é sempre "uma refeição", e os
+verbos são "pode". Não é cena observada, não é paciente, não é retrato de quem assiste. A
+palavra "você" não aparece no falado.
 
-Na V1 essa função era cumprida por "um exemplo que eu uso pra explicar isso", que resolvia a
-conformidade mas carregava tom de aula. A revisão pediu menos aula, e a construção impessoal
-resolve as duas coisas de uma vez.
+A V1 usava "um exemplo que eu uso pra explicar isso", que resolvia a conformidade mas carregava
+tom de aula. A V2 trocou por "às vezes", que ainda soava como frequência observada. A V3
+eliminou as duas construções: sobrou possibilidade pura, que é o registro correto para
+repertório profissional sem pesquisa de persona por trás.
 
 Nenhuma afirmação de frequência, prevalência ou recorrência na audiência. A pesquisa de
 persona não validou este território, e a peça não finge que validou.
