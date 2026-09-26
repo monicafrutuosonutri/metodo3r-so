@@ -52,7 +52,7 @@ seção "SEMANA EM PRODUÇÃO".
 |---|---|---|---|---|
 | **05/10** | Reel | Food noise reaparecendo | `[VALIDADO QUALITATIVAMENTE]` | TEMA ÂNCORA |
 | **07/10** | Carrossel | Manutenção como esforço mental | `[VALIDADO QUALITATIVAMENTE]` | TEMA ÂNCORA |
-| **08/10** | Reel | Slot atualidade e cultura | `[OPORTUNIDADE EDITORIAL]` | FLEXÍVEL |
+| **08/10** | Reel | Percepção de competência no contexto de GLP-1 (McElroy et al., Obesity 2026) | `[REPERTÓRIO PROFISSIONAL]` `[EVIDÊNCIA]` | slot flexível preenchido em 26/09 |
 
 ## M3S03
 
