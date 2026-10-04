@@ -15,6 +15,11 @@ estava dentro do aceitável." virou "Mas parte dessa defesa ainda tentou explica
 dela estaria dentro do aceitável." O condicional "estaria" e o "tentou" deixam claro que a
 Mônica descreve o argumento da defesa, sem endossar a avaliação. Resto mantido.
 
+**Microajuste final na aprovação (04/10):** "Porque o problema não é decidir... É por que ainda
+precisamos submeter esse corpo a essa prova." virou "Porque a questão não é decidir se o corpo da
+Paolla passa ou não no padrão. A questão é por que ainda precisamos colocá-lo à prova." Resto
+mantido.
+
 **O que mudou da V1 para a V2:**
 
 1. **Hook falado igual ao da tela:** "Paolla Oliveira jogou futevôlei. A conversa virou o corpo
@@ -57,9 +62,9 @@ E neste sábado ela vai ser coroada rainha de bateria da Imperatriz Leopoldinens
 
 Eu não vou dizer se o corpo dela está bom, bonito, saudável, dentro ou fora do padrão.
 
-Porque o problema não é decidir se o corpo da Paolla passa ou não no padrão.
+Porque a questão não é decidir se o corpo da Paolla passa ou não no padrão.
 
-É por que ainda precisamos submeter esse corpo a essa prova.
+A questão é por que ainda precisamos colocá-lo à prova.
 
 **A defesa**
 
@@ -148,7 +153,7 @@ fã defendendo ídolo, não é aula.
 **Ponto crítico 1, a recusa.** Os quatro eixos ditos em sequência, sem pausa entre eles, olhando
 na câmera. Não pode soar como "nem preciso dizer, porque é óbvio que está ótimo".
 
-**Ponto crítico 2:** "É por que ainda precisamos submeter esse corpo a essa prova." Frase inteira,
+**Ponto crítico 2:** "A questão é por que ainda precisamos colocá-lo à prova." Frase inteira,
 pausa depois. É a tese.
 
 **Ponto crítico 3, a defesa.** Sem ironia e sem apontar ninguém. Constatação, não crítica a
@@ -212,9 +217,9 @@ Rodado sobre a V3.
 
 | | |
 |---|---|
-| Palavras faladas | 139 |
+| Palavras faladas | 137 |
 | Ritmo de referência | 165,6 palavras por minuto, medido no piloto aprovado |
 | **Duração estimada** | **cerca de 50 segundos** |
-| Faixa provável (155 a 175 ppm) | 48 a 54 segundos |
+| Faixa provável (155 a 175 ppm) | 47 a 53 segundos |
 
 Mais curta que a V1 (189 palavras) porque a revisão da V2 pediu desenvolvimento simplificado. **Não esticar na gravação:** a ideia termina no fecho.

@@ -34,8 +34,9 @@ nunca "essa semana". A coroação, dois dias depois da publicação, é "neste s
 A reflexão é sobre **a régua cultural**, não sobre o corpo da atriz.
 
 Paolla Oliveira jogou futevôlei, e a conversa virou o corpo dela. A Mônica se recusa a avaliar
-se esse corpo está bom, bonito, saudável, dentro ou fora do padrão, porque **o problema não é
-decidir se o corpo passa ou não no padrão; é por que ainda precisamos submetê-lo a essa prova**
+se esse corpo está bom, bonito, saudável, dentro ou fora do padrão, porque **a questão não é
+decidir se o corpo passa ou não no padrão; a questão é por que ainda precisamos colocá-lo à
+prova** (formulação final da aprovação de 04/10)
 (direção central da revisão de 04/10).
 
 A camada menos óbvia: **parte da defesa entrou na mesma prova**, tentando explicar por que o corpo
