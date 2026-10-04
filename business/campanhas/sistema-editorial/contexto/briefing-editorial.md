@@ -342,3 +342,43 @@ ou
 
 e explica **em uma linha** por que vale produzir agora. Proposta sem marcação é evergreen, e
 isso é normal.
+
+---
+
+## 16. Função de cada dia da semana
+
+**Registrado em:** 04/10/2026. Direção da Mônica, aprovada na revisão Mônica + GPT da M3S03.
+**Status:** orientação vigente para as próximas semanas.
+
+Cada dia tem uma **função**, não um assunto. O território continua sendo escolhido pelos
+critérios da seção 5; a função diz o que a peça precisa provocar em quem vê.
+
+| Dia | Função | O que a peça precisa provocar |
+|---|---|---|
+| **Segunda** | **Identificação** | A pessoa pensa: "isso acontece comigo". Primeiro identificação, não aula |
+| **Quarta** | **Aprofundamento e educação** | A pessoa entende melhor um mecanismo, sem virar aula acadêmica. Primeiro vida real, depois conceito |
+| **Quinta** | **Perspectiva e autoridade** | Olha **para fora da persona**. Pode usar artigo científico, notícia, cultura, celebridade, tendência ou repertório profissional |
+
+### A regra da quinta
+
+A quinta **não repete a dor da segunda e da quarta em outro formato.** Se as três peças da
+semana falam da mesma dor interna, a quinta perdeu a função. Ela é a peça que mostra a leitura
+profissional da Mônica sobre o mundo, e é por ela que a semana ganha autoridade.
+
+Os motores da seção 14 (Oportunidade e Evidência) servem principalmente a este slot. A
+classificação da quinta tende a ser `[OPORTUNIDADE EDITORIAL]` ou `[REPERTÓRIO PROFISSIONAL]`,
+com as restrições de cada uma (`persona-angulos/contexto-mestre-persona.md` §3): nenhuma
+transferência do fato para a audiência.
+
+### Relação com as outras seções
+
+- **Seção 13, semanas com post de apresentação na terça:** as funções acima continuam valendo.
+  O que a seção 13 acrescenta é a cautela comercial: segunda longe de oferta, quarta sem pedir
+  nada, quinta sem venda. A formulação antiga da quinta na seção 13 ("identificação, perspectiva
+  ou outro ângulo forte") fica substituída por esta: **perspectiva e autoridade**
+- **Seção 5, critério 6 (equilíbrio entre pilares):** a função do dia não é pilar. Uma segunda de
+  identificação pode olhar pela lente do Estado de Alerta; uma quarta educativa, pela do Depois
+- **Seção 6, anti-repetição:** continua obrigatória antes da escolha dos temas, nos quatro eixos
+  (situação, hook, conflito, conclusão)
+
+Primeira semana produzida sob esta estrutura: M3S03 (12, 14 e 15/10/2026).

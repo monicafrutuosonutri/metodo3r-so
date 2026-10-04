@@ -58,13 +58,14 @@ seção "SEMANA EM PRODUÇÃO".
 
 | Data | Formato | Tema | Classificação | Estado |
 |---|---|---|---|---|
-| **12/10** | Reel | Medo de não conseguir sem medicação | `[VALIDADO QUALITATIVAMENTE]` | TEMA ÂNCORA |
-| **14/10** | Carrossel | Retorno de hábito antigo | `[VALIDADO QUALITATIVAMENTE]` | TEMA ÂNCORA |
-| **15/10** | Reel | Controlar contra confiar | `[VALIDADO QUALITATIVAMENTE]` | TEMA ÂNCORA, **condicionado a mecanismo novo** |
+| **12/10** | Reel | Medo de não conseguir sem medicação, ansiedade antecipatória | `[VALIDADO QUALITATIVAMENTE]` | **Aprovada em 04/10** |
+| **14/10** | Carrossel | Retorno de hábito antigo, uma coxinha não é a prova de que tudo voltou | `[VALIDADO QUALITATIVAMENTE]` | **Aprovada em 04/10** |
+| **15/10** | Reel | Paolla Oliveira e a régua estética | `[OPORTUNIDADE EDITORIAL]` | **Aprovada em 04/10**. Substituiu "controlar contra confiar" |
 
-O slot de 15/10 tem condição extra: o território está validado, mas "controlar contra confiar"
-é a arquitetura mais gasta do acervo. Só entra com mecanismo psicológico novo, e não como
-variação do que já foi dito.
+Em 04/10 a Mônica trouxe a estratégia semanal nova: **segunda identificação, quarta
+aprofundamento e educação, quinta perspectiva e autoridade olhando para fora da persona**. O
+slot de 15/10, "controlar contra confiar", saiu e foi ocupado pela oportunidade Paolla
+Oliveira. Status operacional no tracker.
 
 ## M3S04
 
